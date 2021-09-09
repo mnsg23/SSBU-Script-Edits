@@ -2,7 +2,7 @@ use smash::hash40;
 use smash::phx::*;
 use smash::lib::lua_const::*;
 use smash::lua2cpp::L2CAgentBase;
-use smash::app::{lua_bind::*, sv_animcmd::*};
+use smash::app::{sv_module_access, lua_bind::*, sv_animcmd::*};
 use smash_script::*;
 use smashline::*;
 use crate::FIGHTER_CUTIN_MANAGER_ADDR;
@@ -1096,6 +1096,29 @@ unsafe fn elight_game_attacks4(fighter: &mut L2CAgentBase) {
 	});
 }
 
+#[acmd_script(agent = "elight", script = "game_catch", category = ACMD_GAME)]
+unsafe fn elight_game_catch(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		GrabModule::set_rebound(fighter.module_accessor, true);
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::CATCH(fighter, 0, Hash40::new("top"), 3.3, 0.0, 8.5, 4.0, Some(0.0), Some(8.5), Some(8.7), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
+		macros::CATCH(fighter, 1, Hash40::new("top"), 1.65, 0.0, 8.5, 2.35, Some(0.0), Some(8.5), Some(10.35), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_A);
+	}
+	macros::game_CaptureCutCommon(fighter);
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		fighter.clear_lua_stack();
+		lua_args!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
+		sv_module_access::grab(fighter.lua_state_agent);
+		fighter.pop_lua_stack(1);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
+		GrabModule::set_rebound(fighter.module_accessor, false);
+	}
+}
+
 #[acmd_script(agent = "elight", script = "game_catchattack", category = ACMD_GAME)]
 unsafe fn elight_game_catchattack(fighter: &mut L2CAgentBase) {
 	frame(fighter.lua_state_agent, 1.0);
@@ -1106,6 +1129,60 @@ unsafe fn elight_game_catchattack(fighter: &mut L2CAgentBase) {
 	wait(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
+	}
+}
+
+#[acmd_script(agent = "elight", script = "game_catchdash", category = ACMD_GAME)]
+unsafe fn elight_game_catchdash(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter,	0.5);
+	frame(fighter.lua_state_agent, 9.0);
+	macros::FT_MOTION_RATE(fighter,	1.0);
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		GrabModule::set_rebound(fighter.module_accessor, true);
+	}
+	frame(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		macros::CATCH(fighter, 0, Hash40::new("top"), 3.0, 0.0, 6.6, 3.0, Some(0.0), Some(6.6), Some(11.5), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
+		macros::CATCH(fighter, 1, Hash40::new("top"), 1.5, 0.0, 6.6, 1.5, Some(0.0), Some(6.6), Some(13.0), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_A);
+	}
+	macros::game_CaptureCutCommon(fighter);
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		fighter.clear_lua_stack();
+		lua_args!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
+		sv_module_access::grab(fighter.lua_state_agent);
+		fighter.pop_lua_stack(1);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
+		GrabModule::set_rebound(fighter.module_accessor, false);
+	}
+}
+
+#[acmd_script(agent = "elight", script = "game_catchturn", category = ACMD_GAME)]
+unsafe fn elight_game_catchturn(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter,	0.5);
+	frame(fighter.lua_state_agent, 9.0);
+	macros::FT_MOTION_RATE(fighter,	1.0);
+	frame(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		GrabModule::set_rebound(fighter.module_accessor, true);
+	}
+	frame(fighter.lua_state_agent, 13.0);
+	if macros::is_excute(fighter) {
+		macros::CATCH(fighter, 0, Hash40::new("top"), 3.3, 0.0, 6.6, -6.0, Some(0.0), Some(6.6), Some(-14.7), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
+		macros::CATCH(fighter, 1, Hash40::new("top"), 1.65, 0.0, 6.6, -4.35, Some(0.0), Some(6.6), Some(-16.35), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_A);
+	}
+	macros::game_CaptureCutCommon(fighter);
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		fighter.clear_lua_stack();
+		lua_args!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
+		sv_module_access::grab(fighter.lua_state_agent);
+		fighter.pop_lua_stack(1);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
+		GrabModule::set_rebound(fighter.module_accessor, false);
 	}
 }
 
@@ -1342,7 +1419,10 @@ pub fn install() {
 		elight_game_attacklw4,
 		elight_game_attacks3,
 		elight_game_attacks4,
+		elight_game_catch,
 		elight_game_catchattack,
+		elight_game_catchdash,
+		elight_game_catchturn,
 		elight_game_landingairn,
 		elight_game_throwb,
 		elight_game_throwf,
