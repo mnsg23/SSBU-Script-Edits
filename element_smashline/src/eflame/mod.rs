@@ -2,7 +2,7 @@ use smash::hash40;
 use smash::phx::*;
 use smash::lib::lua_const::*;
 use smash::lua2cpp::L2CAgentBase;
-use smash::app::{sv_module_access, lua_bind::*, sv_animcmd::*};
+use smash::app::{lua_bind::*, sv_animcmd::*};
 use smash_script::*;
 use smashline::*;
 use crate::FIGHTER_CUTIN_MANAGER_ADDR;
@@ -160,107 +160,20 @@ unsafe fn eflame_game_attack100(fighter: &mut L2CAgentBase) {
 	let lua_state = fighter.lua_state_agent;
 	acmd!(lua_state, {
 		frame(Frame=2)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.6, Angle=361, KBG=10, FKB=0, BKB=15, Size=5.0, X=0.0, Y=7.0, Z=10.0, X2=0.0, Y2=7.0, Z2=15.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_FIRE, Type=ATTACK_REGION_MAGIC)
-			AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-			ATK_SET_SHIELD_SETOFF_MUL(ID=0, ShieldstunMul=8)
-		}
-		wait(Frames=1)
-		if(is_excute){
-			AttackModule::clear_all()
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
-		}
-		frame(Frame=5)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.6, Angle=361, KBG=10, FKB=0, BKB=15, Size=5.0, X=0.0, Y=7.0, Z=10.0, X2=0.0, Y2=7.0, Z2=15.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_FIRE, Type=ATTACK_REGION_MAGIC)
-			AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-			ATK_SET_SHIELD_SETOFF_MUL(ID=0, ShieldstunMul=8)
-		}
-		wait(Frames=1)
-		if(is_excute){
-			AttackModule::clear_all()
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
-		}
-		frame(Frame=8)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.6, Angle=361, KBG=10, FKB=0, BKB=15, Size=5.0, X=0.0, Y=7.0, Z=10.0, X2=0.0, Y2=7.0, Z2=15.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_FIRE, Type=ATTACK_REGION_MAGIC)
-			AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-			ATK_SET_SHIELD_SETOFF_MUL(ID=0, ShieldstunMul=8)
-		}
-		wait(Frames=1)
-		if(is_excute){
-			AttackModule::clear_all()
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
-		}
-		frame(Frame=11)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.6, Angle=361, KBG=10, FKB=0, BKB=15, Size=5.0, X=0.0, Y=7.0, Z=10.0, X2=0.0, Y2=7.0, Z2=15.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_FIRE, Type=ATTACK_REGION_MAGIC)
-			AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-			ATK_SET_SHIELD_SETOFF_MUL(ID=0, ShieldstunMul=8)
-		}
-		wait(Frames=1)
-		if(is_excute){
-			AttackModule::clear_all()
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
-		}
-		frame(Frame=14)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.6, Angle=361, KBG=10, FKB=0, BKB=15, Size=5.0, X=0.0, Y=7.0, Z=10.0, X2=0.0, Y2=7.0, Z2=15.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_FIRE, Type=ATTACK_REGION_MAGIC)
-			AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-			ATK_SET_SHIELD_SETOFF_MUL(ID=0, ShieldstunMul=8)
-		}
-		wait(Frames=1)
-		if(is_excute){
-			AttackModule::clear_all()
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
-		}
-		wait_loop_clear(0)
-		for(999999 Iterations){
-			wait(Frames=3)
-			if(is_excute){
-				ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.6, Angle=361, KBG=10, FKB=0, BKB=15, Size=5.0, X=0.0, Y=7.0, Z=10.0, X2=0.0, Y2=7.0, Z2=15.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_FIRE, Type=ATTACK_REGION_MAGIC)
-				AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-				ATK_SET_SHIELD_SETOFF_MUL(ID=0, ShieldstunMul=8)
+		for(1000000 Iterations){
+			for(4 Iterations){
+				if(is_excute){
+					ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.6, Angle=361, KBG=10, FKB=0, BKB=15, Size=5.0, X=0.0, Y=7.0, Z=10.0, X2=0.0, Y2=7.0, Z2=15.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_FIRE, Type=ATTACK_REGION_MAGIC)
+					AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
+					ATK_SET_SHIELD_SETOFF_MUL(ID=0, ShieldstunMul=8)
+				}
+				wait(Frames=1)
+				if(is_excute){
+					AttackModule::clear_all()
+					WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
+				}
+				wait(Frames=2)
 			}
-			wait(Frames=1)
-			if(is_excute){
-				AttackModule::clear_all()
-				WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
-			}
-			wait(Frames=2)
-			if(is_excute){
-				ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.6, Angle=361, KBG=10, FKB=0, BKB=15, Size=5.0, X=0.0, Y=7.0, Z=10.0, X2=0.0, Y2=7.0, Z2=15.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_FIRE, Type=ATTACK_REGION_MAGIC)
-				AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-				ATK_SET_SHIELD_SETOFF_MUL(ID=0, ShieldstunMul=8)
-			}
-			wait(Frames=1)
-			if(is_excute){
-				AttackModule::clear_all()
-				WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
-			}
-			wait(Frames=2)
-			if(is_excute){
-				ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.6, Angle=361, KBG=10, FKB=0, BKB=15, Size=5.0, X=0.0, Y=7.0, Z=10.0, X2=0.0, Y2=7.0, Z2=15.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_FIRE, Type=ATTACK_REGION_MAGIC)
-				AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-				ATK_SET_SHIELD_SETOFF_MUL(ID=0, ShieldstunMul=8)
-			}
-			wait(Frames=1)
-			if(is_excute){
-				AttackModule::clear_all()
-				WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
-			}
-			wait(Frames=2)
-			if(is_excute){
-				ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.6, Angle=361, KBG=10, FKB=0, BKB=15, Size=5.0, X=0.0, Y=7.0, Z=10.0, X2=0.0, Y2=7.0, Z2=15.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_FIRE, Type=ATTACK_REGION_MAGIC)
-				AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-				ATK_SET_SHIELD_SETOFF_MUL(ID=0, ShieldstunMul=8)
-			}
-			wait(Frames=1)
-			if(is_excute){
-				AttackModule::clear_all()
-				WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
-			}
-			wait(Frames=2)
 			if(is_excute){
 				ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.6, Angle=361, KBG=10, FKB=0, BKB=15, Size=5.0, X=0.0, Y=7.0, Z=10.0, X2=0.0, Y2=7.0, Z2=15.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_FIRE, Type=ATTACK_REGION_MAGIC)
 				AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
@@ -272,6 +185,7 @@ unsafe fn eflame_game_attack100(fighter: &mut L2CAgentBase) {
 				WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
 			}
 			wait_loop_clear(0)
+			wait(Frames=3)
 		}
 	});
 }
@@ -1090,10 +1004,7 @@ unsafe fn eflame_game_catch(fighter: &mut L2CAgentBase) {
 	macros::game_CaptureCutCommon(fighter);
 	wait(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
-		fighter.clear_lua_stack();
-		lua_args!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
-		sv_module_access::grab(fighter.lua_state_agent);
-		fighter.pop_lua_stack(1);
+		grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
 		GrabModule::set_rebound(fighter.module_accessor, false);
 	}
@@ -1103,7 +1014,7 @@ unsafe fn eflame_game_catch(fighter: &mut L2CAgentBase) {
 unsafe fn eflame_game_catchattack(fighter: &mut L2CAgentBase) {
 	frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
-		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.6, 361, 100, 30, 0, 5.0, 0.0, 10.0, 10.0, None, None, None, 2.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.6, 361, 100, 30, 0, 5.0, 0.0, 10.0, 10.0, None, None, None, 2.3, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_MAGIC);
 		AttackModule::set_catch_only_all(fighter.module_accessor, true, false);
 	}
 	wait(fighter.lua_state_agent, 1.0);
@@ -1130,10 +1041,7 @@ unsafe fn eflame_game_catchdash(fighter: &mut L2CAgentBase) {
 	macros::game_CaptureCutCommon(fighter);
 	wait(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
-		fighter.clear_lua_stack();
-		lua_args!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
-		sv_module_access::grab(fighter.lua_state_agent);
-		fighter.pop_lua_stack(1);
+		grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
 		GrabModule::set_rebound(fighter.module_accessor, false);
 	}
@@ -1157,10 +1065,7 @@ unsafe fn eflame_game_catchturn(fighter: &mut L2CAgentBase) {
 	macros::game_CaptureCutCommon(fighter);
 	wait(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
-		fighter.clear_lua_stack();
-		lua_args!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
-		sv_module_access::grab(fighter.lua_state_agent);
-		fighter.pop_lua_stack(1);
+		grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
 		GrabModule::set_rebound(fighter.module_accessor, false);
 	}
@@ -1231,6 +1136,8 @@ unsafe fn eflame_game_throwhi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATK_HIT_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("throw"), WorkModule::get_int64(fighter.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_OBJECT), WorkModule::get_int64(fighter.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_GROUP), WorkModule::get_int64(fighter.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_NO));
 	}
+	frame(fighter.lua_state_agent, 15.0);
+	macros::FT_MOTION_RATE(fighter,	0.3);
 }
 
 #[acmd_script(agent = "eflame", script = "game_throwlw", category = ACMD_GAME)]
