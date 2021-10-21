@@ -714,13 +714,15 @@ unsafe fn zelda_game_specialhistart(fighter: &mut L2CAgentBase) {
 unsafe fn zelda_game_specialn(fighter: &mut L2CAgentBase) {
 	let lua_state = fighter.lua_state_agent;
 	acmd!(lua_state, {
+		frame(Frame=1)
+		FT_MOTION_RATE(FSM=0.3333333)
 		frame(Frame=4)
+		FT_MOTION_RATE(FSM=0.5)
 		if(is_excute){
 			WorkModule::on_flag(Flag=FIGHTER_ZELDA_STATUS_SPECIAL_N_FLAG_REFLECTOR_START)
 			sv_module_access::damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 5)
 		}
-		FT_MOTION_RATE(FSM=0.625)
-		frame(Frame=12)
+		frame(Frame=6)
 		FT_MOTION_RATE(FSM=1)
 		frame(Frame=13)
 		if(is_excute){
