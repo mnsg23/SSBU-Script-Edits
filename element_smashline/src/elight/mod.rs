@@ -284,13 +284,13 @@ unsafe fn elight_game_attackairb(fighter: &mut L2CAgentBase) {
 		if(is_excute){
 			WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
 		}
-		frame(Frame=71)
-		if(is_excute){
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
-		}
-		frame(Frame=78)
-		FT_MOTION_RATE(FSM=1)
 	});
+	frame(fighter.lua_state_agent, 71.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
+	frame(fighter.lua_state_agent, 78.0);
+	macros::FT_MOTION_RATE(fighter,	1.0);
 }
 
 #[acmd_script(agent = "elight", script = "game_attackairf", category = ACMD_GAME)]
@@ -355,11 +355,11 @@ unsafe fn elight_game_attackairf(fighter: &mut L2CAgentBase) {
 		}
 		frame(Frame=63)
 		FT_MOTION_RATE(FSM=1)
-		frame(Frame=69)
-		if(is_excute){
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
-		}
 	});
+	frame(fighter.lua_state_agent, 69.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
 }
 
 #[acmd_script(agent = "elight", script = "game_attackairhi", category = ACMD_GAME)]
@@ -414,13 +414,13 @@ unsafe fn elight_game_attackairhi(fighter: &mut L2CAgentBase) {
 		}
 		frame(Frame=43)
 		FT_MOTION_RATE(FSM=0.75)
-		frame(Frame=75)
-		if(is_excute){
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
-		}
-		frame(Frame=83)
-		FT_MOTION_RATE(FSM=1)
 	});
+	frame(fighter.lua_state_agent, 75.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
+	frame(fighter.lua_state_agent, 83.0);
+	macros::FT_MOTION_RATE(fighter,	1.0);
 }
 
 #[acmd_script(agent = "elight", script = "game_attackairlw", category = ACMD_GAME)]
@@ -492,11 +492,11 @@ unsafe fn elight_game_attackairlw(fighter: &mut L2CAgentBase) {
 		}
 		frame(Frame=51)
 		FT_MOTION_RATE(FSM=1)
-		frame(Frame=72)
-		if(is_excute){
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
-		}
 	});
+	frame(fighter.lua_state_agent, 72.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
 }
 
 #[acmd_script(agent = "elight", script = "game_attackairn", category = ACMD_GAME)]
@@ -554,11 +554,11 @@ unsafe fn elight_game_attackairn(fighter: &mut L2CAgentBase) {
 		if(is_excute){
 			WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
 		}
-		frame(Frame=72)
-		if(is_excute){
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
-		}
 	});
+	frame(fighter.lua_state_agent, 72.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
 }
 
 #[acmd_script(agent = "elight", script = "game_attackdash", category = ACMD_GAME)]
