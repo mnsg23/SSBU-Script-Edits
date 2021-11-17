@@ -2,7 +2,7 @@ use smash::hash40;
 use smash::phx::*;
 use smash::lib::lua_const::*;
 use smash::lua2cpp::L2CAgentBase;
-use smash::app::{AttackHeight, lua_bind::*, sv_animcmd::*};
+use smash::app::{AttackHeight, HitStatus, lua_bind::*, sv_animcmd::*};
 use smash_script::*;
 use smashline::*;
 use crate::FIGHTER_CUTIN_MANAGER_ADDR;
@@ -115,19 +115,18 @@ unsafe fn yoshi_game_attackairf(fighter: &mut L2CAgentBase) {
 		}
 		wait(Frames=5)
 		if(is_excute){
-			HIT_NODE(hash40("head"), HIT_STATUS_NORMAL)
-			HIT_NODE(hash40("snout"), HIT_STATUS_NORMAL)
+			HitModule::set_status_all(HitStatus(*HIT_STATUS_NORMAL), 0)
 			AttackModule::clear_all()
 		}
 		frame(Frame=40)
 		if(is_excute){
 			WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
 		}
-		frame(Frame=67)
-		if(is_excute){
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
-		}
 	});
+	frame(fighter.lua_state_agent, 67.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
 }
 
 #[acmd_script(agent = "yoshi", script = "game_attackairhi", category = ACMD_GAME)]
@@ -295,10 +294,7 @@ unsafe fn yoshi_game_attackhi4(fighter: &mut L2CAgentBase) {
 		}
 		wait(Frames=5)
 		if(is_excute){
-			HIT_NODE(hash40("toel"), HIT_STATUS_NORMAL)
-			HIT_NODE(hash40("footl"), HIT_STATUS_NORMAL)
-			HIT_NODE(hash40("kneel"), HIT_STATUS_NORMAL)
-			HIT_NODE(hash40("legl"), HIT_STATUS_NORMAL)
+			HitModule::set_status_all(HitStatus(*HIT_STATUS_NORMAL), 0)
 			AttackModule::clear_all()
 		}
 	});
@@ -437,8 +433,7 @@ unsafe fn yoshi_game_attacks4(fighter: &mut L2CAgentBase) {
 		}
 		wait(Frames=3)
 		if(is_excute){
-			HIT_NODE(hash40("head"), HIT_STATUS_NORMAL)
-			HIT_NODE(hash40("snout"), HIT_STATUS_NORMAL)
+			HitModule::set_status_all(HitStatus(*HIT_STATUS_NORMAL), 0)
 			AttackModule::clear_all()
 		}
 	});
@@ -464,8 +459,7 @@ unsafe fn yoshi_game_attacks4hi(fighter: &mut L2CAgentBase) {
 		}
 		wait(Frames=3)
 		if(is_excute){
-			HIT_NODE(hash40("head"), HIT_STATUS_NORMAL)
-			HIT_NODE(hash40("snout"), HIT_STATUS_NORMAL)
+			HitModule::set_status_all(HitStatus(*HIT_STATUS_NORMAL), 0)
 			AttackModule::clear_all()
 		}
 	});
@@ -491,8 +485,7 @@ unsafe fn yoshi_game_attacks4lw(fighter: &mut L2CAgentBase) {
 		}
 		wait(Frames=3)
 		if(is_excute){
-			HIT_NODE(hash40("head"), HIT_STATUS_NORMAL)
-			HIT_NODE(hash40("snout"), HIT_STATUS_NORMAL)
+			HitModule::set_status_all(HitStatus(*HIT_STATUS_NORMAL), 0)
 			AttackModule::clear_all()
 		}
 	});
