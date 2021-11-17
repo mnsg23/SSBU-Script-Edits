@@ -617,56 +617,50 @@ unsafe fn zelda_game_catchturn(fighter: &mut L2CAgentBase) {
 
 #[acmd_script(agent = "zelda", script = "game_specialairhi", category = ACMD_GAME)]
 unsafe fn zelda_game_specialairhi(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		if(is_excute){
-			JostleModule::set_status(true)
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
-			ATTACK(ID=0, Part=0, Bone=hash40("rot"), Damage=12.0, Angle=55, KBG=95, FKB=0, BKB=80, Size=16.0, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.5, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=3)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		frame(Frame=12)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_ZELDA_STATUS_SPECIAL_HI_FLAG_1)
-		}
-		frame(Frame=15)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_ZELDA_STATUS_SPECIAL_HI_FLAG_DIVE)
-			WorkModule::on_flag(Flag=FIGHTER_ZELDA_STATUS_SPECIAL_HI_FLAG_CONTROL)
-		}
-	});
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		JostleModule::set_status(fighter.module_accessor, true);
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("rot"), 12.0, 55, 95, 0, 80, 16.0, 0.0, 0.0, 0.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_ZELDA_STATUS_SPECIAL_HI_FLAG_1);
+	}
+	frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_ZELDA_STATUS_SPECIAL_HI_FLAG_DIVE);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_ZELDA_STATUS_SPECIAL_HI_FLAG_CONTROL);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_specialairhistart", category = ACMD_GAME)]
 unsafe fn zelda_game_specialairhistart(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		if(is_excute){
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_NONE)
-		}
-		frame(Frame=3)
-		if(is_excute){
-			sv_module_access::damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 5)
-		}
-		frame(Frame=6)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("rot"), Damage=6.0, Angle=80, KBG=105, FKB=0, BKB=60, Size=10.5, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=2)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		frame(Frame=17)
-		if(is_excute){
-			sv_module_access::damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
-		}
-	});
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_NONE);
+	}
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 5);
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("rot"), 6.0, 80, 105, 0, 60, 10.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_specialhi", category = ACMD_GAME)]
