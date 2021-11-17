@@ -279,11 +279,11 @@ unsafe fn eflame_game_attackairb(fighter: &mut L2CAgentBase) {
 		if(is_excute){
 			WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
 		}
-		frame(Frame=71)
-		if(is_excute){
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
-		}
 	});
+	frame(fighter.lua_state_agent, 71.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
 }
 
 #[acmd_script(agent = "eflame", script = "game_attackairf", category = ACMD_GAME)]
@@ -350,11 +350,11 @@ unsafe fn eflame_game_attackairf(fighter: &mut L2CAgentBase) {
 		if(is_excute){
 			WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
 		}
-		frame(Frame=69)
-		if(is_excute){
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
-		}
 	});
+	frame(fighter.lua_state_agent, 69.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
 }
 
 #[acmd_script(agent = "eflame", script = "game_attackairhi", category = ACMD_GAME)]
@@ -410,11 +410,11 @@ unsafe fn eflame_game_attackairhi(fighter: &mut L2CAgentBase) {
 				}
 			}
 		}
-		frame(Frame=75)
-		if(is_excute){
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
-		}
 	});
+	frame(fighter.lua_state_agent, 75.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
 }
 
 #[acmd_script(agent = "eflame", script = "game_attackairlw", category = ACMD_GAME)]
@@ -487,11 +487,11 @@ unsafe fn eflame_game_attackairlw(fighter: &mut L2CAgentBase) {
 		if(is_excute){
 			WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
 		}
-		frame(Frame=72)
-		if(is_excute){
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
-		}
 	});
+	frame(fighter.lua_state_agent, 72.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
 }
 
 #[acmd_script(agent = "eflame", script = "game_attackairn", category = ACMD_GAME)]
@@ -541,11 +541,11 @@ unsafe fn eflame_game_attackairn(fighter: &mut L2CAgentBase) {
 		if(is_excute){
 			WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
 		}
-		frame(Frame=72)
-		if(is_excute){
-			sv_battle_object::notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
-		}
 	});
+	frame(fighter.lua_state_agent, 72.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
 }
 
 #[acmd_script(agent = "eflame", script = "game_attackdash", category = ACMD_GAME)]
@@ -1205,11 +1205,11 @@ unsafe fn eflame_firepillar_game_specialhi(fighter: &mut L2CAgentBase) {
 		if(is_excute){
 			AttackModule::clear_all()
 		}
-		frame(Frame=13)
-		if(is_excute){
-			sv_battle_object::notify_event_msc_cmd(0x199c462b5d)
-		}
 	});
+	frame(fighter.lua_state_agent, 13.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x199c462b5d));
+	}
 }
 
 pub fn install() {
