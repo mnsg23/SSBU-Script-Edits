@@ -1,4 +1,3 @@
-use smash::hash40;
 use smash::phx::*;
 use smash::lib::lua_const::*;
 use smash::lua2cpp::L2CAgentBase;
@@ -9,523 +8,468 @@ use crate::FIGHTER_CUTIN_MANAGER_ADDR;
 
 #[acmd_script(agent = "zelda", script = "game_attack11", category = ACMD_GAME)]
 unsafe fn zelda_game_attack11(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		FT_MOTION_RATE(FSM=0.3333333)
-		frame(Frame=4)
-		FT_MOTION_RATE(FSM=1)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=2.5, Angle=361, KBG=15, FKB=0, BKB=25, Size=2.8, X=0.0, Y=12.0, Z=4.0, X2=0.0, Y2=5.5, Z2=4.0, Hitlag=0.6, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=2.5, Angle=361, KBG=15, FKB=0, BKB=25, Size=2.8, X=0.0, Y=12.0, Z=7.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.6, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=2, Part=0, Bone=hash40("top"), Damage=2.5, Angle=180, KBG=10, FKB=0, BKB=20, Size=3.2, X=0.0, Y=11.8, Z=10.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.6, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_FIGHTER, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=3, Part=0, Bone=hash40("top"), Damage=2.5, Angle=361, KBG=10, FKB=0, BKB=20, Size=3.2, X=0.0, Y=11.8, Z=10.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.6, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-			AttackModule::set_add_reaction_frame(ID=1, Frames=4.0, Unk=false)
-			AttackModule::set_add_reaction_frame(ID=2, Frames=4.0, Unk=false)
-			AttackModule::set_add_reaction_frame(ID=3, Frames=4.0, Unk=false)
-		}
-		wait(Frames=2)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		frame(Frame=7)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=2.5, Angle=361, KBG=15, FKB=0, BKB=25, Size=3.2, X=0.0, Y=11.8, Z=5.0, X2=0.0, Y2=5.5, Z2=5.0, Hitlag=0.6, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=2.5, Angle=361, KBG=15, FKB=0, BKB=25, Size=3.2, X=0.0, Y=11.8, Z=8.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.6, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=2, Part=0, Bone=hash40("top"), Damage=2.5, Angle=180, KBG=10, FKB=0, BKB=20, Size=3.5, X=0.0, Y=11.5, Z=11.5, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.6, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_FIGHTER, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=3, Part=0, Bone=hash40("top"), Damage=2.5, Angle=361, KBG=10, FKB=0, BKB=20, Size=3.5, X=0.0, Y=11.5, Z=11.5, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.6, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-			AttackModule::set_add_reaction_frame(ID=1, Frames=4.0, Unk=false)
-			AttackModule::set_add_reaction_frame(ID=2, Frames=4.0, Unk=false)
-			AttackModule::set_add_reaction_frame(ID=3, Frames=4.0, Unk=false)
-		}
-		wait(Frames=1)
-		if(is_excute){
-			AttackModule::clear_all()
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_ENABLE_100)
-		}
-		wait(Frames=1)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_ENABLE_COMBO)
-		}
-		wait(Frames=3)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_ENABLE_RESTART)
-		}
-	});
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.3333333);
+	frame(fighter.lua_state_agent, 4.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.5, 361, 15, 0, 25, 2.8, 0.0, 12.0, 4.0, Some(0.0), Some(5.5), Some(4.0), 0.6, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 2.5, 361, 15, 0, 25, 2.8, 0.0, 12.0, 7.0, None, None, None, 0.6, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("top"), 2.5, 180, 10, 0, 20, 3.2, 0.0, 11.8, 10.0, None, None, None, 0.6, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("top"), 2.5, 361, 10, 0, 20, 3.2, 0.0, 11.8, 10.0, None, None, None, 0.6, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
+		AttackModule::set_add_reaction_frame(fighter.module_accessor, 1, 4.0, false);
+		AttackModule::set_add_reaction_frame(fighter.module_accessor, 2, 4.0, false);
+		AttackModule::set_add_reaction_frame(fighter.module_accessor, 3, 4.0, false);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.5, 361, 15, 0, 25, 3.2, 0.0, 11.8, 5.0, Some(0.0), Some(5.5), Some(5.0), 0.6, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 2.5, 361, 15, 0, 25, 3.2, 0.0, 11.8, 8.0, None, None, None, 0.6, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("top"), 2.5, 180, 10, 0, 20, 3.5, 0.0, 11.5, 11.5, None, None, None, 0.6, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("top"), 2.5, 361, 10, 0, 20, 3.5, 0.0, 11.5, 11.5, None, None, None, 0.6, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
+		AttackModule::set_add_reaction_frame(fighter.module_accessor, 1, 4.0, false);
+		AttackModule::set_add_reaction_frame(fighter.module_accessor, 2, 4.0, false);
+		AttackModule::set_add_reaction_frame(fighter.module_accessor, 3, 4.0, false);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_ENABLE_100);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_ENABLE_COMBO);
+	}
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_ENABLE_RESTART);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attack100", category = ACMD_GAME)]
 unsafe fn zelda_game_attack100(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		for(1000000 Iterations){
-			for(7 Iterations){
-				if(is_excute){
-					ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.4, Angle=361, KBG=10, FKB=0, BKB=15, Size=6.0, X=0.0, Y=8.5, Z=8.0, X2=0.0, Y2=8.5, Z2=13.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-					AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-					ATK_SET_SHIELD_SETOFF_MUL(ID=0, ShieldstunMul=8)
-				}
-				wait(Frames=1)
-				if(is_excute){
-					AttackModule::clear_all()
-					WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
-				}
-				wait(Frames=1)
+	frame(fighter.lua_state_agent, 1.0);
+	for _ in 0..1000000 {
+		for _ in 0..7 {
+			if macros::is_excute(fighter) {
+				macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.4, 361, 10, 0, 15, 6.0, 0.0, 8.5, 8.0, Some(0.0), Some(8.5), Some(13.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+				AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
+				macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 8);
 			}
-			if(is_excute){
-				ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.4, Angle=361, KBG=10, FKB=0, BKB=15, Size=6.0, X=0.0, Y=8.5, Z=8.0, X2=0.0, Y2=8.5, Z2=13.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-				AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-				ATK_SET_SHIELD_SETOFF_MUL(ID=0, ShieldstunMul=8)
+			wait(fighter.lua_state_agent, 1.0);
+			if macros::is_excute(fighter) {
+				AttackModule::clear_all(fighter.module_accessor);
+				WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK);
 			}
-			wait(Frames=1)
-			if(is_excute){
-				AttackModule::clear_all()
-				WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
-			}
-			wait_loop_clear(0)
-			wait(Frames=2)
+			wait(fighter.lua_state_agent, 1.0);
 		}
-	});
+		if macros::is_excute(fighter) {
+			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.4, 361, 10, 0, 15, 6.0, 0.0, 8.5, 8.0, Some(0.0), Some(8.5), Some(13.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+			AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
+			macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 8);
+		}
+		wait(fighter.lua_state_agent, 1.0);
+		if macros::is_excute(fighter) {
+			AttackModule::clear_all(fighter.module_accessor);
+			WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK);
+		}
+		wait(fighter.lua_state_agent, 2.0);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attack100end", category = ACMD_GAME)]
 unsafe fn zelda_game_attack100end(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		FT_MOTION_RATE(FSM=0.5)
-		frame(Frame=3)
-		FT_MOTION_RATE(FSM=1)
-		frame(Frame=6)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=3.0, Angle=361, KBG=140, FKB=0, BKB=60, Size=6.0, X=0.0, Y=8.5, Z=10.0, X2=0.0, Y2=8.5, Z2=17.0, Hitlag=2.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=2)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-	});
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	frame(fighter.lua_state_agent, 3.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 3.0, 361, 140, 0, 60, 6.0, 0.0, 8.5, 10.0, Some(0.0), Some(8.5), Some(17.0), 2.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attack100sub", category = ACMD_GAME)]
 unsafe fn zelda_game_attack100sub(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.4, Angle=361, KBG=10, FKB=0, BKB=15, Size=6.0, X=0.0, Y=8.5, Z=8.0, X2=0.0, Y2=8.5, Z2=13.0, Hitlag=0.5, SDI=0.3, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			AttackModule::set_add_reaction_frame(ID=0, Frames=4.0, Unk=false)
-			ATK_SET_SHIELD_SETOFF_MUL(ID=0, ShieldstunMul=8)
-		}
-		wait(Frames=1)
-		if(is_excute){
-			AttackModule::clear_all()
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK)
-		}
-	});
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.4, 361, 10, 0, 15, 6.0, 0.0, 8.5, 8.0, Some(0.0), Some(8.5), Some(13.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
+		macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 8);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attackairb", category = ACMD_GAME)]
 unsafe fn zelda_game_attackairb(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=3)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
-		}
-		frame(Frame=6)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=20.0, Angle=361, KBG=86, FKB=0, BKB=50, Size=2.2, X=-1.0, Y=4.4, Z=-11.1, X2=1.0, Y2=4.4, Z2=-11.1, Hitlag=1.5, SDI=0.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_B, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_LL, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("kneer"), Damage=5.0, Angle=361, KBG=90, FKB=0, BKB=20, Size=4.0, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_B, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_PUNCH, Type=ATTACK_REGION_KICK)
-			ATTACK(ID=2, Part=0, Bone=hash40("hip"), Damage=5.0, Angle=361, KBG=90, FKB=0, BKB=20, Size=4.5, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_B, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_PUNCH, Type=ATTACK_REGION_KICK)
-			ATTACK(ID=3, Part=0, Bone=hash40("toer"), Damage=5.0, Angle=361, KBG=90, FKB=0, BKB=20, Size=5.0, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_B, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_PUNCH, Type=ATTACK_REGION_KICK)
-			AttackModule::set_optional_hit_effect(ID=0, Hash40::new_raw(0x1484fa7486))
-		}
-		wait(Frames=1)
-		if(is_excute){
-			AttackModule::clear(ID=0, false)
-		}
-		wait(Frames=4)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		wait(Frames=2)
-		FT_MOTION_RATE(FSM=0.9)
-		frame(Frame=48)
-		if(is_excute){
-			WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
-		}
-	});
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 20.0, 361, 86, 0, 50, 2.2, -1.0, 4.4, -11.1, Some(1.0), Some(4.4), Some(-11.1), 1.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_B, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_LL, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("kneer"), 5.0, 361, 90, 0, 20, 4.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_B, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_KICK);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("hip"), 5.0, 361, 90, 0, 20, 4.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_B, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_KICK);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("toer"), 5.0, 361, 90, 0, 20, 5.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_B, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_KICK);
+		AttackModule::set_optional_hit_effect(fighter.module_accessor, 0, Hash40::new_raw(0x1484fa7486));
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear(fighter.module_accessor, 0, false);
+	}
+	wait(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	macros::FT_MOTION_RATE(fighter, 0.9);
+	frame(fighter.lua_state_agent, 48.0);
+	if macros::is_excute(fighter) {
+		WorkModule::off_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attackairf", category = ACMD_GAME)]
 unsafe fn zelda_game_attackairf(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		FT_MOTION_RATE(FSM=0.5)
-		frame(Frame=4)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
-		}
-		frame(Frame=7)
-		FT_MOTION_RATE(FSM=1)
-		frame(Frame=9)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=20.0, Angle=361, KBG=86, FKB=0, BKB=50, Size=2.2, X=-1.0, Y=4.4, Z=11.6, X2=1.0, Y2=4.4, Z2=11.6, Hitlag=1.5, SDI=0.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_LL, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("kneel"), Damage=5.0, Angle=361, KBG=90, FKB=0, BKB=20, Size=4.0, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_PUNCH, Type=ATTACK_REGION_KICK)
-			ATTACK(ID=2, Part=0, Bone=hash40("hip"), Damage=5.0, Angle=361, KBG=90, FKB=0, BKB=20, Size=4.5, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_PUNCH, Type=ATTACK_REGION_KICK)
-			ATTACK(ID=3, Part=0, Bone=hash40("toel"), Damage=5.0, Angle=361, KBG=90, FKB=0, BKB=20, Size=5.0, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_PUNCH, Type=ATTACK_REGION_KICK)
-			AttackModule::set_optional_hit_effect(ID=0, Hash40::new_raw(0x148397b09f))
-		}
-		wait(Frames=1)
-		if(is_excute){
-			AttackModule::clear(ID=0, false)
-		}
-		wait(Frames=4)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		wait(Frames=2)
-		FT_MOTION_RATE(FSM=0.5)
-		wait(Frames=4)
-		FT_MOTION_RATE(FSM=1)
-		frame(Frame=46)
-		if(is_excute){
-			WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
-		}
-	});
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+	}
+	frame(fighter.lua_state_agent, 7.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
+	frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 20.0, 361, 86, 0, 50, 2.2, -1.0, 4.4, 11.6, Some(1.0), Some(4.4), Some(11.6), 1.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_LL, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("kneel"), 5.0, 361, 90, 0, 20, 4.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_KICK);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("hip"), 5.0, 361, 90, 0, 20, 4.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_KICK);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("toel"), 5.0, 361, 90, 0, 20, 5.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_KICK);
+		AttackModule::set_optional_hit_effect(fighter.module_accessor, 0, Hash40::new_raw(0x148397b09f));
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear(fighter.module_accessor, 0, false);
+	}
+	wait(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	wait(fighter.lua_state_agent, 4.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
+	frame(fighter.lua_state_agent, 46.0);
+	if macros::is_excute(fighter) {
+		WorkModule::off_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attackairhi", category = ACMD_GAME)]
 unsafe fn zelda_game_attackairhi(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=5)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
-		}
-		frame(Frame=14)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=17.0, Angle=90, KBG=72, FKB=0, BKB=60, Size=9.0, X=0.0, Y=26.5, Z=0.5, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_BOMB, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=3)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=12.0, Angle=90, KBG=72, FKB=0, BKB=60, Size=9.0, X=0.0, Y=26.5, Z=0.5, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_BOMB, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=3)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		frame(Frame=54)
-		if(is_excute){
-			WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
-		}
-	});
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+	}
+	frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 17.0, 90, 72, 0, 60, 9.0, 0.0, 26.5, 0.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 12.0, 90, 72, 0, 60, 9.0, 0.0, 26.5, 0.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 54.0);
+	if macros::is_excute(fighter) {
+		WorkModule::off_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attackairlw", category = ACMD_GAME)]
 unsafe fn zelda_game_attackairlw(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=4)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
-		}
-		frame(Frame=14)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("footl"), Damage=18.0, Angle=270, KBG=100, FKB=0, BKB=20, Size=4.2, X=2.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.5, SDI=0.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_LL, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("footl"), Damage=18.0, Angle=270, KBG=100, FKB=0, BKB=20, Size=4.0, X=-1.0, Y=-0.5, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.5, SDI=0.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_LL, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=2, Part=0, Bone=hash40("kneel"), Damage=6.0, Angle=270, KBG=90, FKB=0, BKB=20, Size=5.0, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_KICK, Type=ATTACK_REGION_KICK)
-			ATTACK(ID=3, Part=0, Bone=hash40("footl"), Damage=6.0, Angle=270, KBG=90, FKB=0, BKB=20, Size=5.0, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_KICK, Type=ATTACK_REGION_KICK)
-		}
-		frame(Frame=15)
-		if(is_excute){
-			AttackModule::clear(ID=0, false)
-			AttackModule::clear(ID=1, false)
-		}
-		frame(Frame=25)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		frame(Frame=40)
-		if(is_excute){
-			WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
-		}
-	});
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+	}
+	frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("footl"), 18.0, 270, 100, 0, 20, 4.2, 2.0, 0.0, 0.0, None, None, None, 1.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_LL, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("footl"), 18.0, 270, 100, 0, 20, 4.0, -1.0, -0.5, 0.0, None, None, None, 1.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_LL, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("kneel"), 6.0, 270, 90, 0, 20, 5.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("footl"), 6.0, 270, 90, 0, 20, 5.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
+	}
+	frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear(fighter.module_accessor, 0, false);
+		AttackModule::clear(fighter.module_accessor, 1, false);
+	}
+	frame(fighter.lua_state_agent, 25.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 40.0);
+	if macros::is_excute(fighter) {
+		WorkModule::off_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attackairn", category = ACMD_GAME)]
 unsafe fn zelda_game_attackairn(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		FT_MOTION_RATE(FSM=0.5)
-		frame(Frame=3)
-		FT_MOTION_RATE(FSM=1)
-		frame(Frame=4)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
-		}
-		frame(Frame=6)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=1.3, Angle=367, KBG=100, FKB=40, BKB=0, Size=5.0, X=0.0, Y=10.0, Z=7.6, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.5, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_A, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=1.3, Angle=95, KBG=100, FKB=70, BKB=0, Size=5.0, X=0.0, Y=10.0, Z=7.6, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.5, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_G, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=2, Part=0, Bone=hash40("top"), Damage=1.3, Angle=367, KBG=100, FKB=40, BKB=0, Size=5.0, X=0.0, Y=13.0, Z=-5.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.5, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_A, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=3, Part=0, Bone=hash40("top"), Damage=1.3, Angle=95, KBG=100, FKB=70, BKB=0, Size=5.0, X=0.0, Y=13.0, Z=-5.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.5, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_G, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-		}
-		frame(Frame=22)
-		if(is_excute){
-			ATTACK(ID=0, Part=1, Bone=hash40("top"), Damage=5.0, Angle=361, KBG=140, FKB=0, BKB=40, Size=5.0, X=0.0, Y=13.5, Z=-7.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.5, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=1, Bone=hash40("top"), Damage=5.0, Angle=361, KBG=140, FKB=0, BKB=40, Size=5.0, X=0.0, Y=9.0, Z=8.5, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.5, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=2, Part=1, Bone=hash40("top"), Damage=5.0, Angle=361, KBG=140, FKB=0, BKB=40, Size=6.0, X=0.0, Y=7.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.5, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=3, Part=1, Bone=hash40("head"), Damage=5.0, Angle=361, KBG=140, FKB=0, BKB=40, Size=6.0, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.5, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=2)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		frame(Frame=38)
-		if(is_excute){
-			WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
-		}
-	});
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	frame(fighter.lua_state_agent, 3.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.3, 367, 100, 40, 0, 5.0, 0.0, 10.0, 7.6, None, None, None, 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 1.3, 95, 100, 70, 0, 5.0, 0.0, 10.0, 7.6, None, None, None, 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("top"), 1.3, 367, 100, 40, 0, 5.0, 0.0, 13.0, -5.0, None, None, None, 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("top"), 1.3, 95, 100, 70, 0, 5.0, 0.0, 13.0, -5.0, None, None, None, 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+	}
+	frame(fighter.lua_state_agent, 22.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 1, Hash40::new("top"), 5.0, 361, 140, 0, 40, 5.0, 0.0, 13.5, -7.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 1, Hash40::new("top"), 5.0, 361, 140, 0, 40, 5.0, 0.0, 9.0, 8.5, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 2, 1, Hash40::new("top"), 5.0, 361, 140, 0, 40, 6.0, 0.0, 7.0, 0.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 3, 1, Hash40::new("head"), 5.0, 361, 140, 0, 40, 6.0, 0.0, 0.0, 0.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 38.0);
+	if macros::is_excute(fighter) {
+		WorkModule::off_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attackdash", category = ACMD_GAME)]
 unsafe fn zelda_game_attackdash(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=6)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=12.0, Angle=70, KBG=60, FKB=0, BKB=100, Size=2.8, X=0.0, Y=9.0, Z=12.6, X2=0.0, Y2=9.0, Z2=13.2, Hitlag=1.2, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=9.0, Angle=70, KBG=60, FKB=0, BKB=90, Size=5.2, X=0.0, Y=9.0, Z=13.6, X2=0.0, Y2=9.0, Z2=7.8, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=3)
-		if(is_excute){
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=6.0, Angle=70, KBG=65, FKB=0, BKB=80, Size=5.0, X=0.0, Y=9.0, Z=13.6, X2=0.0, Y2=9.0, Z2=7.8, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			AttackModule::clear(ID=0, false)
-		}
-		wait(Frames=6)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-	});
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 12.0, 70, 60, 0, 100, 2.8, 0.0, 9.0, 12.6, Some(0.0), Some(9.0), Some(13.2), 1.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 9.0, 70, 60, 0, 90, 5.2, 0.0, 9.0, 13.6, Some(0.0), Some(9.0), Some(7.8), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 6.0, 70, 65, 0, 80, 5.0, 0.0, 9.0, 13.6, Some(0.0), Some(9.0), Some(7.8), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		AttackModule::clear(fighter.module_accessor, 0, false);
+	}
+	wait(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attackhi3", category = ACMD_GAME)]
 unsafe fn zelda_game_attackhi3(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		FT_MOTION_RATE(FSM=0.5)
-		frame(Frame=5)
-		FT_MOTION_RATE(FSM=1)
-		frame(Frame=7)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("armr"), Damage=8.0, Angle=80, KBG=105, FKB=0, BKB=50, Size=5.5, X=4.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("armr"), Damage=8.0, Angle=80, KBG=105, FKB=0, BKB=50, Size=3.0, X=1.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=2, Part=0, Bone=hash40("shoulderr"), Damage=8.0, Angle=80, KBG=105, FKB=0, BKB=50, Size=3.0, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=13)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-	});
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	frame(fighter.lua_state_agent, 5.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
+	frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("armr"), 8.0, 80, 105, 0, 50, 5.5, 4.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("armr"), 8.0, 80, 105, 0, 50, 3.0, 1.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("shoulderr"), 8.0, 80, 105, 0, 50, 3.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 13.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attackhi4", category = ACMD_GAME)]
 unsafe fn zelda_game_attackhi4(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=4)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD)
-		}
-		frame(Frame=9)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.9, Angle=367, KBG=100, FKB=40, BKB=0, Size=4.6, X=0.0, Y=19.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.5, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_A, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=0.9, Angle=90, KBG=100, FKB=40, BKB=0, Size=4.6, X=0.0, Y=19.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.5, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_G, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=2, Part=0, Bone=hash40("top"), Damage=0.9, Angle=367, KBG=100, FKB=40, BKB=0, Size=4.0, X=0.0, Y=18.0, Z=-5.0, X2=0.0, Y2=18.0, Z2=5.0, Hitlag=0.5, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_A, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=3, Part=0, Bone=hash40("top"), Damage=0.9, Angle=100, KBG=100, FKB=40, BKB=0, Size=4.0, X=0.0, Y=18.0, Z=-5.0, X2=0.0, Y2=18.0, Z2=5.0, Hitlag=0.5, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_G, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=4, Part=0, Bone=hash40("top"), Damage=0.9, Angle=367, KBG=100, FKB=40, BKB=0, Size=4.0, X=0.0, Y=12.0, Z=-3.0, X2=0.0, Y2=12.0, Z2=3.0, Hitlag=0.5, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_A, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=5, Part=0, Bone=hash40("top"), Damage=0.9, Angle=90, KBG=100, FKB=70, BKB=0, Size=4.0, X=0.0, Y=12.0, Z=-3.0, X2=0.0, Y2=12.0, Z2=3.0, Hitlag=0.5, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_G, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-		}
-		frame(Frame=34)
-		if(is_excute){
-			AttackModule::clear_all()
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=5.0, Angle=90, KBG=205, FKB=0, BKB=40, Size=7.0, X=0.0, Y=21.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=2.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=5.0, Angle=90, KBG=205, FKB=0, BKB=40, Size=6.5, X=0.0, Y=18.0, Z=-6.0, X2=0.0, Y2=18.0, Z2=6.0, Hitlag=2.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=2, Part=0, Bone=hash40("top"), Damage=5.0, Angle=90, KBG=205, FKB=0, BKB=40, Size=8.0, X=0.0, Y=15.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=2.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=1)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-	});
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
+	}
+	frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.9, 367, 100, 40, 0, 4.6, 0.0, 19.0, 0.0, None, None, None, 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 0.9, 90, 100, 40, 0, 4.6, 0.0, 19.0, 0.0, None, None, None, 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("top"), 0.9, 367, 100, 40, 0, 4.0, 0.0, 18.0, -5.0, Some(0.0), Some(18.0), Some(5.0), 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("top"), 0.9, 100, 100, 40, 0, 4.0, 0.0, 18.0, -5.0, Some(0.0), Some(18.0), Some(5.0), 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 4, 0, Hash40::new("top"), 0.9, 367, 100, 40, 0, 4.0, 0.0, 12.0, -3.0, Some(0.0), Some(12.0), Some(3.0), 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 5, 0, Hash40::new("top"), 0.9, 90, 100, 70, 0, 4.0, 0.0, 12.0, -3.0, Some(0.0), Some(12.0), Some(3.0), 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+	}
+	frame(fighter.lua_state_agent, 34.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 90, 205, 0, 40, 7.0, 0.0, 21.0, 0.0, None, None, None, 2.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 5.0, 90, 205, 0, 40, 6.5, 0.0, 18.0, -6.0, Some(0.0), Some(18.0), Some(6.0), 2.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("top"), 5.0, 90, 205, 0, 40, 8.0, 0.0, 15.0, 0.0, None, None, None, 2.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attacklw3", category = ACMD_GAME)]
 unsafe fn zelda_game_attacklw3(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		FT_MOTION_RATE(FSM=0.5)
-		frame(Frame=5)
-		FT_MOTION_RATE(FSM=1)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=6.0, Angle=80, KBG=120, FKB=0, BKB=20, Size=2.6, X=0.0, Y=2.0, Z=2.5, X2=0.0, Y2=1.5, Z2=7.5, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_PUNCH, Type=ATTACK_REGION_KICK)
-			AttackModule::set_attack_height_all(AttackHeight(*ATTACK_HEIGHT_LOW), false)
-		}
-		wait(Frames=5)
-		FT_MOTION_RATE(FSM=0.55)
-		wait(Frames=2)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-	});
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	frame(fighter.lua_state_agent, 5.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 6.0, 80, 120, 0, 20, 2.6, 0.0, 2.0, 2.5, Some(0.0), Some(1.5), Some(7.5), 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_KICK);
+		AttackModule::set_attack_height_all(fighter.module_accessor, AttackHeight(*ATTACK_HEIGHT_LOW), false);
+	}
+	wait(fighter.lua_state_agent, 5.0);
+	macros::FT_MOTION_RATE(fighter, 0.55);
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attacklw4", category = ACMD_GAME)]
 unsafe fn zelda_game_attacklw4(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=3)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD)
-		}
-		frame(Frame=5)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=13.0, Angle=20, KBG=96, FKB=0, BKB=20, Size=4.2, X=0.0, Y=3.0, Z=12.5, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_KICK)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=13.0, Angle=20, KBG=96, FKB=0, BKB=20, Size=3.0, X=0.0, Y=3.0, Z=11.0, X2=0.0, Y2=5.0, Z2=7.0, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_KICK)
-			AttackModule::set_attack_height_all(AttackHeight(*ATTACK_HEIGHT_LOW), false)
-		}
-		wait(Frames=2)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		frame(Frame=13)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=13.0, Angle=20, KBG=96, FKB=0, BKB=20, Size=4.2, X=0.0, Y=3.0, Z=-11.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_B, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_KICK)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=13.0, Angle=20, KBG=96, FKB=0, BKB=20, Size=3.0, X=0.0, Y=3.0, Z=-9.0, X2=0.0, Y2=7.0, Z2=-4.5, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_B, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_KICK)
-			AttackModule::set_attack_height_all(AttackHeight(*ATTACK_HEIGHT_LOW), false)
-		}
-		wait(Frames=2)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-	});
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
+	}
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 13.0, 20, 96, 0, 20, 4.2, 0.0, 3.0, 12.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_KICK);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 13.0, 20, 96, 0, 20, 3.0, 0.0, 3.0, 11.0, Some(0.0), Some(5.0), Some(7.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_KICK);
+		AttackModule::set_attack_height_all(fighter.module_accessor, AttackHeight(*ATTACK_HEIGHT_LOW), false);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 13.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 13.0, 20, 96, 0, 20, 4.2, 0.0, 3.0, -11.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_B, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_KICK);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 13.0, 20, 96, 0, 20, 3.0, 0.0, 3.0, -9.0, Some(0.0), Some(7.0), Some(-4.5), 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_B, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_KICK);
+		AttackModule::set_attack_height_all(fighter.module_accessor, AttackHeight(*ATTACK_HEIGHT_LOW), false);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_attacks3", category = ACMD_GAME)]
 unsafe fn zelda_game_attacks3(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		FT_MOTION_RATE(FSM=0.5)
-		frame(Frame=5)
-		FT_MOTION_RATE(FSM=1)
-		frame(Frame=11)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("arml"), Damage=12.0, Angle=361, KBG=72, FKB=0, BKB=70, Size=2.1, X=-2.0, Y=0.2, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("arml"), Damage=12.0, Angle=361, KBG=72, FKB=0, BKB=70, Size=2.2, X=0.7, Y=0.3, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=2, Part=0, Bone=hash40("arml"), Damage=12.0, Angle=361, KBG=72, FKB=0, BKB=70, Size=2.3, X=3.2, Y=0.4, Z=-0.1, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=3, Part=0, Bone=hash40("handl"), Damage=15.0, Angle=361, KBG=70, FKB=0, BKB=80, Size=2.4, X=3.5, Y=0.0, Z=0.7, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=4, Part=0, Bone=hash40("handl"), Damage=15.0, Angle=361, KBG=70, FKB=0, BKB=80, Size=2.5, X=6.2, Y=0.0, Z=1.4, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=3)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		wait(Frames=1)
-		FT_MOTION_RATE(FSM=0.85)
-	});
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	frame(fighter.lua_state_agent, 5.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("arml"), 12.0, 361, 72, 0, 70, 2.1, -2.0, 0.2, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("arml"), 12.0, 361, 72, 0, 70, 2.2, 0.7, 0.3, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("arml"), 12.0, 361, 72, 0, 70, 2.3, 3.2, 0.4, -0.1, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("handl"), 15.0, 361, 70, 0, 80, 2.4, 3.5, 0.0, 0.7, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 4, 0, Hash40::new("handl"), 15.0, 361, 70, 0, 80, 2.5, 6.2, 0.0, 1.4, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.85);
 }
 
 #[acmd_script(agent = "zelda", script = "game_attacks3hi", category = ACMD_GAME)]
 unsafe fn zelda_game_attacks3hi(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		FT_MOTION_RATE(FSM=0.5)
-		frame(Frame=5)
-		FT_MOTION_RATE(FSM=1)
-		frame(Frame=11)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("arml"), Damage=12.0, Angle=361, KBG=72, FKB=0, BKB=70, Size=2.1, X=-2.0, Y=0.2, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("arml"), Damage=12.0, Angle=361, KBG=72, FKB=0, BKB=70, Size=2.2, X=0.7, Y=0.3, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=2, Part=0, Bone=hash40("arml"), Damage=12.0, Angle=361, KBG=72, FKB=0, BKB=70, Size=2.3, X=3.2, Y=0.4, Z=-0.1, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=3, Part=0, Bone=hash40("handl"), Damage=15.0, Angle=361, KBG=70, FKB=0, BKB=80, Size=2.4, X=3.5, Y=0.0, Z=0.7, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=4, Part=0, Bone=hash40("handl"), Damage=15.0, Angle=361, KBG=70, FKB=0, BKB=80, Size=2.5, X=6.2, Y=0.0, Z=1.4, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			AttackModule::set_attack_height_all(AttackHeight(*ATTACK_HEIGHT_HIGH), false)
-		}
-		wait(Frames=3)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		wait(Frames=1)
-		FT_MOTION_RATE(FSM=0.85)
-	});
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	frame(fighter.lua_state_agent, 5.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("arml"), 12.0, 361, 72, 0, 70, 2.1, -2.0, 0.2, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("arml"), 12.0, 361, 72, 0, 70, 2.2, 0.7, 0.3, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("arml"), 12.0, 361, 72, 0, 70, 2.3, 3.2, 0.4, -0.1, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("handl"), 15.0, 361, 70, 0, 80, 2.4, 3.5, 0.0, 0.7, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 4, 0, Hash40::new("handl"), 15.0, 361, 70, 0, 80, 2.5, 6.2, 0.0, 1.4, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		AttackModule::set_attack_height_all(fighter.module_accessor, AttackHeight(*ATTACK_HEIGHT_HIGH), false);
+	}
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.85);
 }
 
 #[acmd_script(agent = "zelda", script = "game_attacks3lw", category = ACMD_GAME)]
 unsafe fn zelda_game_attacks3lw(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		FT_MOTION_RATE(FSM=0.5)
-		frame(Frame=5)
-		FT_MOTION_RATE(FSM=1)
-		frame(Frame=11)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("arml"), Damage=12.0, Angle=361, KBG=72, FKB=0, BKB=70, Size=2.1, X=-2.0, Y=0.2, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("arml"), Damage=12.0, Angle=361, KBG=72, FKB=0, BKB=70, Size=2.2, X=0.7, Y=0.3, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=2, Part=0, Bone=hash40("arml"), Damage=12.0, Angle=361, KBG=72, FKB=0, BKB=70, Size=2.3, X=3.2, Y=0.4, Z=-0.1, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=3, Part=0, Bone=hash40("handl"), Damage=15.0, Angle=361, KBG=70, FKB=0, BKB=80, Size=2.4, X=3.5, Y=0.0, Z=0.7, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=4, Part=0, Bone=hash40("handl"), Damage=15.0, Angle=361, KBG=70, FKB=0, BKB=80, Size=2.5, X=6.2, Y=0.0, Z=1.4, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			AttackModule::set_attack_height_all(AttackHeight(*ATTACK_HEIGHT_LOW), false)
-		}
-		wait(Frames=3)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		wait(Frames=1)
-		FT_MOTION_RATE(FSM=0.85)
-	});
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	frame(fighter.lua_state_agent, 5.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("arml"), 12.0, 361, 72, 0, 70, 2.1, -2.0, 0.2, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("arml"), 12.0, 361, 72, 0, 70, 2.2, 0.7, 0.3, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("arml"), 12.0, 361, 72, 0, 70, 2.3, 3.2, 0.4, -0.1, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("handl"), 15.0, 361, 70, 0, 80, 2.4, 3.5, 0.0, 0.7, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 4, 0, Hash40::new("handl"), 15.0, 361, 70, 0, 80, 2.5, 6.2, 0.0, 1.4, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		AttackModule::set_attack_height_all(fighter.module_accessor, AttackHeight(*ATTACK_HEIGHT_LOW), false);
+	}
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.85);
 }
 
 #[acmd_script(agent = "zelda", script = "game_attacks4", category = ACMD_GAME)]
 unsafe fn zelda_game_attacks4(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=11)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD)
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
+	}
+	frame(fighter.lua_state_agent, 16.0);
+	for _ in 0..4 {
+		if macros::is_excute(fighter) {
+			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.5, 367, 100, 40, 0, 4.5, 0.0, 9.1, 17.0, None, None, None, 0.8, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+			macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 2.5, 100, 100, 40, 0, 4.5, 0.0, 9.1, 17.0, None, None, None, 0.8, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+			macros::ATTACK(fighter, 2, 0, Hash40::new("top"), 2.5, 367, 100, 40, 0, 4.5, 0.0, 9.1, 9.0, Some(0.0), Some(9.1), Some(17.0), 0.8, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+			macros::ATTACK(fighter, 3, 0, Hash40::new("top"), 2.5, 80, 100, 40, 0, 4.5, 0.0, 9.1, 9.0, Some(0.0), Some(9.1), Some(17.0), 0.8, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
 		}
-		frame(Frame=16)
-		for(4 Iterations){
-			if(is_excute){
-				ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=2.5, Angle=367, KBG=100, FKB=40, BKB=0, Size=4.5, X=0.0, Y=9.1, Z=17.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.8, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_A, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-				ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=2.5, Angle=100, KBG=100, FKB=40, BKB=0, Size=4.5, X=0.0, Y=9.1, Z=17.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.8, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_G, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-				ATTACK(ID=2, Part=0, Bone=hash40("top"), Damage=2.5, Angle=367, KBG=100, FKB=40, BKB=0, Size=4.5, X=0.0, Y=9.1, Z=9.0, X2=0.0, Y2=9.1, Z2=17.0, Hitlag=0.8, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_A, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-				ATTACK(ID=3, Part=0, Bone=hash40("top"), Damage=2.5, Angle=80, KBG=100, FKB=40, BKB=0, Size=4.5, X=0.0, Y=9.1, Z=9.0, X2=0.0, Y2=9.1, Z2=17.0, Hitlag=0.8, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_G, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-			}
-			wait(Frames=1)
-			if(is_excute){
-				AttackModule::clear_all()
-			}
-			wait(Frames=1)
+		wait(fighter.lua_state_agent, 1.0);
+		if macros::is_excute(fighter) {
+			AttackModule::clear_all(fighter.module_accessor);
 		}
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=10.0, Angle=361, KBG=145, FKB=0, BKB=40, Size=6.0, X=0.0, Y=9.1, Z=10.5, X2=0.0, Y2=9.1, Z2=17.0, Hitlag=1.5, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_magic"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_MAGIC, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=1)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-	});
+		wait(fighter.lua_state_agent, 1.0);
+	}
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 10.0, 361, 145, 0, 40, 6.0, 0.0, 9.1, 10.5, Some(0.0), Some(9.1), Some(17.0), 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_catch", category = ACMD_GAME)]
@@ -665,82 +609,73 @@ unsafe fn zelda_game_specialairhistart(fighter: &mut L2CAgentBase) {
 
 #[acmd_script(agent = "zelda", script = "game_specialhi", category = ACMD_GAME)]
 unsafe fn zelda_game_specialhi(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		if(is_excute){
-			JostleModule::set_status(true)
-			ATTACK(ID=0, Part=0, Bone=hash40("rot"), Damage=12.0, Angle=361, KBG=85, FKB=0, BKB=80, Size=15.0, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.5, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=3)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		frame(Frame=10)
-		FT_MOTION_RATE(FSM=1.25)
-	});
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		JostleModule::set_status(fighter.module_accessor, true);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("rot"), 12.0, 361, 85, 0, 80, 15.0, 0.0, 0.0, 0.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 10.0);
+	macros::FT_MOTION_RATE(fighter, 1.25);
 }
 
 #[acmd_script(agent = "zelda", script = "game_specialhistart", category = ACMD_GAME)]
 unsafe fn zelda_game_specialhistart(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=3)
-		if(is_excute){
-			sv_module_access::damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 5)
-		}
-		frame(Frame=6)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=6.0, Angle=90, KBG=100, FKB=180, BKB=5, Size=8.0, X=0.0, Y=6.0, Z=-4.0, X2=0.0, Y2=6.0, Z2=4.0, Hitlag=1.0, SDI=0.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=2)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		frame(Frame=17)
-		if(is_excute){
-			sv_module_access::damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
-		}
-	});
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 5);
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 6.0, 90, 100, 180, 5, 8.0, 0.0, 6.0, -4.0, Some(0.0), Some(6.0), Some(4.0), 1.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
+	}
 }
 
 #[acmd_script(agent = "zelda", scripts = ["game_specialn", "game_specialairn"], category = ACMD_GAME)]
 unsafe fn zelda_game_specialn(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=1)
-		FT_MOTION_RATE(FSM=0.3333333)
-		frame(Frame=4)
-		FT_MOTION_RATE(FSM=0.5)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_ZELDA_STATUS_SPECIAL_N_FLAG_REFLECTOR_START)
-			sv_module_access::damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 5)
-		}
-		frame(Frame=6)
-		FT_MOTION_RATE(FSM=1)
-		frame(Frame=13)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=1.3, Angle=367, KBG=100, FKB=40, BKB=0, Size=8.5, X=0.0, Y=7.0, Z=-0.5, X2=0.0, Y2=7.0, Z2=0.5, Hitlag=0.0, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_A, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=1.3, Angle=160, KBG=100, FKB=40, BKB=0, Size=8.5, X=0.0, Y=7.0, Z=-0.5, X2=0.0, Y2=7.0, Z2=0.5, Hitlag=0.0, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_G, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=2, Part=0, Bone=hash40("top"), Damage=1.3, Angle=367, KBG=100, FKB=40, BKB=0, Size=4.0, X=0.0, Y=8.0, Z=-10.0, X2=0.0, Y2=8.0, Z2=10.0, Hitlag=0.0, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_A, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=3, Part=0, Bone=hash40("top"), Damage=1.3, Angle=160, KBG=100, FKB=40, BKB=0, Size=4.0, X=0.0, Y=8.0, Z=-10.0, X2=0.0, Y2=8.0, Z2=10.0, Hitlag=0.0, SDI=0.2, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=2, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_G, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-		}
-		frame(Frame=28)
-		if(is_excute){
-			AttackModule::clear_all()
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=5.0, Angle=361, KBG=110, FKB=0, BKB=60, Size=7.0, X=0.0, Y=8.0, Z=-4.0, X2=0.0, Y2=8.0, Z2=4.0, Hitlag=0.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=5.0, Angle=361, KBG=110, FKB=0, BKB=60, Size=5.0, X=0.0, Y=8.0, Z=-11.0, X2=0.0, Y2=8.0, Z2=11.0, Hitlag=0.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_MAGIC)
-		}
-		wait(Frames=1)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		frame(Frame=43)
-		if(is_excute){
-			WorkModule::on_flag(Flag=FIGHTER_ZELDA_STATUS_SPECIAL_N_FLAG_REFLECTOR_END)
-			sv_module_access::damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
-		}
-	});
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.3333333);
+	frame(fighter.lua_state_agent, 4.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_ZELDA_STATUS_SPECIAL_N_FLAG_REFLECTOR_START);
+		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 5);
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
+	frame(fighter.lua_state_agent, 13.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.3, 367, 100, 40, 0, 8.5, 0.0, 7.0, -0.5, Some(0.0), Some(7.0), Some(0.5), 0.0, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 1.3, 160, 100, 40, 0, 8.5, 0.0, 7.0, -0.5, Some(0.0), Some(7.0), Some(0.5), 0.0, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("top"), 1.3, 367, 100, 40, 0, 4.0, 0.0, 8.0, -10.0, Some(0.0), Some(8.0), Some(10.0), 0.0, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("top"), 1.3, 160, 100, 40, 0, 4.0, 0.0, 8.0, -10.0, Some(0.0), Some(8.0), Some(10.0), 0.0, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+	}
+	frame(fighter.lua_state_agent, 28.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 361, 110, 0, 60, 7.0, 0.0, 8.0, -4.0, Some(0.0), Some(8.0), Some(4.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 5.0, 361, 110, 0, 60, 5.0, 0.0, 8.0, -11.0, Some(0.0), Some(8.0), Some(11.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 43.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_ZELDA_STATUS_SPECIAL_N_FLAG_REFLECTOR_END);
+		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
+	}
 }
 
 #[acmd_script(agent = "zelda", script = "game_throwb", category = ACMD_GAME)]
@@ -837,131 +772,113 @@ unsafe fn zelda_game_throwlw(fighter: &mut L2CAgentBase) {
 
 #[acmd_script(agent = "zelda_dein_s", script = "game_move", category = ACMD_GAME)]
 unsafe fn zelda_dein_s_game_move(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=2.0, Angle=80, KBG=102, FKB=0, BKB=50, Size=3.5, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=true, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_FIRE, Type=ATTACK_REGION_BOMB)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=1.0, Angle=80, KBG=102, FKB=0, BKB=50, Size=5.0, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=true, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_fire"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_FIRE, Type=ATTACK_REGION_BOMB)
-			AREA_WIND_2ND_RAD_arg9(0, 2, 0.05, 200, 1, 0, 0, 12, 60)
-		}
-		frame(Frame=6)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-		frame(Frame=20)
-		if(is_excute){
-			AreaModule::erase_wind(0)
-		}
-	});
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 80, 102, 0, 50, 3.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_BOMB);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 1.0, 80, 102, 0, 50, 5.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_BOMB);
+		macros::AREA_WIND_2ND_RAD_arg9(fighter, 0, 2, 0.05, 200, 1, 0, 0, 12, 60);
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 20.0);
+	if macros::is_excute(fighter) {
+		AreaModule::erase_wind(fighter.module_accessor, 0);
+	}
 }
 
 #[acmd_script(agent = "zelda_phantom", script = "game_attackkick", category = ACMD_GAME)]
 unsafe fn zelda_phantom_game_attackkick(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=10)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=2.0, Angle=361, KBG=45, FKB=0, BKB=50, Size=5.5, X=0.0, Y=6.0, Z=14.0, X2=0.0, Y2=6.0, Z2=10.0, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-1, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_KICK, Type=ATTACK_REGION_OBJECT)
-		}
-		wait(Frames=2)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-	});
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 361, 45, 0, 50, 5.5, 0.0, 6.0, 14.0, Some(0.0), Some(6.0), Some(10.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -1, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_OBJECT);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
 }
 
 #[acmd_script(agent = "zelda_phantom", script = "game_attackl", category = ACMD_GAME)]
 unsafe fn zelda_phantom_game_attackl(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=0)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.0, Angle=361, KBG=100, FKB=110, BKB=0, Size=5.5, X=0.0, Y=8.0, Z=10.0, X2=0.0, Y2=8.0, Z2=4.0, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=3, Reflectable=true, Absorbable=false, Flinchless=true, DisableHitlag=true, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_G, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_NONE, Type=ATTACK_REGION_NONE)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=0.0, Angle=361, KBG=100, FKB=80, BKB=0, Size=7.0, X=0.0, Y=8.0, Z=10.0, X2=0.0, Y2=8.0, Z2=4.0, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=3, Reflectable=true, Absorbable=false, Flinchless=true, DisableHitlag=true, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_A, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_NONE, Type=ATTACK_REGION_NONE)
-		}
-		frame(Frame=7)
-		if(is_excute){
-			AttackModule::clear_all()
-			ATTACK(ID=0, Part=0, Bone=hash40("handr"), Damage=5.0, Angle=361, KBG=65, FKB=0, BKB=60, Size=5.0, X=2.0, Y=0.0, Z=1.5, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-2.5, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
-			ATTACK(ID=1, Part=0, Bone=hash40("handr"), Damage=5.0, Angle=361, KBG=65, FKB=0, BKB=60, Size=5.6, X=2.0, Y=0.0, Z=8.5, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-2.5, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
-			ATTACK(ID=2, Part=0, Bone=hash40("handr"), Damage=5.0, Angle=361, KBG=65, FKB=0, BKB=60, Size=5.6, X=2.0, Y=0.0, Z=16.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-2.5, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
-			ATTACK(ID=3, Part=0, Bone=hash40("top"), Damage=5.0, Angle=361, KBG=65, FKB=0, BKB=60, Size=5.0, X=0.0, Y=8.5, Z=11.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-2.5, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
-			AttackModule::set_attack_height_all(AttackHeight(*ATTACK_HEIGHT_HIGH), false)
-		}
-		wait(Frames=4)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-	});
+	frame(fighter.lua_state_agent, 0.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 361, 100, 110, 0, 5.5, 0.0, 8.0, 10.0, Some(0.0), Some(8.0), Some(4.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 3, true, false, true, true, false, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 0.0, 361, 100, 80, 0, 7.0, 0.0, 8.0, 10.0, Some(0.0), Some(8.0), Some(4.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 3, true, false, true, true, false, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+	}
+	frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("handr"), 5.0, 361, 65, 0, 60, 5.0, 2.0, 0.0, 1.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -2.5, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("handr"), 5.0, 361, 65, 0, 60, 5.6, 2.0, 0.0, 8.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -2.5, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("handr"), 5.0, 361, 65, 0, 60, 5.6, 2.0, 0.0, 16.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -2.5, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("top"), 5.0, 361, 65, 0, 60, 5.0, 0.0, 8.5, 11.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -2.5, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
+		AttackModule::set_attack_height_all(fighter.module_accessor, AttackHeight(*ATTACK_HEIGHT_HIGH), false);
+	}
+	wait(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
 }
 
 #[acmd_script(agent = "zelda_phantom", script = "game_attackmax", category = ACMD_GAME)]
 unsafe fn zelda_phantom_game_attackmax(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=0)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.0, Angle=361, KBG=100, FKB=130, BKB=0, Size=6.0, X=0.0, Y=8.0, Z=13.0, X2=0.0, Y2=8.0, Z2=8.0, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=3, Reflectable=true, Absorbable=false, Flinchless=true, DisableHitlag=true, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_G, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_NONE, Type=ATTACK_REGION_NONE)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=0.0, Angle=6, KBG=100, FKB=85, BKB=0, Size=8.5, X=0.0, Y=8.0, Z=13.0, X2=0.0, Y2=8.0, Z2=8.0, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=3, Reflectable=true, Absorbable=false, Flinchless=true, DisableHitlag=true, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_A, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_NONE, Type=ATTACK_REGION_NONE)
-		}
-		frame(Frame=6)
-		if(is_excute){
-			AttackModule::clear_all()
-			ATTACK(ID=0, Part=0, Bone=hash40("handr"), Damage=6.0, Angle=45, KBG=70, FKB=0, BKB=60, Size=6.0, X=2.0, Y=0.0, Z=1.5, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-3, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
-			ATTACK(ID=1, Part=0, Bone=hash40("handr"), Damage=6.0, Angle=45, KBG=70, FKB=0, BKB=60, Size=6.0, X=2.0, Y=1.0, Z=9.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-3, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
-			ATTACK(ID=2, Part=0, Bone=hash40("handr"), Damage=6.0, Angle=45, KBG=70, FKB=0, BKB=60, Size=6.0, X=2.0, Y=2.0, Z=16.5, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-3, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
-		}
-		wait(Frames=11)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-	});
+	frame(fighter.lua_state_agent, 0.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 361, 100, 130, 0, 6.0, 0.0, 8.0, 13.0, Some(0.0), Some(8.0), Some(8.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 3, true, false, true, true, false, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 0.0, 6, 100, 85, 0, 8.5, 0.0, 8.0, 13.0, Some(0.0), Some(8.0), Some(8.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 3, true, false, true, true, false, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("handr"), 6.0, 45, 70, 0, 60, 6.0, 2.0, 0.0, 1.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -3, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("handr"), 6.0, 45, 70, 0, 60, 6.0, 2.0, 1.0, 9.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -3, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("handr"), 6.0, 45, 70, 0, 60, 6.0, 2.0, 2.0, 16.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -3, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
+	}
+	wait(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
 }
 
 #[acmd_script(agent = "zelda_phantom", script = "game_attackpunch", category = ACMD_GAME)]
 unsafe fn zelda_phantom_game_attackpunch(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=0)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.0, Angle=361, KBG=100, FKB=60, BKB=0, Size=4.0, X=0.0, Y=7.0, Z=11.0, X2=0.0, Y2=7.0, Z2=7.0, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=3, Reflectable=true, Absorbable=false, Flinchless=true, DisableHitlag=true, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_G, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_NONE, Type=ATTACK_REGION_NONE)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=0.0, Angle=361, KBG=100, FKB=40, BKB=0, Size=6.0, X=0.0, Y=7.0, Z=11.0, X2=0.0, Y2=7.0, Z2=7.0, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=3, Reflectable=true, Absorbable=false, Flinchless=true, DisableHitlag=true, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_A, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_NONE, Type=ATTACK_REGION_NONE)
-		}
-		frame(Frame=7)
-		if(is_excute){
-			AttackModule::clear_all()
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=3.0, Angle=361, KBG=55, FKB=0, BKB=60, Size=5.5, X=0.0, Y=10.0, Z=11.5, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.2, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-1.5, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_PUNCH, Type=ATTACK_REGION_OBJECT)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=3.0, Angle=361, KBG=55, FKB=0, BKB=60, Size=4.5, X=0.0, Y=9.5, Z=19.5, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.2, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-1.5, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_PUNCH, Type=ATTACK_REGION_OBJECT)
-		}
-		wait(Frames=5)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-	});
+	frame(fighter.lua_state_agent, 0.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 361, 100, 60, 0, 4.0, 0.0, 7.0, 11.0, Some(0.0), Some(7.0), Some(7.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 3, true, false, true, true, false, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 0.0, 361, 100, 40, 0, 6.0, 0.0, 7.0, 11.0, Some(0.0), Some(7.0), Some(7.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 3, true, false, true, true, false, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+	}
+	frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 3.0, 361, 55, 0, 60, 5.5, 0.0, 10.0, 11.5, None, None, None, 1.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -1.5, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_OBJECT);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 3.0, 361, 55, 0, 60, 4.5, 0.0, 9.5, 19.5, None, None, None, 1.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -1.5, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_OBJECT);
+	}
+	wait(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
 }
 
 #[acmd_script(agent = "zelda_phantom", script = "game_attacks", category = ACMD_GAME)]
 unsafe fn zelda_phantom_game_attacks(fighter: &mut L2CAgentBase) {
-	let lua_state = fighter.lua_state_agent;
-	acmd!(lua_state, {
-		frame(Frame=0)
-		if(is_excute){
-			ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=0.0, Angle=361, KBG=100, FKB=50, BKB=0, Size=5.0, X=0.0, Y=8.0, Z=10.0, X2=0.0, Y2=8.0, Z2=4.0, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=4, Reflectable=true, Absorbable=false, Flinchless=true, DisableHitlag=true, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_G, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_NONE, Type=ATTACK_REGION_NONE)
-			ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=0.0, Angle=361, KBG=100, FKB=40, BKB=0, Size=7.0, X=0.0, Y=8.0, Z=10.0, X2=0.0, Y2=8.0, Z2=4.0, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=true, ShieldDamage=0, Trip=0.0, Rehit=4, Reflectable=true, Absorbable=false, Flinchless=true, DisableHitlag=true, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_A, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_NONE, Type=ATTACK_REGION_NONE)
-		}
-		frame(Frame=7)
-		if(is_excute){
-			AttackModule::clear_all()
-			ATTACK(ID=0, Part=0, Bone=hash40("handr"), Damage=4.0, Angle=361, KBG=65, FKB=0, BKB=60, Size=5.8, X=0.0, Y=0.0, Z=1.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.8, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-2, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
-			ATTACK(ID=1, Part=0, Bone=hash40("handr"), Damage=4.0, Angle=361, KBG=65, FKB=0, BKB=60, Size=5.8, X=0.0, Y=0.0, Z=8.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.8, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-2, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
-			ATTACK(ID=2, Part=0, Bone=hash40("handr"), Damage=4.0, Angle=361, KBG=65, FKB=0, BKB=60, Size=5.8, X=0.0, Y=0.0, Z=16.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.8, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-2, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
-			ATTACK(ID=3, Part=0, Bone=hash40("top"), Damage=4.0, Angle=361, KBG=65, FKB=0, BKB=60, Size=6.5, X=0.0, Y=8.0, Z=10.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.8, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=-2, Trip=0.0, Rehit=0, Reflectable=true, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=false, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
-		}
-		wait(Frames=4)
-		if(is_excute){
-			AttackModule::clear_all()
-		}
-	});
+	frame(fighter.lua_state_agent, 0.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 361, 100, 50, 0, 5.0, 0.0, 8.0, 10.0, Some(0.0), Some(8.0), Some(4.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 4, true, false, true, true, false, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 0.0, 361, 100, 40, 0, 7.0, 0.0, 8.0, 10.0, Some(0.0), Some(8.0), Some(4.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 4, true, false, true, true, false, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+	}
+	frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("handr"), 4.0, 361, 65, 0, 60, 5.8, 0.0, 0.0, 1.0, None, None, None, 0.8, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -2, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("handr"), 4.0, 361, 65, 0, 60, 5.8, 0.0, 0.0, 8.0, None, None, None, 0.8, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -2, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("handr"), 4.0, 361, 65, 0, 60, 5.8, 0.0, 0.0, 16.0, None, None, None, 0.8, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -2, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("top"), 4.0, 361, 65, 0, 60, 6.5, 0.0, 8.0, 10.0, None, None, None, 0.8, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -2, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
+	}
+	wait(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
 }
 
 pub fn install() {
