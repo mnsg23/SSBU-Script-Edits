@@ -214,7 +214,7 @@ unsafe fn eflame_game_attackairb(fighter: &mut L2CAgentBase) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
 	}
 	macros::FT_MOTION_RATE(fighter, 2.0);
-	frame(fighter.lua_state_agent, 8.0);
+	frame(fighter.lua_state_agent, 7.0);
 	macros::FT_MOTION_RATE(fighter, 1.0);
 	frame(fighter.lua_state_agent, 9.0);
 	if macros::is_excute(fighter) {
@@ -335,8 +335,6 @@ unsafe fn eflame_game_attackairhi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
 	}
-	frame(fighter.lua_state_agent, 4.0);
-	macros::FT_MOTION_RATE(fighter, 2.0);
 	frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
 		if ArticleModule::is_exist(fighter.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD) {
@@ -346,7 +344,6 @@ unsafe fn eflame_game_attackairhi(fighter: &mut L2CAgentBase) {
 			}
 		}
 	}
-	macros::FT_MOTION_RATE(fighter, 1.0);
 	frame(fighter.lua_state_agent, 11.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("haver"), 12.0, 80, 62, 0, 90, 4.0, 0.0, 5.0, 0.0, None, None, None, 1.25, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_SWORD);
@@ -392,10 +389,6 @@ unsafe fn eflame_game_attackairlw(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
 	}
-	frame(fighter.lua_state_agent, 6.0);
-	macros::FT_MOTION_RATE(fighter, 2.0);
-	frame(fighter.lua_state_agent, 8.0);
-	macros::FT_MOTION_RATE(fighter, 1.0);
 	frame(fighter.lua_state_agent, 9.0);
 	if macros::is_excute(fighter) {
 		if ArticleModule::is_exist(fighter.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD) {
@@ -475,7 +468,6 @@ unsafe fn eflame_game_attackairn(fighter: &mut L2CAgentBase) {
 			}
 		}
 	}
-	frame(fighter.lua_state_agent, 4.0);
 	macros::FT_MOTION_RATE(fighter, 1.0);
 	frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
@@ -525,7 +517,7 @@ unsafe fn eflame_game_attackdash(fighter: &mut L2CAgentBase) {
 		}
 	}
 	macros::FT_MOTION_RATE(fighter, 1.0);
-	frame(fighter.lua_state_agent, 12.0);
+	frame(fighter.lua_state_agent, 8.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	frame(fighter.lua_state_agent, 14.0);
 	macros::FT_MOTION_RATE(fighter, 1.0);
@@ -553,7 +545,7 @@ unsafe fn eflame_game_attackdash(fighter: &mut L2CAgentBase) {
 unsafe fn eflame_game_attackhi3(fighter: &mut L2CAgentBase) {
 	frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 2.0);
-	frame(fighter.lua_state_agent, 3.0);
+	frame(fighter.lua_state_agent, 2.0);
 	macros::FT_MOTION_RATE(fighter, 1.0);
 	frame(fighter.lua_state_agent, 7.0);
 	if macros::is_excute(fighter) {
@@ -699,6 +691,8 @@ unsafe fn eflame_game_attackhi4(fighter: &mut L2CAgentBase) {
 unsafe fn eflame_game_attacklw3(fighter: &mut L2CAgentBase) {
 	frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 2.0);
+	frame(fighter.lua_state_agent, 2.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
 	frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		if ArticleModule::is_exist(fighter.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD) {
@@ -708,7 +702,6 @@ unsafe fn eflame_game_attacklw3(fighter: &mut L2CAgentBase) {
 			}
 		}
 	}
-	macros::FT_MOTION_RATE(fighter, 1.0);
 	frame(fighter.lua_state_agent, 7.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 8.0, 85, 91, 0, 70, 5.0, 0.0, 4.0, 7.0, None, None, None, 1.25, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_SWORD);
@@ -786,7 +779,7 @@ unsafe fn eflame_game_attacklw4(fighter: &mut L2CAgentBase) {
 unsafe fn eflame_game_attacks3(fighter: &mut L2CAgentBase) {
 	frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 2.0);
-	frame(fighter.lua_state_agent, 3.0);
+	frame(fighter.lua_state_agent, 2.0);
 	macros::FT_MOTION_RATE(fighter, 1.0);
 	frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
