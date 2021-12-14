@@ -824,6 +824,24 @@ unsafe fn yoshi_game_throwlw(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter,	0.6);
 }
 
+#[acmd_script(agent = "yoshi", script = "sound_attackairb", category = ACMD_SOUND)]
+unsafe fn yoshi_sound_attackairb(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		macros::STOP_SE(fighter, Hash40::new("vc_yoshi_jump02"));
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_yoshi_rnd_attack"));
+		macros::PLAY_SE(fighter, Hash40::new("se_yoshi_attackair_b01"));
+	}
+	frame(fighter.lua_state_agent, 13.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_yoshi_attackair_b01"));
+	}
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_yoshi_attackair_b01"));
+	}
+}
+
 #[acmd_script(agent = "yoshi_star", script = "game_move", category = ACMD_GAME)]
 unsafe fn yoshi_star_game_move(fighter: &mut L2CAgentBase) {
 	frame(fighter.lua_state_agent, 3.0);
@@ -898,6 +916,7 @@ pub fn install() {
 		yoshi_game_throwf,
 		yoshi_game_throwhi,
 		yoshi_game_throwlw,
+		yoshi_sound_attackairb,
 		yoshi_star_game_move,
 		yoshi_tamago_game_burst,
 		yoshi_tamago_game_throwed,
