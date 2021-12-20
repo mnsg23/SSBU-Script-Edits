@@ -2,7 +2,7 @@ use smash::hash40;
 use smash::phx::*;
 use smash::lib::lua_const::*;
 use smash::lua2cpp::L2CAgentBase;
-use smash::app::{sv_math, lua_bind::*, sv_animcmd::*};
+use smash::app::{sv_math, sv_module_access, lua_bind::*, sv_animcmd::*};
 use smash_script::*;
 use smashline::*;
 
@@ -561,10 +561,10 @@ unsafe fn koopa_sound_throwhi(fighter: &mut L2CAgentBase) {
 	wait(fighter.lua_state_agent, 33.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_STATUS(fighter, Hash40::new("se_common_throw_02"));
-		let lua_state = fighter.lua_state_agent;
-		acmd!(lua_state, {
-			sv_module_access::sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
-		});
+		fighter.clear_lua_stack();
+		lua_args!(fighter, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+		sv_module_access::sound(fighter.lua_state_agent);
+		fighter.pop_lua_stack(1);
 	}
 }
 
