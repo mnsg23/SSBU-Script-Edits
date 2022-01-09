@@ -920,6 +920,182 @@ unsafe fn ganon_game_throwlw(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.5);
 }
 
+#[acmd_script(agent = "ganon_ganond", script = "effect_start", category = ACMD_EFFECT)]
+unsafe fn ganon_ganond_effect_start(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 17.0);
+	for _ in 0..6 {
+		if macros::is_excute(fighter) {
+			macros::EFFECT(fighter, Hash40::new("ganon_final_transform_light"), Hash40::new("top"), 0, 17, 0, 0, 0, 0, 1.2, 45, 45, 45, 0, 0, 0, true);
+			macros::BURN_COLOR(fighter, 0.1, 1, 2, 0.7);
+		}
+		wait(fighter.lua_state_agent, 2.0);
+		if macros::is_excute(fighter) {
+			macros::EFFECT(fighter, Hash40::new("ganon_final_transform_light"), Hash40::new("top"), 0, 27, -10, 0, 0, 0, 1.3, 40, 40, 40, 0, 0, 0, true);
+			macros::BURN_COLOR_FRAME(fighter, 5, 0.1, 1, 2, 0);
+		}
+		wait(fighter.lua_state_agent, 1.0);
+		if macros::is_excute(fighter) {
+			macros::EFFECT(fighter, Hash40::new("ganon_final_transform_light"), Hash40::new("top"), 0, 37, -5, 0, 0, 0, 1.2, 40, 40, 40, 0, 0, 0, true);
+			macros::BURN_COLOR_NORMAL(fighter);
+		}
+		wait(fighter.lua_state_agent, 1.0);
+	}
+	frame(fighter.lua_state_agent, 25.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_final_sword_flare"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_final_sword_flare"), Hash40::new("haver"), 0, 0.1, -0.2, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 45.0);
+	if macros::is_excute(fighter) {
+		macros::AFTER_IMAGE4_ON_arg29(fighter, Hash40::new("tex_ganon_final_sword1"), Hash40::new("tex_ganon_final_sword2"), 5, Hash40::new("havel"), 0.0, 1.0, 0.0, Hash40::new("havel"), 0.0, 48.0, 0.0, true, Hash40::new("null"), Hash40::new("haver"), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+		macros::AFTER_IMAGE4_ON_arg29(fighter, Hash40::new("tex_ganon_final_sword1"), Hash40::new("tex_ganon_final_sword2"), 5, Hash40::new("haver"), 0.0, 1.0, 0.0, Hash40::new("haver"), 0.0, 48.0, 0.0, true, Hash40::new("null"), Hash40::new("haver"), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+	}
+	frame(fighter.lua_state_agent, 50.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("ganon_final_cut"), Hash40::new("top"), 0, 16, 28, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 51.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 5, 0, 17, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 53.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1.7, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 55.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 45, 0, 0, 0, 0, 0, 2.2, 0, 0, 0, 0, 0, 0, false);
+		macros::LAST_EFFECT_SET_ALPHA(fighter, 0.5);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.8);
+	}
+	frame(fighter.lua_state_agent, 56.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_shield_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, true);
+		macros::LAST_EFFECT_SET_ALPHA(fighter, 0.3);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.4);
+		macros::AFTER_IMAGE_OFF(fighter, 10);
+	}
+	frame(fighter.lua_state_agent, 70.0);
+	if macros::is_excute(fighter) {
+		if WorkModule::get_int(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_KIND) == *FIGHTER_KIND_GANON
+		&& PostureModule::lr(fighter.module_accessor) < 0.0 {
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_final_eye"), Hash40::new("eye_l"), 0, 0, 0, 0, 0, 0, 1, true);
+		} else {
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_final_eye"), Hash40::new("eye_r"), 0, 0, 0, 0, 0, 0, 1, true);
+		}
+	}
+	frame(fighter.lua_state_agent, 85.0);
+	if macros::is_excute(fighter) {
+		macros::BURN_COLOR(fighter, 1.5, 0.5, 2, 0);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_final_attack"), Hash40::new("top"), 0, 17, 25, 0, 0, 0, 1, false);
+	}
+	frame(fighter.lua_state_agent, 90.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("sys_shield_smoke"), false, true);
+		macros::BURN_COLOR_FRAME(fighter, 5, 1.5, 0.5, 2, 0.5);
+	}
+	frame(fighter.lua_state_agent, 104.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 5, 0, 17, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 105.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.7, 0, 0, 0, 0, 0, 0, false);
+	}
+	for _ in 0..10 {
+		if macros::is_excute(fighter) {
+			macros::BURN_COLOR(fighter, 1.5, 0.5, 2, 0.5);
+		}
+		wait(fighter.lua_state_agent, 2.0);
+		if macros::is_excute(fighter) {
+			macros::BURN_COLOR_FRAME(fighter, 5, 1.5, 0.5, 2, 0);
+		}
+		wait(fighter.lua_state_agent, 1.0);
+		if macros::is_excute(fighter) {
+			macros::BURN_COLOR_NORMAL(fighter);
+		}
+		wait(fighter.lua_state_agent, 1.0);
+	}
+}
+
+#[acmd_script(agent = "ganon_ganond", script = "effect_startair", category = ACMD_EFFECT)]
+unsafe fn ganon_ganond_effect_startair(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 17.0);
+	for _ in 0..6 {
+		if macros::is_excute(fighter) {
+			macros::EFFECT(fighter, Hash40::new("ganon_final_transform_light"), Hash40::new("top"), 0, 17, 0, 0, 0, 0, 1.2, 45, 45, 45, 0, 0, 0, true);
+			macros::BURN_COLOR(fighter, 0.1, 1, 2, 0.7);
+		}
+		wait(fighter.lua_state_agent, 2.0);
+		if macros::is_excute(fighter) {
+			macros::EFFECT(fighter, Hash40::new("ganon_final_transform_light"), Hash40::new("top"), 0, 27, -10, 0, 0, 0, 1.3, 40, 40, 40, 0, 0, 0, true);
+			macros::BURN_COLOR_FRAME(fighter, 5, 0.1, 1, 2, 0);
+		}
+		wait(fighter.lua_state_agent, 1.0);
+		if macros::is_excute(fighter) {
+			macros::EFFECT(fighter, Hash40::new("ganon_final_transform_light"), Hash40::new("top"), 0, 37, -5, 0, 0, 0, 1.2, 40, 40, 40, 0, 0, 0, true);
+			macros::BURN_COLOR_NORMAL(fighter);
+		}
+		wait(fighter.lua_state_agent, 1.0);
+	}
+	frame(fighter.lua_state_agent, 25.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_final_sword_flare"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_final_sword_flare"), Hash40::new("haver"), 0, 0.1, -0.2, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 45.0);
+	if macros::is_excute(fighter) {
+		macros::AFTER_IMAGE4_ON_arg29(fighter, Hash40::new("tex_ganon_final_sword1"), Hash40::new("tex_ganon_final_sword2"), 4, Hash40::new("havel"), 0.0, 1.0, 0.0, Hash40::new("havel"), 0.0, 48.0, 0.0, true, Hash40::new("null"), Hash40::new("haver"), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+		macros::AFTER_IMAGE4_ON_arg29(fighter, Hash40::new("tex_ganon_final_sword1"), Hash40::new("tex_ganon_final_sword2"), 4, Hash40::new("haver"), 0.0, 1.0, 0.0, Hash40::new("haver"), 0.0, 48.0, 0.0, true, Hash40::new("null"), Hash40::new("haver"), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+	}
+	frame(fighter.lua_state_agent, 50.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("ganon_final_cut"), Hash40::new("top"), 0, 16, 28, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 55.0);
+	if macros::is_excute(fighter) {
+		macros::LAST_EFFECT_SET_ALPHA(fighter, 0.3);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.8);
+	}
+	frame(fighter.lua_state_agent, 56.0);
+	if macros::is_excute(fighter) {
+		macros::AFTER_IMAGE_OFF(fighter, 6);
+	}
+	frame(fighter.lua_state_agent, 57.0);
+	if macros::is_excute(fighter) {
+		if WorkModule::get_int(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_KIND) == *FIGHTER_KIND_GANON
+		&& PostureModule::lr(fighter.module_accessor) < 0.0 {
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_final_eye"), Hash40::new("eye_l"), 0, 0, 0, 0, 0, 0, 1, true);
+		} else {
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_final_eye"), Hash40::new("eye_r"), 0, 0, 0, 0, 0, 0, 1, true);
+		}
+	}
+	frame(fighter.lua_state_agent, 90.0);
+	if macros::is_excute(fighter) {
+		macros::BURN_COLOR(fighter, 1.5, 0.5, 2, 0);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_final_attack"), Hash40::new("top"), 0, 17, 25, 0, 0, 0, 1, false);
+	}
+	frame(fighter.lua_state_agent, 95.0);
+	if macros::is_excute(fighter) {
+		macros::BURN_COLOR_FRAME(fighter, 5, 1.5, 0.5, 2, 0.5);
+	}
+	frame(fighter.lua_state_agent, 105.0);
+	for _ in 0..10 {
+		if macros::is_excute(fighter) {
+			macros::BURN_COLOR(fighter, 1.5, 0.5, 2, 0.5);
+		}
+		wait(fighter.lua_state_agent, 2.0);
+		if macros::is_excute(fighter) {
+			macros::BURN_COLOR_FRAME(fighter, 5, 1.5, 0.5, 2, 0);
+		}
+		wait(fighter.lua_state_agent, 1.0);
+		if macros::is_excute(fighter) {
+			macros::BURN_COLOR_NORMAL(fighter);
+		}
+		wait(fighter.lua_state_agent, 1.0);
+	}
+}
+
 #[acmd_script(agent = "ganon_ganond", scripts = ["game_attack", "game_attackair"], category = ACMD_GAME)]
 unsafe fn ganon_ganond_game_attack(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
@@ -1026,6 +1202,8 @@ pub fn install() {
 		ganon_game_throwf,
 		ganon_game_throwhi,
 		ganon_game_throwlw,
+		ganon_ganond_effect_start,
+		ganon_ganond_effect_startair,
 		ganon_ganond_game_attack,
 		ganon_ganond_game_start,
 	);
