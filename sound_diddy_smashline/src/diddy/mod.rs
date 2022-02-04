@@ -1,8 +1,12 @@
-use smash::phx::*;
-use smash::lua2cpp::L2CAgentBase;
-use smash::app::sv_animcmd::*;
-use smash_script::*;
-use smashline::*;
+use {
+	smash::{
+		app::sv_animcmd::*,
+		lua2cpp::L2CAgentBase,
+		phx::Hash40
+	},
+	smash_script::*,
+	smashline::*
+};
 
 #[acmd_script(agent = "diddy", script = "sound_batswing4", category = ACMD_SOUND)]
 unsafe fn diddy_sound_batswing4(fighter: &mut L2CAgentBase) {
