@@ -1,10 +1,19 @@
-use smash::hash40;
-use smash::phx::*;
-use smash::lib::lua_const::*;
-use smash::lua2cpp::L2CAgentBase;
-use smash::app::{sv_math, sv_module_access, lua_bind::*, sv_animcmd::*};
-use smash_script::*;
-use smashline::*;
+use {
+	smash::{
+		app::{
+			lua_bind::*,
+			sv_animcmd::*,
+			sv_math,
+			sv_module_access
+		},
+		hash40,
+		lib::lua_const::*,
+		lua2cpp::L2CAgentBase,
+		phx::Hash40
+	},
+	smash_script::*,
+	smashline::*
+};
 
 #[acmd_script(agent = "koopa", scripts = ["sound_appealhil", "sound_appealhir"], category = ACMD_SOUND)]
 unsafe fn koopa_sound_appealhi(fighter: &mut L2CAgentBase) {
@@ -455,14 +464,10 @@ unsafe fn koopa_sound_jump(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 2);
 	frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
-		if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_JUMP_FLAG_GIMMICK_SPRING_JUMP_FROM_RING) {
-			if sound == 0 {
-				macros::PLAY_SE(fighter, Hash40::new("vc_koopa_jump01"));
-			}
-		} else {
-			if sound == 0 {
-				macros::PLAY_SE(fighter, Hash40::new("vc_koopa_jump01"));
-			}
+		if sound == 0 {
+			macros::PLAY_SE(fighter, Hash40::new("vc_koopa_jump01"));
+		}
+		if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_JUMP_FLAG_GIMMICK_SPRING_JUMP_FROM_RING) == false {
 			macros::PLAY_SE(fighter, Hash40::new("se_koopa_jump01"));
 		}
 	}
