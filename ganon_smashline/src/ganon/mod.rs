@@ -1,10 +1,19 @@
-use smash::phx::*;
-use smash::lib::lua_const::*;
-use smash::lua2cpp::L2CAgentBase;
-use smash::app::{ArticleOperationTarget, AttackHeight, lua_bind::*, sv_animcmd::*};
-use smash_script::*;
-use smashline::*;
-use crate::FIGHTER_CUTIN_MANAGER_ADDR;
+use {
+	crate::FIGHTER_CUTIN_MANAGER_ADDR,
+	smash::{
+		app::{
+			ArticleOperationTarget,
+			AttackHeight,
+			lua_bind::*,
+			sv_animcmd::*
+		},
+		lib::lua_const::*,
+		lua2cpp::L2CAgentBase,
+		phx::*
+	},
+	smash_script::*,
+	smashline::*
+};
 
 #[acmd_script(agent = "ganon", script = "game_attack11", category = ACMD_GAME)]
 unsafe fn ganon_game_attack11(fighter: &mut L2CAgentBase) {
