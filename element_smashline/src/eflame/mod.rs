@@ -1,11 +1,18 @@
-use smash::hash40;
-use smash::phx::*;
-use smash::lib::lua_const::*;
-use smash::lua2cpp::L2CAgentBase;
-use smash::app::{lua_bind::*, sv_animcmd::*};
-use smash_script::*;
-use smashline::*;
-use crate::FIGHTER_CUTIN_MANAGER_ADDR;
+use {
+	crate::FIGHTER_CUTIN_MANAGER_ADDR,
+	smash::{
+		app::{
+			lua_bind::*,
+			sv_animcmd::*
+		},
+		hash40,
+		lib::lua_const::*,
+		lua2cpp::L2CAgentBase,
+		phx::*
+	},
+	smash_script::*,
+	smashline::*
+};
 
 #[acmd_script(agent = "eflame", script = "game_attack11", category = ACMD_GAME)]
 unsafe fn eflame_game_attack11(fighter: &mut L2CAgentBase) {
