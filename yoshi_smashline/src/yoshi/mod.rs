@@ -1,10 +1,19 @@
-use smash::phx::*;
-use smash::lib::lua_const::*;
-use smash::lua2cpp::L2CAgentBase;
-use smash::app::{AttackHeight, HitStatus, lua_bind::*, sv_animcmd::*};
-use smash_script::*;
-use smashline::*;
-use crate::FIGHTER_CUTIN_MANAGER_ADDR;
+use {
+	crate::FIGHTER_CUTIN_MANAGER_ADDR,
+	smash::{
+		app::{
+			AttackHeight,
+			HitStatus,
+			lua_bind::*,
+			sv_animcmd::*
+		},
+		lib::lua_const::*,
+		lua2cpp::L2CAgentBase,
+		phx::*
+	},
+	smash_script::*,
+	smashline::*
+};
 
 #[acmd_script(agent = "yoshi", script = "game_attack11", category = ACMD_GAME)]
 unsafe fn yoshi_game_attack11(fighter: &mut L2CAgentBase) {
