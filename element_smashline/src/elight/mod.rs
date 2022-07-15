@@ -482,7 +482,7 @@ unsafe fn elight_game_attackairlw(fighter: &mut L2CAgentBase) {
 #[acmd_script(agent = "elight", script = "game_attackairn", category = ACMD_GAME)]
 unsafe fn elight_game_attackairn(fighter: &mut L2CAgentBase) {
 	frame(fighter.lua_state_agent, 1.0);
-	macros::FT_MOTION_RATE(fighter, 0.5);
+	macros::FT_MOTION_RATE(fighter, 0.25);
 	frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		if ArticleModule::is_exist(fighter.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) == true {
@@ -492,6 +492,7 @@ unsafe fn elight_game_attackairn(fighter: &mut L2CAgentBase) {
 			WorkModule::on_flag(fighter.module_accessor, *FIGHTER_ELIGHT_INSTANCE_WORK_ID_FLAG_ADD_PARTIAL_MTION_SWORD_WHEN_CHANGEING);
 		}
 	}
+	frame(fighter.lua_state_agent, 5.0);
 	macros::FT_MOTION_RATE(fighter, 1.0);
 	frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
