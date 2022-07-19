@@ -578,7 +578,7 @@ unsafe fn ike_game_specialhi3(fighter: &mut L2CAgentBase) {
 		sv_animcmd::ADD_SPEED_NO_LIMIT(fighter.lua_state_agent);
 		fighter.pop_lua_stack(1);
 		macros::ATTACK(fighter, 0, 0, Hash40::new("sword"), 3.0, 270, 100, 180, 0, 6.5, 0.0, 6.8, -1.0, Some(0.0), Some(6.8), Some(-12.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_IKE, *ATTACK_REGION_SWORD);
-		AttackModule::set_no_finish_camera(fighter.module_accessor, 1, true, false);
+		AttackModule::set_no_finish_camera(fighter.module_accessor, 0, true, false);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
 	if macros::is_excute(fighter) {
