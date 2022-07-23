@@ -608,12 +608,14 @@ unsafe fn ganon_game_specialhi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::CATCH(fighter, 0, Hash40::new("top"), 4.5, 0.0, 16.0, 6.5, None, None, None, *FIGHTER_STATUS_KIND_CLUNG_GANON, *COLLISION_SITUATION_MASK_GA);
 		macros::CATCH(fighter, 1, Hash40::new("top"), 4.5, 0.0, 18.0, 3.0, None, None, None, *FIGHTER_STATUS_KIND_CLUNG_GANON, *COLLISION_SITUATION_MASK_GA);
-		macros::CATCH(fighter, 2, Hash40::new("top"), 6.5, 0.0, 8.8, 13.7, None, None, None, *FIGHTER_STATUS_KIND_CLUNG_GANON, *COLLISION_SITUATION_MASK_GA);
+		macros::CATCH(fighter, 2, Hash40::new("top"), 6.5, 0.0, 8.8, 7.2, None, None, None, *FIGHTER_STATUS_KIND_CLUNG_GANON, *COLLISION_SITUATION_MASK_GA);
+		macros::CATCH(fighter, 3, Hash40::new("top"), 6.5, 0.0, 8.8, 13.7, None, None, None, *FIGHTER_STATUS_KIND_CLUNG_GANON, *COLLISION_SITUATION_MASK_GA);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 6.0, 0, 50, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_NONE);
 	}
 	wait(fighter.lua_state_agent, 2.0);
 	if macros::is_excute(fighter) {
 		grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR, 2);
+		grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR, 3);
 	}
 	frame(fighter.lua_state_agent, 18.0);
 	if macros::is_excute(fighter) {
