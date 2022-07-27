@@ -797,42 +797,36 @@ unsafe fn palutena_autoaimbullet_game_shot(fighter: &mut L2CAgentBase) {
 #[acmd_script(agent = "palutena_explosiveflame", script = "game_explode", category = ACMD_GAME)]
 unsafe fn palutena_explosiveflame_game_explode(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
-		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.7, 367, 100, 50, 0, 4.8, 0.0, 0.0, 0.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, -0.35, 0.0, 2, true, true, false, false, false, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_BOMB);
-		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 0.7, 100, 100, 50, 0, 4.8, 0.0, 0.0, 0.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, -0.35, 0.0, 2, true, true, false, false, false, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_BOMB);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.7, 366, 100, 60, 0, 4.8, 0.0, 0.0, 0.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, -0.35, -1.0, 2, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_BOMB);
 		AttackModule::set_no_damage_fly_smoke_all(fighter.module_accessor, true, false);
 	}
 	wait(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		AttackModule::set_size(fighter.module_accessor, 0, 6.0);
-		AttackModule::set_size(fighter.module_accessor, 1, 6.0);
 	}
 	wait(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		AttackModule::set_size(fighter.module_accessor, 0, 7.2);
-		AttackModule::set_size(fighter.module_accessor, 1, 7.2);
 	}
 	wait(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		AttackModule::set_size(fighter.module_accessor, 0, 8.4);
-		AttackModule::set_size(fighter.module_accessor, 1, 8.4);
 	}
 	wait(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		AttackModule::set_size(fighter.module_accessor, 0, 9.6);
-		AttackModule::set_size(fighter.module_accessor, 1, 9.6);
 	}
 	wait(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		AttackModule::set_size(fighter.module_accessor, 0, 10.8);
-		AttackModule::set_size(fighter.module_accessor, 1, 10.8);
 	}
 	wait(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		AttackModule::set_size(fighter.module_accessor, 0, 12.0);
-		AttackModule::set_size(fighter.module_accessor, 1, 12.0);
 	}
 	wait(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
+		AttackModule::set_size(fighter.module_accessor, 0, 13.2);
 		macros::AREA_WIND_2ND_RAD(fighter, 0, 1, 0.02, 1000, 1, 0, 0, 29);
 		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_explosion"), 0, false, 0);
 	}
