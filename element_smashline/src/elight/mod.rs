@@ -1142,6 +1142,15 @@ unsafe fn elight_game_throwlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
+#[acmd_script(agent = "elight", script = "sound_attack100end", category = ACMD_SOUND)]
+unsafe fn elight_sound_attack100end(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_elight_attack100_end"));
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_elight_rnd_attack01"));
+	}
+}
+
 #[acmd_script(agent = "elight_bunshin", script = 0x13ee1e5627, category = ACMD_GAME)]
 unsafe fn elight_bunshin_0x13ee1e5627(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
@@ -1232,6 +1241,7 @@ pub fn install() {
 		elight_game_throwf,
 		elight_game_throwhi,
 		elight_game_throwlw,
+		elight_sound_attack100end,
 		elight_bunshin_0x13ee1e5627,
 		elight_bunshin_game_specials5,
 		elight_exprosiveshot_game_burst,
