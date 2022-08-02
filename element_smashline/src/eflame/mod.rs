@@ -1102,6 +1102,15 @@ unsafe fn eflame_game_throwlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
+#[acmd_script(agent = "eflame", script = "sound_attack100end", category = ACMD_SOUND)]
+unsafe fn eflame_sound_attack100end(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_eflame_attack100_end"));
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_eflame_rnd_attack01"));
+	}
+}
+
 #[acmd_script(agent = "eflame", script = "sound_deathscytheswing4", category = ACMD_SOUND)]
 unsafe fn eflame_sound_deathscytheswing4(fighter: &mut L2CAgentBase) {
 	frame(fighter.lua_state_agent, 8.0);
@@ -1173,6 +1182,7 @@ pub fn install() {
 		eflame_game_throwf,
 		eflame_game_throwhi,
 		eflame_game_throwlw,
+		eflame_sound_attack100end,
 		eflame_sound_deathscytheswing4,
 		eflame_sound_deathscytheswing4charge,
 		eflame_firepillar_game_specialhi,
