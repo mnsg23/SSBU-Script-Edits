@@ -77,7 +77,7 @@ unsafe fn zelda_game_attack11(fighter: &mut L2CAgentBase) {
 unsafe fn zelda_game_attack100(fighter: &mut L2CAgentBase) {
 	frame(fighter.lua_state_agent, 1.0);
 	for _ in 0..1000000 {
-		for _ in 0..7 {
+		for _ in 0..8 {
 			if macros::is_excute(fighter) {
 				macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.4, 361, 10, 0, 15, 6.0, 0.0, 8.5, 8.0, Some(0.0), Some(8.5), Some(13.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
 				AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
@@ -90,17 +90,7 @@ unsafe fn zelda_game_attack100(fighter: &mut L2CAgentBase) {
 			}
 			wait(fighter.lua_state_agent, 1.0);
 		}
-		if macros::is_excute(fighter) {
-			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.4, 361, 10, 0, 15, 6.0, 0.0, 8.5, 8.0, Some(0.0), Some(8.5), Some(13.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
-			AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
-			macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 8);
-		}
 		wait(fighter.lua_state_agent, 1.0);
-		if macros::is_excute(fighter) {
-			AttackModule::clear_all(fighter.module_accessor);
-			WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK);
-		}
-		wait(fighter.lua_state_agent, 2.0);
 	}
 }
 
