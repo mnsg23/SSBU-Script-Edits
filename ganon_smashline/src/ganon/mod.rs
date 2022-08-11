@@ -1069,7 +1069,7 @@ unsafe fn ganon_ganond_effect_startair(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::AFTER_IMAGE_OFF(fighter, 6);
 	}
-	frame(fighter.lua_state_agent, 57.0);
+	frame(fighter.lua_state_agent, 70.0);
 	if macros::is_excute(fighter) {
 		if WorkModule::get_int(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_KIND) == *FIGHTER_KIND_GANON
 		&& PostureModule::lr(fighter.module_accessor) < 0.0 {
@@ -1078,12 +1078,12 @@ unsafe fn ganon_ganond_effect_startair(fighter: &mut L2CAgentBase) {
 			macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_final_eye"), Hash40::new("eye_r"), 0, 0, 0, 0, 0, 0, 1, true);
 		}
 	}
-	frame(fighter.lua_state_agent, 90.0);
+	frame(fighter.lua_state_agent, 85.0);
 	if macros::is_excute(fighter) {
 		macros::BURN_COLOR(fighter, 1.5, 0.5, 2, 0);
 		macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_final_attack"), Hash40::new("top"), 0, 17, 25, 0, 0, 0, 1, false);
 	}
-	frame(fighter.lua_state_agent, 95.0);
+	frame(fighter.lua_state_agent, 90.0);
 	if macros::is_excute(fighter) {
 		macros::BURN_COLOR_FRAME(fighter, 5, 1.5, 0.5, 2, 0.5);
 	}
