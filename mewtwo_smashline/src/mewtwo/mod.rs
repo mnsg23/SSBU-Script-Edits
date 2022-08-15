@@ -614,7 +614,10 @@ unsafe fn mewtwo_game_throwf(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATK_HIT_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("throw"), WorkModule::get_int64(fighter.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_OBJECT), WorkModule::get_int64(fighter.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_GROUP), WorkModule::get_int64(fighter.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_NO));
 	}
+	frame(fighter.lua_state_agent, 31.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
 	frame(fighter.lua_state_agent, 33.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
 	for _ in 0..5 {
 		if macros::is_excute(fighter) {
 			ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_MEWTWO_GENERATE_ARTICLE_SHADOWBALL, false, 0);
@@ -684,7 +687,7 @@ unsafe fn mewtwo_shadowball_game_shoot(fighter: &mut L2CAgentBase) {
 #[acmd_script(agent = "mewtwo_shadowball", script = "game_shootthrowf", category = ACMD_GAME)]
 unsafe fn mewtwo_shadowball_game_shootthrowf(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
-		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.5, 40, 110, 0, 50, 8.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 0.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -1.25, 0.0, 16, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.5, 40, 110, 0, 50, 9.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 0.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -1.25, 0.0, 16, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
 	}
 }
 
