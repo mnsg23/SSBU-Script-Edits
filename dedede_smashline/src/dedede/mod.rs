@@ -780,6 +780,42 @@ unsafe fn dedede_game_throwlw(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.7);
 }
 
+#[acmd_script(agent = "dedede", script = "sound_attackairb", category = ACMD_SOUND)]
+unsafe fn dedede_sound_attackairb(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_dedede_rnd_attack01"));
+	}
+	frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_dedede_hammer_swing_l"));
+	}
+}
+
+#[acmd_script(agent = "dedede", script = "sound_attackairf", category = ACMD_SOUND)]
+unsafe fn dedede_sound_attackairf(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_dedede_rnd_attack01"));
+	}
+	frame(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_dedede_hammer_swing_ll"));
+	}
+}
+
+#[acmd_script(agent = "dedede", script = "sound_attackairlw", category = ACMD_SOUND)]
+unsafe fn dedede_sound_attackairlw(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_dedede_rnd_attack01"));
+	}
+	frame(fighter.lua_state_agent, 21.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STATUS(fighter, Hash40::new("se_dedede_attackair_l01"));
+	}
+}
+
 #[acmd_script(agent = "dedede_gordo", scripts = ["game_specialsattack", "game_specialsthrow"], category = ACMD_GAME)]
 unsafe fn dedede_gordo_game_specialsattack(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
@@ -909,6 +945,9 @@ pub fn install() {
 		dedede_game_throwf,
 		dedede_game_throwhi,
 		dedede_game_throwlw,
+		dedede_sound_attackairb,
+		dedede_sound_attackairf,
+		dedede_sound_attackairlw,
 		dedede_gordo_game_specialsattack,
 		dedede_gordo_game_specialsshot,
 		dedede_gordo_game_specialswallstop,
