@@ -1108,7 +1108,7 @@ unsafe fn ganon_ganond_game_attack(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
 		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_23_rush_sp"), 0, true, 0);
-		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 45.0, 45, 30, 0, 120, 26.0, 0.0, 23.0, 11.0, Some(0.0), Some(23.0), Some(-16.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 45.0, 45, 30, 0, 120, 27.0, 0.0, 24.0, 10.0, Some(0.0), Some(24.0), Some(-15.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
 		AttackModule::set_force_reaction(fighter.module_accessor, 0, true, false);
 		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 0, true, true, -1.0, false);
 	}
