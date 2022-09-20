@@ -788,6 +788,36 @@ unsafe fn palutena_autoaimbullet_game_shot(fighter: &mut L2CAgentBase) {
 	}
 }
 
+#[acmd_script(agent = "palutena_beam", script = "game_beam", category = ACMD_GAME)]
+unsafe fn palutena_beam_game_beam(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 3.0, 361, 0, 1, 25, 12.0, 0.0, 0.0, 0.0, Some(0.0), Some(0.0), Some(0.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, -1.0, 8, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 3.0, 361, 0, 1, 25, 12.0, 0.0, 0.0, 0.0, Some(0.0), Some(0.0), Some(0.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, -1.0, 8, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
+		AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 7.0, false);
+		AttackModule::set_add_reaction_frame(fighter.module_accessor, 1, 7.0, false);
+		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 0, true, true, -1.0, false);
+		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 1, true, true, -1.0, false);
+	}
+	wait(fighter.lua_state_agent, 100.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 14.0, 40, 135, 0, 50, 17.0, 0.0, 0.0, 0.0, Some(0.0), Some(0.0), Some(0.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 14.0, 40, 135, 0, 50, 17.0, 0.0, 0.0, 0.0, Some(0.0), Some(0.0), Some(0.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("top"), 14.0, 40, 135, 0, 50, 17.0, 0.0, 0.0, 0.0, Some(0.0), Some(0.0), Some(0.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
+		AttackModule::set_force_reaction(fighter.module_accessor, 0, true, false);
+		AttackModule::set_force_reaction(fighter.module_accessor, 1, true, false);
+		AttackModule::set_force_reaction(fighter.module_accessor, 2, true, false);
+		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 0, true, true, -1.0, false);
+		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 1, true, true, -1.0, false);
+		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 2, true, true, -1.0, false);
+	}
+	wait(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+}
+
 #[acmd_script(agent = "palutena_explosiveflame", script = "game_explode", category = ACMD_GAME)]
 unsafe fn palutena_explosiveflame_game_explode(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
@@ -882,6 +912,7 @@ pub fn install() {
 		palutena_game_throwhi,
 		palutena_game_throwlw,
 		palutena_autoaimbullet_game_shot,
+		palutena_beam_game_beam,
 		palutena_explosiveflame_game_explode,
 		palutena_reflectionboard_game_shoot,
 	);
