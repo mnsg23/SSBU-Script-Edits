@@ -675,6 +675,41 @@ unsafe fn mewtwo_bindball_game_shoot(fighter: &mut L2CAgentBase) {
 	}
 }
 
+#[acmd_script(agent = "mewtwo_psychobreak", script = "game_hit", category = ACMD_GAME)]
+unsafe fn mewtwo_psychobreak_game_hit(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 62.0);
+	if macros::is_excute(fighter) {
+		SlowModule::set_whole(fighter.module_accessor, 4 as u8, 0);
+	}
+	frame(fighter.lua_state_agent, 67.0);
+	if macros::is_excute(fighter) {
+		SlowModule::clear_whole(fighter.module_accessor);
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_erase"), 0, false, 0);
+	}
+	frame(fighter.lua_state_agent, 68.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_explosionm"), 0, false, 0);
+	}
+	frame(fighter.lua_state_agent, 70.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 45.0, 45, 45, 0, 70, 0.1, 0.0, 0.0, 0.0, None, None, None, 0.375, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+		AttackModule::set_invalid_invincible(fighter.module_accessor, 0, true);
+		AttackModule::set_force_reaction(fighter.module_accessor, 0, true, false);
+		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 0, true, false, -1.0, false);
+	}
+	frame(fighter.lua_state_agent, 71.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *WEAPON_MEWTWO_PSYCHOBREAK_INSTANCE_WORK_ID_FLAG_HIT_ABS);
+		AttackModule::clear_all(fighter.module_accessor);
+		SlowModule::set_whole(fighter.module_accessor, 3 as u8, 0);
+	}
+	frame(fighter.lua_state_agent, 72.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd!(fighter, Hash40::new_raw(0x199c462b5d));
+		SlowModule::clear_whole(fighter.module_accessor);
+	}
+}
+
 #[acmd_script(agent = "mewtwo_shadowball", script = "game_shoot", category = ACMD_GAME)]
 unsafe fn mewtwo_shadowball_game_shoot(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
@@ -723,6 +758,7 @@ pub fn install() {
 		mewtwo_game_throwhi,
 		mewtwo_game_throwlw,
 		mewtwo_bindball_game_shoot,
+		mewtwo_psychobreak_game_hit,
 		mewtwo_shadowball_game_shoot,
 		mewtwo_shadowball_game_shootthrowf,
 	);
