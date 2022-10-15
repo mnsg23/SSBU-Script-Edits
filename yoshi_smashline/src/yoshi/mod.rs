@@ -638,6 +638,52 @@ unsafe fn yoshi_game_downattacku(fighter: &mut L2CAgentBase) {
 	}
 }
 
+#[acmd_script(agent = "yoshi", script = "game_finaldash", category = ACMD_GAME)]
+unsafe fn yoshi_game_finaldash(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 361, 0, 1, 70, 8.0, 0.0, 8.0, 10.0, Some(0.0), Some(8.0), Some(16.0), 0.1, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		AttackModule::set_no_dead_all(fighter.module_accessor, true, false);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+}
+
+#[acmd_script(agent = "yoshi", scripts = ["game_finalend", "game_finalairend"], category = ACMD_GAME)]
+unsafe fn yoshi_game_finalend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_VISUAL_SCENE, 0, 14.0, 60, 140, 0, 70, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_ABS_SET);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 30.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+	}
+}
+
+#[acmd_script(agent = "yoshi", script = "game_finalhit", category = ACMD_GAME)]
+unsafe fn yoshi_game_finalhit(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+		macros::SET_SPEED_EX(fighter, 0, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+		macros::ATTACK(fighter, *FIGHTER_ATTACK_KIND_VISUAL_SCENE as u64, 1, Hash40::new("top"), 5.6, 85, 0, 1, 120, 12.0, 0.0, 9.0, 5.0, Some(0.0), Some(9.0), Some(20.0), 0.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+		AttackModule::set_no_dead_all(fighter.module_accessor, true, false);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, *FIGHTER_ATTACK_KIND_VISUAL_SCENE as u64, 1, Hash40::new("top"), 5.6, 85, 0, 1, 120, 12.0, 0.0, 15.0, 5.0, Some(0.0), Some(15.0), Some(20.0), 0.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+		AttackModule::set_no_dead_all(fighter.module_accessor, true, false);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, *FIGHTER_ATTACK_KIND_VISUAL_SCENE as u64, 1, Hash40::new("top"), 5.6, 85, 0, 1, 120, 12.0, 0.0, 20.0, 5.0, Some(0.0), Some(20.0), Some(20.0), 0.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+		AttackModule::set_no_dead_all(fighter.module_accessor, true, false);
+	}
+}
+
 #[acmd_script(agent = "yoshi", script = "game_landingairlw", category = ACMD_GAME)]
 unsafe fn yoshi_game_landingairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
@@ -942,6 +988,9 @@ pub fn install() {
 		yoshi_game_cliffattack,
 		yoshi_game_downattackd,
 		yoshi_game_downattacku,
+		yoshi_game_finaldash,
+		yoshi_game_finalend,
+		yoshi_game_finalhit,
 		yoshi_game_landingairlw,
 		yoshi_game_slipattack,
 		yoshi_game_specialairlw,
