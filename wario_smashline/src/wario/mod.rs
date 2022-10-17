@@ -442,6 +442,139 @@ unsafe fn wario_game_cliffattack(fighter: &mut L2CAgentBase) {
 	}
 }
 
+#[acmd_script(agent = "wario", script = "game_finaldash", category = ACMD_GAME)]
+unsafe fn wario_game_finaldash(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 10.0, 85, 0, 1, 160, 8.0, 0.0, 7.7, -2.0, Some(0.0), Some(7.7), Some(5.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_SPEED, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+		AttackModule::set_no_dead_all(fighter.module_accessor, true, false);
+	}
+}
+
+#[acmd_script(agent = "wario", scripts = ["game_finaldashend", "game_finalairdashend"], category = ACMD_GAME)]
+unsafe fn wario_game_finaldashend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+		macros::SET_SPEED_EX(fighter, 2, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+		AttackModule::clear_all(fighter.module_accessor);
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_WARIO_FINAL, 0, 10.0, 60, 140, 0, 80, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_SET);
+	}
+}
+
+#[acmd_script(agent = "wario", scripts = ["game_finalend", "game_finalairend"], category = ACMD_GAME)]
+unsafe fn wario_game_finalend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_WARIO_FINAL, 0, 10.0, 60, 140, 0, 80, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_SET);
+	}
+	frame(fighter.lua_state_agent, 30.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+	}
+}
+
+#[acmd_script(agent = "wario", script = "game_finalvisualscene", category = ACMD_GAME)]
+unsafe fn wario_game_finalvisualscene(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_WARIO_FINAL, 0, 1.5, 361, 0, 1, 20, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		AttackModule::set_no_dead_all(fighter.module_accessor, true, true);
+	}
+	frame(fighter.lua_state_agent, 72.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_PRESET_1);
+		WorkModule::set_float(fighter.module_accessor, 0.0, *FIGHTER_WARIO_STATUS_FINAL_WORK_FLOAT_TARGET_MOTION_RATE);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_MOTION_RATE_SET);
+	}
+	frame(fighter.lua_state_agent, 77.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 82.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_PRESET_2);
+		WorkModule::set_float(fighter.module_accessor, 0.0, *FIGHTER_WARIO_STATUS_FINAL_WORK_FLOAT_TARGET_MOTION_RATE);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_MOTION_RATE_SET);
+	}
+	frame(fighter.lua_state_agent, 88.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 96.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 105.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_PRESET_3);
+		WorkModule::set_float(fighter.module_accessor, 0.0, *FIGHTER_WARIO_STATUS_FINAL_WORK_FLOAT_TARGET_MOTION_RATE);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_MOTION_RATE_SET);
+	}
+	frame(fighter.lua_state_agent, 113.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 121.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_PRESET_1);
+		WorkModule::set_float(fighter.module_accessor, 0.0, *FIGHTER_WARIO_STATUS_FINAL_WORK_FLOAT_TARGET_MOTION_RATE);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_MOTION_RATE_SET);
+	}
+	frame(fighter.lua_state_agent, 130.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 137.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 144.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_PRESET_2);
+		WorkModule::set_float(fighter.module_accessor, 0.0, *FIGHTER_WARIO_STATUS_FINAL_WORK_FLOAT_TARGET_MOTION_RATE);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_MOTION_RATE_SET);
+	}
+	frame(fighter.lua_state_agent, 153.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 162.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 171.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_PRESET_3);
+		WorkModule::set_float(fighter.module_accessor, 0.0, *FIGHTER_WARIO_STATUS_FINAL_WORK_FLOAT_TARGET_MOTION_RATE);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_MOTION_RATE_SET);
+	}
+	frame(fighter.lua_state_agent, 178.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 185.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 202.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_WARIO_FINAL, 0, 16.0, 361, 0, 1, 20, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		AttackModule::set_no_dead_all(fighter.module_accessor, true, true);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ATTACK_ABS_RESET);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_HIT);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_PRESET_4);
+		WorkModule::set_float(fighter.module_accessor, 0.2, *FIGHTER_WARIO_STATUS_FINAL_WORK_FLOAT_TARGET_MOTION_RATE);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_TARGET_MOTION_RATE_SET);
+	}
+}
+
 #[acmd_script(agent = "wario", script = "game_landingairlw", category = ACMD_GAME)]
 unsafe fn wario_game_landingairlw(fighter: &mut L2CAgentBase) {
 	frame(fighter.lua_state_agent, 1.0);
@@ -723,6 +856,10 @@ pub fn install() {
 		wario_game_catch,
 		wario_game_catchdash,
 		wario_game_cliffattack,
+		wario_game_finaldash,
+		wario_game_finaldashend,
+		wario_game_finalend,
+		wario_game_finalvisualscene,
 		wario_game_landingairlw,
 		wario_game_specialhijump,
 		wario_game_speciallwflyr,
