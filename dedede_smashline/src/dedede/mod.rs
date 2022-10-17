@@ -525,6 +525,129 @@ unsafe fn dedede_game_catchturn(fighter: &mut L2CAgentBase) {
 	}
 }
 
+#[acmd_script(agent = "dedede", scripts = ["game_finalend", "game_finalairend"], category = ACMD_GAME)]
+unsafe fn dedede_game_finalend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::CAM_ZOOM_OUT(fighter);
+		camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_DEDEDE_FINAL, 0, 10.0, 60, 155, 0, 70, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
+	}
+	frame(fighter.lua_state_agent, 30.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_END_EXIT);
+	}
+}
+
+#[acmd_script(agent = "dedede", scripts = ["game_finalstart", "game_finalairstart"], category = ACMD_GAME)]
+unsafe fn dedede_game_finalstart(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 38, 0, 0, 0);
+		macros::SLOW_OPPONENT(fighter, 30.0, 60.0);
+	}
+	if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) == false {
+		frame(fighter.lua_state_agent, 10.0);
+		if macros::is_excute(fighter) {
+			macros::FT_SET_FINAL_FEAR_FACE(fighter, 75);
+			macros::REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04finalstart.nuanmb"), false);
+			macros::FT_START_CUTIN(fighter);
+		}
+	} else {
+		if macros::is_excute(fighter) {
+			macros::CAM_ZOOM_IN_arg5(fighter, 3.0, 0.0, 2.1, 0.0, 0.0);
+			macros::FT_START_CUTIN(fighter);
+		}
+		frame(fighter.lua_state_agent, 35.0);
+		if macros::is_excute(fighter) {
+			macros::CAM_ZOOM_OUT(fighter);
+		}
+	}
+	frame(fighter.lua_state_agent, 60.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 10.0, 40, 85, 0, 70, 21.0, 0.0, 12.0, 22.0, None, None, None, 0.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+		AttackModule::set_no_dead_all(fighter.module_accessor, true, false);
+	}
+	frame(fighter.lua_state_agent, 63.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_CLEAR_ATTACK);
+	}
+	frame(fighter.lua_state_agent, 80.0);
+	if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) == false {
+		if macros::is_excute(fighter) {
+			camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+		}
+	}
+}
+
+#[acmd_script(agent = "dedede", script = "game_finalvisualscene01", category = ACMD_GAME)]
+unsafe fn dedede_game_finalvisualscene01(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_DEDEDE_FINAL, 0, 1.5, 361, 0, 1, 20, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		AttackModule::set_no_dead_all(fighter.module_accessor, true, true);
+	}
+	frame(fighter.lua_state_agent, 99.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 105.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 114.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 129.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 136.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 142.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 148.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 152.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 160.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 172.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 176.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	}
+	frame(fighter.lua_state_agent, 178.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	}
+}
+
+#[acmd_script(agent = "dedede", script = "game_finalvisualscene03", category = ACMD_GAME)]
+unsafe fn dedede_game_finalvisualscene03(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_DEDEDE_FINAL, 0, 22.0, 361, 0, 1, 20, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		AttackModule::set_no_dead_all(fighter.module_accessor, true, true);
+	}
+	frame(fighter.lua_state_agent, 69.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	}
+}
+
 #[acmd_script(agent = "dedede", script = "game_specialhijump", category = ACMD_GAME)]
 unsafe fn dedede_game_specialhijump(fighter: &mut L2CAgentBase) {
 	frame(fighter.lua_state_agent, 1.0);
@@ -934,6 +1057,10 @@ pub fn install() {
 		dedede_game_catchattack,
 		dedede_game_catchdash,
 		dedede_game_catchturn,
+		dedede_game_finalend,
+		dedede_game_finalstart,
+		dedede_game_finalvisualscene01,
+		dedede_game_finalvisualscene03,
 		dedede_game_specialhijump,
 		dedede_game_specialhilanding,
 		dedede_game_speciallw,
