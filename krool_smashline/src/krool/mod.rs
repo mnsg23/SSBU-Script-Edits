@@ -896,7 +896,7 @@ unsafe fn krool_game_finaldash(fighter: &mut L2CAgentBase) {
 #[acmd_script(agent = "krool", scripts = ["game_finalend", "game_finalairend"], category = ACMD_GAME)]
 unsafe fn krool_game_finalend(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
-		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_KROOL_FINAL, 0, 10.0, 60, 140, 0, 80, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_KROOL_FINAL, 0, 10.0, 60, 205, 0, 30, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KROOL_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 30.0);
@@ -912,7 +912,7 @@ unsafe fn krool_game_finalend(fighter: &mut L2CAgentBase) {
 #[acmd_script(agent = "krool", script = "game_finalend_com", category = ACMD_GAME)]
 unsafe fn krool_game_finalend_com(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
-		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_KROOL_FINAL, 0, 10.0, 60, 140, 0, 80, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_KROOL_FINAL, 0, 10.0, 60, 205, 0, 30, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KROOL_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
 	}
 }
@@ -946,10 +946,10 @@ unsafe fn krool_game_finalstart(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 31.0);
 	if macros::is_excute(fighter) {
 		if PostureModule::scale(fighter.module_accessor) < 1.0 {
-			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 368, 100, 0, 0, 8.0, 0.0, 6.0, 13.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 4.0, 368, 100, 0, 0, 8.0, 0.0, 6.0, 13.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
 			AttackModule::set_vec_target_pos(fighter.module_accessor, 0, Hash40::new("top"), &Vector2f{x: 60.0, y: 4.0}, 1.0 as u32, false);
 		} else {
-			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 20, 0, 1, 85, 8.0, 0.0, 6.0, 13.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 4.0, 20, 0, 1, 85, 8.0, 0.0, 6.0, 13.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
 		}
 		AttackModule::set_no_dead_all(fighter.module_accessor, true, false);
 	}
