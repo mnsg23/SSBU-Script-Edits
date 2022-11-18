@@ -896,7 +896,7 @@ unsafe fn krool_game_finaldash(fighter: &mut L2CAgentBase) {
 #[acmd_script(agent = "krool", scripts = ["game_finalend", "game_finalairend"], category = ACMD_GAME)]
 unsafe fn krool_game_finalend(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
-		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_KROOL_FINAL, 0, 10.0, 60, 205, 0, 30, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_KROOL_FINAL, 0, 10.0, 60, 145, 0, 80, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KROOL_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 30.0);
@@ -912,7 +912,7 @@ unsafe fn krool_game_finalend(fighter: &mut L2CAgentBase) {
 #[acmd_script(agent = "krool", script = "game_finalend_com", category = ACMD_GAME)]
 unsafe fn krool_game_finalend_com(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
-		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_KROOL_FINAL, 0, 10.0, 60, 205, 0, 30, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_KROOL_FINAL, 0, 10.0, 60, 145, 0, 80, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KROOL_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
 	}
 }
