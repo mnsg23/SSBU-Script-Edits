@@ -457,7 +457,7 @@ unsafe fn wario_game_finaldashend(fighter: &mut L2CAgentBase) {
 		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
 		macros::SET_SPEED_EX(fighter, 2, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
 		AttackModule::clear_all(fighter.module_accessor);
-		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_WARIO_FINAL, 0, 10.0, 60, 205, 0, 30, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_WARIO_FINAL, 0, 10.0, 60, 145, 0, 80, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_SET);
 	}
 }
@@ -466,7 +466,7 @@ unsafe fn wario_game_finaldashend(fighter: &mut L2CAgentBase) {
 unsafe fn wario_game_finalend(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
-		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_WARIO_FINAL, 0, 10.0, 60, 205, 0, 30, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_WARIO_FINAL, 0, 10.0, 60, 145, 0, 80, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_SET);
 	}
 	frame(fighter.lua_state_agent, 30.0);
