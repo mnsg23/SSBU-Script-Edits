@@ -1,5 +1,4 @@
 use {
-	crate::FIGHTER_CUTIN_MANAGER_ADDR,
 	smash::{
 		app::{
 			AttackHeight,
@@ -835,9 +834,8 @@ unsafe fn yoshi_game_throwb(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_REVERSE_LR_FINISH_CAMERA_THROW_ORBIT);
 		macros::CHECK_FINISH_CAMERA(fighter, 14, 12);
-		let fighter_cutin_manager = *(FIGHTER_CUTIN_MANAGER_ADDR as *mut *mut smash::app::FighterCutInManager);
-		FighterCutInManager::set_throw_finish_zoom_rate(fighter_cutin_manager, 1.1);
-		FighterCutInManager::set_throw_finish_offset(fighter_cutin_manager, Vector3f{x: -6.0, y: 4.5, z: 0.0});
+		FighterCutInManager::set_throw_finish_zoom_rate(singletons::FighterCutInManager(), 1.1);
+		FighterCutInManager::set_throw_finish_offset(singletons::FighterCutInManager(), Vector3f{x: -6.0, y: 4.5, z: 0.0});
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 20.0);
 	if macros::is_excute(fighter) {
@@ -855,9 +853,8 @@ unsafe fn yoshi_game_throwf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 14.0);
 	if macros::is_excute(fighter) {
 		macros::CHECK_FINISH_CAMERA(fighter, 13, 14);
-		let fighter_cutin_manager = *(FIGHTER_CUTIN_MANAGER_ADDR as *mut *mut smash::app::FighterCutInManager);
-		FighterCutInManager::set_throw_finish_zoom_rate(fighter_cutin_manager, 1.1);
-		FighterCutInManager::set_throw_finish_offset(fighter_cutin_manager, Vector3f{x: 6.0, y: 4.5, z: 0.0});
+		FighterCutInManager::set_throw_finish_zoom_rate(singletons::FighterCutInManager(), 1.1);
+		FighterCutInManager::set_throw_finish_offset(singletons::FighterCutInManager(), Vector3f{x: 6.0, y: 4.5, z: 0.0});
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 15.0);
 	if macros::is_excute(fighter) {
@@ -874,9 +871,8 @@ unsafe fn yoshi_game_throwhi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
 	if macros::is_excute(fighter) {
 		macros::CHECK_FINISH_CAMERA(fighter, 2, 25);
-		let fighter_cutin_manager = *(FIGHTER_CUTIN_MANAGER_ADDR as *mut *mut smash::app::FighterCutInManager);
-		FighterCutInManager::set_throw_finish_zoom_rate(fighter_cutin_manager, 1.3);
-		FighterCutInManager::set_throw_finish_offset(fighter_cutin_manager, Vector3f{x: 0.0, y: 6.0, z: 0.0});
+		FighterCutInManager::set_throw_finish_zoom_rate(singletons::FighterCutInManager(), 1.3);
+		FighterCutInManager::set_throw_finish_offset(singletons::FighterCutInManager(), Vector3f{x: 0.0, y: 6.0, z: 0.0});
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 13.0);
 	if macros::is_excute(fighter) {
@@ -893,9 +889,8 @@ unsafe fn yoshi_game_throwlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 14.0);
 	if macros::is_excute(fighter) {
 		macros::CHECK_FINISH_CAMERA(fighter, -1, 6);
-		let fighter_cutin_manager = *(FIGHTER_CUTIN_MANAGER_ADDR as *mut *mut smash::app::FighterCutInManager);
-		FighterCutInManager::set_throw_finish_zoom_rate(fighter_cutin_manager, 1.4);
-		FighterCutInManager::set_throw_finish_offset(fighter_cutin_manager, Vector3f{x: 0.0, y: 4.0, z: 0.0});
+		FighterCutInManager::set_throw_finish_zoom_rate(singletons::FighterCutInManager(), 1.4);
+		FighterCutInManager::set_throw_finish_offset(singletons::FighterCutInManager(), Vector3f{x: 0.0, y: 4.0, z: 0.0});
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 15.0);
 	if macros::is_excute(fighter) {
@@ -943,7 +938,7 @@ unsafe fn yoshi_star_game_move(fighter: &mut L2CAgentBase) {
 unsafe fn yoshi_tamago_game_burst(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 6.0, 70, 75, 0, 70, 6.5, 0.0, 0.0, 0.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -3, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_YOSHI_EGG_HIT, *ATTACK_REGION_OBJECT);
-		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_explosion"), 0, false, 0);
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
 	}
 	sv_animcmd::wait(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
