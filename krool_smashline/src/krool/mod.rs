@@ -1,5 +1,4 @@
 use {
-	crate::FIGHTER_CUTIN_MANAGER_ADDR,
 	smash::{
 		app::{
 			AttackHeight,
@@ -1198,8 +1197,7 @@ unsafe fn krool_game_throwb(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_REVERSE_LR_FINISH_CAMERA_THROW_ORBIT);
 		macros::CHECK_FINISH_CAMERA(fighter, 31, 2);
-		let fighter_cutin_manager = *(FIGHTER_CUTIN_MANAGER_ADDR as *mut *mut smash::app::FighterCutInManager);
-		FighterCutInManager::set_throw_finish_offset(fighter_cutin_manager, Vector3f{x: 10.0, y: -1.0, z: 0.0});
+		FighterCutInManager::set_throw_finish_offset(singletons::FighterCutInManager(), Vector3f{x: 10.0, y: -1.0, z: 0.0});
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 32.0);
 	if macros::is_excute(fighter) {
@@ -1227,8 +1225,7 @@ unsafe fn krool_game_throwf(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
 		macros::CHECK_FINISH_CAMERA(fighter, 24, 0);
-		let fighter_cutin_manager = *(FIGHTER_CUTIN_MANAGER_ADDR as *mut *mut smash::app::FighterCutInManager);
-		FighterCutInManager::set_throw_finish_offset(fighter_cutin_manager, Vector3f{x: 12.0, y: -2.0, z: 0.0});
+		FighterCutInManager::set_throw_finish_offset(singletons::FighterCutInManager(), Vector3f{x: 12.0, y: -2.0, z: 0.0});
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 28.0);
 	if macros::is_excute(fighter) {
