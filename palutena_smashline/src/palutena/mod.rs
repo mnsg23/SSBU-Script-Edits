@@ -393,7 +393,7 @@ unsafe fn palutena_game_attacklw4(fighter: &mut L2CAgentBase) {
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 80.0);
 	if macros::is_excute(fighter) {
-		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_PALUTENA_GENERATE_ARTICLE_GODWING, ArticleOperationTarget(0));
+		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_PALUTENA_GENERATE_ARTICLE_GODWING, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
 	}
 }
 
@@ -464,7 +464,7 @@ unsafe fn palutena_game_attacks4(fighter: &mut L2CAgentBase) {
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 80.0);
 	if macros::is_excute(fighter) {
-		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_PALUTENA_GENERATE_ARTICLE_GODWING, ArticleOperationTarget(0));
+		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_PALUTENA_GENERATE_ARTICLE_GODWING, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
 	}
 }
 
@@ -789,6 +789,8 @@ unsafe fn palutena_beam_game_beam(fighter: &mut L2CAgentBase) {
 		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 3.0, 361, 0, 1, 25, 12.0, 0.0, 0.0, 0.0, Some(0.0), Some(0.0), Some(0.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, -1.0, 8, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
 		AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 7.0, false);
 		AttackModule::set_add_reaction_frame(fighter.module_accessor, 1, 7.0, false);
+		AttackModule::set_force_reaction(fighter.module_accessor, 0, true, false);
+		AttackModule::set_force_reaction(fighter.module_accessor, 1, true, false);
 		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 0, true, true, -1.0, false);
 		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 1, true, true, -1.0, false);
 	}
@@ -817,7 +819,6 @@ unsafe fn palutena_blackhole_game_blackhole(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 366, 100, 50, 0, 50.0, 0.0, 0.0, 0.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, -1.0, 1, false, false, true, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
 		macros::AREA_WIND_2ND_RAD_arg9(fighter, 0, 4, -0.1, 1000, 1, 0, 0, 110, 80);
-		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 0, true, true, -1.0, false);
 	}
 	sv_animcmd::wait(fighter.lua_state_agent, 156.0);
 	if macros::is_excute(fighter) {
