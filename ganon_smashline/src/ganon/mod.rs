@@ -235,7 +235,7 @@ unsafe fn ganon_game_attackhi3(fighter: &mut L2CAgentBase) {
 #[acmd_script(agent = "ganon", script = "game_attackhi4", category = ACMD_GAME)]
 unsafe fn ganon_game_attackhi4(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
-		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, ArticleOperationTarget(0));
+		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
 		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, false, 0);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
@@ -272,7 +272,7 @@ unsafe fn ganon_game_attacklw3(fighter: &mut L2CAgentBase) {
 #[acmd_script(agent = "ganon", script = "game_attacklw4", category = ACMD_GAME)]
 unsafe fn ganon_game_attacklw4(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
-		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, ArticleOperationTarget(0));
+		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
 		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, false, 0);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -318,7 +318,7 @@ unsafe fn ganon_game_attacks3(fighter: &mut L2CAgentBase) {
 #[acmd_script(agent = "ganon", script = "game_attacks4", category = ACMD_GAME)]
 unsafe fn ganon_game_attacks4(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
-		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, ArticleOperationTarget(0));
+		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
 		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, false, 0);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 15.0);
@@ -1131,6 +1131,8 @@ unsafe fn ganon_ganond_game_start(fighter: &mut L2CAgentBase) {
 			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 15.0, 270, 100, 250, 0, 25.0, 0.0, 25.0, 50.0, Some(0.0), Some(25.0), Some(18.0), 3.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
 			macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 15.0, 270, 100, 100, 0, 25.0, 0.0, 25.0, 50.0, Some(0.0), Some(25.0), Some(18.0), 3.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
 		}
+		AttackModule::set_force_reaction(fighter.module_accessor, 0, true, false);
+		AttackModule::set_force_reaction(fighter.module_accessor, 1, true, false);
 		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 0, true, true, -1.0, false);
 		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 1, true, true, -1.0, false);
 	}
