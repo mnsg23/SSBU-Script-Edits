@@ -943,6 +943,7 @@ unsafe fn krool_game_finalstart(fighter: &mut L2CAgentBase) {
 			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 4.0, 20, 0, 1, 85, 8.0, 0.0, 6.0, 13.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
 		}
 		AttackModule::set_no_dead_all(fighter.module_accessor, true, false);
+		AttackModule::set_force_reaction(fighter.module_accessor, 0, true, false);
 	}
 	sv_animcmd::wait(fighter.lua_state_agent, 2.0);
 	if macros::is_excute(fighter) {
