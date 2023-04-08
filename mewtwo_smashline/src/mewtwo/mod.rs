@@ -13,6 +13,45 @@ use {
 	smashline::*
 };
 
+#[acmd_script(agent = "mewtwo", script = "expression_attackairb", category = ACMD_EXPRESSION)]
+unsafe fn mewtwo_expression_attackairb(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+	}
+}
+
+#[acmd_script(agent = "mewtwo", script = "expression_attackairhi", category = ACMD_EXPRESSION)]
+unsafe fn mewtwo_expression_attackairhi(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+	}
+}
+
+#[acmd_script(agent = "mewtwo", script = "expression_attacklw3", category = ACMD_EXPRESSION)]
+unsafe fn mewtwo_expression_attacklw3(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4, true);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+	}
+}
+
 #[acmd_script(agent = "mewtwo", script = "game_attack11", category = ACMD_GAME)]
 unsafe fn mewtwo_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
@@ -726,6 +765,9 @@ unsafe fn mewtwo_shadowball_game_shootthrowf(fighter: &mut L2CAgentBase) {
 
 pub fn install() {
 	smashline::install_acmd_scripts!(
+		mewtwo_expression_attackairb,
+		mewtwo_expression_attackairhi,
+		mewtwo_expression_attacklw3,
 		mewtwo_game_attack11,
 		mewtwo_game_attack100,
 		mewtwo_game_attack100end,
