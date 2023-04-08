@@ -26,6 +26,45 @@ unsafe fn zelda_effect_attacklw3(fighter: &mut L2CAgentBase) {
 	}
 }
 
+#[acmd_script(agent = "zelda", script = "expression_attackhi3", category = ACMD_EXPRESSION)]
+unsafe fn zelda_expression_attackhi3(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+	}
+}
+
+#[acmd_script(agent = "zelda", scripts = ["expression_attacks3", "expression_attacks3hi", "expression_attacks3lw"], category = ACMD_EXPRESSION)]
+unsafe fn zelda_expression_attacks3(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 3);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 40.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 6);
+	}
+}
+
 #[acmd_script(agent = "zelda", script = "game_attack11", category = ACMD_GAME)]
 unsafe fn zelda_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
@@ -890,6 +929,8 @@ unsafe fn zelda_phantom_game_attacks(fighter: &mut L2CAgentBase) {
 pub fn install() {
 	smashline::install_acmd_scripts!(
 		zelda_effect_attacklw3,
+		zelda_expression_attackhi3,
+		zelda_expression_attacks3,
 		zelda_game_attack11,
 		zelda_game_attack100,
 		zelda_game_attack100end,
