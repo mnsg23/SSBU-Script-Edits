@@ -38,6 +38,62 @@ unsafe fn yoshi_effect_attackhi4(fighter: &mut L2CAgentBase) {
 	}
 }
 
+#[acmd_script(agent = "yoshi", script = "expression_attackairlw", category = ACMD_EXPRESSION)]
+unsafe fn yoshi_expression_attackairlw(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackss"), 3);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 16.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 37.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 38.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+	}
+}
+
+#[acmd_script(agent = "yoshi", script = "expression_attackhi3", category = ACMD_EXPRESSION)]
+unsafe fn yoshi_expression_attackhi3(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+	}
+}
+
+#[acmd_script(agent = "yoshi", script = "expression_throwlw", category = ACMD_EXPRESSION)]
+unsafe fn yoshi_expression_throwlw(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_YOSHI_STATUS_THROW_FLAG_THROWN_VISIBLE);
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+		macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 32.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 46.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+	}
+}
+
 #[acmd_script(agent = "yoshi", script = "game_attack11", category = ACMD_GAME)]
 unsafe fn yoshi_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
@@ -956,6 +1012,9 @@ unsafe fn yoshi_tamago_game_throwed(fighter: &mut L2CAgentBase) {
 pub fn install() {
 	smashline::install_acmd_scripts!(
 		yoshi_effect_attackhi4,
+		yoshi_expression_attackairlw,
+		yoshi_expression_attackhi3,
+		yoshi_expression_throwlw,
 		yoshi_game_attack11,
 		yoshi_game_attack12,
 		yoshi_game_attackairb,
