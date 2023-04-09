@@ -14,6 +14,63 @@ use {
 	smashline::*
 };
 
+#[acmd_script(agent = "wario", script = "expression_attacklw4", category = ACMD_EXPRESSION)]
+unsafe fn wario_expression_attacklw4(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
+	sv_animcmd::execute(fighter.lua_state_agent, 3.0);
+	if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_SMASH_SMASH_HOLD_TO_ATTACK) == true {
+		if macros::is_excute(fighter) {
+			slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		}
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4, true);
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 8, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 4);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 22.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 32.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 58.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 10);
+	}
+}
+
+#[acmd_script(agent = "wario", scripts = ["expression_speciallwlr", "expression_specialairlwlr"], category = ACMD_EXPRESSION)]
+unsafe fn wario_expression_speciallwlr(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_explosionm"), 0);
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohit_explosionm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		macros::AREA_WIND_2ND_RAD(fighter, 1, 1.5, 0.02, 1000, 1, 0, 4, 32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		AreaModule::erase_wind(fighter.module_accessor, 1);
+	}
+}
+
 #[acmd_script(agent = "wario", script = "game_attack11", category = ACMD_GAME)]
 unsafe fn wario_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
@@ -830,6 +887,8 @@ unsafe fn wario_sound_attacks3(fighter: &mut L2CAgentBase) {
 
 pub fn install() {
 	smashline::install_acmd_scripts!(
+		wario_expression_attacklw4,
+		wario_expression_speciallwlr,
 		wario_game_attack11,
 		wario_game_attack12,
 		wario_game_attackairb,
