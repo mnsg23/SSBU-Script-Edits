@@ -16,6 +16,107 @@ use {
 	smashline::*
 };
 
+#[acmd_script(agent = "ike", script = "expression_attackdash", category = ACMD_EXPRESSION)]
+unsafe fn ike_expression_attackdash(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 13.0);
+	if macros::is_excute(fighter) {
+		macros::AREA_WIND_2ND_arg10(fighter, 0, 1, 80, 300, 0.8, 0, 12, 24, 24, 50);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 16.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_slashm"), 0);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 29.0);
+	if macros::is_excute(fighter) {
+		AreaModule::erase_wind(fighter.module_accessor, 0);
+	}
+}
+
+#[acmd_script(agent = "ike", script = "expression_attacklw3", category = ACMD_EXPRESSION)]
+unsafe fn ike_expression_attacklw3(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_slashm"), 0);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 29.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+	}
+}
+
+#[acmd_script(agent = "ike", script = "expression_attacklw4", category = ACMD_EXPRESSION)]
+unsafe fn ike_expression_attacklw4(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
+	sv_animcmd::execute(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 5);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		macros::AREA_WIND_2ND_arg10(fighter, 0, 0.75, 110, 300, 0.8, 0, 12, 24, 24, 40);
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_slashl"), 0);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 22.0);
+	if macros::is_excute(fighter) {
+		AreaModule::erase_wind(fighter.module_accessor, 0);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 30.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 31.0);
+	if macros::is_excute(fighter) {
+		macros::AREA_WIND_2ND_arg10(fighter, 0, 0.75, 70, 300, 0.8, 0, 12, 24, 24, 40);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 56.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 10);
+		AreaModule::erase_wind(fighter.module_accessor, 0);
+	}
+}
+
+#[acmd_script(agent = "ike", scripts = ["expression_attacks3", "expression_attacks3hi", "expression_attacks3lw"], category = ACMD_EXPRESSION)]
+unsafe fn ike_expression_attacks3(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_slashm"), 0);
+	}
+}
+
 #[acmd_script(agent = "ike", script = "game_attack11", category = ACMD_GAME)]
 unsafe fn ike_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
@@ -1183,6 +1284,10 @@ unsafe fn kirby_sound_ikespecialnendmdl(fighter: &mut L2CAgentBase) {
 
 pub fn install() {
 	smashline::install_acmd_scripts!(
+		ike_expression_attackdash,
+		ike_expression_attacklw3,
+		ike_expression_attacklw4,
+		ike_expression_attacks3,
 		ike_game_attack11,
 		ike_game_attack12,
 		ike_game_attack13,
