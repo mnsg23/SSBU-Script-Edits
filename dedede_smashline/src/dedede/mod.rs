@@ -14,6 +14,96 @@ use {
 	smashline::*
 };
 
+#[acmd_script(agent = "dedede", script = "expression_attackairb", category = ACMD_EXPRESSION)]
+unsafe fn dedede_expression_attackairb(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 16.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+	}
+}
+
+#[acmd_script(agent = "dedede", script = "expression_attackairf", category = ACMD_EXPRESSION)]
+unsafe fn dedede_expression_attackairf(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+	}
+}
+
+#[acmd_script(agent = "dedede", script = "expression_attackairlw", category = ACMD_EXPRESSION)]
+unsafe fn dedede_expression_attackairlw(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 20.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 21.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+	}
+}
+
+#[acmd_script(agent = "dedede", script = "expression_attacks3", category = ACMD_EXPRESSION)]
+unsafe fn dedede_expression_attacks3(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 3);
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitl"), 10, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 24.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+}
+
+#[acmd_script(agent = "dedede", script = "expression_attacks4", category = ACMD_EXPRESSION)]
+unsafe fn dedede_expression_attacks4(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_L);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 34.0);
+	sv_animcmd::execute(fighter.lua_state_agent, 34.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_L);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 40.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4);
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackll"), 0);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 42.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4, true);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 43.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_impact"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 44.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 47.0);
+	if macros::is_excute(fighter) {
+		macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 76.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 14);
+	}
+}
+
 #[acmd_script(agent = "dedede", script = "game_attack11", category = ACMD_GAME)]
 unsafe fn dedede_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
@@ -1023,6 +1113,11 @@ unsafe fn dedede_starmissile_game_specialfly(fighter: &mut L2CAgentBase) {
 
 pub fn install() {
 	smashline::install_acmd_scripts!(
+		dedede_expression_attackairb,
+		dedede_expression_attackairf,
+		dedede_expression_attackairlw,
+		dedede_expression_attacks3,
+		dedede_expression_attacks4,
 		dedede_game_attack11,
 		dedede_game_attack12,
 		dedede_game_attack100,
