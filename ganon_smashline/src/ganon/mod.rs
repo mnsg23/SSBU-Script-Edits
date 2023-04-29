@@ -1126,13 +1126,15 @@ unsafe fn ganon_ganond_game_start(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
 		if PostureModule::scale(fighter.module_accessor) < 1.0 {
-			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 15.0, 270, 100, 90, 0, 25.0, 0.0, 25.0, 50.0, Some(0.0), Some(25.0), Some(18.0), 3.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 15.0, 270, 100, 90, 0, 25.0, 0.0, 25.0, 50.0, Some(0.0), Some(25.0), Some(18.0), 3.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
 		} else {
-			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 15.0, 270, 100, 250, 0, 25.0, 0.0, 25.0, 50.0, Some(0.0), Some(25.0), Some(18.0), 3.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
-			macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 15.0, 270, 100, 100, 0, 25.0, 0.0, 25.0, 50.0, Some(0.0), Some(25.0), Some(18.0), 3.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 15.0, 270, 100, 250, 0, 25.0, 0.0, 25.0, 50.0, Some(0.0), Some(25.0), Some(18.0), 3.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+			macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 15.0, 270, 100, 100, 0, 25.0, 0.0, 25.0, 50.0, Some(0.0), Some(25.0), Some(18.0), 3.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
 		}
 		AttackModule::set_force_reaction(fighter.module_accessor, 0, true, false);
 		AttackModule::set_force_reaction(fighter.module_accessor, 1, true, false);
+		AttackModule::set_no_squat_damage_reaction_mul(fighter.module_accessor, 0, true, false);
+		AttackModule::set_no_squat_damage_reaction_mul(fighter.module_accessor, 1, true, false);
 		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 0, true, true, -1.0, false);
 		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 1, true, true, -1.0, false);
 	}
@@ -1163,9 +1165,9 @@ unsafe fn ganon_ganond_game_start(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 	if macros::is_excute(fighter) {
 		if PostureModule::scale(fighter.module_accessor) < 1.0 {
-			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 5, 100, 130, 5, 25.0, 0.0, 25.0, 0.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 5, 100, 130, 5, 25.0, 0.0, 25.0, 0.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
 		} else {
-			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 20, 100, 195, 5, 25.0, 0.0, 25.0, 0.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 20, 100, 195, 5, 25.0, 0.0, 25.0, 0.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
 		}
 	}
 	sv_animcmd::wait(fighter.lua_state_agent, 10.0);
