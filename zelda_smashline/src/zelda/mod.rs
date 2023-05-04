@@ -42,6 +42,33 @@ unsafe fn zelda_expression_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 }
 
+#[acmd_script(agent = "zelda", script = "expression_attackhi4", category = ACMD_EXPRESSION)]
+unsafe fn zelda_expression_attackhi4(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackss"), 5);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 11, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 24.0);
+	if macros::is_excute(fighter) {
+		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 33.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 57.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+	}
+}
+
 #[acmd_script(agent = "zelda", scripts = ["expression_attacks3", "expression_attacks3hi", "expression_attacks3lw"], category = ACMD_EXPRESSION)]
 unsafe fn zelda_expression_attacks3(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
@@ -350,25 +377,42 @@ unsafe fn zelda_game_attackhi3(fighter: &mut L2CAgentBase) {
 
 #[acmd_script(agent = "zelda", script = "game_attackhi4", category = ACMD_GAME)]
 unsafe fn zelda_game_attackhi4(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
 	}
-	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
+	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
+	macros::FT_MOTION_RATE(fighter, 2.0);
+	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
+	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
 	if macros::is_excute(fighter) {
-		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.9, 367, 100, 40, 0, 4.6, 0.0, 19.0, 0.0, None, None, None, 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, -1.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
-		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 0.9, 367, 100, 40, 0, 4.0, 0.0, 18.0, -5.0, Some(0.0), Some(18.0), Some(5.0), 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, -1.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
-		macros::ATTACK(fighter, 2, 0, Hash40::new("top"), 0.9, 366, 100, 60, 0, 4.6, 0.0, 19.0, 0.0, None, None, None, 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, -1.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
-		macros::ATTACK(fighter, 3, 0, Hash40::new("top"), 0.9, 366, 100, 60, 0, 4.0, 0.0, 18.0, -5.0, Some(0.0), Some(18.0), Some(5.0), 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, -1.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
-		macros::ATTACK(fighter, 4, 0, Hash40::new("top"), 0.9, 95, 100, 80, 0, 4.0, 0.0, 11.5, -4.0, Some(0.0), Some(11.5), Some(4.0), 0.5, 0.2, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, -1.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 1.0, 368, 100, 0, 0, 4.0, 0.0, 8.25, -5.0, Some(0.0), Some(8.25), Some(5.0), 0.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		AttackModule::set_vec_target_pos(fighter.module_accessor, 1, Hash40::new("top"), &Vector2f{x: 0.0, y: 19.5}, 7.0 as u32, false);
 	}
-	sv_animcmd::frame(fighter.lua_state_agent, 34.0);
+	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
+	for _ in 0..12 {
+		if macros::is_excute(fighter) {
+			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.0, 367, 100, 40, 0, 4.6, 0.0, 19.0, 0.0, None, None, None, 0.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, -1.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+			macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 1.0, 367, 100, 40, 0, 4.0, 0.0, 18.0, -5.0, Some(0.0), Some(18.0), Some(5.0), 0.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, -1.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+			macros::ATTACK(fighter, 2, 0, Hash40::new("top"), 1.0, 366, 100, 60, 0, 4.6, 0.0, 19.0, 0.0, None, None, None, 0.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, -1.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+			macros::ATTACK(fighter, 3, 0, Hash40::new("top"), 1.0, 366, 100, 60, 0, 4.0, 0.0, 18.0, -5.0, Some(0.0), Some(18.0), Some(5.0), 0.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, -1.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+			macros::ATTACK(fighter, 4, 0, Hash40::new("top"), 1.0, 90, 100, 80, 0, 4.0, 0.0, 11.5, 0.0, None, None, None, 0.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, -1.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		}
+		sv_animcmd::wait(fighter.lua_state_agent, 2.0);
+		if macros::is_excute(fighter) {
+			AttackModule::clear_all(fighter.module_accessor);
+		}
+	}
 	if macros::is_excute(fighter) {
-		AttackModule::clear_all(fighter.module_accessor);
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 90, 205, 0, 40, 8.0, 0.0, 21.0, 0.0, Some(0.0), Some(15.0), Some(0.0), 2.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
 		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 5.0, 90, 205, 0, 40, 6.5, 0.0, 18.0, -6.0, Some(0.0), Some(18.0), Some(6.0), 2.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
 	}
-	sv_animcmd::wait(fighter.lua_state_agent, 1.0);
+	sv_animcmd::wait(fighter.lua_state_agent, 2.0);
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
 	}
@@ -815,6 +859,26 @@ unsafe fn zelda_sound_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 }
 
+#[acmd_script(agent = "zelda", script = "sound_attackhi4", category = ACMD_SOUND)]
+unsafe fn zelda_sound_attackhi4(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::STOP_SE(fighter, Hash40::new("se_common_smash_start_03"));
+	}
+	sv_animcmd::wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("vc_zelda_attack06"));
+	}
+	sv_animcmd::wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_zelda_smash_h01"));
+	}
+	sv_animcmd::wait(fighter.lua_state_agent, 18.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new_raw(0x12c3b6d87d));
+	}
+}
+
 #[acmd_script(agent = "zelda_dein_s", script = "game_move", category = ACMD_GAME)]
 unsafe fn zelda_dein_s_game_move(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
@@ -930,6 +994,7 @@ pub fn install() {
 	smashline::install_acmd_scripts!(
 		zelda_effect_attacklw3,
 		zelda_expression_attackhi3,
+		zelda_expression_attackhi4,
 		zelda_expression_attacks3,
 		zelda_game_attack11,
 		zelda_game_attack100,
@@ -963,6 +1028,7 @@ pub fn install() {
 		zelda_game_throwhi,
 		zelda_game_throwlw,
 		zelda_sound_attackhi3,
+		zelda_sound_attackhi4,
 		zelda_dein_s_game_move,
 		zelda_phantom_game_attackkick,
 		zelda_phantom_game_attackl,
