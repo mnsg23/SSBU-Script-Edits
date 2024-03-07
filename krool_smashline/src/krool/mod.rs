@@ -186,6 +186,17 @@ unsafe fn krool_effect_specialairnspitf(fighter: &mut L2CAgentBase) {
 	}
 }
 
+#[acmd_script(agent = "krool", script = "effect_specialairsthrow", category = ACMD_EFFECT)]
+unsafe fn krool_effect_specialairsthrow(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("handr"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 26.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("krool_crownthrow"), Hash40::new("top"), 0, 11, 26, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+}
+
 #[acmd_script(agent = "krool", script = "effect_specialnspitb", category = ACMD_EFFECT)]
 unsafe fn krool_effect_specialnspitb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 22.0);
@@ -1307,9 +1318,12 @@ unsafe fn krool_game_specialnswallow(fighter: &mut L2CAgentBase) {
 #[acmd_script(agent = "krool", scripts = ["game_specialsthrow", "game_specialairsthrow"], category = ACMD_GAME)]
 unsafe fn krool_game_specialsthrow(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
+	macros::FT_MOTION_RATE(fighter, 0.8);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KROOL_STATUS_SPECIAL_S_FLAG_ENABLE_SUPER_ARMOR);
 	}
+	sv_animcmd::frame(fighter.lua_state_agent, 16.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
 	sv_animcmd::frame(fighter.lua_state_agent, 18.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("arml"), 0.0, 361, 100, 30, 0, 5.0, 5.0, 0.0, 0.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 2, false, false, true, true, false, *COLLISION_SITUATION_MASK_G_d, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
@@ -1319,10 +1333,13 @@ unsafe fn krool_game_specialsthrow(fighter: &mut L2CAgentBase) {
 		AttackModule::clear_all(fighter.module_accessor);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 26.0);
+	macros::FT_MOTION_RATE(fighter, 1.2);
 	if macros::is_excute(fighter) {
 		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_KROOL_GENERATE_ARTICLE_CROWN, false, 0);
 		VisibilityModule::set_int64(fighter.module_accessor, hash40("crown") as i64, hash40("crown_hide") as i64);
 	}
+	sv_animcmd::frame(fighter.lua_state_agent, 36.0);
+	macros::FT_MOTION_RATE(fighter, 1.0);
 	sv_animcmd::frame(fighter.lua_state_agent, 64.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
@@ -1616,6 +1633,7 @@ pub fn install() {
 		krool_effect_attacks3hi,
 		krool_effect_specialairnspitb,
 		krool_effect_specialairnspitf,
+		krool_effect_specialairsthrow,
 		krool_effect_specialnspitb,
 		krool_effect_specialnspitf,
 		krool_expression_attacklw4,
