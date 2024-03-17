@@ -13,8 +13,7 @@ use {
 	smashline::*
 };
 
-#[acmd_script(agent = "elight", script = "game_attack11", category = ACMD_GAME)]
-unsafe fn elight_game_attack11(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -41,8 +40,7 @@ unsafe fn elight_game_attack11(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_attack12", category = ACMD_GAME)]
-unsafe fn elight_game_attack12(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attack12(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		if ArticleModule::is_exist(fighter.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) == true {
@@ -92,8 +90,7 @@ unsafe fn elight_game_attack12(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_attack13", category = ACMD_GAME)]
-unsafe fn elight_game_attack13(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attack13(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		if ArticleModule::is_exist(fighter.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) == true {
@@ -143,8 +140,7 @@ unsafe fn elight_game_attack13(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "elight", script = "game_attack100", category = ACMD_GAME)]
-unsafe fn elight_game_attack100(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attack100(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
 	for _ in 0..1000000 {
 		for _ in 0..5 {
@@ -164,8 +160,7 @@ unsafe fn elight_game_attack100(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_attack100end", category = ACMD_GAME)]
-unsafe fn elight_game_attack100end(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attack100end(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.25);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -180,16 +175,14 @@ unsafe fn elight_game_attack100end(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_attack100start", category = ACMD_GAME)]
-unsafe fn elight_game_attack100start(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attack100start(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.25);
 	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "elight", script = "game_attack100sub", category = ACMD_GAME)]
-unsafe fn elight_game_attack100sub(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attack100sub(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.4, 361, 10, 0, 15, 6.0, 0.0, 7.0, 8.0, Some(0.0), Some(7.0), Some(15.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
 		AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
@@ -202,8 +195,7 @@ unsafe fn elight_game_attack100sub(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_attackairb", category = ACMD_GAME)]
-unsafe fn elight_game_attackairb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attackairb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
 	macros::FT_MOTION_RATE(fighter, 0.25);
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
@@ -260,8 +252,7 @@ unsafe fn elight_game_attackairb(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter,	1.0);
 }
 
-#[acmd_script(agent = "elight", script = "game_attackairf", category = ACMD_GAME)]
-unsafe fn elight_game_attackairf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attackairf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -330,8 +321,7 @@ unsafe fn elight_game_attackairf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_attackairhi", category = ACMD_GAME)]
-unsafe fn elight_game_attackairhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attackairhi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.2);
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
@@ -390,8 +380,7 @@ unsafe fn elight_game_attackairhi(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter,	1.0);
 }
 
-#[acmd_script(agent = "elight", script = "game_attackairlw", category = ACMD_GAME)]
-unsafe fn elight_game_attackairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attackairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.25);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -464,8 +453,7 @@ unsafe fn elight_game_attackairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_attackairn", category = ACMD_GAME)]
-unsafe fn elight_game_attackairn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attackairn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.25);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -521,8 +509,7 @@ unsafe fn elight_game_attackairn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_attackdash", category = ACMD_GAME)]
-unsafe fn elight_game_attackdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attackdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
@@ -560,8 +547,7 @@ unsafe fn elight_game_attackdash(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "elight", script = "game_attackhi3", category = ACMD_GAME)]
-unsafe fn elight_game_attackhi3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attackhi3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.2);
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
@@ -636,8 +622,7 @@ unsafe fn elight_game_attackhi3(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "elight", script = "game_attackhi4", category = ACMD_GAME)]
-unsafe fn elight_game_attackhi4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attackhi4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		if ArticleModule::is_exist(fighter.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) == true {
@@ -712,8 +697,7 @@ unsafe fn elight_game_attackhi4(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "elight", script = "game_attacklw3", category = ACMD_GAME)]
-unsafe fn elight_game_attacklw3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attacklw3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		if ArticleModule::is_exist(fighter.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) == true {
@@ -749,8 +733,7 @@ unsafe fn elight_game_attacklw3(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "elight", script = "game_attacklw4", category = ACMD_GAME)]
-unsafe fn elight_game_attacklw4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attacklw4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		if ArticleModule::is_exist(fighter.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) == true {
@@ -799,8 +782,7 @@ unsafe fn elight_game_attacklw4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_attacks3", category = ACMD_GAME)]
-unsafe fn elight_game_attacks3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attacks3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.25);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -850,8 +832,7 @@ unsafe fn elight_game_attacks3(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "elight", script = "game_attacks4", category = ACMD_GAME)]
-unsafe fn elight_game_attacks4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_attacks4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		if ArticleModule::is_exist(fighter.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) == true {
@@ -913,8 +894,7 @@ unsafe fn elight_game_attacks4(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "elight", script = "game_catch", category = ACMD_GAME)]
-unsafe fn elight_game_catch(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_catch(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		GrabModule::set_rebound(fighter.module_accessor, true);
@@ -933,8 +913,7 @@ unsafe fn elight_game_catch(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_catchattack", category = ACMD_GAME)]
-unsafe fn elight_game_catchattack(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_catchattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.3, 361, 100, 30, 0, 5.0, 0.0, 10.0, 10.0, None, None, None, 2.1, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
@@ -946,8 +925,7 @@ unsafe fn elight_game_catchattack(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_catchdash", category = ACMD_GAME)]
-unsafe fn elight_game_catchdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_catchdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter,	0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
@@ -970,8 +948,7 @@ unsafe fn elight_game_catchdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_catchturn", category = ACMD_GAME)]
-unsafe fn elight_game_catchturn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_catchturn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter,	0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
@@ -994,8 +971,7 @@ unsafe fn elight_game_catchturn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_landingairn", category = ACMD_GAME)]
-unsafe fn elight_game_landingairn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_landingairn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 65, 125, 0, 60, 3.0, 0.0, 3.0, -4.0, Some(0.0), Some(3.0), Some(4.0), 0.75, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_SWORD);
@@ -1007,8 +983,7 @@ unsafe fn elight_game_landingairn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_throwb", category = ACMD_GAME)]
-unsafe fn elight_game_throwb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_throwb(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 3.0, 45, 95, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -1032,8 +1007,7 @@ unsafe fn elight_game_throwb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_throwf", category = ACMD_GAME)]
-unsafe fn elight_game_throwf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_throwf(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 4.0, 35, 95, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -1053,8 +1027,7 @@ unsafe fn elight_game_throwf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "game_throwhi", category = ACMD_GAME)]
-unsafe fn elight_game_throwhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_throwhi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 4.0, 90, 75, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -1073,8 +1046,7 @@ unsafe fn elight_game_throwhi(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter,	0.3);
 }
 
-#[acmd_script(agent = "elight", script = "game_throwlw", category = ACMD_GAME)]
-unsafe fn elight_game_throwlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_game_throwlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::FT_LEAVE_NEAR_OTTOTTO(fighter, -2.5, 2.5);
@@ -1117,8 +1089,7 @@ unsafe fn elight_game_throwlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight", script = "sound_attack100end", category = ACMD_SOUND)]
-unsafe fn elight_sound_attack100end(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_sound_attack100end(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE(fighter, Hash40::new("se_elight_attack100_end"));
@@ -1126,8 +1097,7 @@ unsafe fn elight_sound_attack100end(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight_bunshin", script = 0x13ee1e5627, category = ACMD_GAME)]
-unsafe fn elight_bunshin_0x13ee1e5627(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_bunshin_game_specialcliffs5(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		if ArticleModule::is_exist(fighter.module_accessor, *WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD) == true {
 			ArticleModule::add_motion_partial(fighter.module_accessor, *WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 10.0, 10.0, false, false, 0.0, false, true, false);
@@ -1145,8 +1115,7 @@ unsafe fn elight_bunshin_0x13ee1e5627(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight_bunshin", scripts = ["game_specials5", "game_specialairs5"], category = ACMD_GAME)]
-unsafe fn elight_bunshin_game_specials5(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_bunshin_game_specials5(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		if ArticleModule::is_exist(fighter.module_accessor, *WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD) == true {
 			ArticleModule::add_motion_partial(fighter.module_accessor, *WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 10.0, 10.0, false, false, 0.0, false, true, false);
@@ -1163,8 +1132,7 @@ unsafe fn elight_bunshin_game_specials5(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight_exprosiveshot", script = "game_burst", category = ACMD_GAME)]
-unsafe fn elight_exprosiveshot_game_burst(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_exprosiveshot_game_burst(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 55, 105, 0, 60, 6.0, 0.0, 3.0, 0.0, None, None, None, 1.4, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
@@ -1172,55 +1140,60 @@ unsafe fn elight_exprosiveshot_game_burst(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "elight_exprosiveshot", script = "game_fly", category = ACMD_GAME)]
-unsafe fn elight_exprosiveshot_game_fly(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_exprosiveshot_game_fly(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
-		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 70, 55, 0, 45, 6.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -4, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 70, 55, 0, 45, 6.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -1, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
 	}
 }
 
-#[acmd_script(agent = "elight_spreadbullet", script = "game_fly", category = ACMD_GAME)]
-unsafe fn elight_spreadbullet_game_fly(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn elight_spreadbullet_game_fly(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
-		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.5, 50, 115, 0, 60, 2.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -4, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.5, 50, 115, 0, 60, 2.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -1.25, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
 	}
 }
 
 pub fn install() {
-	smashline::install_acmd_scripts!(
-		elight_game_attack11,
-		elight_game_attack12,
-		elight_game_attack13,
-		elight_game_attack100,
-		elight_game_attack100end,
-		elight_game_attack100start,
-		elight_game_attack100sub,
-		elight_game_attackairb,
-		elight_game_attackairf,
-		elight_game_attackairhi,
-		elight_game_attackairlw,
-		elight_game_attackairn,
-		elight_game_attackdash,
-		elight_game_attackhi3,
-		elight_game_attackhi4,
-		elight_game_attacklw3,
-		elight_game_attacklw4,
-		elight_game_attacks3,
-		elight_game_attacks4,
-		elight_game_catch,
-		elight_game_catchattack,
-		elight_game_catchdash,
-		elight_game_catchturn,
-		elight_game_landingairn,
-		elight_game_throwb,
-		elight_game_throwf,
-		elight_game_throwhi,
-		elight_game_throwlw,
-		elight_sound_attack100end,
-		elight_bunshin_0x13ee1e5627,
-		elight_bunshin_game_specials5,
-		elight_exprosiveshot_game_burst,
-		elight_exprosiveshot_game_fly,
-		elight_spreadbullet_game_fly,
-	);
+	Agent::new("elight")
+		.game_acmd("game_attack11", elight_game_attack11)
+		.game_acmd("game_attack12", elight_game_attack12)
+		.game_acmd("game_attack13", elight_game_attack13)
+		.game_acmd("game_attack100", elight_game_attack100)
+		.game_acmd("game_attack100end", elight_game_attack100end)
+		.game_acmd("game_attack100start", elight_game_attack100start)
+		.game_acmd("game_attack100sub", elight_game_attack100sub)
+		.game_acmd("game_attackairb", elight_game_attackairb)
+		.game_acmd("game_attackairf", elight_game_attackairf)
+		.game_acmd("game_attackairhi", elight_game_attackairhi)
+		.game_acmd("game_attackairlw", elight_game_attackairlw)
+		.game_acmd("game_attackairn", elight_game_attackairn)
+		.game_acmd("game_attackdash", elight_game_attackdash)
+		.game_acmd("game_attackhi3", elight_game_attackhi3)
+		.game_acmd("game_attackhi4", elight_game_attackhi4)
+		.game_acmd("game_attacklw3", elight_game_attacklw3)
+		.game_acmd("game_attacklw4", elight_game_attacklw4)
+		.game_acmd("game_attacks3", elight_game_attacks3)
+		.game_acmd("game_attacks4", elight_game_attacks4)
+		.game_acmd("game_catch", elight_game_catch)
+		.game_acmd("game_catchattack", elight_game_catchattack)
+		.game_acmd("game_catchdash", elight_game_catchdash)
+		.game_acmd("game_catchturn", elight_game_catchturn)
+		.game_acmd("game_landingairn", elight_game_landingairn)
+		.game_acmd("game_throwb", elight_game_throwb)
+		.game_acmd("game_throwf", elight_game_throwf)
+		.game_acmd("game_throwhi", elight_game_throwhi)
+		.game_acmd("game_throwlw", elight_game_throwlw)
+		.sound_acmd("sound_attack100end", elight_sound_attack100end)
+		.install();
+	Agent::new("elight_bunshin")
+		.game_acmd("game_specialcliffs5", elight_bunshin_game_specialcliffs5)
+		.game_acmd("game_specials5", elight_bunshin_game_specials5)
+		.game_acmd("game_specialairs5", elight_bunshin_game_specials5)
+		.install();
+	Agent::new("elight_exprosiveshot")
+		.game_acmd("game_burst", elight_exprosiveshot_game_burst)
+		.game_acmd("game_fly", elight_exprosiveshot_game_fly)
+		.install();
+	Agent::new("elight_spreadbullet")
+		.game_acmd("game_fly", elight_spreadbullet_game_fly)
+		.install();
 }
