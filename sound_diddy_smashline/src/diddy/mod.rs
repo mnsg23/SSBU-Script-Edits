@@ -8,16 +8,14 @@ use {
 	smashline::*
 };
 
-#[acmd_script(agent = "diddy", script = "sound_batswing4", category = ACMD_SOUND)]
-unsafe fn diddy_sound_batswing4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn diddy_sound_batswing4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 45.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE(fighter, Hash40::new("vc_diddy_attack07"));
 	}
 }
 
-#[acmd_script(agent = "diddy", scripts = ["sound_lipstickswing4", "sound_starrodswing4"], category = ACMD_SOUND)]
-unsafe fn diddy_sound_itemswing4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn diddy_sound_itemswing4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
 	if macros::is_excute(fighter) {
 		macros::STOP_SE(fighter, Hash40::new("se_common_smash_start_04"));
@@ -28,8 +26,7 @@ unsafe fn diddy_sound_itemswing4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "diddy", script = "sound_win1", category = ACMD_SOUND)]
-unsafe fn diddy_sound_win1(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn diddy_sound_win1(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 13.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE_NO_3D(fighter, Hash40::new("vc_diddy_win01"));
@@ -73,9 +70,10 @@ unsafe fn diddy_sound_win1(fighter: &mut L2CAgentBase) {
 }
 
 pub fn install() {
-	smashline::install_acmd_scripts!(
-		diddy_sound_batswing4,
-		diddy_sound_itemswing4,
-		diddy_sound_win1,
-	);
+	Agent::new("diddy")
+		.sound_acmd("sound_batswing4", diddy_sound_batswing4)
+		.sound_acmd("sound_lipstickswing4", diddy_sound_itemswing4)
+		.sound_acmd("sound_starrodswing4", diddy_sound_itemswing4)
+		.sound_acmd("sound_win1", diddy_sound_win1)
+		.install();
 }
