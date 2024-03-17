@@ -14,16 +14,14 @@ use {
 	smashline::*
 };
 
-#[acmd_script(agent = "koopa", scripts = ["sound_appealhil", "sound_appealhir"], category = ACMD_SOUND)]
-unsafe fn koopa_sound_appealhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_appealhi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE_REMAIN(fighter, Hash40::new("vc_koopa_attack07"));
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_attack12", category = ACMD_SOUND)]
-unsafe fn koopa_sound_attack12(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_attack12(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 6);
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
@@ -46,8 +44,7 @@ unsafe fn koopa_sound_attack12(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_attackairb", category = ACMD_SOUND)]
-unsafe fn koopa_sound_attackairb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_attackairb(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 6);
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
@@ -70,8 +67,7 @@ unsafe fn koopa_sound_attackairb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_attackairf", category = ACMD_SOUND)]
-unsafe fn koopa_sound_attackairf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_attackairf(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 6);
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
 	if macros::is_excute(fighter) {
@@ -94,8 +90,7 @@ unsafe fn koopa_sound_attackairf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_attackairhi", category = ACMD_SOUND)]
-unsafe fn koopa_sound_attackairhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_attackairhi(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 6);
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
 	if macros::is_excute(fighter) {
@@ -118,8 +113,7 @@ unsafe fn koopa_sound_attackairhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_attackairlw", category = ACMD_SOUND)]
-unsafe fn koopa_sound_attackairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_attackairlw(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 6);
 	sv_animcmd::frame(fighter.lua_state_agent, 13.0);
 	if macros::is_excute(fighter) {
@@ -142,8 +136,7 @@ unsafe fn koopa_sound_attackairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_attackairn", category = ACMD_SOUND)]
-unsafe fn koopa_sound_attackairn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_attackairn(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 6);
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
@@ -166,8 +159,7 @@ unsafe fn koopa_sound_attackairn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_attackdash", category = ACMD_SOUND)]
-unsafe fn koopa_sound_attackdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_attackdash(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 6);
 	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
 	if macros::is_excute(fighter) {
@@ -194,8 +186,7 @@ unsafe fn koopa_sound_attackdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_attackhi3", category = ACMD_SOUND)]
-unsafe fn koopa_sound_attackhi3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_attackhi3(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 6);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
@@ -218,8 +209,7 @@ unsafe fn koopa_sound_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_attacklw3", category = ACMD_SOUND)]
-unsafe fn koopa_sound_attacklw3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_attacklw3(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 6);
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
@@ -246,8 +236,7 @@ unsafe fn koopa_sound_attacklw3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", scripts = ["sound_attacks3", "sound_attacks3hi", "sound_attacks3lw"], category = ACMD_SOUND)]
-unsafe fn koopa_sound_attacks3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_attacks3(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 6);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
@@ -270,24 +259,21 @@ unsafe fn koopa_sound_attacks3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_batswing4", category = ACMD_SOUND)]
-unsafe fn koopa_sound_batswing4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_batswing4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 45.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE(fighter, Hash40::new("vc_koopa_attack06"));
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_itemheavyget", category = ACMD_SOUND)]
-unsafe fn koopa_sound_itemheavyget(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_itemheavyget(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE(fighter, Hash40::new("vc_koopa_heavyget"));
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_itemheavythrowb4", category = ACMD_SOUND)]
-unsafe fn koopa_sound_itemheavythrowb4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_itemheavythrowb4(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 4);
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
 	if macros::is_excute(fighter) {
@@ -306,8 +292,7 @@ unsafe fn koopa_sound_itemheavythrowb4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_itemheavythrowf4", category = ACMD_SOUND)]
-unsafe fn koopa_sound_itemheavythrowf4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_itemheavythrowf4(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 4);
 	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
 	if macros::is_excute(fighter) {
@@ -326,8 +311,7 @@ unsafe fn koopa_sound_itemheavythrowf4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_itemheavythrowhi4", category = ACMD_SOUND)]
-unsafe fn koopa_sound_itemheavythrowhi4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_itemheavythrowhi4(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 4);
 	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
 	if macros::is_excute(fighter) {
@@ -346,8 +330,7 @@ unsafe fn koopa_sound_itemheavythrowhi4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_itemheavythrowlw4", category = ACMD_SOUND)]
-unsafe fn koopa_sound_itemheavythrowlw4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_itemheavythrowlw4(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 4);
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
@@ -366,8 +349,7 @@ unsafe fn koopa_sound_itemheavythrowlw4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", scripts = ["sound_itemlightthrowb4", "sound_itemlightthrowairb4"], category = ACMD_SOUND)]
-unsafe fn koopa_sound_itemlightthrowb4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_itemlightthrowb4(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 4);
 	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
 	if macros::is_excute(fighter) {
@@ -386,8 +368,7 @@ unsafe fn koopa_sound_itemlightthrowb4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", scripts = ["sound_itemlightthrowf4", "sound_itemlightthrowairf4"], category = ACMD_SOUND)]
-unsafe fn koopa_sound_itemlightthrowf4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_itemlightthrowf4(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 4);
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
 	if macros::is_excute(fighter) {
@@ -406,8 +387,7 @@ unsafe fn koopa_sound_itemlightthrowf4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", scripts = ["sound_itemlightthrowhi4", "sound_itemlightthrowairhi4"], category = ACMD_SOUND)]
-unsafe fn koopa_sound_itemlightthrowhi4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_itemlightthrowhi4(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 4);
 	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
 	if macros::is_excute(fighter) {
@@ -426,8 +406,7 @@ unsafe fn koopa_sound_itemlightthrowhi4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", scripts = ["sound_itemlightthrowlw4", "sound_itemlightthrowairlw4"], category = ACMD_SOUND)]
-unsafe fn koopa_sound_itemlightthrowlw4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_itemlightthrowlw4(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 4);
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
@@ -446,8 +425,7 @@ unsafe fn koopa_sound_itemlightthrowlw4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", scripts = ["sound_lipstickswing4", "sound_starrodswing4"], category = ACMD_SOUND)]
-unsafe fn koopa_sound_itemswing4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_itemswing4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
 	if macros::is_excute(fighter) {
 		macros::STOP_SE(fighter, Hash40::new("se_common_smash_start"));
@@ -458,8 +436,7 @@ unsafe fn koopa_sound_itemswing4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", scripts = ["sound_jumpback", "sound_jumpfront"], category = ACMD_SOUND)]
-unsafe fn koopa_sound_jump(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_jump(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 2);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
@@ -472,8 +449,7 @@ unsafe fn koopa_sound_jump(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_ottotto", category = ACMD_SOUND)]
-unsafe fn koopa_sound_ottotto(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_ottotto(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 5);
 	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
 	if macros::is_excute(fighter) {
@@ -483,8 +459,7 @@ unsafe fn koopa_sound_ottotto(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_throwb", category = ACMD_SOUND)]
-unsafe fn koopa_sound_throwb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_throwb(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 4);
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
@@ -511,8 +486,7 @@ unsafe fn koopa_sound_throwb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_throwf", category = ACMD_SOUND)]
-unsafe fn koopa_sound_throwf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_throwf(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 4);
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
@@ -539,8 +513,7 @@ unsafe fn koopa_sound_throwf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_throwhi", category = ACMD_SOUND)]
-unsafe fn koopa_sound_throwhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_throwhi(fighter: &mut L2CAgentBase) {
 	let sound = sv_math::rand(hash40("fighter"), 4);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
@@ -569,8 +542,7 @@ unsafe fn koopa_sound_throwhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_win1", category = ACMD_SOUND)]
-unsafe fn koopa_sound_win1(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_win1(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE_NO_3D(fighter, Hash40::new("vc_koopa_win01"));
@@ -593,8 +565,7 @@ unsafe fn koopa_sound_win1(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "koopa", script = "sound_win3", category = ACMD_SOUND)]
-unsafe fn koopa_sound_win3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn koopa_sound_win3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 15.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE_NO_3D(fighter, Hash40::new("vc_koopa_win01_02"));
@@ -626,35 +597,44 @@ unsafe fn koopa_sound_win3(fighter: &mut L2CAgentBase) {
 }
 
 pub fn install() {
-	smashline::install_acmd_scripts!(
-		koopa_sound_appealhi,
-		koopa_sound_attack12,
-		koopa_sound_attackairb,
-		koopa_sound_attackairf,
-		koopa_sound_attackairhi,
-		koopa_sound_attackairlw,
-		koopa_sound_attackairn,
-		koopa_sound_attackdash,
-		koopa_sound_attackhi3,
-		koopa_sound_attacklw3,
-		koopa_sound_attacks3,
-		koopa_sound_batswing4,
-		koopa_sound_itemheavyget,
-		koopa_sound_itemheavythrowb4,
-		koopa_sound_itemheavythrowf4,
-		koopa_sound_itemheavythrowhi4,
-		koopa_sound_itemheavythrowlw4,
-		koopa_sound_itemlightthrowb4,
-		koopa_sound_itemlightthrowf4,
-		koopa_sound_itemlightthrowhi4,
-		koopa_sound_itemlightthrowlw4,
-		koopa_sound_itemswing4,
-		koopa_sound_jump,
-		koopa_sound_ottotto,
-		koopa_sound_throwb,
-		koopa_sound_throwf,
-		koopa_sound_throwhi,
-		koopa_sound_win1,
-		koopa_sound_win3,
-	);
+	Agent::new("koopa")
+		.sound_acmd("sound_appealhil", koopa_sound_appealhi)
+		.sound_acmd("sound_appealhir", koopa_sound_appealhi)
+		.sound_acmd("sound_attack12", koopa_sound_attack12)
+		.sound_acmd("sound_attackairb", koopa_sound_attackairb)
+		.sound_acmd("sound_attackairf", koopa_sound_attackairf)
+		.sound_acmd("sound_attackairhi", koopa_sound_attackairhi)
+		.sound_acmd("sound_attackairlw", koopa_sound_attackairlw)
+		.sound_acmd("sound_attackairn", koopa_sound_attackairn)
+		.sound_acmd("sound_attackdash", koopa_sound_attackdash)
+		.sound_acmd("sound_attackhi3", koopa_sound_attackhi3)
+		.sound_acmd("sound_attacklw3", koopa_sound_attacklw3)
+		.sound_acmd("sound_attacks3", koopa_sound_attacks3)
+		.sound_acmd("sound_attacks3hi", koopa_sound_attacks3)
+		.sound_acmd("sound_attacks3lw", koopa_sound_attacks3)
+		.sound_acmd("sound_batswing4", koopa_sound_batswing4)
+		.sound_acmd("sound_itemheavyget", koopa_sound_itemheavyget)
+		.sound_acmd("sound_itemheavythrowb4", koopa_sound_itemheavythrowb4)
+		.sound_acmd("sound_itemheavythrowf4", koopa_sound_itemheavythrowf4)
+		.sound_acmd("sound_itemheavythrowhi4", koopa_sound_itemheavythrowhi4)
+		.sound_acmd("sound_itemheavythrowlw4", koopa_sound_itemheavythrowlw4)
+		.sound_acmd("sound_itemlightthrowb4", koopa_sound_itemlightthrowb4)
+		.sound_acmd("sound_itemlightthrowairb4", koopa_sound_itemlightthrowb4)
+		.sound_acmd("sound_itemlightthrowf4", koopa_sound_itemlightthrowf4)
+		.sound_acmd("sound_itemlightthrowairf4", koopa_sound_itemlightthrowf4)
+		.sound_acmd("sound_itemlightthrowhi4", koopa_sound_itemlightthrowhi4)
+		.sound_acmd("sound_itemlightthrowairhi4", koopa_sound_itemlightthrowhi4)
+		.sound_acmd("sound_itemlightthrowlw4", koopa_sound_itemlightthrowlw4)
+		.sound_acmd("sound_itemlightthrowairlw4", koopa_sound_itemlightthrowlw4)
+		.sound_acmd("sound_lipstickswing4", koopa_sound_itemswing4)
+		.sound_acmd("sound_starrodswing4", koopa_sound_itemswing4)
+		.sound_acmd("sound_jumpback", koopa_sound_jump)
+		.sound_acmd("sound_jumpfront", koopa_sound_jump)
+		.sound_acmd("sound_ottotto", koopa_sound_ottotto)
+		.sound_acmd("sound_throwb", koopa_sound_throwb)
+		.sound_acmd("sound_throwf", koopa_sound_throwf)
+		.sound_acmd("sound_throwhi", koopa_sound_throwhi)
+		.sound_acmd("sound_win1", koopa_sound_win1)
+		.sound_acmd("sound_win3", koopa_sound_win3)
+		.install();
 }
