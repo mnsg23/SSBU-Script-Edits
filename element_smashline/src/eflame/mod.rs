@@ -13,8 +13,7 @@ use {
 	smashline::*
 };
 
-#[acmd_script(agent = "eflame", script = "game_attack11", category = ACMD_GAME)]
-unsafe fn eflame_game_attack11(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 3.0, 361, 15, 0, 25, 2.5, 0.0, 8.0, 8.5, Some(0.0), Some(8.0), Some(7.0), 1.2, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
@@ -38,8 +37,7 @@ unsafe fn eflame_game_attack11(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attack12", category = ACMD_GAME)]
-unsafe fn eflame_game_attack12(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attack12(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -87,8 +85,7 @@ unsafe fn eflame_game_attack12(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attack13", category = ACMD_GAME)]
-unsafe fn eflame_game_attack13(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attack13(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		if ArticleModule::is_exist(fighter.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD) == true {
@@ -138,14 +135,13 @@ unsafe fn eflame_game_attack13(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "eflame", script = "game_attack100", category = ACMD_GAME)]
-unsafe fn eflame_game_attack100(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attack100(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
 	for _ in 0..1000000 {
 		for _ in 0..5 {
 			if macros::is_excute(fighter) {
 				macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.6, 361, 10, 0, 15, 6.0, 0.0, 7.0, 8.0, Some(0.0), Some(7.0), Some(15.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_MAGIC);
-				AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
+				AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 5.0, false);
 				macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 8);
 			}
 			sv_animcmd::wait(fighter.lua_state_agent, 1.0);
@@ -159,8 +155,7 @@ unsafe fn eflame_game_attack100(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attack100end", category = ACMD_GAME)]
-unsafe fn eflame_game_attack100end(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attack100end(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -175,19 +170,17 @@ unsafe fn eflame_game_attack100end(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attack100start", category = ACMD_GAME)]
-unsafe fn eflame_game_attack100start(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attack100start(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.375);
 	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "eflame", script = "game_attack100sub", category = ACMD_GAME)]
-unsafe fn eflame_game_attack100sub(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attack100sub(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.6, 361, 10, 0, 15, 6.0, 0.0, 7.0, 8.0, Some(0.0), Some(7.0), Some(15.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_MAGIC);
-		AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
+		AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 5.0, false);
 		macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 8);
 	}
 	sv_animcmd::wait(fighter.lua_state_agent, 1.0);
@@ -197,8 +190,7 @@ unsafe fn eflame_game_attack100sub(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attackairb", category = ACMD_GAME)]
-unsafe fn eflame_game_attackairb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attackairb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -251,8 +243,7 @@ unsafe fn eflame_game_attackairb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attackairf", category = ACMD_GAME)]
-unsafe fn eflame_game_attackairf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attackairf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -320,8 +311,7 @@ unsafe fn eflame_game_attackairf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attackairhi", category = ACMD_GAME)]
-unsafe fn eflame_game_attackairhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attackairhi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -374,8 +364,7 @@ unsafe fn eflame_game_attackairhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attackairlw", category = ACMD_GAME)]
-unsafe fn eflame_game_attackairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attackairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -449,8 +438,7 @@ unsafe fn eflame_game_attackairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attackairn", category = ACMD_GAME)]
-unsafe fn eflame_game_attackairn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attackairn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 4.0);
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
@@ -499,8 +487,7 @@ unsafe fn eflame_game_attackairn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attackdash", category = ACMD_GAME)]
-unsafe fn eflame_game_attackdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attackdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 2.0);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -536,8 +523,7 @@ unsafe fn eflame_game_attackdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attackhi3", category = ACMD_GAME)]
-unsafe fn eflame_game_attackhi3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attackhi3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 2.0);
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
@@ -614,8 +600,7 @@ unsafe fn eflame_game_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attackhi4", category = ACMD_GAME)]
-unsafe fn eflame_game_attackhi4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attackhi4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -683,8 +668,7 @@ unsafe fn eflame_game_attackhi4(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "eflame", script = "game_attacklw3", category = ACMD_GAME)]
-unsafe fn eflame_game_attacklw3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attacklw3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 2.0);
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
@@ -722,8 +706,7 @@ unsafe fn eflame_game_attacklw3(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "eflame", script = "game_attacklw4", category = ACMD_GAME)]
-unsafe fn eflame_game_attacklw4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attacklw4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -767,8 +750,7 @@ unsafe fn eflame_game_attacklw4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attacks3", category = ACMD_GAME)]
-unsafe fn eflame_game_attacks3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attacks3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 2.0);
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
@@ -819,8 +801,7 @@ unsafe fn eflame_game_attacks3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_attacks4", category = ACMD_GAME)]
-unsafe fn eflame_game_attacks4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_attacks4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -883,8 +864,7 @@ unsafe fn eflame_game_attacks4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_catch", category = ACMD_GAME)]
-unsafe fn eflame_game_catch(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_catch(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter,	2.0);
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
@@ -907,8 +887,7 @@ unsafe fn eflame_game_catch(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_catchattack", category = ACMD_GAME)]
-unsafe fn eflame_game_catchattack(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_catchattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.6, 361, 100, 30, 0, 5.0, 0.0, 10.0, 10.0, None, None, None, 2.3, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_MAGIC);
@@ -920,8 +899,7 @@ unsafe fn eflame_game_catchattack(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_catchdash", category = ACMD_GAME)]
-unsafe fn eflame_game_catchdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_catchdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter,	0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
@@ -944,8 +922,7 @@ unsafe fn eflame_game_catchdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_catchturn", category = ACMD_GAME)]
-unsafe fn eflame_game_catchturn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_catchturn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter,	0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
@@ -968,8 +945,7 @@ unsafe fn eflame_game_catchturn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_throwb", category = ACMD_GAME)]
-unsafe fn eflame_game_throwb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_throwb(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 4.0, 45, 95, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -993,8 +969,7 @@ unsafe fn eflame_game_throwb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_throwf", category = ACMD_GAME)]
-unsafe fn eflame_game_throwf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_throwf(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 5.0, 35, 95, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -1014,8 +989,7 @@ unsafe fn eflame_game_throwf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "game_throwhi", category = ACMD_GAME)]
-unsafe fn eflame_game_throwhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_throwhi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 6.0, 90, 75, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -1034,8 +1008,7 @@ unsafe fn eflame_game_throwhi(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter,	0.3);
 }
 
-#[acmd_script(agent = "eflame", script = "game_throwlw", category = ACMD_GAME)]
-unsafe fn eflame_game_throwlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_game_throwlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::FT_LEAVE_NEAR_OTTOTTO(fighter, -2.5, 2.5);
@@ -1078,8 +1051,7 @@ unsafe fn eflame_game_throwlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "sound_attack100end", category = ACMD_SOUND)]
-unsafe fn eflame_sound_attack100end(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_sound_attack100end(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE(fighter, Hash40::new("se_eflame_attack100_end"));
@@ -1087,8 +1059,7 @@ unsafe fn eflame_sound_attack100end(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "sound_deathscytheswing4", category = ACMD_SOUND)]
-unsafe fn eflame_sound_deathscytheswing4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_sound_deathscytheswing4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
 	if macros::is_excute(fighter) {
 		macros::STOP_SE(fighter, Hash40::new("se_common_smash_start_02"));
@@ -1099,15 +1070,13 @@ unsafe fn eflame_sound_deathscytheswing4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "eflame", script = "sound_deathscytheswing4charge", category = ACMD_SOUND)]
-unsafe fn eflame_sound_deathscytheswing4charge(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_sound_deathscytheswing4charge(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE(fighter, Hash40::new("se_common_smash_start_02"));
 	}
 }
 
-#[acmd_script(agent = "eflame_firepillar", script = "game_specialhi", category = ACMD_GAME)]
-unsafe fn eflame_firepillar_game_specialhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn eflame_firepillar_game_specialhi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 9.0, 60, 100, 0, 100, 11.0, 0.0, 8.0, 2.0, Some(0.0), Some(8.0), Some(-2.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_ENERGY);
@@ -1130,37 +1099,39 @@ unsafe fn eflame_firepillar_game_specialhi(fighter: &mut L2CAgentBase) {
 }
 
 pub fn install() {
-	smashline::install_acmd_scripts!(
-		eflame_game_attack11,
-		eflame_game_attack12,
-		eflame_game_attack13,
-		eflame_game_attack100,
-		eflame_game_attack100end,
-		eflame_game_attack100start,
-		eflame_game_attack100sub,
-		eflame_game_attackairb,
-		eflame_game_attackairf,
-		eflame_game_attackairhi,
-		eflame_game_attackairlw,
-		eflame_game_attackairn,
-		eflame_game_attackdash,
-		eflame_game_attackhi3,
-		eflame_game_attackhi4,
-		eflame_game_attacklw3,
-		eflame_game_attacklw4,
-		eflame_game_attacks3,
-		eflame_game_attacks4,
-		eflame_game_catch,
-		eflame_game_catchattack,
-		eflame_game_catchdash,
-		eflame_game_catchturn,
-		eflame_game_throwb,
-		eflame_game_throwf,
-		eflame_game_throwhi,
-		eflame_game_throwlw,
-		eflame_sound_attack100end,
-		eflame_sound_deathscytheswing4,
-		eflame_sound_deathscytheswing4charge,
-		eflame_firepillar_game_specialhi,
-	);
+	Agent::new("eflame")
+		.game_acmd("game_attack11", eflame_game_attack11)
+		.game_acmd("game_attack12", eflame_game_attack12)
+		.game_acmd("game_attack13", eflame_game_attack13)
+		.game_acmd("game_attack100", eflame_game_attack100)
+		.game_acmd("game_attack100end", eflame_game_attack100end)
+		.game_acmd("game_attack100start", eflame_game_attack100start)
+		.game_acmd("game_attack100sub", eflame_game_attack100sub)
+		.game_acmd("game_attackairb", eflame_game_attackairb)
+		.game_acmd("game_attackairf", eflame_game_attackairf)
+		.game_acmd("game_attackairhi", eflame_game_attackairhi)
+		.game_acmd("game_attackairlw", eflame_game_attackairlw)
+		.game_acmd("game_attackairn", eflame_game_attackairn)
+		.game_acmd("game_attackdash", eflame_game_attackdash)
+		.game_acmd("game_attackhi3", eflame_game_attackhi3)
+		.game_acmd("game_attackhi4", eflame_game_attackhi4)
+		.game_acmd("game_attacklw3", eflame_game_attacklw3)
+		.game_acmd("game_attacklw4", eflame_game_attacklw4)
+		.game_acmd("game_attacks3", eflame_game_attacks3)
+		.game_acmd("game_attacks4", eflame_game_attacks4)
+		.game_acmd("game_catch", eflame_game_catch)
+		.game_acmd("game_catchattack", eflame_game_catchattack)
+		.game_acmd("game_catchdash", eflame_game_catchdash)
+		.game_acmd("game_catchturn", eflame_game_catchturn)
+		.game_acmd("game_throwb", eflame_game_throwb)
+		.game_acmd("game_throwf", eflame_game_throwf)
+		.game_acmd("game_throwhi", eflame_game_throwhi)
+		.game_acmd("game_throwlw", eflame_game_throwlw)
+		.sound_acmd("sound_attack100end", eflame_sound_attack100end)
+		.sound_acmd("sound_deathscytheswing4", eflame_sound_deathscytheswing4)
+		.sound_acmd("sound_deathscytheswing4charge", eflame_sound_deathscytheswing4charge)
+		.install();
+	Agent::new("eflame_firepillar")
+		.game_acmd("game_specialhi", eflame_firepillar_game_specialhi)
+		.install();
 }
