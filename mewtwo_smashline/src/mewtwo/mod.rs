@@ -13,8 +13,7 @@ use {
 	smashline::*
 };
 
-#[acmd_script(agent = "mewtwo", script = "expression_attackairb", category = ACMD_EXPRESSION)]
-unsafe fn mewtwo_expression_attackairb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_expression_attackairb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
 	if macros::is_excute(fighter) {
 		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
@@ -25,8 +24,7 @@ unsafe fn mewtwo_expression_attackairb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "expression_attackairhi", category = ACMD_EXPRESSION)]
-unsafe fn mewtwo_expression_attackairhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_expression_attackairhi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
 	if macros::is_excute(fighter) {
 		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
@@ -37,8 +35,7 @@ unsafe fn mewtwo_expression_attackairhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "expression_attackhi3", category = ACMD_EXPRESSION)]
-unsafe fn mewtwo_expression_attackhi3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_expression_attackhi3(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
 	}
@@ -57,8 +54,7 @@ unsafe fn mewtwo_expression_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "expression_attacklw3", category = ACMD_EXPRESSION)]
-unsafe fn mewtwo_expression_attacklw3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_expression_attacklw3(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4, true);
 	}
@@ -72,8 +68,7 @@ unsafe fn mewtwo_expression_attacklw3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attack11", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attack11(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.4);
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
@@ -103,14 +98,13 @@ unsafe fn mewtwo_game_attack11(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attack100", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attack100(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attack100(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
 	for _ in 0..1000000 {
 		for _ in 0..7 {
 			if macros::is_excute(fighter) {
 				macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.8, 361, 10, 0, 15, 6.0, 0.0, 9.0, 16.0, Some(0.0), Some(9.0), Some(8.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_PUNCH);
-				AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
+				AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 5.0, false);
 				macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 8);
 			}
 			sv_animcmd::wait(fighter.lua_state_agent, 1.0);
@@ -124,8 +118,7 @@ unsafe fn mewtwo_game_attack100(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attack100end", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attack100end(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attack100end(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -140,11 +133,10 @@ unsafe fn mewtwo_game_attack100end(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attack100sub", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attack100sub(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attack100sub(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.8, 361, 10, 0, 15, 6.0, 0.0, 9.0, 16.0, Some(0.0), Some(9.0), Some(8.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_PUNCH);
-		AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
+		AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 5.0, false);
 		macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 8);
 	}
 	sv_animcmd::wait(fighter.lua_state_agent, 1.0);
@@ -154,8 +146,7 @@ unsafe fn mewtwo_game_attack100sub(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attackairb", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attackairb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attackairb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -181,8 +172,7 @@ unsafe fn mewtwo_game_attackairb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attackairf", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attackairf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attackairf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 2.0);
 	if macros::is_excute(fighter) {
@@ -204,8 +194,7 @@ unsafe fn mewtwo_game_attackairf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attackairhi", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attackairhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attackairhi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -229,8 +218,7 @@ unsafe fn mewtwo_game_attackairhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attackairlw", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attackairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attackairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.6875);
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
@@ -254,8 +242,7 @@ unsafe fn mewtwo_game_attackairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attackairn", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attackairn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attackairn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.25);
 	if macros::is_excute(fighter) {
@@ -292,8 +279,7 @@ unsafe fn mewtwo_game_attackairn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attackdash", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attackdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attackdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 13.0, 70, 60, 0, 100, 5.5, 0.0, 10.0, 16.3, Some(0.0), Some(8.5), Some(16.3), 1.3, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 3, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_PUNCH);
@@ -312,8 +298,7 @@ unsafe fn mewtwo_game_attackdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attackhi3", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attackhi3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attackhi3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -330,8 +315,7 @@ unsafe fn mewtwo_game_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attackhi4", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attackhi4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attackhi4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -364,8 +348,7 @@ unsafe fn mewtwo_game_attackhi4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attacklw3", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attacklw3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attacklw3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -389,8 +372,7 @@ unsafe fn mewtwo_game_attacklw3(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.65);
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attacklw4", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attacklw4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attacklw4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
@@ -410,8 +392,7 @@ unsafe fn mewtwo_game_attacklw4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attacks3", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attacks3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attacks3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("s_tail2"), 13.0, 361, 81, 0, 60, 5.5, 1.5, 0.0, 0.0, None, None, None, 1.2, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_TAIL);
@@ -424,8 +405,7 @@ unsafe fn mewtwo_game_attacks3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attacks3hi", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attacks3hi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attacks3hi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("s_tail2"), 13.0, 361, 81, 0, 60, 5.5, 1.5, 0.0, 0.0, None, None, None, 1.2, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_TAIL);
@@ -439,8 +419,7 @@ unsafe fn mewtwo_game_attacks3hi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attacks3lw", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attacks3lw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attacks3lw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("s_tail2"), 13.0, 361, 81, 0, 60, 5.5, 1.5, 0.0, 0.0, None, None, None, 1.2, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_TAIL);
@@ -454,8 +433,7 @@ unsafe fn mewtwo_game_attacks3lw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attacks4", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attacks4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attacks4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -471,8 +449,7 @@ unsafe fn mewtwo_game_attacks4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attacks4hi", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attacks4hi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attacks4hi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -489,8 +466,7 @@ unsafe fn mewtwo_game_attacks4hi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_attacks4lw", category = ACMD_GAME)]
-unsafe fn mewtwo_game_attacks4lw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_attacks4lw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -507,8 +483,7 @@ unsafe fn mewtwo_game_attacks4lw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_catch", category = ACMD_GAME)]
-unsafe fn mewtwo_game_catch(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_catch(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -531,8 +506,7 @@ unsafe fn mewtwo_game_catch(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_catchdash", category = ACMD_GAME)]
-unsafe fn mewtwo_game_catchdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_catchdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -555,8 +529,7 @@ unsafe fn mewtwo_game_catchdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_catchturn", category = ACMD_GAME)]
-unsafe fn mewtwo_game_catchturn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_catchturn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -579,8 +552,7 @@ unsafe fn mewtwo_game_catchturn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_slipattack", category = ACMD_GAME)]
-unsafe fn mewtwo_game_slipattack(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_slipattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 19.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 361, 50, 0, 60, 5.0, 0.0, 5.0, -12.5, Some(0.0), Some(5.0), Some(-3.5), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_PUNCH);
@@ -599,8 +571,7 @@ unsafe fn mewtwo_game_slipattack(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_specials", category = ACMD_GAME)]
-unsafe fn mewtwo_game_specials(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_specials(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
@@ -642,8 +613,7 @@ unsafe fn mewtwo_game_specials(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_throwb", category = ACMD_GAME)]
-unsafe fn mewtwo_game_throwb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_throwb(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 12.0, 45, 76, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_B, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_B, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -658,8 +628,7 @@ unsafe fn mewtwo_game_throwb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_throwf", category = ACMD_GAME)]
-unsafe fn mewtwo_game_throwf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_throwf(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 3.5, 60, 0, 1, 40, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -680,8 +649,7 @@ unsafe fn mewtwo_game_throwf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_throwhi", category = ACMD_GAME)]
-unsafe fn mewtwo_game_throwhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_throwhi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 12.0, 90, 51, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -697,8 +665,7 @@ unsafe fn mewtwo_game_throwhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo", script = "game_throwlw", category = ACMD_GAME)]
-unsafe fn mewtwo_game_throwlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_game_throwlw(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 5.0, 85, 70, 0, 80, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -719,8 +686,7 @@ unsafe fn mewtwo_game_throwlw(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.3125);
 }
 
-#[acmd_script(agent = "mewtwo_bindball", script = "game_shoot", category = ACMD_GAME)]
-unsafe fn mewtwo_bindball_game_shoot(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_bindball_game_shoot(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.0, 361, 255, 0, 20, 3.0, 0.0, -1.7, 2.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -0.5, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA_d, *COLLISION_CATEGORY_MASK_FEB, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_bind_extra"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_ELEC, *ATTACK_REGION_NONE);
 		AttackModule::set_lr_check_front_lr(fighter.module_accessor, 0);
@@ -728,8 +694,7 @@ unsafe fn mewtwo_bindball_game_shoot(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo_psychobreak", script = "game_hit", category = ACMD_GAME)]
-unsafe fn mewtwo_psychobreak_game_hit(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_psychobreak_game_hit(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 62.0);
 	if macros::is_excute(fighter) {
 		SlowModule::set_whole(fighter.module_accessor, 4 as u8, 0);
@@ -763,22 +728,19 @@ unsafe fn mewtwo_psychobreak_game_hit(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo_shadowball", script = "game_charge", category = ACMD_GAME)]
-unsafe fn mewtwo_shadowball_game_charge(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_shadowball_game_charge(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.0, 85, 90, 0, 20, 2.0, 0.0, 0.0, 0.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, -0.5, 0.0, 5, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
 	}
 }
 
-#[acmd_script(agent = "mewtwo_shadowball", script = "game_chargemax", category = ACMD_GAME)]
-unsafe fn mewtwo_shadowball_game_chargemax(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_shadowball_game_chargemax(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.0, 85, 90, 0, 20, 3.0, 0.0, 0.0, 0.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, -0.5, 0.0, 5, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
 	}
 }
 
-#[acmd_script(agent = "mewtwo_shadowball", script = "game_shoot", category = ACMD_GAME)]
-unsafe fn mewtwo_shadowball_game_shoot(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_shadowball_game_shoot(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 361, 30, 0, 20, 2.2, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -1, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
 		macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 25.0, 45, 72, 0, 30, 2.2, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -5, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
@@ -786,53 +748,58 @@ unsafe fn mewtwo_shadowball_game_shoot(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "mewtwo_shadowball", script = "game_shootthrowf", category = ACMD_GAME)]
-unsafe fn mewtwo_shadowball_game_shootthrowf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn mewtwo_shadowball_game_shootthrowf(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.5, 40, 110, 0, 50, 9.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 0.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -1.25, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
 	}
 }
 
 pub fn install() {
-	smashline::install_acmd_scripts!(
-		mewtwo_expression_attackairb,
-		mewtwo_expression_attackairhi,
-		mewtwo_expression_attackhi3,
-		mewtwo_expression_attacklw3,
-		mewtwo_game_attack11,
-		mewtwo_game_attack100,
-		mewtwo_game_attack100end,
-		mewtwo_game_attack100sub,
-		mewtwo_game_attackairb,
-		mewtwo_game_attackairf,
-		mewtwo_game_attackairhi,
-		mewtwo_game_attackairlw,
-		mewtwo_game_attackairn,
-		mewtwo_game_attackdash,
-		mewtwo_game_attackhi3,
-		mewtwo_game_attackhi4,
-		mewtwo_game_attacklw3,
-		mewtwo_game_attacklw4,
-		mewtwo_game_attacks3,
-		mewtwo_game_attacks3hi,
-		mewtwo_game_attacks3lw,
-		mewtwo_game_attacks4,
-		mewtwo_game_attacks4hi,
-		mewtwo_game_attacks4lw,
-		mewtwo_game_catch,
-		mewtwo_game_catchdash,
-		mewtwo_game_catchturn,
-		mewtwo_game_slipattack,
-		mewtwo_game_specials,
-		mewtwo_game_throwb,
-		mewtwo_game_throwf,
-		mewtwo_game_throwhi,
-		mewtwo_game_throwlw,
-		mewtwo_bindball_game_shoot,
-		mewtwo_psychobreak_game_hit,
-		mewtwo_shadowball_game_charge,
-		mewtwo_shadowball_game_chargemax,
-		mewtwo_shadowball_game_shoot,
-		mewtwo_shadowball_game_shootthrowf,
-	);
+	Agent::new("mewtwo")
+		.expression_acmd("expression_attackairb", mewtwo_expression_attackairb)
+		.expression_acmd("expression_attackairhi", mewtwo_expression_attackairhi)
+		.expression_acmd("expression_attackhi3", mewtwo_expression_attackhi3)
+		.expression_acmd("expression_attacklw3", mewtwo_expression_attacklw3)
+		.game_acmd("game_attack11", mewtwo_game_attack11)
+		.game_acmd("game_attack100", mewtwo_game_attack100)
+		.game_acmd("game_attack100end", mewtwo_game_attack100end)
+		.game_acmd("game_attack100sub", mewtwo_game_attack100sub)
+		.game_acmd("game_attackairb", mewtwo_game_attackairb)
+		.game_acmd("game_attackairf", mewtwo_game_attackairf)
+		.game_acmd("game_attackairhi", mewtwo_game_attackairhi)
+		.game_acmd("game_attackairlw", mewtwo_game_attackairlw)
+		.game_acmd("game_attackairn", mewtwo_game_attackairn)
+		.game_acmd("game_attackdash", mewtwo_game_attackdash)
+		.game_acmd("game_attackhi3", mewtwo_game_attackhi3)
+		.game_acmd("game_attackhi4", mewtwo_game_attackhi4)
+		.game_acmd("game_attacklw3", mewtwo_game_attacklw3)
+		.game_acmd("game_attacklw4", mewtwo_game_attacklw4)
+		.game_acmd("game_attacks3", mewtwo_game_attacks3)
+		.game_acmd("game_attacks3hi", mewtwo_game_attacks3hi)
+		.game_acmd("game_attacks3lw", mewtwo_game_attacks3lw)
+		.game_acmd("game_attacks4", mewtwo_game_attacks4)
+		.game_acmd("game_attacks4hi", mewtwo_game_attacks4hi)
+		.game_acmd("game_attacks4lw", mewtwo_game_attacks4lw)
+		.game_acmd("game_catch", mewtwo_game_catch)
+		.game_acmd("game_catchdash", mewtwo_game_catchdash)
+		.game_acmd("game_catchturn", mewtwo_game_catchturn)
+		.game_acmd("game_slipattack", mewtwo_game_slipattack)
+		.game_acmd("game_specials", mewtwo_game_specials)
+		.game_acmd("game_throwb", mewtwo_game_throwb)
+		.game_acmd("game_throwf", mewtwo_game_throwf)
+		.game_acmd("game_throwhi", mewtwo_game_throwhi)
+		.game_acmd("game_throwlw", mewtwo_game_throwlw)
+		.install();
+	Agent::new("mewtwo_bindball")
+		.game_acmd("game_shoot", mewtwo_bindball_game_shoot)
+		.install();
+	Agent::new("mewtwo_psychobreak")
+		.game_acmd("game_hit", mewtwo_psychobreak_game_hit)
+		.install();
+	Agent::new("mewtwo_shadowball")
+		.game_acmd("game_charge", mewtwo_shadowball_game_charge)
+		.game_acmd("game_chargemax", mewtwo_shadowball_game_chargemax)
+		.game_acmd("game_shoot", mewtwo_shadowball_game_shoot)
+		.game_acmd("game_shootthrowf", mewtwo_shadowball_game_shootthrowf)
+		.install();
 }
