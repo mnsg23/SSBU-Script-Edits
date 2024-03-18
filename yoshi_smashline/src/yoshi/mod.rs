@@ -14,8 +14,7 @@ use {
 	smashline::*
 };
 
-#[acmd_script(agent = "yoshi", script = "effect_attackhi4", category = ACMD_EFFECT)]
-unsafe fn yoshi_effect_attackhi4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_effect_attackhi4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 5, -8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
@@ -38,8 +37,7 @@ unsafe fn yoshi_effect_attackhi4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "expression_attackairlw", category = ACMD_EXPRESSION)]
-unsafe fn yoshi_expression_attackairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_expression_attackairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 14.0);
 	if macros::is_excute(fighter) {
 		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackss"), 3);
@@ -58,8 +56,7 @@ unsafe fn yoshi_expression_attackairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "expression_attackhi3", category = ACMD_EXPRESSION)]
-unsafe fn yoshi_expression_attackhi3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_expression_attackhi3(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
 	}
@@ -73,8 +70,7 @@ unsafe fn yoshi_expression_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "expression_throwlw", category = ACMD_EXPRESSION)]
-unsafe fn yoshi_expression_throwlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_expression_throwlw(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
 	}
@@ -94,8 +90,7 @@ unsafe fn yoshi_expression_throwlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attack11", category = ACMD_GAME)]
-unsafe fn yoshi_game_attack11(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -124,8 +119,7 @@ unsafe fn yoshi_game_attack11(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attack12", category = ACMD_GAME)]
-unsafe fn yoshi_game_attack12(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attack12(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 361, 100, 0, 50, 4.5, 0.0, 7.5, 13.5, Some(0.0), Some(7.5), Some(5.0), 1.5, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_KICK);
@@ -136,8 +130,7 @@ unsafe fn yoshi_game_attack12(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attackairb", category = ACMD_GAME)]
-unsafe fn yoshi_game_attackairb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackairb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
@@ -171,8 +164,7 @@ unsafe fn yoshi_game_attackairb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attackairf", category = ACMD_GAME)]
-unsafe fn yoshi_game_attackairf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackairf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
@@ -206,8 +198,7 @@ unsafe fn yoshi_game_attackairf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attackairhi", category = ACMD_GAME)]
-unsafe fn yoshi_game_attackairhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackairhi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -226,8 +217,7 @@ unsafe fn yoshi_game_attackairhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attackairlw", category = ACMD_GAME)]
-unsafe fn yoshi_game_attackairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 14.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -256,8 +246,7 @@ unsafe fn yoshi_game_attackairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attackairn", category = ACMD_GAME)]
-unsafe fn yoshi_game_attackairn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackairn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -287,8 +276,7 @@ unsafe fn yoshi_game_attackairn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attackdash", category = ACMD_GAME)]
-unsafe fn yoshi_game_attackdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
@@ -310,8 +298,7 @@ unsafe fn yoshi_game_attackdash(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.75);
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attackhi3", category = ACMD_GAME)]
-unsafe fn yoshi_game_attackhi3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackhi3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -328,8 +315,7 @@ unsafe fn yoshi_game_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attackhi4", category = ACMD_GAME)]
-unsafe fn yoshi_game_attackhi4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackhi4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
@@ -360,8 +346,7 @@ unsafe fn yoshi_game_attackhi4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attacklw3", category = ACMD_GAME)]
-unsafe fn yoshi_game_attacklw3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attacklw3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.25);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -382,8 +367,7 @@ unsafe fn yoshi_game_attacklw3(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.7);
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attacklw4", category = ACMD_GAME)]
-unsafe fn yoshi_game_attacklw4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attacklw4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -412,8 +396,7 @@ unsafe fn yoshi_game_attacklw4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attacks3", category = ACMD_GAME)]
-unsafe fn yoshi_game_attacks3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attacks3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("tail1"), 8.0, 45, 98, 0, 50, 4.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_SLAP, *ATTACK_REGION_TAIL);
@@ -426,8 +409,7 @@ unsafe fn yoshi_game_attacks3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attacks3hi", category = ACMD_GAME)]
-unsafe fn yoshi_game_attacks3hi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attacks3hi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("tail1"), 8.0, 45, 98, 0, 50, 4.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_SLAP, *ATTACK_REGION_TAIL);
@@ -441,8 +423,7 @@ unsafe fn yoshi_game_attacks3hi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attacks3lw", category = ACMD_GAME)]
-unsafe fn yoshi_game_attacks3lw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attacks3lw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("tail1"), 8.0, 45, 98, 0, 50, 4.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_SLAP, *ATTACK_REGION_TAIL);
@@ -456,8 +437,7 @@ unsafe fn yoshi_game_attacks3lw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attacks4", category = ACMD_GAME)]
-unsafe fn yoshi_game_attacks4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attacks4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -479,8 +459,7 @@ unsafe fn yoshi_game_attacks4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attacks4hi", category = ACMD_GAME)]
-unsafe fn yoshi_game_attacks4hi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attacks4hi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -503,8 +482,7 @@ unsafe fn yoshi_game_attacks4hi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_attacks4lw", category = ACMD_GAME)]
-unsafe fn yoshi_game_attacks4lw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attacks4lw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -527,8 +505,7 @@ unsafe fn yoshi_game_attacks4lw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_catch", category = ACMD_GAME)]
-unsafe fn yoshi_game_catch(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_catch(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter,	0.4);
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
@@ -559,8 +536,7 @@ unsafe fn yoshi_game_catch(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_catchattack", category = ACMD_GAME)]
-unsafe fn yoshi_game_catchattack(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_catchattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("head"), 1.0, 361, 100, 30, 0, 6.0, 1.6, 0.0, 3.2, None, None, None, 1.7, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_YOSHI_BITE_HIT, *ATTACK_REGION_BITE);
@@ -575,8 +551,7 @@ unsafe fn yoshi_game_catchattack(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter,	1.0);
 }
 
-#[acmd_script(agent = "yoshi", script = "game_catchdash", category = ACMD_GAME)]
-unsafe fn yoshi_game_catchdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_catchdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter,	0.4);
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
@@ -607,8 +582,7 @@ unsafe fn yoshi_game_catchdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_catchturn", category = ACMD_GAME)]
-unsafe fn yoshi_game_catchturn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_catchturn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter,	0.3);
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
@@ -639,8 +613,7 @@ unsafe fn yoshi_game_catchturn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_cliffattack", category = ACMD_GAME)]
-unsafe fn yoshi_game_cliffattack(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_cliffattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 20.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 9.0, 45, 20, 0, 90, 5.0, 0.0, 5.0, 12.5, Some(0.0), Some(5.0), Some(1.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_SLAP, *ATTACK_REGION_TAIL);
@@ -651,8 +624,7 @@ unsafe fn yoshi_game_cliffattack(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_downattackd", category = ACMD_GAME)]
-unsafe fn yoshi_game_downattackd(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_downattackd(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 14.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 7.0, 48, 48, 0, 80, 5.0, 0.0, 5.0, 11.5, Some(0.0), Some(5.0), Some(3.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_HEAD);
@@ -671,8 +643,7 @@ unsafe fn yoshi_game_downattackd(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_downattacku", category = ACMD_GAME)]
-unsafe fn yoshi_game_downattacku(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_downattacku(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 14.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 7.0, 48, 48, 0, 80, 5.0, 0.0, 5.0, 14.0, Some(0.0), Some(5.0), Some(3.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_KICK);
@@ -691,8 +662,7 @@ unsafe fn yoshi_game_downattacku(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_finaldash", category = ACMD_GAME)]
-unsafe fn yoshi_game_finaldash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_finaldash(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 361, 0, 1, 70, 8.0, 0.0, 8.0, 10.0, Some(0.0), Some(8.0), Some(16.0), 0.1, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
@@ -704,8 +674,7 @@ unsafe fn yoshi_game_finaldash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", scripts = ["game_finalend", "game_finalairend"], category = ACMD_GAME)]
-unsafe fn yoshi_game_finalend(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_finalend(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_VISUAL_SCENE, 0, 10.0, 60, 190, 0, 60, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
@@ -717,8 +686,7 @@ unsafe fn yoshi_game_finalend(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_finalhit", category = ACMD_GAME)]
-unsafe fn yoshi_game_finalhit(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_finalhit(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
 		macros::SET_SPEED_EX(fighter, 0, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
@@ -737,8 +705,7 @@ unsafe fn yoshi_game_finalhit(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_landingairlw", category = ACMD_GAME)]
-unsafe fn yoshi_game_landingairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_landingairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.0, 80, 200, 0, 60, 5.0, 0.0, 2.5, -3.0, Some(0.0), Some(2.5), Some(7.0), 2.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_KICK);
@@ -749,8 +716,7 @@ unsafe fn yoshi_game_landingairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_slipattack", category = ACMD_GAME)]
-unsafe fn yoshi_game_slipattack(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_slipattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 19.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 361, 50, 0, 60, 4.5, 0.0, 4.5, 12.0, Some(0.0), Some(4.5), Some(3.5), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_SLAP, *ATTACK_REGION_TAIL);
@@ -769,8 +735,7 @@ unsafe fn yoshi_game_slipattack(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_specialairlw", category = ACMD_GAME)]
-unsafe fn yoshi_game_specialairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_specialairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 15.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_YOSHI_STATUS_SPECIAL_LW_FLAG_LANDING_ENABLE);
@@ -786,8 +751,7 @@ unsafe fn yoshi_game_specialairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_speciallw", category = ACMD_GAME)]
-unsafe fn yoshi_game_speciallw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_speciallw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 4.0, 85, 100, 80, 0, 7.0, 0.0, 7.0, 10.0, Some(0.0), Some(7.0), Some(0.0), 0.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_HIP);
@@ -807,8 +771,7 @@ unsafe fn yoshi_game_speciallw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", scripts = ["game_specialn", "game_specialairn"], category = ACMD_GAME)]
-unsafe fn yoshi_game_specialn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_specialn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter,	0.3);
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
@@ -842,8 +805,7 @@ unsafe fn yoshi_game_specialn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", scripts = ["game_specialn2", "game_specialairn2"], category = ACMD_GAME)]
-unsafe fn yoshi_game_specialn2(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_specialn2(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 8.0, 361, 100, 0, 0, 0.0, 1.0, *ATTACK_LR_CHECK_F, 1.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 4.0, 361, 100, 0, 0, 0.0, 1.0, *ATTACK_LR_CHECK_F, 1.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
@@ -858,8 +820,7 @@ unsafe fn yoshi_game_specialn2(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", scripts = ["game_specialsend", "game_specialairsend"], category = ACMD_GAME)]
-unsafe fn yoshi_game_specialsend(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_specialsend(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
 		AttackModule::clear_all(fighter.module_accessor);
@@ -871,8 +832,7 @@ unsafe fn yoshi_game_specialsend(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", scripts = ["game_specialsloop", "game_specialairsloop"], category = ACMD_GAME)]
-unsafe fn yoshi_game_specialsloop(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_specialsloop(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 10);
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 10.0, 80, 65, 0, 80, 5.5, 0.0, 5.6, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 32, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_BODY);
@@ -880,8 +840,7 @@ unsafe fn yoshi_game_specialsloop(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_throwb", category = ACMD_GAME)]
-unsafe fn yoshi_game_throwb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_throwb(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 9.0, 45, 60, 0, 80, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -900,8 +859,7 @@ unsafe fn yoshi_game_throwb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_throwf", category = ACMD_GAME)]
-unsafe fn yoshi_game_throwf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_throwf(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 9.0, 45, 60, 0, 80, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -918,8 +876,7 @@ unsafe fn yoshi_game_throwf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_throwhi", category = ACMD_GAME)]
-unsafe fn yoshi_game_throwhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_throwhi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 8.0, 90, 65, 0, 80, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -936,8 +893,7 @@ unsafe fn yoshi_game_throwhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi", script = "game_throwlw", category = ACMD_GAME)]
-unsafe fn yoshi_game_throwlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_throwlw(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 6.0, 85, 40, 0, 80, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -956,8 +912,7 @@ unsafe fn yoshi_game_throwlw(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter,	0.6);
 }
 
-#[acmd_script(agent = "yoshi", script = "sound_attackairb", category = ACMD_SOUND)]
-unsafe fn yoshi_sound_attackairb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_sound_attackairb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		macros::STOP_SE(fighter, Hash40::new("vc_yoshi_jump02"));
@@ -974,8 +929,7 @@ unsafe fn yoshi_sound_attackairb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi_star", script = "game_move", category = ACMD_GAME)]
-unsafe fn yoshi_star_game_move(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_star_game_move(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 4.0, 40, 45, 0, 60, 4.0, 0.0, 0.0, 0.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 6, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_NONE);
@@ -990,8 +944,7 @@ unsafe fn yoshi_star_game_move(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi_tamago", script = "game_burst", category = ACMD_GAME)]
-unsafe fn yoshi_tamago_game_burst(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_tamago_game_burst(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 6.0, 70, 75, 0, 70, 6.5, 0.0, 0.0, 0.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -3, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_YOSHI_EGG_HIT, *ATTACK_REGION_OBJECT);
 		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
@@ -1002,62 +955,70 @@ unsafe fn yoshi_tamago_game_burst(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "yoshi_tamago", script = "game_throwed", category = ACMD_GAME)]
-unsafe fn yoshi_tamago_game_throwed(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_tamago_game_throwed(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 6.0, 70, 75, 0, 70, 2.5, 0.0, -1.0, 0.0, Some(0.0), Some(0.0), Some(0.0), 0.5, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -3, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_YOSHI_EGG_HIT, *ATTACK_REGION_OBJECT);
 	}
 }
 
 pub fn install() {
-	smashline::install_acmd_scripts!(
-		yoshi_effect_attackhi4,
-		yoshi_expression_attackairlw,
-		yoshi_expression_attackhi3,
-		yoshi_expression_throwlw,
-		yoshi_game_attack11,
-		yoshi_game_attack12,
-		yoshi_game_attackairb,
-		yoshi_game_attackairf,
-		yoshi_game_attackairhi,
-		yoshi_game_attackairlw,
-		yoshi_game_attackairn,
-		yoshi_game_attackdash,
-		yoshi_game_attackhi3,
-		yoshi_game_attackhi4,
-		yoshi_game_attacklw3,
-		yoshi_game_attacklw4,
-		yoshi_game_attacks3,
-		yoshi_game_attacks3hi,
-		yoshi_game_attacks3lw,
-		yoshi_game_attacks4,
-		yoshi_game_attacks4hi,
-		yoshi_game_attacks4lw,
-		yoshi_game_catch,
-		yoshi_game_catchattack,
-		yoshi_game_catchdash,
-		yoshi_game_catchturn,
-		yoshi_game_cliffattack,
-		yoshi_game_downattackd,
-		yoshi_game_downattacku,
-		yoshi_game_finaldash,
-		yoshi_game_finalend,
-		yoshi_game_finalhit,
-		yoshi_game_landingairlw,
-		yoshi_game_slipattack,
-		yoshi_game_specialairlw,
-		yoshi_game_speciallw,
-		yoshi_game_specialn,
-		yoshi_game_specialn2,
-		yoshi_game_specialsend,
-		yoshi_game_specialsloop,
-		yoshi_game_throwb,
-		yoshi_game_throwf,
-		yoshi_game_throwhi,
-		yoshi_game_throwlw,
-		yoshi_sound_attackairb,
-		yoshi_star_game_move,
-		yoshi_tamago_game_burst,
-		yoshi_tamago_game_throwed,
-	);
+	Agent::new("yoshi")
+		.effect_acmd("effect_attackhi4", yoshi_effect_attackhi4)
+		.expression_acmd("expression_attackairlw", yoshi_expression_attackairlw)
+		.expression_acmd("expression_attackhi3", yoshi_expression_attackhi3)
+		.expression_acmd("expression_throwlw", yoshi_expression_throwlw)
+		.game_acmd("game_attack11", yoshi_game_attack11)
+		.game_acmd("game_attack12", yoshi_game_attack12)
+		.game_acmd("game_attackairb", yoshi_game_attackairb)
+		.game_acmd("game_attackairf", yoshi_game_attackairf)
+		.game_acmd("game_attackairhi", yoshi_game_attackairhi)
+		.game_acmd("game_attackairlw", yoshi_game_attackairlw)
+		.game_acmd("game_attackairn", yoshi_game_attackairn)
+		.game_acmd("game_attackdash", yoshi_game_attackdash)
+		.game_acmd("game_attackhi3", yoshi_game_attackhi3)
+		.game_acmd("game_attackhi4", yoshi_game_attackhi4)
+		.game_acmd("game_attacklw3", yoshi_game_attacklw3)
+		.game_acmd("game_attacklw4", yoshi_game_attacklw4)
+		.game_acmd("game_attacks3", yoshi_game_attacks3)
+		.game_acmd("game_attacks3hi", yoshi_game_attacks3hi)
+		.game_acmd("game_attacks3lw", yoshi_game_attacks3lw)
+		.game_acmd("game_attacks4", yoshi_game_attacks4)
+		.game_acmd("game_attacks4hi", yoshi_game_attacks4hi)
+		.game_acmd("game_attacks4lw", yoshi_game_attacks4lw)
+		.game_acmd("game_catch", yoshi_game_catch)
+		.game_acmd("game_catchattack", yoshi_game_catchattack)
+		.game_acmd("game_catchdash", yoshi_game_catchdash)
+		.game_acmd("game_catchturn", yoshi_game_catchturn)
+		.game_acmd("game_cliffattack", yoshi_game_cliffattack)
+		.game_acmd("game_downattackd", yoshi_game_downattackd)
+		.game_acmd("game_downattacku", yoshi_game_downattacku)
+		.game_acmd("game_finaldash", yoshi_game_finaldash)
+		.game_acmd("game_finalend", yoshi_game_finalend)
+		.game_acmd("game_finalairend", yoshi_game_finalend)
+		.game_acmd("game_finalhit", yoshi_game_finalhit)
+		.game_acmd("game_landingairlw", yoshi_game_landingairlw)
+		.game_acmd("game_slipattack", yoshi_game_slipattack)
+		.game_acmd("game_specialairlw", yoshi_game_specialairlw)
+		.game_acmd("game_speciallw", yoshi_game_speciallw)
+		.game_acmd("game_specialn", yoshi_game_specialn)
+		.game_acmd("game_specialairn", yoshi_game_specialn)
+		.game_acmd("game_specialn2", yoshi_game_specialn2)
+		.game_acmd("game_specialairn2", yoshi_game_specialn2)
+		.game_acmd("game_specialsend", yoshi_game_specialsend)
+		.game_acmd("game_specialairsend", yoshi_game_specialsend)
+		.game_acmd("game_specialsloop", yoshi_game_specialsloop)
+		.game_acmd("game_specialairsloop", yoshi_game_specialsloop)
+		.game_acmd("game_throwb", yoshi_game_throwb)
+		.game_acmd("game_throwf", yoshi_game_throwf)
+		.game_acmd("game_throwhi", yoshi_game_throwhi)
+		.game_acmd("game_throwlw", yoshi_game_throwlw)
+		.sound_acmd("sound_attackairb", yoshi_sound_attackairb)
+		.install();
+	Agent::new("yoshi_star")
+		.game_acmd("game_move", yoshi_star_game_move)
+		.install();
+	Agent::new("yoshi_tamago")
+		.game_acmd("game_burst", yoshi_tamago_game_burst)
+		.game_acmd("game_throwed", yoshi_tamago_game_throwed)
+		.install();
 }
