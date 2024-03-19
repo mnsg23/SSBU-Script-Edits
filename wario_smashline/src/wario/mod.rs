@@ -14,8 +14,7 @@ use {
 	smashline::*
 };
 
-#[acmd_script(agent = "wario", script = "expression_attacklw4", category = ACMD_EXPRESSION)]
-unsafe fn wario_expression_attacklw4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_expression_attacklw4(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
 	}
@@ -53,8 +52,7 @@ unsafe fn wario_expression_attacklw4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", scripts = ["expression_speciallwlr", "expression_specialairlwlr"], category = ACMD_EXPRESSION)]
-unsafe fn wario_expression_speciallwlr(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_expression_speciallwlr(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
@@ -71,8 +69,7 @@ unsafe fn wario_expression_speciallwlr(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attack11", category = ACMD_GAME)]
-unsafe fn wario_game_attack11(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.2);
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
@@ -97,8 +94,7 @@ unsafe fn wario_game_attack11(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attack12", category = ACMD_GAME)]
-unsafe fn wario_game_attack12(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attack12(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -114,8 +110,7 @@ unsafe fn wario_game_attack12(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attackairb", category = ACMD_GAME)]
-unsafe fn wario_game_attackairb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attackairb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -143,8 +138,7 @@ unsafe fn wario_game_attackairb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attackairf", category = ACMD_GAME)]
-unsafe fn wario_game_attackairf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attackairf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -166,8 +160,7 @@ unsafe fn wario_game_attackairf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attackairhi", category = ACMD_GAME)]
-unsafe fn wario_game_attackairhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attackairhi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -186,8 +179,7 @@ unsafe fn wario_game_attackairhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attackairlw", category = ACMD_GAME)]
-unsafe fn wario_game_attackairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attackairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -224,8 +216,7 @@ unsafe fn wario_game_attackairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attackairn", category = ACMD_GAME)]
-unsafe fn wario_game_attackairn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attackairn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -256,8 +247,7 @@ unsafe fn wario_game_attackairn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attackdash", category = ACMD_GAME)]
-unsafe fn wario_game_attackdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attackdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 12.0, 45, 92, 0, 60, 4.0, 0.0, 5.0, 5.8, Some(0.0), Some(9.7), Some(5.8), 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_BODY);
@@ -274,8 +264,7 @@ unsafe fn wario_game_attackdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attackhi3", category = ACMD_GAME)]
-unsafe fn wario_game_attackhi3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attackhi3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		macros::HIT_NODE(fighter, Hash40::new("head"), *HIT_STATUS_XLU);
@@ -296,16 +285,19 @@ unsafe fn wario_game_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 20.0);
 	if macros::is_excute(fighter) {
-		AttackModule::clear_all(fighter.module_accessor);
 		HitModule::set_status_all(fighter.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0);
+		AttackModule::clear_all(fighter.module_accessor);
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attackhi4", category = ACMD_GAME)]
-unsafe fn wario_game_attackhi4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attackhi4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 10);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
 	if macros::is_excute(fighter) {
@@ -317,6 +309,7 @@ unsafe fn wario_game_attackhi4(fighter: &mut L2CAgentBase) {
 	}
 	sv_animcmd::wait(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
+		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
 		AttackModule::clear_all(fighter.module_accessor);
 	}
 	sv_animcmd::wait(fighter.lua_state_agent, 2.0);
@@ -325,8 +318,7 @@ unsafe fn wario_game_attackhi4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attacklw3", category = ACMD_GAME)]
-unsafe fn wario_game_attacklw3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attacklw3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	macros::FT_MOTION_RATE(fighter, 2.0);
 	if macros::is_excute(fighter) {
@@ -340,8 +332,7 @@ unsafe fn wario_game_attacklw3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attacklw4", category = ACMD_GAME)]
-unsafe fn wario_game_attacklw4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attacklw4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -369,8 +360,7 @@ unsafe fn wario_game_attacklw4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attacks3", category = ACMD_GAME)]
-unsafe fn wario_game_attacks3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attacks3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.8);
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
@@ -386,8 +376,7 @@ unsafe fn wario_game_attacks3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attacks3hi", category = ACMD_GAME)]
-unsafe fn wario_game_attacks3hi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attacks3hi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.8);
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
@@ -404,8 +393,7 @@ unsafe fn wario_game_attacks3hi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attacks3lw", category = ACMD_GAME)]
-unsafe fn wario_game_attacks3lw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attacks3lw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.8);
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
@@ -422,15 +410,14 @@ unsafe fn wario_game_attacks3lw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_attacks4", category = ACMD_GAME)]
-unsafe fn wario_game_attacks4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_attacks4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
-		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_ALWAYS, 0);
+		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 15);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 18.0);
 	if macros::is_excute(fighter) {
@@ -439,13 +426,12 @@ unsafe fn wario_game_attacks4(fighter: &mut L2CAgentBase) {
 	}
 	sv_animcmd::wait(fighter.lua_state_agent, 2.0);
 	if macros::is_excute(fighter) {
-		AttackModule::clear_all(fighter.module_accessor);
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
+		AttackModule::clear_all(fighter.module_accessor);
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_catch", category = ACMD_GAME)]
-unsafe fn wario_game_catch(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_catch(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
 	if macros::is_excute(fighter) {
 		GrabModule::set_rebound(fighter.module_accessor, true);
@@ -464,8 +450,7 @@ unsafe fn wario_game_catch(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_catchdash", category = ACMD_GAME)]
-unsafe fn wario_game_catchdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_catchdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		GrabModule::set_rebound(fighter.module_accessor, true);
@@ -484,8 +469,7 @@ unsafe fn wario_game_catchdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_cliffattack", category = ACMD_GAME)]
-unsafe fn wario_game_cliffattack(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_cliffattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 18.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 10.0, 45, 20, 0, 90, 5.0, 0.0, 5.0, 11.0, Some(0.0), Some(5.0), Some(-1.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
@@ -496,8 +480,7 @@ unsafe fn wario_game_cliffattack(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_finaldash", category = ACMD_GAME)]
-unsafe fn wario_game_finaldash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_finaldash(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 10.0, 85, 0, 1, 160, 8.0, 0.0, 7.7, -2.0, Some(0.0), Some(7.7), Some(5.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_SPEED, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
@@ -505,8 +488,7 @@ unsafe fn wario_game_finaldash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", scripts = ["game_finaldashend", "game_finalairdashend"], category = ACMD_GAME)]
-unsafe fn wario_game_finaldashend(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_finaldashend(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
 		macros::SET_SPEED_EX(fighter, 2, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
@@ -516,8 +498,7 @@ unsafe fn wario_game_finaldashend(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", scripts = ["game_finalend", "game_finalairend"], category = ACMD_GAME)]
-unsafe fn wario_game_finalend(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_finalend(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_WARIO_FINAL, 0, 10.0, 60, 145, 0, 80, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
@@ -529,8 +510,7 @@ unsafe fn wario_game_finalend(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_finalvisualscene", category = ACMD_GAME)]
-unsafe fn wario_game_finalvisualscene(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_finalvisualscene(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_WARIO_FINAL, 0, 1.5, 361, 0, 1, 20, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
 		AttackModule::set_no_dead_all(fighter.module_accessor, true, true);
@@ -629,8 +609,7 @@ unsafe fn wario_game_finalvisualscene(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_landingairlw", category = ACMD_GAME)]
-unsafe fn wario_game_landingairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_landingairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 40, 140, 0, 60, 7.0, 0.0, 2.0, 0.0, Some(0.0), Some(1.0), Some(0.0), 1.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_BODY);
@@ -641,8 +620,7 @@ unsafe fn wario_game_landingairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_specialhijump", category = ACMD_GAME)]
-unsafe fn wario_game_specialhijump(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_specialhijump(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.0, 367, 100, 40, 0, 6.5, 0.0, 8.0, 0.0, None, None, None, 0.5, 0.2, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 2, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_rush"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_BODY);
@@ -672,8 +650,7 @@ unsafe fn wario_game_specialhijump(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", scripts = ["game_speciallwflyr", "game_specialairlwflyr"], category = ACMD_GAME)]
-unsafe fn wario_game_speciallwflyr(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_speciallwflyr(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_ALWAYS, 0);
@@ -696,8 +673,7 @@ unsafe fn wario_game_speciallwflyr(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", scripts = ["game_speciallwlr", "game_specialairlwlr"], category = ACMD_GAME)]
-unsafe fn wario_game_speciallwlr(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_speciallwlr(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 20.0, 45, 80, 0, 60, 13.0, 0.0, 4.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
@@ -709,8 +685,7 @@ unsafe fn wario_game_speciallwlr(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", scripts = ["game_speciallwmr", "game_specialairlwmr"], category = ACMD_GAME)]
-unsafe fn wario_game_speciallwmr(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_speciallwmr(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 10.0, 45, 100, 0, 30, 12.0, 0.0, 4.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
@@ -721,8 +696,7 @@ unsafe fn wario_game_speciallwmr(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", scripts = ["game_speciallwsr", "game_specialairlwsr"], category = ACMD_GAME)]
-unsafe fn wario_game_speciallwsr(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_speciallwsr(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 16.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.0, 361, 100, 20, 0, 9.0, 0.0, 4.0, 0.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 1.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_slip"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
@@ -733,8 +707,7 @@ unsafe fn wario_game_speciallwsr(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", scripts = ["game_specialnopenwait", "game_specialairnopenwait"], category = ACMD_GAME)]
-unsafe fn wario_game_specialnopenwait(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_specialnopenwait(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		GrabModule::set_rebound(fighter.module_accessor, true);
@@ -759,8 +732,7 @@ unsafe fn wario_game_specialnopenwait(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_throwb", category = ACMD_GAME)]
-unsafe fn wario_game_throwb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_throwb(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 12.0, 45, 70, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -801,8 +773,7 @@ unsafe fn wario_game_throwb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_throwf", category = ACMD_GAME)]
-unsafe fn wario_game_throwf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_throwf(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 6.0, 40, 91, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -821,8 +792,7 @@ unsafe fn wario_game_throwf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_throwhi", category = ACMD_GAME)]
-unsafe fn wario_game_throwhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_throwhi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 6.0, 90, 104, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -841,8 +811,7 @@ unsafe fn wario_game_throwhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", script = "game_throwlw", category = ACMD_GAME)]
-unsafe fn wario_game_throwlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_game_throwlw(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 6.0, 80, 66, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -863,8 +832,7 @@ unsafe fn wario_game_throwlw(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.5);
 }
 
-#[acmd_script(agent = "wario", script = "sound_attackhi3", category = ACMD_SOUND)]
-unsafe fn wario_sound_attackhi3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_sound_attackhi3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE(fighter, Hash40::new("vc_wario_attack03"));
@@ -872,8 +840,7 @@ unsafe fn wario_sound_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "wario", scripts = ["sound_attacks3", "sound_attacks3hi", "sound_attacks3lw"], category = ACMD_SOUND)]
-unsafe fn wario_sound_attacks3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn wario_sound_attacks3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE(fighter, Hash40::new("se_common_swing_06"));
@@ -886,44 +853,54 @@ unsafe fn wario_sound_attacks3(fighter: &mut L2CAgentBase) {
 }
 
 pub fn install() {
-	smashline::install_acmd_scripts!(
-		wario_expression_attacklw4,
-		wario_expression_speciallwlr,
-		wario_game_attack11,
-		wario_game_attack12,
-		wario_game_attackairb,
-		wario_game_attackairf,
-		wario_game_attackairhi,
-		wario_game_attackairlw,
-		wario_game_attackairn,
-		wario_game_attackdash,
-		wario_game_attackhi3,
-		wario_game_attackhi4,
-		wario_game_attacklw3,
-		wario_game_attacklw4,
-		wario_game_attacks3,
-		wario_game_attacks3hi,
-		wario_game_attacks3lw,
-		wario_game_attacks4,
-		wario_game_catch,
-		wario_game_catchdash,
-		wario_game_cliffattack,
-		wario_game_finaldash,
-		wario_game_finaldashend,
-		wario_game_finalend,
-		wario_game_finalvisualscene,
-		wario_game_landingairlw,
-		wario_game_specialhijump,
-		wario_game_speciallwflyr,
-		wario_game_speciallwlr,
-		wario_game_speciallwmr,
-		wario_game_speciallwsr,
-		wario_game_specialnopenwait,
-		wario_game_throwb,
-		wario_game_throwf,
-		wario_game_throwhi,
-		wario_game_throwlw,
-		wario_sound_attackhi3,
-		wario_sound_attacks3,
-	);
+	Agent::new("wario")
+		.expression_acmd("expression_attacklw4", wario_expression_attacklw4)
+		.expression_acmd("expression_speciallwlr", wario_expression_speciallwlr)
+		.expression_acmd("expression_specialairlwlr", wario_expression_speciallwlr)
+		.game_acmd("game_attack11", wario_game_attack11)
+		.game_acmd("game_attack12", wario_game_attack12)
+		.game_acmd("game_attackairb", wario_game_attackairb)
+		.game_acmd("game_attackairf", wario_game_attackairf)
+		.game_acmd("game_attackairhi", wario_game_attackairhi)
+		.game_acmd("game_attackairlw", wario_game_attackairlw)
+		.game_acmd("game_attackairn", wario_game_attackairn)
+		.game_acmd("game_attackdash", wario_game_attackdash)
+		.game_acmd("game_attackhi3", wario_game_attackhi3)
+		.game_acmd("game_attackhi4", wario_game_attackhi4)
+		.game_acmd("game_attacklw3", wario_game_attacklw3)
+		.game_acmd("game_attacklw4", wario_game_attacklw4)
+		.game_acmd("game_attacks3", wario_game_attacks3)
+		.game_acmd("game_attacks3hi", wario_game_attacks3hi)
+		.game_acmd("game_attacks3lw", wario_game_attacks3lw)
+		.game_acmd("game_attacks4", wario_game_attacks4)
+		.game_acmd("game_catch", wario_game_catch)
+		.game_acmd("game_catchdash", wario_game_catchdash)
+		.game_acmd("game_cliffattack", wario_game_cliffattack)
+		.game_acmd("game_finaldash", wario_game_finaldash)
+		.game_acmd("game_finaldashend", wario_game_finaldashend)
+		.game_acmd("game_finalairdashend", wario_game_finaldashend)
+		.game_acmd("game_finalend", wario_game_finalend)
+		.game_acmd("game_finalairend", wario_game_finalend)
+		.game_acmd("game_finalvisualscene", wario_game_finalvisualscene)
+		.game_acmd("game_landingairlw", wario_game_landingairlw)
+		.game_acmd("game_specialhijump", wario_game_specialhijump)
+		.game_acmd("game_speciallwflyr", wario_game_speciallwflyr)
+		.game_acmd("game_specialairlwflyr", wario_game_speciallwflyr)
+		.game_acmd("game_speciallwlr", wario_game_speciallwlr)
+		.game_acmd("game_specialairlwlr", wario_game_speciallwlr)
+		.game_acmd("game_speciallwmr", wario_game_speciallwmr)
+		.game_acmd("game_specialairlwmr", wario_game_speciallwmr)
+		.game_acmd("game_speciallwsr", wario_game_speciallwsr)
+		.game_acmd("game_specialairlwsr", wario_game_speciallwsr)
+		.game_acmd("game_specialnopenwait", wario_game_specialnopenwait)
+		.game_acmd("game_specialairnopenwait", wario_game_specialnopenwait)
+		.game_acmd("game_throwb", wario_game_throwb)
+		.game_acmd("game_throwf", wario_game_throwf)
+		.game_acmd("game_throwhi", wario_game_throwhi)
+		.game_acmd("game_throwlw", wario_game_throwlw)
+		.sound_acmd("sound_attackhi3", wario_sound_attackhi3)
+		.sound_acmd("sound_attacks3", wario_sound_attacks3)
+		.sound_acmd("sound_attacks3hi", wario_sound_attacks3)
+		.sound_acmd("sound_attacks3lw", wario_sound_attacks3)
+		.install();
 }
