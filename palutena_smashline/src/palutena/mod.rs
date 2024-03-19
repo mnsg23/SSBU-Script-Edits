@@ -15,8 +15,7 @@ use {
 	smashline::*
 };
 
-#[acmd_script(agent = "palutena", script = "expression_attackhi3", category = ACMD_EXPRESSION)]
-unsafe fn palutena_expression_attackhi3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_expression_attackhi3(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
 		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
@@ -39,8 +38,7 @@ unsafe fn palutena_expression_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "expression_attacks3", category = ACMD_EXPRESSION)]
-unsafe fn palutena_expression_attacks3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_expression_attacks3(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
 	}
@@ -62,8 +60,7 @@ unsafe fn palutena_expression_attacks3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_attack11", category = ACMD_GAME)]
-unsafe fn palutena_game_attack11(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.1666667);
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
@@ -94,8 +91,7 @@ unsafe fn palutena_game_attack11(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_attack100", category = ACMD_GAME)]
-unsafe fn palutena_game_attack100(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attack100(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
 	for _ in 0..1000000 {
 		for _ in 0..7 {
@@ -115,8 +111,7 @@ unsafe fn palutena_game_attack100(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_attack100end", category = ACMD_GAME)]
-unsafe fn palutena_game_attack100end(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attack100end(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 4.0, 361, 130, 0, 60, 6.0, 0.0, 9.0, 8.0, Some(0.0), Some(9.0), Some(18.0), 2.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
@@ -128,8 +123,7 @@ unsafe fn palutena_game_attack100end(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_attack100sub", category = ACMD_GAME)]
-unsafe fn palutena_game_attack100sub(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attack100sub(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.6, 361, 10, 0, 15, 6.0, 0.0, 8.5, 8.0, Some(0.0), Some(8.5), Some(15.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
 		AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
@@ -142,8 +136,7 @@ unsafe fn palutena_game_attack100sub(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_attackairb", category = ACMD_GAME)]
-unsafe fn palutena_game_attackairb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attackairb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -172,8 +165,7 @@ unsafe fn palutena_game_attackairb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_attackairf", category = ACMD_GAME)]
-unsafe fn palutena_game_attackairf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attackairf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
@@ -196,8 +188,7 @@ unsafe fn palutena_game_attackairf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_attackairhi", category = ACMD_GAME)]
-unsafe fn palutena_game_attackairhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attackairhi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.375);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -237,8 +228,7 @@ unsafe fn palutena_game_attackairhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_attackairlw", category = ACMD_GAME)]
-unsafe fn palutena_game_attackairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attackairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -262,8 +252,7 @@ unsafe fn palutena_game_attackairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_attackairn", category = ACMD_GAME)]
-unsafe fn palutena_game_attackairn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attackairn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
@@ -299,8 +288,7 @@ unsafe fn palutena_game_attackairn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_attackdash", category = ACMD_GAME)]
-unsafe fn palutena_game_attackdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attackdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		macros::HIT_NODE(fighter, Hash40::new("bust"), *HIT_STATUS_INVINCIBLE);
@@ -332,8 +320,7 @@ unsafe fn palutena_game_attackdash(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.75);
 }
 
-#[acmd_script(agent = "palutena", script = "game_attackhi3", category = ACMD_GAME)]
-unsafe fn palutena_game_attackhi3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attackhi3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.375);
 	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
@@ -366,8 +353,7 @@ unsafe fn palutena_game_attackhi3(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.8);
 }
 
-#[acmd_script(agent = "palutena", script = "game_attackhi4", category = ACMD_GAME)]
-unsafe fn palutena_game_attackhi4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attackhi4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 13.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -390,8 +376,7 @@ unsafe fn palutena_game_attackhi4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_attacklw3", category = ACMD_GAME)]
-unsafe fn palutena_game_attacklw3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attacklw3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.25);
 	sv_animcmd::frame(fighter.lua_state_agent, 13.0);
@@ -411,8 +396,7 @@ unsafe fn palutena_game_attacklw3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_attacklw4", category = ACMD_GAME)]
-unsafe fn palutena_game_attacklw4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attacklw4(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_PALUTENA_GENERATE_ARTICLE_GODWING, false, 0);
 		ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_PALUTENA_GENERATE_ARTICLE_GODWING, Hash40::new("attack_lw4_charge"), false, 0.0);
@@ -449,8 +433,7 @@ unsafe fn palutena_game_attacklw4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_attacks3", category = ACMD_GAME)]
-unsafe fn palutena_game_attacks3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attacks3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.2);
 	sv_animcmd::frame(fighter.lua_state_agent, 16.0);
@@ -484,8 +467,7 @@ unsafe fn palutena_game_attacks3(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.875);
 }
 
-#[acmd_script(agent = "palutena", script = "game_attacks4", category = ACMD_GAME)]
-unsafe fn palutena_game_attacks4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_attacks4(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_PALUTENA_GENERATE_ARTICLE_GODWING, false, 0);
 		ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_PALUTENA_GENERATE_ARTICLE_GODWING, Hash40::new("attack_s4_charge"), false, 0.0);
@@ -520,8 +502,7 @@ unsafe fn palutena_game_attacks4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_catch", category = ACMD_GAME)]
-unsafe fn palutena_game_catch(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_catch(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -544,8 +525,7 @@ unsafe fn palutena_game_catch(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_catchattack", category = ACMD_GAME)]
-unsafe fn palutena_game_catchattack(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_catchattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.0, 361, 100, 30, 0, 5.5, 0.0, 9.0, 10.0, None, None, None, 1.7, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
@@ -560,8 +540,7 @@ unsafe fn palutena_game_catchattack(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "palutena", script = "game_catchdash", category = ACMD_GAME)]
-unsafe fn palutena_game_catchdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_catchdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -584,8 +563,7 @@ unsafe fn palutena_game_catchdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_catchturn", category = ACMD_GAME)]
-unsafe fn palutena_game_catchturn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_catchturn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -608,8 +586,7 @@ unsafe fn palutena_game_catchturn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_cliffattack", category = ACMD_GAME)]
-unsafe fn palutena_game_cliffattack(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_cliffattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 23.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 9.0, 45, 20, 0, 90, 5.0, 0.0, 4.5, 9.2, Some(0.0), Some(4.5), Some(-5.2), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_KICK);
@@ -620,8 +597,7 @@ unsafe fn palutena_game_cliffattack(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_downattackd", category = ACMD_GAME)]
-unsafe fn palutena_game_downattackd(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_downattackd(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 14.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 7.0, 48, 48, 0, 80, 5.0, 0.0, 5.0, -13.0, Some(0.0), Some(5.0), Some(-4.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
@@ -640,8 +616,7 @@ unsafe fn palutena_game_downattackd(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_downattacku", category = ACMD_GAME)]
-unsafe fn palutena_game_downattacku(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_downattacku(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 16.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 7.0, 48, 48, 0, 80, 5.0, 0.0, 5.0, -15.0, Some(0.0), Some(5.0), Some(-4.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
@@ -660,8 +635,7 @@ unsafe fn palutena_game_downattacku(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_slipattack", category = ACMD_GAME)]
-unsafe fn palutena_game_slipattack(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_slipattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 13.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 361, 50, 0, 60, 4.5, 0.0, 4.5, 13.0, Some(0.0), Some(4.5), Some(4.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
@@ -680,8 +654,7 @@ unsafe fn palutena_game_slipattack(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", scripts = ["game_speciallw", "game_specialairlw"], category = ACMD_GAME)]
-unsafe fn palutena_game_speciallw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_speciallw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -706,8 +679,7 @@ unsafe fn palutena_game_speciallw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", scripts = ["game_speciallwattack", "game_specialairlwattack"], category = ACMD_GAME)]
-unsafe fn palutena_game_speciallwattack(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_speciallwattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_PALUTENA_STATUS_SPECIAL_LW_FLAG_SPECIAL_EFFECT) == true {
@@ -724,8 +696,7 @@ unsafe fn palutena_game_speciallwattack(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", scripts = ["game_speciallwreflect", "game_specialairlwreflect"], category = ACMD_GAME)]
-unsafe fn palutena_game_speciallwreflect(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_speciallwreflect(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		shield!(fighter, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_REFLECTOR, *FIGHTER_PALUTENA_REFLECTOR_KIND_REFLECTOR, *FIGHTER_REFLECTOR_GROUP_EXTEND);
 		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_PALUTENA_GENERATE_ARTICLE_REFLECTIONBOARD, false, 0);
@@ -739,8 +710,7 @@ unsafe fn palutena_game_speciallwreflect(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "palutena", scripts = ["game_specials", "game_specialairs"], category = ACMD_GAME)]
-unsafe fn palutena_game_specials(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_specials(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 22.0);
 	if macros::is_excute(fighter) {
 		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_PALUTENA_GENERATE_ARTICLE_EXPLOSIVEFLAME, false, 0);
@@ -749,8 +719,7 @@ unsafe fn palutena_game_specials(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.2);
 }
 
-#[acmd_script(agent = "palutena", script = "game_throwb", category = ACMD_GAME)]
-unsafe fn palutena_game_throwb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_throwb(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 11.0, 361, 68, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -769,8 +738,7 @@ unsafe fn palutena_game_throwb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_throwf", category = ACMD_GAME)]
-unsafe fn palutena_game_throwf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_throwf(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 10.0, 45, 47, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -787,8 +755,7 @@ unsafe fn palutena_game_throwf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_throwhi", category = ACMD_GAME)]
-unsafe fn palutena_game_throwhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_throwhi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 10.0, 90, 56, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -805,8 +772,7 @@ unsafe fn palutena_game_throwhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena", script = "game_throwlw", category = ACMD_GAME)]
-unsafe fn palutena_game_throwlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_game_throwlw(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 7.0, 80, 30, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -825,16 +791,14 @@ unsafe fn palutena_game_throwlw(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.6);
 }
 
-#[acmd_script(agent = "palutena_autoaimbullet", script = "game_shot", category = ACMD_GAME)]
-unsafe fn palutena_autoaimbullet_game_shot(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_autoaimbullet_game_shot(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 4.0, 361, 40, 0, 40, 2.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -2, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_palutena_bullet"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_ENERGY);
 		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_beamss"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
 	}
 }
 
-#[acmd_script(agent = "palutena_beam", script = "game_beam", category = ACMD_GAME)]
-unsafe fn palutena_beam_game_beam(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_beam_game_beam(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 3.0, 361, 0, 1, 25, 12.0, 0.0, 0.0, 0.0, Some(0.0), Some(0.0), Some(0.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, -1.0, 8, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
@@ -865,8 +829,7 @@ unsafe fn palutena_beam_game_beam(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena_blackhole", script = "game_blackhole", category = ACMD_GAME)]
-unsafe fn palutena_blackhole_game_blackhole(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_blackhole_game_blackhole(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 366, 100, 50, 0, 50.0, 0.0, 0.0, 0.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, -1.0, 1, false, false, true, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
@@ -879,8 +842,7 @@ unsafe fn palutena_blackhole_game_blackhole(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena_explosiveflame", script = "game_explode", category = ACMD_GAME)]
-unsafe fn palutena_explosiveflame_game_explode(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_explosiveflame_game_explode(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.7, 366, 100, 50, 0, 4.8, 0.0, 0.0, 0.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, -0.35, -1.0, 2, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_BOMB);
 		AttackModule::set_no_damage_fly_smoke_all(fighter.module_accessor, true, false);
@@ -926,8 +888,7 @@ unsafe fn palutena_explosiveflame_game_explode(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "palutena_reflectionboard", script = "game_shoot", category = ACMD_GAME)]
-unsafe fn palutena_reflectionboard_game_shoot(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn palutena_reflectionboard_game_shoot(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 361, 100, 50, 0, 5.0, 0.0, 8.5, 0.0, Some(0.0), Some(-4.5), Some(0.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, f32::NAN, 0.0, 2, false, false, true, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_ITEM, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
@@ -939,45 +900,59 @@ unsafe fn palutena_reflectionboard_game_shoot(fighter: &mut L2CAgentBase) {
 }
 
 pub fn install() {
-	smashline::install_acmd_scripts!(
-		palutena_expression_attackhi3,
-		palutena_expression_attacks3,
-		palutena_game_attack11,
-		palutena_game_attack100,
-		palutena_game_attack100end,
-		palutena_game_attack100sub,
-		palutena_game_attackairb,
-		palutena_game_attackairf,
-		palutena_game_attackairhi,
-		palutena_game_attackairlw,
-		palutena_game_attackairn,
-		palutena_game_attackdash,
-		palutena_game_attackhi3,
-		palutena_game_attackhi4,
-		palutena_game_attacklw3,
-		palutena_game_attacklw4,
-		palutena_game_attacks3,
-		palutena_game_attacks4,
-		palutena_game_catch,
-		palutena_game_catchattack,
-		palutena_game_catchdash,
-		palutena_game_catchturn,
-		palutena_game_cliffattack,
-		palutena_game_downattackd,
-		palutena_game_downattacku,
-		palutena_game_slipattack,
-		palutena_game_speciallw,
-		palutena_game_speciallwattack,
-		palutena_game_speciallwreflect,
-		palutena_game_specials,
-		palutena_game_throwb,
-		palutena_game_throwf,
-		palutena_game_throwhi,
-		palutena_game_throwlw,
-		palutena_autoaimbullet_game_shot,
-		palutena_beam_game_beam,
-		palutena_blackhole_game_blackhole,
-		palutena_explosiveflame_game_explode,
-		palutena_reflectionboard_game_shoot,
-	);
+	Agent::new("palutena")
+		.expression_acmd("expression_attackhi3", palutena_expression_attackhi3)
+		.expression_acmd("expression_attacks3", palutena_expression_attacks3)
+		.game_acmd("game_attack11", palutena_game_attack11)
+		.game_acmd("game_attack100", palutena_game_attack100)
+		.game_acmd("game_attack100end", palutena_game_attack100end)
+		.game_acmd("game_attack100sub", palutena_game_attack100sub)
+		.game_acmd("game_attackairb", palutena_game_attackairb)
+		.game_acmd("game_attackairf", palutena_game_attackairf)
+		.game_acmd("game_attackairhi", palutena_game_attackairhi)
+		.game_acmd("game_attackairlw", palutena_game_attackairlw)
+		.game_acmd("game_attackairn", palutena_game_attackairn)
+		.game_acmd("game_attackdash", palutena_game_attackdash)
+		.game_acmd("game_attackhi3", palutena_game_attackhi3)
+		.game_acmd("game_attackhi4", palutena_game_attackhi4)
+		.game_acmd("game_attacklw3", palutena_game_attacklw3)
+		.game_acmd("game_attacklw4", palutena_game_attacklw4)
+		.game_acmd("game_attacks3", palutena_game_attacks3)
+		.game_acmd("game_attacks4", palutena_game_attacks4)
+		.game_acmd("game_catch", palutena_game_catch)
+		.game_acmd("game_catchattack", palutena_game_catchattack)
+		.game_acmd("game_catchdash", palutena_game_catchdash)
+		.game_acmd("game_catchturn", palutena_game_catchturn)
+		.game_acmd("game_cliffattack", palutena_game_cliffattack)
+		.game_acmd("game_downattackd", palutena_game_downattackd)
+		.game_acmd("game_downattacku", palutena_game_downattacku)
+		.game_acmd("game_slipattack", palutena_game_slipattack)
+		.game_acmd("game_speciallw", palutena_game_speciallw)
+		.game_acmd("game_specialairlw", palutena_game_speciallw)
+		.game_acmd("game_speciallwattack", palutena_game_speciallwattack)
+		.game_acmd("game_specialairlwattack", palutena_game_speciallwattack)
+		.game_acmd("game_speciallwreflect", palutena_game_speciallwreflect)
+		.game_acmd("game_specialairlwreflect", palutena_game_speciallwreflect)
+		.game_acmd("game_specials", palutena_game_specials)
+		.game_acmd("game_specialairs", palutena_game_specials)
+		.game_acmd("game_throwb", palutena_game_throwb)
+		.game_acmd("game_throwf", palutena_game_throwf)
+		.game_acmd("game_throwhi", palutena_game_throwhi)
+		.game_acmd("game_throwlw", palutena_game_throwlw)
+		.install();
+	Agent::new("palutena_autoaimbullet")
+		.game_acmd("game_shot", palutena_autoaimbullet_game_shot)
+		.install();
+	Agent::new("palutena_beam")
+		.game_acmd("game_beam", palutena_beam_game_beam)
+		.install();
+	Agent::new("palutena_blackhole")
+		.game_acmd("game_blackhole", palutena_blackhole_game_blackhole)
+		.install();
+	Agent::new("palutena_explosiveflame")
+		.game_acmd("game_explode", palutena_explosiveflame_game_explode)
+		.install();
+	Agent::new("palutena_reflectionboard")
+		.game_acmd("game_shoot", palutena_reflectionboard_game_shoot)
+		.install();
 }
