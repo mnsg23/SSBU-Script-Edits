@@ -14,8 +14,7 @@ use {
 	smashline::*
 };
 
-#[acmd_script(agent = "ganon", script = "game_attack11", category = ACMD_GAME)]
-unsafe fn ganon_game_attack11(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
@@ -31,8 +30,7 @@ unsafe fn ganon_game_attack11(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.9);
 }
 
-#[acmd_script(agent = "ganon", script = "game_attackairb", category = ACMD_GAME)]
-unsafe fn ganon_game_attackairb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_attackairb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -53,8 +51,7 @@ unsafe fn ganon_game_attackairb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_attackairf", category = ACMD_GAME)]
-unsafe fn ganon_game_attackairf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_attackairf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -74,8 +71,7 @@ unsafe fn ganon_game_attackairf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_attackairhi", category = ACMD_GAME)]
-unsafe fn ganon_game_attackairhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_attackairhi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -104,8 +100,7 @@ unsafe fn ganon_game_attackairhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_attackairlw", category = ACMD_GAME)]
-unsafe fn ganon_game_attackairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_attackairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		FighterAreaModuleImpl::enable_fix_jostle_area_xy(fighter.module_accessor, 4.5, 4.5, 12.5, 0.0);
@@ -129,8 +124,7 @@ unsafe fn ganon_game_attackairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_attackairn", category = ACMD_GAME)]
-unsafe fn ganon_game_attackairn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_attackairn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.6);
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
@@ -179,8 +173,7 @@ unsafe fn ganon_game_attackairn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_attackdash", category = ACMD_GAME)]
-unsafe fn ganon_game_attackdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_attackdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 15.0, 85, 78, 0, 60, 7.0, 0.0, 9.0, 7.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 5, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_HEAVY, *ATTACK_REGION_BODY);
@@ -197,8 +190,7 @@ unsafe fn ganon_game_attackdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_attackhi3", category = ACMD_GAME)]
-unsafe fn ganon_game_attackhi3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_attackhi3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 10);
@@ -232,8 +224,7 @@ unsafe fn ganon_game_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_attackhi4", category = ACMD_GAME)]
-unsafe fn ganon_game_attackhi4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_attackhi4(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
 		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, false, 0);
@@ -254,8 +245,7 @@ unsafe fn ganon_game_attackhi4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_attacklw3", category = ACMD_GAME)]
-unsafe fn ganon_game_attacklw3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_attacklw3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("legr"), 14.0, 80, 95, 0, 40, 4.0, 0.0, 0.0, 3.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
@@ -269,8 +259,7 @@ unsafe fn ganon_game_attacklw3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_attacklw4", category = ACMD_GAME)]
-unsafe fn ganon_game_attacklw4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_attacklw4(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
 		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, false, 0);
@@ -301,8 +290,7 @@ unsafe fn ganon_game_attacklw4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_attacks3", category = ACMD_GAME)]
-unsafe fn ganon_game_attacks3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_attacks3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("hip"), 13.0, 20, 86, 0, 40, 5.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_HEAVY, *ATTACK_REGION_KICK);
@@ -315,8 +303,7 @@ unsafe fn ganon_game_attacks3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_attacks4", category = ACMD_GAME)]
-unsafe fn ganon_game_attacks4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_attacks4(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
 		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_GANON_GENERATE_ARTICLE_SWORD, false, 0);
@@ -343,8 +330,7 @@ unsafe fn ganon_game_attacks4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_catch", category = ACMD_GAME)]
-unsafe fn ganon_game_catch(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_catch(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 7.0);
 	if macros::is_excute(fighter) {
 		GrabModule::set_rebound(fighter.module_accessor, true);
@@ -363,8 +349,7 @@ unsafe fn ganon_game_catch(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_catchdash", category = ACMD_GAME)]
-unsafe fn ganon_game_catchdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_catchdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		GrabModule::set_rebound(fighter.module_accessor, true);
@@ -383,8 +368,7 @@ unsafe fn ganon_game_catchdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_catchturn", category = ACMD_GAME)]
-unsafe fn ganon_game_catchturn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_catchturn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
 	if macros::is_excute(fighter) {
 		GrabModule::set_rebound(fighter.module_accessor, true);
@@ -403,8 +387,7 @@ unsafe fn ganon_game_catchturn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specialairlw", category = ACMD_GAME)]
-unsafe fn ganon_game_specialairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 10);
@@ -431,8 +414,7 @@ unsafe fn ganon_game_specialairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specialairlwend", category = ACMD_GAME)]
-unsafe fn ganon_game_specialairlwend(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialairlwend(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_GANON_STATUS_WORK_ID_FLAG_GANON_KICK_SP_BRAKE);
 	}
@@ -450,8 +432,7 @@ unsafe fn ganon_game_specialairlwend(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specialairn", category = ACMD_GAME)]
-unsafe fn ganon_game_specialairn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialairn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_GANON_STATUS_WORK_ID_FLAG_GANON_PUNCH_TURN);
@@ -483,8 +464,7 @@ unsafe fn ganon_game_specialairn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specialairnturn", category = ACMD_GAME)]
-unsafe fn ganon_game_specialairnturn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialairnturn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
 	if macros::is_excute(fighter) {
 		macros::REVERSE_LR(fighter);
@@ -516,8 +496,7 @@ unsafe fn ganon_game_specialairnturn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specialairs", category = ACMD_GAME)]
-unsafe fn ganon_game_specialairs(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialairs(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 16.0, 361, 90, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 4.0, 0, 10, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_NONE);
@@ -533,8 +512,7 @@ unsafe fn ganon_game_specialairs(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specialairscatch", category = ACMD_GAME)]
-unsafe fn ganon_game_specialairscatch(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialairscatch(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 4.0, 0, 10, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_NONE);
 	}
@@ -550,8 +528,7 @@ unsafe fn ganon_game_specialairscatch(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specialairsfall", category = ACMD_GAME)]
-unsafe fn ganon_game_specialairsfall(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialairsfall(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 4.0, 0, 10, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_NONE);
 	}
@@ -566,8 +543,7 @@ unsafe fn ganon_game_specialairsfall(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specialairsstart", category = ACMD_GAME)]
-unsafe fn ganon_game_specialairsstart(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialairsstart(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 4.0, 0, 10, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_NONE);
 	}
@@ -595,8 +571,7 @@ unsafe fn ganon_game_specialairsstart(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", scripts = ["game_specialhi", "game_specialairhi"], category = ACMD_GAME)]
-unsafe fn ganon_game_specialhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialhi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_SUPER_JUMP_PUNCH_FLAG_MOVE_TRANS);
@@ -640,8 +615,7 @@ unsafe fn ganon_game_specialhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specialhicatch", category = ACMD_GAME)]
-unsafe fn ganon_game_specialhicatch(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialhicatch(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 8.0, 0, 10, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_THROW);
 	}
@@ -663,8 +637,7 @@ unsafe fn ganon_game_specialhicatch(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specialhithrow", category = ACMD_GAME)]
-unsafe fn ganon_game_specialhithrow(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialhithrow(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 10.0, 45, 101, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 8.0, 0, 10, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_THROW);
@@ -686,8 +659,7 @@ unsafe fn ganon_game_specialhithrow(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_speciallw", category = ACMD_GAME)]
-unsafe fn ganon_game_speciallw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_speciallw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 10);
@@ -729,8 +701,7 @@ unsafe fn ganon_game_speciallw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specialn", category = ACMD_GAME)]
-unsafe fn ganon_game_specialn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_GANON_STATUS_WORK_ID_FLAG_GANON_PUNCH_TURN);
@@ -756,8 +727,7 @@ unsafe fn ganon_game_specialn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specialnturn", category = ACMD_GAME)]
-unsafe fn ganon_game_specialnturn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialnturn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
 	if macros::is_excute(fighter) {
 		macros::REVERSE_LR(fighter);
@@ -783,8 +753,7 @@ unsafe fn ganon_game_specialnturn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specials", category = ACMD_GAME)]
-unsafe fn ganon_game_specials(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specials(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 13.0, 361, 90, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 4.0, 0, 10, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_NONE);
@@ -807,8 +776,7 @@ unsafe fn ganon_game_specials(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_specialsstart", category = ACMD_GAME)]
-unsafe fn ganon_game_specialsstart(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_specialsstart(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 4.0, 0, 10, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_NONE);
 	}
@@ -836,8 +804,7 @@ unsafe fn ganon_game_specialsstart(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_throwb", category = ACMD_GAME)]
-unsafe fn ganon_game_throwb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_throwb(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 6.5, 45, 90, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -862,8 +829,7 @@ unsafe fn ganon_game_throwb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_throwf", category = ACMD_GAME)]
-unsafe fn ganon_game_throwf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_throwf(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 6.5, 40, 92, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -883,8 +849,7 @@ unsafe fn ganon_game_throwf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_throwhi", category = ACMD_GAME)]
-unsafe fn ganon_game_throwhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_throwhi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 6.5, 90, 99, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -906,8 +871,7 @@ unsafe fn ganon_game_throwhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon", script = "game_throwlw", category = ACMD_GAME)]
-unsafe fn ganon_game_throwlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_game_throwlw(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 10.0, 80, 40, 0, 80, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -924,8 +888,7 @@ unsafe fn ganon_game_throwlw(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.5);
 }
 
-#[acmd_script(agent = "ganon_ganond", script = "effect_start", category = ACMD_EFFECT)]
-unsafe fn ganon_ganond_effect_start(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_ganond_effect_start(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 17.0);
 	for _ in 0..6 {
 		if macros::is_excute(fighter) {
@@ -1022,8 +985,7 @@ unsafe fn ganon_ganond_effect_start(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon_ganond", script = "effect_startair", category = ACMD_EFFECT)]
-unsafe fn ganon_ganond_effect_startair(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_ganond_effect_startair(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 17.0);
 	for _ in 0..6 {
 		if macros::is_excute(fighter) {
@@ -1100,8 +1062,7 @@ unsafe fn ganon_ganond_effect_startair(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon_ganond", scripts = ["game_attack", "game_attackair"], category = ACMD_GAME)]
-unsafe fn ganon_ganond_game_attack(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_ganond_game_attack(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
 		ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_23_rush_sp"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
@@ -1111,8 +1072,7 @@ unsafe fn ganon_ganond_game_attack(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "ganon_ganond", scripts = ["game_start", "game_startair"], category = ACMD_GAME)]
-unsafe fn ganon_ganond_game_start(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn ganon_ganond_game_start(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 18.0);
 	if macros::is_excute(fighter) {
 		macros::CAM_ZOOM_OUT(fighter);
@@ -1177,46 +1137,51 @@ unsafe fn ganon_ganond_game_start(fighter: &mut L2CAgentBase) {
 }
 
 pub fn install() {
-	smashline::install_acmd_scripts!(
-		ganon_game_attack11,
-		ganon_game_attackairb,
-		ganon_game_attackairf,
-		ganon_game_attackairhi,
-		ganon_game_attackairlw,
-		ganon_game_attackairn,
-		ganon_game_attackdash,
-		ganon_game_attackhi3,
-		ganon_game_attackhi4,
-		ganon_game_attacklw3,
-		ganon_game_attacklw4,
-		ganon_game_attacks3,
-		ganon_game_attacks4,
-		ganon_game_catch,
-		ganon_game_catchdash,
-		ganon_game_catchturn,
-		ganon_game_specialairlw,
-		ganon_game_specialairlwend,
-		ganon_game_specialairn,
-		ganon_game_specialairnturn,
-		ganon_game_specialairs,
-		ganon_game_specialairscatch,
-		ganon_game_specialairsfall,
-		ganon_game_specialairsstart,
-		ganon_game_specialhi,
-		ganon_game_specialhicatch,
-		ganon_game_specialhithrow,
-		ganon_game_speciallw,
-		ganon_game_specialn,
-		ganon_game_specialnturn,
-		ganon_game_specials,
-		ganon_game_specialsstart,
-		ganon_game_throwb,
-		ganon_game_throwf,
-		ganon_game_throwhi,
-		ganon_game_throwlw,
-		ganon_ganond_effect_start,
-		ganon_ganond_effect_startair,
-		ganon_ganond_game_attack,
-		ganon_ganond_game_start,
-	);
+	Agent::new("ganon")
+		.game_acmd("game_attack11", ganon_game_attack11)
+		.game_acmd("game_attackairb", ganon_game_attackairb)
+		.game_acmd("game_attackairf", ganon_game_attackairf)
+		.game_acmd("game_attackairhi", ganon_game_attackairhi)
+		.game_acmd("game_attackairlw", ganon_game_attackairlw)
+		.game_acmd("game_attackairn", ganon_game_attackairn)
+		.game_acmd("game_attackdash", ganon_game_attackdash)
+		.game_acmd("game_attackhi3", ganon_game_attackhi3)
+		.game_acmd("game_attackhi4", ganon_game_attackhi4)
+		.game_acmd("game_attacklw3", ganon_game_attacklw3)
+		.game_acmd("game_attacklw4", ganon_game_attacklw4)
+		.game_acmd("game_attacks3", ganon_game_attacks3)
+		.game_acmd("game_attacks4", ganon_game_attacks4)
+		.game_acmd("game_catch", ganon_game_catch)
+		.game_acmd("game_catchdash", ganon_game_catchdash)
+		.game_acmd("game_catchturn", ganon_game_catchturn)
+		.game_acmd("game_specialairlw", ganon_game_specialairlw)
+		.game_acmd("game_specialairlwend", ganon_game_specialairlwend)
+		.game_acmd("game_specialairn", ganon_game_specialairn)
+		.game_acmd("game_specialairnturn", ganon_game_specialairnturn)
+		.game_acmd("game_specialairs", ganon_game_specialairs)
+		.game_acmd("game_specialairscatch", ganon_game_specialairscatch)
+		.game_acmd("game_specialairsfall", ganon_game_specialairsfall)
+		.game_acmd("game_specialairsstart", ganon_game_specialairsstart)
+		.game_acmd("game_specialhi", ganon_game_specialhi)
+		.game_acmd("game_specialairhi", ganon_game_specialhi)
+		.game_acmd("game_specialhicatch", ganon_game_specialhicatch)
+		.game_acmd("game_specialhithrow", ganon_game_specialhithrow)
+		.game_acmd("game_speciallw", ganon_game_speciallw)
+		.game_acmd("game_specialn", ganon_game_specialn)
+		.game_acmd("game_specialnturn", ganon_game_specialnturn)
+		.game_acmd("game_specials", ganon_game_specials)
+		.game_acmd("game_specialsstart", ganon_game_specialsstart)
+		.game_acmd("game_throwb", ganon_game_throwb)
+		.game_acmd("game_throwf", ganon_game_throwf)
+		.game_acmd("game_throwhi", ganon_game_throwhi)
+		.game_acmd("game_throwlw", ganon_game_throwlw)
+		.install();
+	Agent::new("ganon_ganond")
+		.effect_acmd("effect_start", ganon_ganond_effect_start)
+		.effect_acmd("effect_startair", ganon_ganond_effect_startair)
+		.game_acmd("game_attack", ganon_ganond_game_attack)
+		.game_acmd("game_attackair", ganon_ganond_game_attack)
+		.game_acmd("game_start", ganon_ganond_game_start)
+		.game_acmd("game_startair", ganon_ganond_game_start)
+		.install();
 }
