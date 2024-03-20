@@ -15,8 +15,7 @@ use {
 	smashline::*
 };
 
-#[acmd_script(agent = "kirby", script = "effect_kroolspecialairnspitb", category = ACMD_EFFECT)]
-unsafe fn kirby_effect_kroolspecialairnspitb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_effect_kroolspecialairnspitb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 23.0);
 	if macros::is_excute(fighter) {
 		macros::EFFECT_FOLLOW(fighter, Hash40::new("krool_cannon_shot"), Hash40::new("haver"), 0, 2, 25, 0, 0, 0, 1.3, true);
@@ -27,8 +26,7 @@ unsafe fn kirby_effect_kroolspecialairnspitb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "kirby", script = "effect_kroolspecialairnspitf", category = ACMD_EFFECT)]
-unsafe fn kirby_effect_kroolspecialairnspitf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_effect_kroolspecialairnspitf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 18.0);
 	if macros::is_excute(fighter) {
 		macros::EFFECT_FOLLOW(fighter, Hash40::new("krool_cannon_shot"), Hash40::new("haver"), 0, 2, 25, 0, 0, 0, 1.3, true);
@@ -39,8 +37,7 @@ unsafe fn kirby_effect_kroolspecialairnspitf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "kirby", script = "effect_kroolspecialnspitb", category = ACMD_EFFECT)]
-unsafe fn kirby_effect_kroolspecialnspitb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_effect_kroolspecialnspitb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 22.0);
 	if macros::is_excute(fighter) {
 		macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
@@ -55,8 +52,7 @@ unsafe fn kirby_effect_kroolspecialnspitb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "kirby", script = "effect_kroolspecialnspitf", category = ACMD_EFFECT)]
-unsafe fn kirby_effect_kroolspecialnspitf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_effect_kroolspecialnspitf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 17.0);
 	if macros::is_excute(fighter) {
 		macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
@@ -71,8 +67,7 @@ unsafe fn kirby_effect_kroolspecialnspitf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "kirby", scripts = ["sound_kroolspecialnspitb", "sound_kroolspecialairnspitb"], category = ACMD_SOUND)]
-unsafe fn kirby_sound_kroolspecialnspitb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_sound_kroolspecialnspitb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE(fighter, Hash40::new("se_krool_special_n10"));
@@ -90,8 +85,7 @@ unsafe fn kirby_sound_kroolspecialnspitb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "kirby", scripts = ["sound_kroolspecialnspitf", "sound_kroolspecialairnspitf"], category = ACMD_SOUND)]
-unsafe fn kirby_sound_kroolspecialnspitf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_sound_kroolspecialnspitf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 17.0);
 	if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_SPECIAL_N_SUCTION_IRONBALL) == true {
 		if macros::is_excute(fighter) {
@@ -105,8 +99,7 @@ unsafe fn kirby_sound_kroolspecialnspitf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "kirby", scripts = ["sound_kroolspecialnspithi", "sound_kroolspecialairnspithi"], category = ACMD_SOUND)]
-unsafe fn kirby_sound_kroolspecialnspithi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_sound_kroolspecialnspithi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE(fighter, Hash40::new("se_krool_special_n10"));
@@ -124,8 +117,7 @@ unsafe fn kirby_sound_kroolspecialnspithi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "effect_attacklw4", category = ACMD_EFFECT)]
-unsafe fn krool_effect_attacklw4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_effect_attacklw4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		macros::LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
@@ -145,8 +137,7 @@ unsafe fn krool_effect_attacklw4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "effect_attacks3hi", category = ACMD_EFFECT)]
-unsafe fn krool_effect_attacks3hi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_effect_attacks3hi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		macros::FOOT_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, -4, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
@@ -162,8 +153,7 @@ unsafe fn krool_effect_attacks3hi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "effect_specialairnspitb", category = ACMD_EFFECT)]
-unsafe fn krool_effect_specialairnspitb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_effect_specialairnspitb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 23.0);
 	if macros::is_excute(fighter) {
 		macros::EFFECT_FOLLOW(fighter, Hash40::new("krool_cannon_shot"), Hash40::new("haver"), 0, 2, 25, 0, 0, 0, 1.3, true);
@@ -174,8 +164,7 @@ unsafe fn krool_effect_specialairnspitb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "effect_specialairnspitf", category = ACMD_EFFECT)]
-unsafe fn krool_effect_specialairnspitf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_effect_specialairnspitf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 18.0);
 	if macros::is_excute(fighter) {
 		macros::EFFECT_FOLLOW(fighter, Hash40::new("krool_cannon_shot"), Hash40::new("haver"), 0, 2, 25, 0, 0, 0, 1.3, true);
@@ -186,8 +175,7 @@ unsafe fn krool_effect_specialairnspitf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "effect_specialairsthrow", category = ACMD_EFFECT)]
-unsafe fn krool_effect_specialairsthrow(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_effect_specialairsthrow(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("handr"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
 	}
@@ -197,8 +185,7 @@ unsafe fn krool_effect_specialairsthrow(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "effect_specialnspitb", category = ACMD_EFFECT)]
-unsafe fn krool_effect_specialnspitb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_effect_specialnspitb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 22.0);
 	if macros::is_excute(fighter) {
 		macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
@@ -213,8 +200,7 @@ unsafe fn krool_effect_specialnspitb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "effect_specialnspitf", category = ACMD_EFFECT)]
-unsafe fn krool_effect_specialnspitf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_effect_specialnspitf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 17.0);
 	if macros::is_excute(fighter) {
 		macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
@@ -229,8 +215,7 @@ unsafe fn krool_effect_specialnspitf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "expression_attacklw4", category = ACMD_EXPRESSION)]
-unsafe fn krool_expression_attacklw4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_expression_attacklw4(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
 	}
@@ -259,8 +244,7 @@ unsafe fn krool_expression_attacklw4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attack11", category = ACMD_GAME)]
-unsafe fn krool_game_attack11(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		FighterAreaModuleImpl::enable_fix_jostle_area_xy(fighter.module_accessor, 4.0, 7.0, 8.5, 8.5);
@@ -285,8 +269,7 @@ unsafe fn krool_game_attack11(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attack12", category = ACMD_GAME)]
-unsafe fn krool_game_attack12(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attack12(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
 	if macros::is_excute(fighter) {
 		FighterAreaModuleImpl::enable_fix_jostle_area_xy(fighter.module_accessor, 5.0, 8.0, 8.0, 8.0);
@@ -310,8 +293,7 @@ unsafe fn krool_game_attack12(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attack13", category = ACMD_GAME)]
-unsafe fn krool_game_attack13(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attack13(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		FighterAreaModuleImpl::enable_fix_jostle_area_xy(fighter.module_accessor, 2.0, 7.0, 10.0, 10.0);
@@ -326,8 +308,7 @@ unsafe fn krool_game_attack13(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attackairb", category = ACMD_GAME)]
-unsafe fn krool_game_attackairb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attackairb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -363,8 +344,7 @@ unsafe fn krool_game_attackairb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attackairf", category = ACMD_GAME)]
-unsafe fn krool_game_attackairf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attackairf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -405,8 +385,7 @@ unsafe fn krool_game_attackairf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attackairhi", category = ACMD_GAME)]
-unsafe fn krool_game_attackairhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attackairhi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -446,8 +425,7 @@ unsafe fn krool_game_attackairhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attackairlw", category = ACMD_GAME)]
-unsafe fn krool_game_attackairlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attackairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -485,8 +463,7 @@ unsafe fn krool_game_attackairlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attackairn", category = ACMD_GAME)]
-unsafe fn krool_game_attackairn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attackairn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -520,8 +497,7 @@ unsafe fn krool_game_attackairn(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attackdash", category = ACMD_GAME)]
-unsafe fn krool_game_attackdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attackdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 5);
@@ -553,8 +529,7 @@ unsafe fn krool_game_attackdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attackhi3", category = ACMD_GAME)]
-unsafe fn krool_game_attackhi3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attackhi3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 2.5);
@@ -580,8 +555,7 @@ unsafe fn krool_game_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attackhi4", category = ACMD_GAME)]
-unsafe fn krool_game_attackhi4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attackhi4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 2.0);
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
@@ -624,8 +598,7 @@ unsafe fn krool_game_attackhi4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attacklw3", category = ACMD_GAME)]
-unsafe fn krool_game_attacklw3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attacklw3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -660,8 +633,7 @@ unsafe fn krool_game_attacklw3(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "krool", script = "game_attacklw4", category = ACMD_GAME)]
-unsafe fn krool_game_attacklw4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attacklw4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 4.0);
 	if macros::is_excute(fighter) {
@@ -716,8 +688,7 @@ unsafe fn krool_game_attacklw4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attacks3", category = ACMD_GAME)]
-unsafe fn krool_game_attacks3(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attacks3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 2.5);
@@ -745,8 +716,7 @@ unsafe fn krool_game_attacks3(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "krool", script = "game_attacks3hi", category = ACMD_GAME)]
-unsafe fn krool_game_attacks3hi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attacks3hi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 2.5);
@@ -775,8 +745,7 @@ unsafe fn krool_game_attacks3hi(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "krool", script = "game_attacks3lw", category = ACMD_GAME)]
-unsafe fn krool_game_attacks3lw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attacks3lw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 4.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 2.5);
@@ -805,8 +774,7 @@ unsafe fn krool_game_attacks3lw(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "krool", script = "game_attacks4", category = ACMD_GAME)]
-unsafe fn krool_game_attacks4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attacks4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -831,8 +799,8 @@ unsafe fn krool_game_attacks4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 19.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_REQUEST_WAIST_SHIELD_OFF);
-		macros::ATTACK(fighter, 0, 0, Hash40::new("arml"), 22.0, 361, 92, 0, 40, 6.0, 6.5, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
-		macros::ATTACK(fighter, 1, 0, Hash40::new("arml"), 22.0, 361, 92, 0, 40, 4.5, -2.0, 0.0, 0.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("arml"), 22.0, 361, 93, 0, 40, 6.0, 6.5, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("arml"), 22.0, 361, 93, 0, 40, 4.5, -2.0, 0.0, 0.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 22.0);
 	if macros::is_excute(fighter) {
@@ -841,8 +809,7 @@ unsafe fn krool_game_attacks4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attacks4hi", category = ACMD_GAME)]
-unsafe fn krool_game_attacks4hi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attacks4hi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -867,8 +834,8 @@ unsafe fn krool_game_attacks4hi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 19.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_REQUEST_WAIST_SHIELD_OFF);
-		macros::ATTACK(fighter, 0, 0, Hash40::new("arml"), 22.0, 361, 92, 0, 40, 6.0, 6.5, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
-		macros::ATTACK(fighter, 1, 0, Hash40::new("arml"), 22.0, 361, 92, 0, 40, 4.5, -2.0, 0.0, 0.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("arml"), 22.0, 361, 93, 0, 40, 6.0, 6.5, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("arml"), 22.0, 361, 93, 0, 40, 4.5, -2.0, 0.0, 0.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
 		AttackModule::set_attack_height_all(fighter.module_accessor, AttackHeight(*ATTACK_HEIGHT_HIGH), false);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 22.0);
@@ -878,8 +845,7 @@ unsafe fn krool_game_attacks4hi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_attacks4lw", category = ACMD_GAME)]
-unsafe fn krool_game_attacks4lw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_attacks4lw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
 	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
@@ -904,8 +870,8 @@ unsafe fn krool_game_attacks4lw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 19.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_REQUEST_WAIST_SHIELD_OFF);
-		macros::ATTACK(fighter, 0, 0, Hash40::new("arml"), 22.0, 361, 92, 0, 40, 6.0, 6.5, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
-		macros::ATTACK(fighter, 1, 0, Hash40::new("arml"), 22.0, 361, 92, 0, 40, 4.5, -2.0, 0.0, 0.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("arml"), 22.0, 361, 93, 0, 40, 6.0, 6.5, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("arml"), 22.0, 361, 93, 0, 40, 4.5, -2.0, 0.0, 0.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
 		AttackModule::set_attack_height_all(fighter.module_accessor, AttackHeight(*ATTACK_HEIGHT_LOW), false);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 22.0);
@@ -915,8 +881,7 @@ unsafe fn krool_game_attacks4lw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_catchattack", category = ACMD_GAME)]
-unsafe fn krool_game_catchattack(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_catchattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.6, 361, 100, 30, 0, 8.0, 0.0, 10.0, 11.0, None, None, None, 2.3, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_HEAVY, *ATTACK_REGION_HEAD);
@@ -928,8 +893,7 @@ unsafe fn krool_game_catchattack(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_finaldash", category = ACMD_GAME)]
-unsafe fn krool_game_finaldash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_finaldash(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
 		macros::CAM_ZOOM_OUT(fighter);
@@ -939,8 +903,7 @@ unsafe fn krool_game_finaldash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["game_finalend", "game_finalairend"], category = ACMD_GAME)]
-unsafe fn krool_game_finalend(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_finalend(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_KROOL_FINAL, 0, 10.0, 60, 145, 0, 80, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KROOL_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
@@ -955,16 +918,14 @@ unsafe fn krool_game_finalend(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 0.7);
 }
 
-#[acmd_script(agent = "krool", script = "game_finalend_com", category = ACMD_GAME)]
-unsafe fn krool_game_finalend_com(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_finalend_com(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_KROOL_FINAL, 0, 10.0, 60, 145, 0, 80, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KROOL_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["game_finalstart", "game_finalairstart"], category = ACMD_GAME)]
-unsafe fn krool_game_finalstart(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_finalstart(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
 		macros::SLOW_OPPONENT(fighter, 30.0, 60.0);
@@ -1010,22 +971,19 @@ unsafe fn krool_game_finalstart(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_specialhi", category = ACMD_GAME)]
-unsafe fn krool_game_specialhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_specialhi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_REACTION_VALUE, 120);
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_specialhiairend", category = ACMD_GAME)]
-unsafe fn krool_game_specialhiairend(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_specialhiairend(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["game_speciallwhit", "game_specialairlwhit"], category = ACMD_GAME)]
-unsafe fn krool_game_speciallwhit(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_speciallwhit(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::WHOLE_HIT(fighter, *HIT_STATUS_INVINCIBLE);
 	}
@@ -1054,8 +1012,7 @@ unsafe fn krool_game_speciallwhit(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "krool", scripts = ["game_speciallwturn", "game_specialairlwturn"], category = ACMD_GAME)]
-unsafe fn krool_game_speciallwturn(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_speciallwturn(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::WHOLE_HIT(fighter, *HIT_STATUS_INVINCIBLE);
 	}
@@ -1083,15 +1040,13 @@ unsafe fn krool_game_speciallwturn(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 }
 
-#[acmd_script(agent = "krool", scripts = ["game_specialnend", "game_specialairnend"], category = ACMD_GAME)]
-unsafe fn krool_game_specialnend(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_specialnend(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["game_specialnfire", "game_specialairnfire"], category = ACMD_GAME)]
-unsafe fn krool_game_specialnfire(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_specialnfire(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 12);
@@ -1129,8 +1084,7 @@ unsafe fn krool_game_specialnfire(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["game_specialnloop", "game_specialairnloop"], category = ACMD_GAME)]
-unsafe fn krool_game_specialnloop(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_specialnloop(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 12);
 		macros::CATCH(fighter, 0, Hash40::new("top"), 7.0, 0.0, 8.0, 13.0, Some(0.0), Some(8.0), Some(18.0), *FIGHTER_STATUS_KIND_SWALLOWED, *COLLISION_SITUATION_MASK_G);
@@ -1149,8 +1103,7 @@ unsafe fn krool_game_specialnloop(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["game_specialnspitb", "game_specialairnspitb"], category = ACMD_GAME)]
-unsafe fn krool_game_specialnspitb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_specialnspitb(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_ALWAYS, 0);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 361, 100, 0, 0, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
@@ -1195,15 +1148,13 @@ unsafe fn krool_game_specialnspitb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_specialnspitbattackabs", category = ACMD_GAME)]
-unsafe fn krool_game_specialnspitbattackabs(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_specialnspitbattackabs(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 12.0, 40, 47, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["game_specialnspitf", "game_specialairnspitf"], category = ACMD_GAME)]
-unsafe fn krool_game_specialnspitf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_specialnspitf(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_ALWAYS, 0);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 361, 100, 0, 0, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
@@ -1249,8 +1200,7 @@ unsafe fn krool_game_specialnspitf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["game_specialnspithi", "game_specialairnspithi"], category = ACMD_GAME)]
-unsafe fn krool_game_specialnspithi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_specialnspithi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_ALWAYS, 0);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 361, 100, 0, 0, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
@@ -1291,15 +1241,13 @@ unsafe fn krool_game_specialnspithi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["game_specialnsuction", "game_specialairnsuction"], category = ACMD_GAME)]
-unsafe fn krool_game_specialnsuction(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_specialnsuction(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 12);
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["game_specialnswallow", "game_specialairnswallow"], category = ACMD_GAME)]
-unsafe fn krool_game_specialnswallow(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_specialnswallow(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_ALWAYS, 0);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 361, 100, 0, 0, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
@@ -1315,8 +1263,7 @@ unsafe fn krool_game_specialnswallow(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["game_specialsthrow", "game_specialairsthrow"], category = ACMD_GAME)]
-unsafe fn krool_game_specialsthrow(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_specialsthrow(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	macros::FT_MOTION_RATE(fighter, 0.8);
 	if macros::is_excute(fighter) {
@@ -1346,8 +1293,7 @@ unsafe fn krool_game_specialsthrow(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_throwb", category = ACMD_GAME)]
-unsafe fn krool_game_throwb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_throwb(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 13.0, 35, 55, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -1365,8 +1311,7 @@ unsafe fn krool_game_throwb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_throwf", category = ACMD_GAME)]
-unsafe fn krool_game_throwf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_throwf(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 12.0, 45, 60, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -1392,8 +1337,7 @@ unsafe fn krool_game_throwf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_throwhi", category = ACMD_GAME)]
-unsafe fn krool_game_throwhi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_throwhi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 16.0, 90, 38, 0, 110, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_HEAVY, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_HEAVY, *ATTACK_REGION_THROW);
@@ -1418,8 +1362,7 @@ unsafe fn krool_game_throwhi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_throwlw", category = ACMD_GAME)]
-unsafe fn krool_game_throwlw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_throwlw(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 10.0, 50, 70, 0, 30, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_bury_r"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_bury_r"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -1430,8 +1373,7 @@ unsafe fn krool_game_throwlw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "game_visualscene04", category = ACMD_GAME)]
-unsafe fn krool_game_visualscene04(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_game_visualscene04(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_KROOL_FINAL, 0, 40.0, 361, 0, 1, 120, 0.0, 0.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
 		AttackModule::set_no_dead_all(fighter.module_accessor, true, true);
@@ -1458,8 +1400,7 @@ unsafe fn krool_game_visualscene04(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", script = "sound_attackdash", category = ACMD_SOUND)]
-unsafe fn krool_sound_attackdash(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_sound_attackdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE(fighter, Hash40::new("se_krool_attackdash_01"));
@@ -1476,8 +1417,7 @@ unsafe fn krool_sound_attackdash(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["sound_attacks4", "sound_attacks4hi", "sound_attacks4lw"], category = ACMD_SOUND)]
-unsafe fn krool_sound_attacks4(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_sound_attacks4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
 	if macros::is_excute(fighter) {
 		macros::STOP_SE(fighter, Hash40::new("se_common_smash_start"));
@@ -1492,8 +1432,7 @@ unsafe fn krool_sound_attacks4(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["sound_specialnspitb", "sound_specialairnspitb"], category = ACMD_SOUND)]
-unsafe fn krool_sound_specialnspitb(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_sound_specialnspitb(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE(fighter, Hash40::new("se_krool_special_n10"));
@@ -1515,8 +1454,7 @@ unsafe fn krool_sound_specialnspitb(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["sound_specialnspitf", "sound_specialairnspitf"], category = ACMD_SOUND)]
-unsafe fn krool_sound_specialnspitf(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_sound_specialnspitf(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 17.0);
 	if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_SPECIAL_N_SUCTION_IRONBALL) == true {
 		if macros::is_excute(fighter) {
@@ -1534,8 +1472,7 @@ unsafe fn krool_sound_specialnspitf(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool", scripts = ["sound_specialnspithi", "sound_specialairnspithi"], category = ACMD_SOUND)]
-unsafe fn krool_sound_specialnspithi(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_sound_specialnspithi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
 		macros::PLAY_SE(fighter, Hash40::new("se_krool_special_n10"));
@@ -1557,22 +1494,19 @@ unsafe fn krool_sound_specialnspithi(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool_backpack", scripts = ["game_fly", "game_flywind"], category = ACMD_GAME)]
-unsafe fn krool_backpack_game_fly(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_backpack_game_fly(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("wingl1"), 3.0, 80, 30, 0, 90, 6.0, 2.0, 0.0, 0.0, Some(-2.0), Some(0.0), Some(0.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 15, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
 	}
 }
 
-#[acmd_script(agent = "krool_crown", script = "game_shot", category = ACMD_GAME)]
-unsafe fn krool_crown_game_shot(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_crown_game_shot(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("rot"), 10.0, 65, 80, 0, 50, 3.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 0.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -5, 0.0, 44, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_OBJECT);
 	}
 }
 
-#[acmd_script(agent = "krool_crown", script = "game_throw", category = ACMD_GAME)]
-unsafe fn krool_crown_game_throw(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_crown_game_throw(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("rot"), 10.0, 65, 80, 0, 50, 3.5, 0.0, 0.0, 0.0, Some(-4.8), Some(-6.0), Some(0.0), 1.0, 0.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, -5, 0.0, 44, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_OBJECT);
 		AttackModule::enable_safe_pos(fighter.module_accessor);
@@ -1587,31 +1521,27 @@ unsafe fn krool_crown_game_throw(fighter: &mut L2CAgentBase) {
 	}
 }
 
-#[acmd_script(agent = "krool_ironball", scripts = ["game_hop", "game_spithop"], category = ACMD_GAME)]
-unsafe fn krool_ironball_game_hop(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_ironball_game_hop(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 10.0, 60, 90, 0, 20, 4.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 0.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_SPEED, false, 0, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_OBJECT);
 	}
 }
 
-#[acmd_script(agent = "krool_ironball", script = "game_shoot", category = ACMD_GAME)]
-unsafe fn krool_ironball_game_shoot(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_ironball_game_shoot(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 14.0, 60, 90, 0, 20, 4.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 0.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_SPEED, false, 0, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_OBJECT);
 		AttackModule::enable_safe_pos(fighter.module_accessor);
 	}
 }
 
-#[acmd_script(agent = "krool_ironball", script = "game_spitshoot", category = ACMD_GAME)]
-unsafe fn krool_ironball_game_spitshoot(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_ironball_game_spitshoot(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 18.0, 60, 85, 0, 60, 4.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 0.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_SPEED, false, 0, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_OBJECT);
 		AttackModule::enable_safe_pos(fighter.module_accessor);
 	}
 }
 
-#[acmd_script(agent = "krool_spitball", script = "game_fly", category = ACMD_GAME)]
-unsafe fn krool_spitball_game_fly(fighter: &mut L2CAgentBase) {
+unsafe extern "C" fn krool_spitball_game_fly(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 18.0, 60, 85, 0, 70, 4.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 0.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_SPEED, false, 0, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_OBJECT);
@@ -1621,76 +1551,109 @@ unsafe fn krool_spitball_game_fly(fighter: &mut L2CAgentBase) {
 }
 
 pub fn install() {
-	smashline::install_acmd_scripts!(
-		kirby_effect_kroolspecialairnspitb,
-		kirby_effect_kroolspecialairnspitf,
-		kirby_effect_kroolspecialnspitb,
-		kirby_effect_kroolspecialnspitf,
-		kirby_sound_kroolspecialnspitb,
-		kirby_sound_kroolspecialnspitf,
-		kirby_sound_kroolspecialnspithi,
-		krool_effect_attacklw4,
-		krool_effect_attacks3hi,
-		krool_effect_specialairnspitb,
-		krool_effect_specialairnspitf,
-		krool_effect_specialairsthrow,
-		krool_effect_specialnspitb,
-		krool_effect_specialnspitf,
-		krool_expression_attacklw4,
-		krool_game_attack11,
-		krool_game_attack12,
-		krool_game_attack13,
-		krool_game_attackairb,
-		krool_game_attackairf,
-		krool_game_attackairhi,
-		krool_game_attackairlw,
-		krool_game_attackairn,
-		krool_game_attackdash,
-		krool_game_attackhi3,
-		krool_game_attackhi4,
-		krool_game_attacklw3,
-		krool_game_attacklw4,
-		krool_game_attacks3,
-		krool_game_attacks3hi,
-		krool_game_attacks3lw,
-		krool_game_attacks4,
-		krool_game_attacks4hi,
-		krool_game_attacks4lw,
-		krool_game_catchattack,
-		krool_game_finaldash,
-		krool_game_finalend,
-		krool_game_finalend_com,
-		krool_game_finalstart,
-		krool_game_specialhi,
-		krool_game_specialhiairend,
-		krool_game_speciallwhit,
-		krool_game_speciallwturn,
-		krool_game_specialnend,
-		krool_game_specialnfire,
-		krool_game_specialnloop,
-		krool_game_specialnspitb,
-		krool_game_specialnspitbattackabs,
-		krool_game_specialnspitf,
-		krool_game_specialnspithi,
-		krool_game_specialnsuction,
-		krool_game_specialnswallow,
-		krool_game_specialsthrow,
-		krool_game_throwb,
-		krool_game_throwf,
-		krool_game_throwhi,
-		krool_game_throwlw,
-		krool_game_visualscene04,
-		krool_sound_attackdash,
-		krool_sound_attacks4,
-		krool_sound_specialnspitb,
-		krool_sound_specialnspitf,
-		krool_sound_specialnspithi,
-		krool_backpack_game_fly,
-		krool_crown_game_shot,
-		krool_crown_game_throw,
-		krool_ironball_game_hop,
-		krool_ironball_game_shoot,
-		krool_ironball_game_spitshoot,
-		krool_spitball_game_fly,
-	);
+	Agent::new("kirby")
+		.effect_acmd("effect_kroolspecialairnspitb", kirby_effect_kroolspecialairnspitb)
+		.effect_acmd("effect_kroolspecialairnspitf", kirby_effect_kroolspecialairnspitf)
+		.effect_acmd("effect_kroolspecialnspitb", kirby_effect_kroolspecialnspitb)
+		.effect_acmd("effect_kroolspecialnspitf", kirby_effect_kroolspecialnspitf)
+		.sound_acmd("sound_kroolspecialnspitb", kirby_sound_kroolspecialnspitb)
+		.sound_acmd("sound_kroolspecialairnspitb", kirby_sound_kroolspecialnspitb)
+		.sound_acmd("sound_kroolspecialnspitf", kirby_sound_kroolspecialnspitf)
+		.sound_acmd("sound_kroolspecialairnspitf", kirby_sound_kroolspecialnspitf)
+		.sound_acmd("sound_kroolspecialnspithi", kirby_sound_kroolspecialnspithi)
+		.sound_acmd("sound_kroolspecialairnspithi", kirby_sound_kroolspecialnspithi)
+		.install();
+	Agent::new("krool")
+		.effect_acmd("effect_attacklw4", krool_effect_attacklw4)
+		.effect_acmd("effect_attacks3hi", krool_effect_attacks3hi)
+		.effect_acmd("effect_specialairnspitb", krool_effect_specialairnspitb)
+		.effect_acmd("effect_specialairnspitf", krool_effect_specialairnspitf)
+		.effect_acmd("effect_specialairsthrow", krool_effect_specialairsthrow)
+		.effect_acmd("effect_specialnspitb", krool_effect_specialnspitb)
+		.effect_acmd("effect_specialnspitf", krool_effect_specialnspitf)
+		.expression_acmd("expression_attacklw4", krool_expression_attacklw4)
+		.game_acmd("game_attack11", krool_game_attack11)
+		.game_acmd("game_attack12", krool_game_attack12)
+		.game_acmd("game_attack13", krool_game_attack13)
+		.game_acmd("game_attackairb", krool_game_attackairb)
+		.game_acmd("game_attackairf", krool_game_attackairf)
+		.game_acmd("game_attackairhi", krool_game_attackairhi)
+		.game_acmd("game_attackairlw", krool_game_attackairlw)
+		.game_acmd("game_attackairn", krool_game_attackairn)
+		.game_acmd("game_attackdash", krool_game_attackdash)
+		.game_acmd("game_attackhi3", krool_game_attackhi3)
+		.game_acmd("game_attackhi4", krool_game_attackhi4)
+		.game_acmd("game_attacklw3", krool_game_attacklw3)
+		.game_acmd("game_attacklw4", krool_game_attacklw4)
+		.game_acmd("game_attacks3", krool_game_attacks3)
+		.game_acmd("game_attacks3hi", krool_game_attacks3hi)
+		.game_acmd("game_attacks3lw", krool_game_attacks3lw)
+		.game_acmd("game_attacks4", krool_game_attacks4)
+		.game_acmd("game_attacks4hi", krool_game_attacks4hi)
+		.game_acmd("game_attacks4lw", krool_game_attacks4lw)
+		.game_acmd("game_catchattack", krool_game_catchattack)
+		.game_acmd("game_finaldash", krool_game_finaldash)
+		.game_acmd("game_finalend", krool_game_finalend)
+		.game_acmd("game_finalairend", krool_game_finalend)
+		.game_acmd("game_finalend_com", krool_game_finalend_com)
+		.game_acmd("game_finalstart", krool_game_finalstart)
+		.game_acmd("game_finalairstart", krool_game_finalstart)
+		.game_acmd("game_specialhi", krool_game_specialhi)
+		.game_acmd("game_specialhiairend", krool_game_specialhiairend)
+		.game_acmd("game_speciallwhit", krool_game_speciallwhit)
+		.game_acmd("game_specialairlwhit", krool_game_speciallwhit)
+		.game_acmd("game_speciallwturn", krool_game_speciallwturn)
+		.game_acmd("game_specialairlwturn", krool_game_speciallwturn)
+		.game_acmd("game_specialnend", krool_game_specialnend)
+		.game_acmd("game_specialairnend", krool_game_specialnend)
+		.game_acmd("game_specialnfire", krool_game_specialnfire)
+		.game_acmd("game_specialairnfire", krool_game_specialnfire)
+		.game_acmd("game_specialnloop", krool_game_specialnloop)
+		.game_acmd("game_specialairnloop", krool_game_specialnloop)
+		.game_acmd("game_specialnspitb", krool_game_specialnspitb)
+		.game_acmd("game_specialairnspitb", krool_game_specialnspitb)
+		.game_acmd("game_specialnspitbattackabs", krool_game_specialnspitbattackabs)
+		.game_acmd("game_specialnspitf", krool_game_specialnspitf)
+		.game_acmd("game_specialairnspitf", krool_game_specialnspitf)
+		.game_acmd("game_specialnspithi", krool_game_specialnspithi)
+		.game_acmd("game_specialairnspithi", krool_game_specialnspithi)
+		.game_acmd("game_specialnsuction", krool_game_specialnsuction)
+		.game_acmd("game_specialairnsuction", krool_game_specialnsuction)
+		.game_acmd("game_specialnswallow", krool_game_specialnswallow)
+		.game_acmd("game_specialairnswallow", krool_game_specialnswallow)
+		.game_acmd("game_specialsthrow", krool_game_specialsthrow)
+		.game_acmd("game_specialairsthrow", krool_game_specialsthrow)
+		.game_acmd("game_throwb", krool_game_throwb)
+		.game_acmd("game_throwf", krool_game_throwf)
+		.game_acmd("game_throwhi", krool_game_throwhi)
+		.game_acmd("game_throwlw", krool_game_throwlw)
+		.game_acmd("game_visualscene04", krool_game_visualscene04)
+		.sound_acmd("sound_attackdash", krool_sound_attackdash)
+		.sound_acmd("sound_attacks4", krool_sound_attacks4)
+		.sound_acmd("sound_attacks4hi", krool_sound_attacks4)
+		.sound_acmd("sound_attacks4lw", krool_sound_attacks4)
+		.sound_acmd("sound_specialnspitb", krool_sound_specialnspitb)
+		.sound_acmd("sound_specialairnspitb", krool_sound_specialnspitb)
+		.sound_acmd("sound_specialnspitf", krool_sound_specialnspitf)
+		.sound_acmd("sound_specialairnspitf", krool_sound_specialnspitf)
+		.sound_acmd("sound_specialnspithi", krool_sound_specialnspithi)
+		.sound_acmd("sound_specialairnspithi", krool_sound_specialnspithi)
+		.install();
+	Agent::new("krool_backpack")
+		.game_acmd("game_fly", krool_backpack_game_fly)
+		.game_acmd("game_flywind", krool_backpack_game_fly)
+		.install();
+	Agent::new("krool_crown")
+		.game_acmd("game_shot", krool_crown_game_shot)
+		.game_acmd("game_throw", krool_crown_game_throw)
+		.install();
+	Agent::new("krool_ironball")
+		.game_acmd("game_hop", krool_ironball_game_hop)
+		.game_acmd("game_spithop", krool_ironball_game_hop)
+		.game_acmd("game_shoot", krool_ironball_game_shoot)
+		.game_acmd("game_spitshoot", krool_ironball_game_spitshoot)
+		.install();
+	Agent::new("krool_spitball")
+		.game_acmd("game_fly", krool_spitball_game_fly)
+		.install();
 }
