@@ -804,6 +804,10 @@ unsafe extern "C" fn krool_game_attacks4(fighter: &mut L2CAgentBase) {
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 14.0);
 	macros::FT_MOTION_RATE(fighter, 1.0);
+	sv_animcmd::frame(fighter.lua_state_agent, 18.0);
+	if macros::is_excute(fighter) {
+		macros::HIT_NODE(fighter, Hash40::new("arml"), *HIT_STATUS_XLU);
+	}
 	sv_animcmd::frame(fighter.lua_state_agent, 19.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_REQUEST_WAIST_SHIELD_OFF);
@@ -813,6 +817,7 @@ unsafe extern "C" fn krool_game_attacks4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 22.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
+		HitModule::set_status_all(fighter.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0);
 		AttackModule::clear_all(fighter.module_accessor);
 	}
 }
@@ -839,6 +844,10 @@ unsafe extern "C" fn krool_game_attacks4hi(fighter: &mut L2CAgentBase) {
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 14.0);
 	macros::FT_MOTION_RATE(fighter, 1.0);
+	sv_animcmd::frame(fighter.lua_state_agent, 18.0);
+	if macros::is_excute(fighter) {
+		macros::HIT_NODE(fighter, Hash40::new("arml"), *HIT_STATUS_XLU);
+	}
 	sv_animcmd::frame(fighter.lua_state_agent, 19.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_REQUEST_WAIST_SHIELD_OFF);
@@ -849,6 +858,7 @@ unsafe extern "C" fn krool_game_attacks4hi(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 22.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
+		HitModule::set_status_all(fighter.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0);
 		AttackModule::clear_all(fighter.module_accessor);
 	}
 }
@@ -875,6 +885,10 @@ unsafe extern "C" fn krool_game_attacks4lw(fighter: &mut L2CAgentBase) {
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 14.0);
 	macros::FT_MOTION_RATE(fighter, 1.0);
+	sv_animcmd::frame(fighter.lua_state_agent, 18.0);
+	if macros::is_excute(fighter) {
+		macros::HIT_NODE(fighter, Hash40::new("arml"), *HIT_STATUS_XLU);
+	}
 	sv_animcmd::frame(fighter.lua_state_agent, 19.0);
 	if macros::is_excute(fighter) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_REQUEST_WAIST_SHIELD_OFF);
@@ -885,6 +899,7 @@ unsafe extern "C" fn krool_game_attacks4lw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 22.0);
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
+		HitModule::set_status_all(fighter.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0);
 		AttackModule::clear_all(fighter.module_accessor);
 	}
 }
