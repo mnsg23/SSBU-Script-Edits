@@ -907,6 +907,45 @@ unsafe extern "C" fn rosetta_game_downattackd(fighter: &mut L2CAgentBase) {
 	}
 }
 
+unsafe extern "C" fn rosetta_game_final(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+		macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
+		macros::SLOW_OPPONENT(fighter, 15.0, 70.0);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	if macros::is_excute(fighter) {
+		if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) == false {
+			macros::FT_SET_FINAL_FEAR_FACE(fighter, 55);
+			if PostureModule::lr(fighter.module_accessor) < 0.0 {
+				macros::REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04final02.nuanmb"), false);
+			} else {
+				macros::REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04final.nuanmb"), false);
+			}
+		} else {
+			macros::CAM_ZOOM_IN_arg5(fighter, 4.0, 0.0, 0.9, 0.0, 0.0);
+			camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 13);
+			camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_RECT, 0, 0, 50, 0);
+		}
+		macros::FT_START_CUTIN(fighter);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 35.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.0, 368, 100, 0, 0, 8.0, 0.0, 8.0, -6.0, Some(0.0), Some(8.0), Some(6.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_NONE);
+		AttackModule::set_vec_target_pos(fighter.module_accessor, 0, Hash40::new("top"), &Vector2f{x: 0.0, y: 35.0}, 5.0 as u32, false);
+		AttackModule::set_force_reaction(fighter.module_accessor, 0, true, false);
+	}
+	sv_animcmd::wait(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 50.0);
+	if macros::is_excute(fighter) {
+		macros::CAM_ZOOM_OUT(fighter);
+	}
+}
+
 unsafe extern "C" fn rosetta_game_slipattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 19.0);
 	if macros::is_excute(fighter) {
@@ -1670,6 +1709,8 @@ pub fn install() {
 		.game_acmd("game_catchturn", rosetta_game_catchturn, Priority::Default)
 		.game_acmd("game_cliffattack", rosetta_game_cliffattack, Priority::Default)
 		.game_acmd("game_downattackd", rosetta_game_downattackd, Priority::Default)
+		.game_acmd("game_final", rosetta_game_final, Priority::Default)
+		.game_acmd("game_finalair", rosetta_game_final, Priority::Default)
 		.game_acmd("game_slipattack", rosetta_game_slipattack, Priority::Default)
 		.game_acmd("game_specialhi", rosetta_game_specialhi, Priority::Default)
 		.game_acmd("game_specialhiend", rosetta_game_specialhiend, Priority::Default)
