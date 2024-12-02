@@ -136,22 +136,20 @@ unsafe extern "C" fn eflame_game_attack13(fighter: &mut L2CAgentBase) {
 }
 
 unsafe extern "C" fn eflame_game_attack100(fighter: &mut L2CAgentBase) {
-	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
-	for _ in 0..1000000 {
-		for _ in 0..5 {
-			if macros::is_excute(fighter) {
-				macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.6, 361, 10, 0, 15, 6.0, 0.0, 7.0, 8.0, Some(0.0), Some(7.0), Some(15.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_MAGIC);
-				AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 5.0, false);
-				macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 8);
-			}
-			sv_animcmd::wait(fighter.lua_state_agent, 1.0);
-			if macros::is_excute(fighter) {
-				AttackModule::clear_all(fighter.module_accessor);
-				WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK);
-			}
-			sv_animcmd::wait(fighter.lua_state_agent, 2.0);
-		}
-		sv_animcmd::wait(fighter.lua_state_agent, 1.0);
+	loop {
+		sv_animcmd::frame(fighter.lua_state_agent, 2.0);
+		eflame_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 5.0);
+		eflame_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 8.0);
+		eflame_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 11.0);
+		eflame_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 14.0);
+		eflame_game_attack100sub(fighter);
+		fighter.clear_lua_stack();
+		sv_animcmd::wait_loop_clear(fighter.lua_state_agent);
+		fighter.pop_lua_stack(1);
 	}
 }
 
@@ -1100,38 +1098,38 @@ unsafe extern "C" fn eflame_firepillar_game_specialhi(fighter: &mut L2CAgentBase
 
 pub fn install() {
 	Agent::new("eflame")
-		.game_acmd("game_attack11", eflame_game_attack11)
-		.game_acmd("game_attack12", eflame_game_attack12)
-		.game_acmd("game_attack13", eflame_game_attack13)
-		.game_acmd("game_attack100", eflame_game_attack100)
-		.game_acmd("game_attack100end", eflame_game_attack100end)
-		.game_acmd("game_attack100start", eflame_game_attack100start)
-		.game_acmd("game_attack100sub", eflame_game_attack100sub)
-		.game_acmd("game_attackairb", eflame_game_attackairb)
-		.game_acmd("game_attackairf", eflame_game_attackairf)
-		.game_acmd("game_attackairhi", eflame_game_attackairhi)
-		.game_acmd("game_attackairlw", eflame_game_attackairlw)
-		.game_acmd("game_attackairn", eflame_game_attackairn)
-		.game_acmd("game_attackdash", eflame_game_attackdash)
-		.game_acmd("game_attackhi3", eflame_game_attackhi3)
-		.game_acmd("game_attackhi4", eflame_game_attackhi4)
-		.game_acmd("game_attacklw3", eflame_game_attacklw3)
-		.game_acmd("game_attacklw4", eflame_game_attacklw4)
-		.game_acmd("game_attacks3", eflame_game_attacks3)
-		.game_acmd("game_attacks4", eflame_game_attacks4)
-		.game_acmd("game_catch", eflame_game_catch)
-		.game_acmd("game_catchattack", eflame_game_catchattack)
-		.game_acmd("game_catchdash", eflame_game_catchdash)
-		.game_acmd("game_catchturn", eflame_game_catchturn)
-		.game_acmd("game_throwb", eflame_game_throwb)
-		.game_acmd("game_throwf", eflame_game_throwf)
-		.game_acmd("game_throwhi", eflame_game_throwhi)
-		.game_acmd("game_throwlw", eflame_game_throwlw)
-		.sound_acmd("sound_attack100end", eflame_sound_attack100end)
-		.sound_acmd("sound_deathscytheswing4", eflame_sound_deathscytheswing4)
-		.sound_acmd("sound_deathscytheswing4charge", eflame_sound_deathscytheswing4charge)
+		.game_acmd("game_attack11", eflame_game_attack11, Priority::Default)
+		.game_acmd("game_attack12", eflame_game_attack12, Priority::Default)
+		.game_acmd("game_attack13", eflame_game_attack13, Priority::Default)
+		.game_acmd("game_attack100", eflame_game_attack100, Priority::Default)
+		.game_acmd("game_attack100end", eflame_game_attack100end, Priority::Default)
+		.game_acmd("game_attack100start", eflame_game_attack100start, Priority::Default)
+		.game_acmd("game_attack100sub", eflame_game_attack100sub, Priority::Default)
+		.game_acmd("game_attackairb", eflame_game_attackairb, Priority::Default)
+		.game_acmd("game_attackairf", eflame_game_attackairf, Priority::Default)
+		.game_acmd("game_attackairhi", eflame_game_attackairhi, Priority::Default)
+		.game_acmd("game_attackairlw", eflame_game_attackairlw, Priority::Default)
+		.game_acmd("game_attackairn", eflame_game_attackairn, Priority::Default)
+		.game_acmd("game_attackdash", eflame_game_attackdash, Priority::Default)
+		.game_acmd("game_attackhi3", eflame_game_attackhi3, Priority::Default)
+		.game_acmd("game_attackhi4", eflame_game_attackhi4, Priority::Default)
+		.game_acmd("game_attacklw3", eflame_game_attacklw3, Priority::Default)
+		.game_acmd("game_attacklw4", eflame_game_attacklw4, Priority::Default)
+		.game_acmd("game_attacks3", eflame_game_attacks3, Priority::Default)
+		.game_acmd("game_attacks4", eflame_game_attacks4, Priority::Default)
+		.game_acmd("game_catch", eflame_game_catch, Priority::Default)
+		.game_acmd("game_catchattack", eflame_game_catchattack, Priority::Default)
+		.game_acmd("game_catchdash", eflame_game_catchdash, Priority::Default)
+		.game_acmd("game_catchturn", eflame_game_catchturn, Priority::Default)
+		.game_acmd("game_throwb", eflame_game_throwb, Priority::Default)
+		.game_acmd("game_throwf", eflame_game_throwf, Priority::Default)
+		.game_acmd("game_throwhi", eflame_game_throwhi, Priority::Default)
+		.game_acmd("game_throwlw", eflame_game_throwlw, Priority::Default)
+		.sound_acmd("sound_attack100end", eflame_sound_attack100end, Priority::Default)
+		.sound_acmd("sound_deathscytheswing4", eflame_sound_deathscytheswing4, Priority::Default)
+		.sound_acmd("sound_deathscytheswing4charge", eflame_sound_deathscytheswing4charge, Priority::Default)
 		.install();
 	Agent::new("eflame_firepillar")
-		.game_acmd("game_specialhi", eflame_firepillar_game_specialhi)
+		.game_acmd("game_specialhi", eflame_firepillar_game_specialhi, Priority::Default)
 		.install();
 }
