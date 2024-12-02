@@ -157,24 +157,24 @@ unsafe extern "C" fn dedede_game_attack12(fighter: &mut L2CAgentBase) {
 }
 
 unsafe extern "C" fn dedede_game_attack100(fighter: &mut L2CAgentBase) {
-	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
-	for _ in 0..1000000 {
-		for _ in 0..7 {
-			if macros::is_excute(fighter) {
-				macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.6, 361, 10, 0, 15, 3.5, 0.0, 7.5, 8.0, Some(0.0), Some(7.5), Some(15.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_rush"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_DEDEDE, *ATTACK_REGION_HAMMER);
-				macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 0.6, 361, 10, 0, 15, 7.0, 0.0, 7.5, 22.0, None, None, None, 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_rush"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_DEDEDE, *ATTACK_REGION_HAMMER);
-				AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 5.0, false);
-				AttackModule::set_add_reaction_frame(fighter.module_accessor, 1, 5.0, false);
-				macros::ATK_SET_SHIELD_SETOFF_MUL_arg3(fighter, 0, 1, 8.0);
-			}
-			sv_animcmd::wait(fighter.lua_state_agent, 1.0);
-			if macros::is_excute(fighter) {
-				AttackModule::clear_all(fighter.module_accessor);
-				WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK);
-			}
-			sv_animcmd::wait(fighter.lua_state_agent, 2.0);
-		}
-		sv_animcmd::wait(fighter.lua_state_agent, 1.0);
+	loop {
+		sv_animcmd::frame(fighter.lua_state_agent, 2.0);
+		dedede_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 5.0);
+		dedede_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 8.0);
+		dedede_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 11.0);
+		dedede_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 14.0);
+		dedede_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 17.0);
+		dedede_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 20.0);
+		dedede_game_attack100sub(fighter);
+		fighter.clear_lua_stack();
+		sv_animcmd::wait_loop_clear(fighter.lua_state_agent);
+		fighter.pop_lua_stack(1);
 	}
 }
 
@@ -1064,68 +1064,68 @@ unsafe extern "C" fn dedede_starmissile_game_specialfly(fighter: &mut L2CAgentBa
 
 pub fn install() {
 	Agent::new("dedede")
-		.expression_acmd("expression_attackairb", dedede_expression_attackairb)
-		.expression_acmd("expression_attackairf", dedede_expression_attackairf)
-		.expression_acmd("expression_attackairlw", dedede_expression_attackairlw)
-		.expression_acmd("expression_attacks3", dedede_expression_attacks3)
-		.expression_acmd("expression_attacks4", dedede_expression_attacks4)
-		.game_acmd("game_attack11", dedede_game_attack11)
-		.game_acmd("game_attack12", dedede_game_attack12)
-		.game_acmd("game_attack100", dedede_game_attack100)
-		.game_acmd("game_attack100end", dedede_game_attack100end)
-		.game_acmd("game_attack100sub", dedede_game_attack100sub)
-		.game_acmd("game_attackairb", dedede_game_attackairb)
-		.game_acmd("game_attackairf", dedede_game_attackairf)
-		.game_acmd("game_attackairhi", dedede_game_attackairhi)
-		.game_acmd("game_attackairlw", dedede_game_attackairlw)
-		.game_acmd("game_attackairn", dedede_game_attackairn)
-		.game_acmd("game_attackdash", dedede_game_attackdash)
-		.game_acmd("game_attackhi3", dedede_game_attackhi3)
-		.game_acmd("game_attackhi4", dedede_game_attackhi4)
-		.game_acmd("game_attacklw3", dedede_game_attacklw3)
-		.game_acmd("game_attacklw4", dedede_game_attacklw4)
-		.game_acmd("game_attacks3", dedede_game_attacks3)
-		.game_acmd("game_attacks4", dedede_game_attacks4)
-		.game_acmd("game_catch", dedede_game_catch)
-		.game_acmd("game_catchattack", dedede_game_catchattack)
-		.game_acmd("game_catchdash", dedede_game_catchdash)
-		.game_acmd("game_catchturn", dedede_game_catchturn)
-		.game_acmd("game_finalend", dedede_game_finalend)
-		.game_acmd("game_finalairend", dedede_game_finalend)
-		.game_acmd("game_finalstart", dedede_game_finalstart)
-		.game_acmd("game_finalairstart", dedede_game_finalstart)
-		.game_acmd("game_finalvisualscene01", dedede_game_finalvisualscene01)
-		.game_acmd("game_finalvisualscene03", dedede_game_finalvisualscene03)
-		.game_acmd("game_specialhijump", dedede_game_specialhijump)
-		.game_acmd("game_specialhilandingl", dedede_game_specialhilanding)
-		.game_acmd("game_specialhilandingr", dedede_game_specialhilanding)
-		.game_acmd("game_speciallw", dedede_game_speciallw)
-		.game_acmd("game_specialairlw", dedede_game_speciallw)
-		.game_acmd("game_speciallwmax", dedede_game_speciallwmax)
-		.game_acmd("game_specialairlwmax", dedede_game_speciallwmax)
-		.game_acmd("game_specialsmiss", dedede_game_specialsmiss)
-		.game_acmd("game_specialairsmiss", dedede_game_specialsmiss)
-		.game_acmd("game_specialsstart", dedede_game_specialsstart)
-		.game_acmd("game_specialairsstart", dedede_game_specialsstart)
-		.game_acmd("game_specialsstartsub", dedede_game_specialsstartsub)
-		.game_acmd("game_throwb", dedede_game_throwb)
-		.game_acmd("game_throwf", dedede_game_throwf)
-		.game_acmd("game_throwhi", dedede_game_throwhi)
-		.game_acmd("game_throwlw", dedede_game_throwlw)
-		.sound_acmd("sound_attackairb", dedede_sound_attackairb)
-		.sound_acmd("sound_attackairf", dedede_sound_attackairf)
-		.sound_acmd("sound_attackairlw", dedede_sound_attackairlw)
+		.expression_acmd("expression_attackairb", dedede_expression_attackairb, Priority::Default)
+		.expression_acmd("expression_attackairf", dedede_expression_attackairf, Priority::Default)
+		.expression_acmd("expression_attackairlw", dedede_expression_attackairlw, Priority::Default)
+		.expression_acmd("expression_attacks3", dedede_expression_attacks3, Priority::Default)
+		.expression_acmd("expression_attacks4", dedede_expression_attacks4, Priority::Default)
+		.game_acmd("game_attack11", dedede_game_attack11, Priority::Default)
+		.game_acmd("game_attack12", dedede_game_attack12, Priority::Default)
+		.game_acmd("game_attack100", dedede_game_attack100, Priority::Default)
+		.game_acmd("game_attack100end", dedede_game_attack100end, Priority::Default)
+		.game_acmd("game_attack100sub", dedede_game_attack100sub, Priority::Default)
+		.game_acmd("game_attackairb", dedede_game_attackairb, Priority::Default)
+		.game_acmd("game_attackairf", dedede_game_attackairf, Priority::Default)
+		.game_acmd("game_attackairhi", dedede_game_attackairhi, Priority::Default)
+		.game_acmd("game_attackairlw", dedede_game_attackairlw, Priority::Default)
+		.game_acmd("game_attackairn", dedede_game_attackairn, Priority::Default)
+		.game_acmd("game_attackdash", dedede_game_attackdash, Priority::Default)
+		.game_acmd("game_attackhi3", dedede_game_attackhi3, Priority::Default)
+		.game_acmd("game_attackhi4", dedede_game_attackhi4, Priority::Default)
+		.game_acmd("game_attacklw3", dedede_game_attacklw3, Priority::Default)
+		.game_acmd("game_attacklw4", dedede_game_attacklw4, Priority::Default)
+		.game_acmd("game_attacks3", dedede_game_attacks3, Priority::Default)
+		.game_acmd("game_attacks4", dedede_game_attacks4, Priority::Default)
+		.game_acmd("game_catch", dedede_game_catch, Priority::Default)
+		.game_acmd("game_catchattack", dedede_game_catchattack, Priority::Default)
+		.game_acmd("game_catchdash", dedede_game_catchdash, Priority::Default)
+		.game_acmd("game_catchturn", dedede_game_catchturn, Priority::Default)
+		.game_acmd("game_finalend", dedede_game_finalend, Priority::Default)
+		.game_acmd("game_finalairend", dedede_game_finalend, Priority::Default)
+		.game_acmd("game_finalstart", dedede_game_finalstart, Priority::Default)
+		.game_acmd("game_finalairstart", dedede_game_finalstart, Priority::Default)
+		.game_acmd("game_finalvisualscene01", dedede_game_finalvisualscene01, Priority::Default)
+		.game_acmd("game_finalvisualscene03", dedede_game_finalvisualscene03, Priority::Default)
+		.game_acmd("game_specialhijump", dedede_game_specialhijump, Priority::Default)
+		.game_acmd("game_specialhilandingl", dedede_game_specialhilanding, Priority::Default)
+		.game_acmd("game_specialhilandingr", dedede_game_specialhilanding, Priority::Default)
+		.game_acmd("game_speciallw", dedede_game_speciallw, Priority::Default)
+		.game_acmd("game_specialairlw", dedede_game_speciallw, Priority::Default)
+		.game_acmd("game_speciallwmax", dedede_game_speciallwmax, Priority::Default)
+		.game_acmd("game_specialairlwmax", dedede_game_speciallwmax, Priority::Default)
+		.game_acmd("game_specialsmiss", dedede_game_specialsmiss, Priority::Default)
+		.game_acmd("game_specialairsmiss", dedede_game_specialsmiss, Priority::Default)
+		.game_acmd("game_specialsstart", dedede_game_specialsstart, Priority::Default)
+		.game_acmd("game_specialairsstart", dedede_game_specialsstart, Priority::Default)
+		.game_acmd("game_specialsstartsub", dedede_game_specialsstartsub, Priority::Default)
+		.game_acmd("game_throwb", dedede_game_throwb, Priority::Default)
+		.game_acmd("game_throwf", dedede_game_throwf, Priority::Default)
+		.game_acmd("game_throwhi", dedede_game_throwhi, Priority::Default)
+		.game_acmd("game_throwlw", dedede_game_throwlw, Priority::Default)
+		.sound_acmd("sound_attackairb", dedede_sound_attackairb, Priority::Default)
+		.sound_acmd("sound_attackairf", dedede_sound_attackairf, Priority::Default)
+		.sound_acmd("sound_attackairlw", dedede_sound_attackairlw, Priority::Default)
 		.install();
 	Agent::new("dedede_gordo")
-		.game_acmd("game_specialsattack", dedede_gordo_game_specialsattack)
-		.game_acmd("game_specialsthrow", dedede_gordo_game_specialsattack)
-		.game_acmd("game_specialsshot", dedede_gordo_game_specialsshot)
-		.game_acmd("game_specialswallstop", dedede_gordo_game_specialswallstop)
+		.game_acmd("game_specialsattack", dedede_gordo_game_specialsattack, Priority::Default)
+		.game_acmd("game_specialsthrow", dedede_gordo_game_specialsattack, Priority::Default)
+		.game_acmd("game_specialsshot", dedede_gordo_game_specialsshot, Priority::Default)
+		.game_acmd("game_specialswallstop", dedede_gordo_game_specialswallstop, Priority::Default)
 		.install();
 	Agent::new("dedede_star")
-		.game_acmd("game_fly", dedede_star_game_fly)
+		.game_acmd("game_fly", dedede_star_game_fly, Priority::Default)
 		.install();
 	Agent::new("dedede_starmissile")
-		.game_acmd("game_specialfly", dedede_starmissile_game_specialfly)
+		.game_acmd("game_specialfly", dedede_starmissile_game_specialfly, Priority::Default)
 		.install();
 }
