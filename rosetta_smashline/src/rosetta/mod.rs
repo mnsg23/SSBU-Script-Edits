@@ -369,27 +369,21 @@ unsafe extern "C" fn rosetta_game_attack13(fighter: &mut L2CAgentBase) {
 }
 
 unsafe extern "C" fn rosetta_game_attack100(fighter: &mut L2CAgentBase) {
-	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
-	for _ in 0..1000000 {
-		for _ in 0..5 {
-			macros::FT_MOTION_RATE(fighter, 1.0);
-			if macros::is_excute(fighter) {
-				macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.4, 361, 10, 0, 15, 5.5, 0.0, 10.5, 8.0, Some(0.0), Some(10.5), Some(14.5), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
-				macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 0.4, 361, 10, 0, 15, 8.0, 0.0, 10.0, 16.5, Some(0.0), Some(12.0), Some(16.5), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
-				AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 5.0, false);
-				AttackModule::set_add_reaction_frame(fighter.module_accessor, 1, 5.0, false);
-				macros::ATK_SET_SHIELD_SETOFF_MUL_arg3(fighter, 0, 1, 8.0);
-			}
-			sv_animcmd::wait(fighter.lua_state_agent, 1.0);
-			macros::FT_MOTION_RATE(fighter, 2.0);
-			if macros::is_excute(fighter) {
-				AttackModule::clear_all(fighter.module_accessor);
-				WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK);
-			}
-			sv_animcmd::wait(fighter.lua_state_agent, 1.0);
-		}
+	loop {
 		macros::FT_MOTION_RATE(fighter, 1.0);
-		sv_animcmd::wait(fighter.lua_state_agent, 1.0);
+		sv_animcmd::frame(fighter.lua_state_agent, 2.0);
+		rosetta_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 4.0);
+		rosetta_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 6.0);
+		rosetta_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 8.0);
+		rosetta_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 10.0);
+		rosetta_game_attack100sub(fighter);
+		fighter.clear_lua_stack();
+		sv_animcmd::wait_loop_clear(fighter.lua_state_agent);
+		fighter.pop_lua_stack(1);
 	}
 }
 
@@ -1296,30 +1290,25 @@ unsafe extern "C" fn rosetta_tico_game_attack13(fighter: &mut L2CAgentBase) {
 }
 
 unsafe extern "C" fn rosetta_tico_game_attack100(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		JostleModule::set_priority(fighter.module_accessor, *JOSTLE_PRI_HIGH);
-		AttackModule::clear_all(fighter.module_accessor);
-	}
-	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
-	for _ in 0..1000000 {
-		for _ in 0..5 {
-			if macros::is_excute(fighter) {
-				MotionModule::set_rate(fighter.module_accessor, 1.0);
-				macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.2, 361, 10, 0, 15, 3.5, 0.0, 4.5, -3.0, Some(0.0), Some(4.5), Some(7.5), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_rush"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_BODY);
-				AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 5.0, false);
-			}
-			sv_animcmd::wait(fighter.lua_state_agent, 1.0);
-			if macros::is_excute(fighter) {
-				MotionModule::set_rate(fighter.module_accessor, 0.5);
-				AttackModule::clear_all(fighter.module_accessor);
-				WorkModule::on_flag(fighter.module_accessor, *WEAPON_ROSETTA_TICO_STATUS_ATTACK_100_WORK_FLAG_CONTINUE_CHECK);
-			}
-			sv_animcmd::wait(fighter.lua_state_agent, 1.0);
-		}
+	loop {
 		if macros::is_excute(fighter) {
 			MotionModule::set_rate(fighter.module_accessor, 1.0);
+			JostleModule::set_priority(fighter.module_accessor, *JOSTLE_PRI_HIGH);
+			AttackModule::clear_all(fighter.module_accessor);
 		}
-		sv_animcmd::wait(fighter.lua_state_agent, 1.0);
+		sv_animcmd::frame(fighter.lua_state_agent, 2.0);
+		rosetta_tico_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 4.0);
+		rosetta_tico_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 6.0);
+		rosetta_tico_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 8.0);
+		rosetta_tico_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 10.0);
+		rosetta_tico_game_attack100sub(fighter);
+		fighter.clear_lua_stack();
+		sv_animcmd::wait_loop_clear(fighter.lua_state_agent);
+		fighter.pop_lua_stack(1);
 	}
 }
 
