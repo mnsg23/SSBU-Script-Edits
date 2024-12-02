@@ -141,22 +141,20 @@ unsafe extern "C" fn elight_game_attack13(fighter: &mut L2CAgentBase) {
 }
 
 unsafe extern "C" fn elight_game_attack100(fighter: &mut L2CAgentBase) {
-	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
-	for _ in 0..1000000 {
-		for _ in 0..5 {
-			if macros::is_excute(fighter) {
-				macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.4, 361, 10, 0, 15, 6.0, 0.0, 7.0, 8.0, Some(0.0), Some(7.0), Some(15.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
-				AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
-				macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 8);
-			}
-			sv_animcmd::wait(fighter.lua_state_agent, 1.0);
-			if macros::is_excute(fighter) {
-				AttackModule::clear_all(fighter.module_accessor);
-				WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK);
-			}
-			sv_animcmd::wait(fighter.lua_state_agent, 2.0);
-		}
-		sv_animcmd::wait(fighter.lua_state_agent, 1.0);
+	loop {
+		sv_animcmd::frame(fighter.lua_state_agent, 2.0);
+		elight_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 5.0);
+		elight_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 8.0);
+		elight_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 11.0);
+		elight_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 14.0);
+		elight_game_attack100sub(fighter);
+		fighter.clear_lua_stack();
+		sv_animcmd::wait_loop_clear(fighter.lua_state_agent);
+		fighter.pop_lua_stack(1);
 	}
 }
 
@@ -1154,46 +1152,46 @@ unsafe extern "C" fn elight_spreadbullet_game_fly(fighter: &mut L2CAgentBase) {
 
 pub fn install() {
 	Agent::new("elight")
-		.game_acmd("game_attack11", elight_game_attack11)
-		.game_acmd("game_attack12", elight_game_attack12)
-		.game_acmd("game_attack13", elight_game_attack13)
-		.game_acmd("game_attack100", elight_game_attack100)
-		.game_acmd("game_attack100end", elight_game_attack100end)
-		.game_acmd("game_attack100start", elight_game_attack100start)
-		.game_acmd("game_attack100sub", elight_game_attack100sub)
-		.game_acmd("game_attackairb", elight_game_attackairb)
-		.game_acmd("game_attackairf", elight_game_attackairf)
-		.game_acmd("game_attackairhi", elight_game_attackairhi)
-		.game_acmd("game_attackairlw", elight_game_attackairlw)
-		.game_acmd("game_attackairn", elight_game_attackairn)
-		.game_acmd("game_attackdash", elight_game_attackdash)
-		.game_acmd("game_attackhi3", elight_game_attackhi3)
-		.game_acmd("game_attackhi4", elight_game_attackhi4)
-		.game_acmd("game_attacklw3", elight_game_attacklw3)
-		.game_acmd("game_attacklw4", elight_game_attacklw4)
-		.game_acmd("game_attacks3", elight_game_attacks3)
-		.game_acmd("game_attacks4", elight_game_attacks4)
-		.game_acmd("game_catch", elight_game_catch)
-		.game_acmd("game_catchattack", elight_game_catchattack)
-		.game_acmd("game_catchdash", elight_game_catchdash)
-		.game_acmd("game_catchturn", elight_game_catchturn)
-		.game_acmd("game_landingairn", elight_game_landingairn)
-		.game_acmd("game_throwb", elight_game_throwb)
-		.game_acmd("game_throwf", elight_game_throwf)
-		.game_acmd("game_throwhi", elight_game_throwhi)
-		.game_acmd("game_throwlw", elight_game_throwlw)
-		.sound_acmd("sound_attack100end", elight_sound_attack100end)
+		.game_acmd("game_attack11", elight_game_attack11, Priority::Default)
+		.game_acmd("game_attack12", elight_game_attack12, Priority::Default)
+		.game_acmd("game_attack13", elight_game_attack13, Priority::Default)
+		.game_acmd("game_attack100", elight_game_attack100, Priority::Default)
+		.game_acmd("game_attack100end", elight_game_attack100end, Priority::Default)
+		.game_acmd("game_attack100start", elight_game_attack100start, Priority::Default)
+		.game_acmd("game_attack100sub", elight_game_attack100sub, Priority::Default)
+		.game_acmd("game_attackairb", elight_game_attackairb, Priority::Default)
+		.game_acmd("game_attackairf", elight_game_attackairf, Priority::Default)
+		.game_acmd("game_attackairhi", elight_game_attackairhi, Priority::Default)
+		.game_acmd("game_attackairlw", elight_game_attackairlw, Priority::Default)
+		.game_acmd("game_attackairn", elight_game_attackairn, Priority::Default)
+		.game_acmd("game_attackdash", elight_game_attackdash, Priority::Default)
+		.game_acmd("game_attackhi3", elight_game_attackhi3, Priority::Default)
+		.game_acmd("game_attackhi4", elight_game_attackhi4, Priority::Default)
+		.game_acmd("game_attacklw3", elight_game_attacklw3, Priority::Default)
+		.game_acmd("game_attacklw4", elight_game_attacklw4, Priority::Default)
+		.game_acmd("game_attacks3", elight_game_attacks3, Priority::Default)
+		.game_acmd("game_attacks4", elight_game_attacks4, Priority::Default)
+		.game_acmd("game_catch", elight_game_catch, Priority::Default)
+		.game_acmd("game_catchattack", elight_game_catchattack, Priority::Default)
+		.game_acmd("game_catchdash", elight_game_catchdash, Priority::Default)
+		.game_acmd("game_catchturn", elight_game_catchturn, Priority::Default)
+		.game_acmd("game_landingairn", elight_game_landingairn, Priority::Default)
+		.game_acmd("game_throwb", elight_game_throwb, Priority::Default)
+		.game_acmd("game_throwf", elight_game_throwf, Priority::Default)
+		.game_acmd("game_throwhi", elight_game_throwhi, Priority::Default)
+		.game_acmd("game_throwlw", elight_game_throwlw, Priority::Default)
+		.sound_acmd("sound_attack100end", elight_sound_attack100end, Priority::Default)
 		.install();
 	Agent::new("elight_bunshin")
-		.game_acmd("game_specialcliffs5", elight_bunshin_game_specialcliffs5)
-		.game_acmd("game_specials5", elight_bunshin_game_specials5)
-		.game_acmd("game_specialairs5", elight_bunshin_game_specials5)
+		.game_acmd("game_specialcliffs5", elight_bunshin_game_specialcliffs5, Priority::Default)
+		.game_acmd("game_specials5", elight_bunshin_game_specials5, Priority::Default)
+		.game_acmd("game_specialairs5", elight_bunshin_game_specials5, Priority::Default)
 		.install();
 	Agent::new("elight_exprosiveshot")
-		.game_acmd("game_burst", elight_exprosiveshot_game_burst)
-		.game_acmd("game_fly", elight_exprosiveshot_game_fly)
+		.game_acmd("game_burst", elight_exprosiveshot_game_burst, Priority::Default)
+		.game_acmd("game_fly", elight_exprosiveshot_game_fly, Priority::Default)
 		.install();
 	Agent::new("elight_spreadbullet")
-		.game_acmd("game_fly", elight_spreadbullet_game_fly)
+		.game_acmd("game_fly", elight_spreadbullet_game_fly, Priority::Default)
 		.install();
 }
