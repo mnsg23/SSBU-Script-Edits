@@ -134,22 +134,26 @@ unsafe extern "C" fn zelda_game_attack11(fighter: &mut L2CAgentBase) {
 }
 
 unsafe extern "C" fn zelda_game_attack100(fighter: &mut L2CAgentBase) {
-	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
-	for _ in 0..1000000 {
-		for _ in 0..8 {
-			if macros::is_excute(fighter) {
-				macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.4, 361, 10, 0, 15, 6.0, 0.0, 8.5, 8.0, Some(0.0), Some(8.5), Some(15.0), 0.5, 0.3, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
-				AttackModule::set_add_reaction_frame(fighter.module_accessor, 0, 4.0, false);
-				macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 8);
-			}
-			sv_animcmd::wait(fighter.lua_state_agent, 1.0);
-			if macros::is_excute(fighter) {
-				AttackModule::clear_all(fighter.module_accessor);
-				WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK);
-			}
-			sv_animcmd::wait(fighter.lua_state_agent, 1.0);
-		}
-		sv_animcmd::wait(fighter.lua_state_agent, 1.0);
+	loop {
+		sv_animcmd::frame(fighter.lua_state_agent, 1.0);
+		zelda_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 3.0);
+		zelda_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 5.0);
+		zelda_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 7.0);
+		zelda_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 9.0);
+		zelda_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 11.0);
+		zelda_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 13.0);
+		zelda_game_attack100sub(fighter);
+		sv_animcmd::frame(fighter.lua_state_agent, 15.0);
+		zelda_game_attack100sub(fighter);
+		fighter.clear_lua_stack();
+		sv_animcmd::wait_loop_clear(fighter.lua_state_agent);
+		fighter.pop_lua_stack(1);
 	}
 }
 
@@ -946,55 +950,55 @@ unsafe extern "C" fn zelda_phantom_game_attacks(fighter: &mut L2CAgentBase) {
 
 pub fn install() {
 	Agent::new("zelda")
-		.effect_acmd("effect_attacklw3", zelda_effect_attacklw3)
-		.expression_acmd("expression_attackhi3", zelda_expression_attackhi3)
-		.expression_acmd("expression_attackhi4", zelda_expression_attackhi4)
-		.expression_acmd("expression_attacks3", zelda_expression_attacks3)
-		.expression_acmd("expression_attacks3hi", zelda_expression_attacks3)
-		.expression_acmd("expression_attacks3lw", zelda_expression_attacks3)
-		.game_acmd("game_attack11", zelda_game_attack11)
-		.game_acmd("game_attack100", zelda_game_attack100)
-		.game_acmd("game_attack100end", zelda_game_attack100end)
-		.game_acmd("game_attack100sub", zelda_game_attack100sub)
-		.game_acmd("game_attackairb", zelda_game_attackairb)
-		.game_acmd("game_attackairf", zelda_game_attackairf)
-		.game_acmd("game_attackairhi", zelda_game_attackairhi)
-		.game_acmd("game_attackairlw", zelda_game_attackairlw)
-		.game_acmd("game_attackairn", zelda_game_attackairn)
-		.game_acmd("game_attackdash", zelda_game_attackdash)
-		.game_acmd("game_attackhi3", zelda_game_attackhi3)
-		.game_acmd("game_attackhi4", zelda_game_attackhi4)
-		.game_acmd("game_attacklw3", zelda_game_attacklw3)
-		.game_acmd("game_attacklw4", zelda_game_attacklw4)
-		.game_acmd("game_attacks3", zelda_game_attacks3)
-		.game_acmd("game_attacks3hi", zelda_game_attacks3hi)
-		.game_acmd("game_attacks3lw", zelda_game_attacks3lw)
-		.game_acmd("game_attacks4", zelda_game_attacks4)
-		.game_acmd("game_catch", zelda_game_catch)
-		.game_acmd("game_catchattack", zelda_game_catchattack)
-		.game_acmd("game_catchdash", zelda_game_catchdash)
-		.game_acmd("game_catchturn", zelda_game_catchturn)
-		.game_acmd("game_specialairhi", zelda_game_specialairhi)
-		.game_acmd("game_specialairhistart", zelda_game_specialairhistart)
-		.game_acmd("game_specialhi", zelda_game_specialhi)
-		.game_acmd("game_specialhistart", zelda_game_specialhistart)
-		.game_acmd("game_specialn", zelda_game_specialn)
-		.game_acmd("game_specialairn", zelda_game_specialn)
-		.game_acmd("game_throwb", zelda_game_throwb)
-		.game_acmd("game_throwf", zelda_game_throwf)
-		.game_acmd("game_throwhi", zelda_game_throwhi)
-		.game_acmd("game_throwlw", zelda_game_throwlw)
-		.sound_acmd("sound_attackhi3", zelda_sound_attackhi3)
-		.sound_acmd("sound_attackhi4", zelda_sound_attackhi4)
+		.effect_acmd("effect_attacklw3", zelda_effect_attacklw3, Priority::Default)
+		.expression_acmd("expression_attackhi3", zelda_expression_attackhi3, Priority::Default)
+		.expression_acmd("expression_attackhi4", zelda_expression_attackhi4, Priority::Default)
+		.expression_acmd("expression_attacks3", zelda_expression_attacks3, Priority::Default)
+		.expression_acmd("expression_attacks3hi", zelda_expression_attacks3, Priority::Default)
+		.expression_acmd("expression_attacks3lw", zelda_expression_attacks3, Priority::Default)
+		.game_acmd("game_attack11", zelda_game_attack11, Priority::Default)
+		.game_acmd("game_attack100", zelda_game_attack100, Priority::Default)
+		.game_acmd("game_attack100end", zelda_game_attack100end, Priority::Default)
+		.game_acmd("game_attack100sub", zelda_game_attack100sub, Priority::Default)
+		.game_acmd("game_attackairb", zelda_game_attackairb, Priority::Default)
+		.game_acmd("game_attackairf", zelda_game_attackairf, Priority::Default)
+		.game_acmd("game_attackairhi", zelda_game_attackairhi, Priority::Default)
+		.game_acmd("game_attackairlw", zelda_game_attackairlw, Priority::Default)
+		.game_acmd("game_attackairn", zelda_game_attackairn, Priority::Default)
+		.game_acmd("game_attackdash", zelda_game_attackdash, Priority::Default)
+		.game_acmd("game_attackhi3", zelda_game_attackhi3, Priority::Default)
+		.game_acmd("game_attackhi4", zelda_game_attackhi4, Priority::Default)
+		.game_acmd("game_attacklw3", zelda_game_attacklw3, Priority::Default)
+		.game_acmd("game_attacklw4", zelda_game_attacklw4, Priority::Default)
+		.game_acmd("game_attacks3", zelda_game_attacks3, Priority::Default)
+		.game_acmd("game_attacks3hi", zelda_game_attacks3hi, Priority::Default)
+		.game_acmd("game_attacks3lw", zelda_game_attacks3lw, Priority::Default)
+		.game_acmd("game_attacks4", zelda_game_attacks4, Priority::Default)
+		.game_acmd("game_catch", zelda_game_catch, Priority::Default)
+		.game_acmd("game_catchattack", zelda_game_catchattack, Priority::Default)
+		.game_acmd("game_catchdash", zelda_game_catchdash, Priority::Default)
+		.game_acmd("game_catchturn", zelda_game_catchturn, Priority::Default)
+		.game_acmd("game_specialairhi", zelda_game_specialairhi, Priority::Default)
+		.game_acmd("game_specialairhistart", zelda_game_specialairhistart, Priority::Default)
+		.game_acmd("game_specialhi", zelda_game_specialhi, Priority::Default)
+		.game_acmd("game_specialhistart", zelda_game_specialhistart, Priority::Default)
+		.game_acmd("game_specialn", zelda_game_specialn, Priority::Default)
+		.game_acmd("game_specialairn", zelda_game_specialn, Priority::Default)
+		.game_acmd("game_throwb", zelda_game_throwb, Priority::Default)
+		.game_acmd("game_throwf", zelda_game_throwf, Priority::Default)
+		.game_acmd("game_throwhi", zelda_game_throwhi, Priority::Default)
+		.game_acmd("game_throwlw", zelda_game_throwlw, Priority::Default)
+		.sound_acmd("sound_attackhi3", zelda_sound_attackhi3, Priority::Default)
+		.sound_acmd("sound_attackhi4", zelda_sound_attackhi4, Priority::Default)
 		.install();
 	Agent::new("zelda_dein_s")
-		.game_acmd("game_move", zelda_dein_s_game_move)
+		.game_acmd("game_move", zelda_dein_s_game_move, Priority::Default)
 		.install();
 	Agent::new("zelda_phantom")
-		.game_acmd("game_attackkick", zelda_phantom_game_attackkick)
-		.game_acmd("game_attackl", zelda_phantom_game_attackl)
-		.game_acmd("game_attackmax", zelda_phantom_game_attackmax)
-		.game_acmd("game_attackpunch", zelda_phantom_game_attackpunch)
-		.game_acmd("game_attacks", zelda_phantom_game_attacks)
+		.game_acmd("game_attackkick", zelda_phantom_game_attackkick, Priority::Default)
+		.game_acmd("game_attackl", zelda_phantom_game_attackl, Priority::Default)
+		.game_acmd("game_attackmax", zelda_phantom_game_attackmax, Priority::Default)
+		.game_acmd("game_attackpunch", zelda_phantom_game_attackpunch, Priority::Default)
+		.game_acmd("game_attacks", zelda_phantom_game_attacks, Priority::Default)
 		.install();
 }
