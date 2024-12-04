@@ -191,8 +191,7 @@ unsafe extern "C" fn wario_game_attackairlw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
 	for _ in 0..6 {
 		if macros::is_excute(fighter) {
-			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.5, 367, 100, 40, 0, 7.0, 0.0, -6.0, 0.0, None, None, None, 0.5, 0.2, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_rush"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_PUNCH);
-			macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 1.5, 110, 100, 60, 0, 7.0, 0.0, -6.0, 0.0, None, None, None, 0.5, 0.2, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_rush"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_PUNCH);
+			macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.5, 366, 100, 50, 0, 7.0, 0.0, -6.0, 0.0, None, None, None, 0.5, 0.2, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, true, 0, -1.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_rush"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_PUNCH);
 		}
 		sv_animcmd::wait(fighter.lua_state_agent, 2.0);
 		if macros::is_excute(fighter) {
@@ -707,6 +706,21 @@ unsafe extern "C" fn wario_game_speciallwsr(fighter: &mut L2CAgentBase) {
 	}
 }
 
+unsafe extern "C" fn wario_game_specialnbite(fighter: &mut L2CAgentBase) {
+	loop {
+		sv_animcmd::frame(fighter.lua_state_agent, 21.0);
+		if macros::is_excute(fighter) {
+			macros::ATTACK(fighter, 0, 0, Hash40::new("head"), 2.5, 361, 100, 30, 0, 3.0, -0.5, 2.0, 2.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_BITE);
+		}
+		sv_animcmd::wait(fighter.lua_state_agent, 4.0);
+		if macros::is_excute(fighter) {
+			AttackModule::clear_all(fighter.module_accessor);
+		}
+		sv_animcmd::wait_loop(fighter.lua_state_agent);
+		sv_animcmd::frame_clear(fighter.lua_state_agent);
+	}
+}
+
 unsafe extern "C" fn wario_game_specialnopenwait(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	if macros::is_excute(fighter) {
@@ -854,53 +868,55 @@ unsafe extern "C" fn wario_sound_attacks3(fighter: &mut L2CAgentBase) {
 
 pub fn install() {
 	Agent::new("wario")
-		.expression_acmd("expression_attacklw4", wario_expression_attacklw4)
-		.expression_acmd("expression_speciallwlr", wario_expression_speciallwlr)
-		.expression_acmd("expression_specialairlwlr", wario_expression_speciallwlr)
-		.game_acmd("game_attack11", wario_game_attack11)
-		.game_acmd("game_attack12", wario_game_attack12)
-		.game_acmd("game_attackairb", wario_game_attackairb)
-		.game_acmd("game_attackairf", wario_game_attackairf)
-		.game_acmd("game_attackairhi", wario_game_attackairhi)
-		.game_acmd("game_attackairlw", wario_game_attackairlw)
-		.game_acmd("game_attackairn", wario_game_attackairn)
-		.game_acmd("game_attackdash", wario_game_attackdash)
-		.game_acmd("game_attackhi3", wario_game_attackhi3)
-		.game_acmd("game_attackhi4", wario_game_attackhi4)
-		.game_acmd("game_attacklw3", wario_game_attacklw3)
-		.game_acmd("game_attacklw4", wario_game_attacklw4)
-		.game_acmd("game_attacks3", wario_game_attacks3)
-		.game_acmd("game_attacks3hi", wario_game_attacks3hi)
-		.game_acmd("game_attacks3lw", wario_game_attacks3lw)
-		.game_acmd("game_attacks4", wario_game_attacks4)
-		.game_acmd("game_catch", wario_game_catch)
-		.game_acmd("game_catchdash", wario_game_catchdash)
-		.game_acmd("game_cliffattack", wario_game_cliffattack)
-		.game_acmd("game_finaldash", wario_game_finaldash)
-		.game_acmd("game_finaldashend", wario_game_finaldashend)
-		.game_acmd("game_finalairdashend", wario_game_finaldashend)
-		.game_acmd("game_finalend", wario_game_finalend)
-		.game_acmd("game_finalairend", wario_game_finalend)
-		.game_acmd("game_finalvisualscene", wario_game_finalvisualscene)
-		.game_acmd("game_landingairlw", wario_game_landingairlw)
-		.game_acmd("game_specialhijump", wario_game_specialhijump)
-		.game_acmd("game_speciallwflyr", wario_game_speciallwflyr)
-		.game_acmd("game_specialairlwflyr", wario_game_speciallwflyr)
-		.game_acmd("game_speciallwlr", wario_game_speciallwlr)
-		.game_acmd("game_specialairlwlr", wario_game_speciallwlr)
-		.game_acmd("game_speciallwmr", wario_game_speciallwmr)
-		.game_acmd("game_specialairlwmr", wario_game_speciallwmr)
-		.game_acmd("game_speciallwsr", wario_game_speciallwsr)
-		.game_acmd("game_specialairlwsr", wario_game_speciallwsr)
-		.game_acmd("game_specialnopenwait", wario_game_specialnopenwait)
-		.game_acmd("game_specialairnopenwait", wario_game_specialnopenwait)
-		.game_acmd("game_throwb", wario_game_throwb)
-		.game_acmd("game_throwf", wario_game_throwf)
-		.game_acmd("game_throwhi", wario_game_throwhi)
-		.game_acmd("game_throwlw", wario_game_throwlw)
-		.sound_acmd("sound_attackhi3", wario_sound_attackhi3)
-		.sound_acmd("sound_attacks3", wario_sound_attacks3)
-		.sound_acmd("sound_attacks3hi", wario_sound_attacks3)
-		.sound_acmd("sound_attacks3lw", wario_sound_attacks3)
+		.expression_acmd("expression_attacklw4", wario_expression_attacklw4, Priority::Default)
+		.expression_acmd("expression_speciallwlr", wario_expression_speciallwlr, Priority::Default)
+		.expression_acmd("expression_specialairlwlr", wario_expression_speciallwlr, Priority::Default)
+		.game_acmd("game_attack11", wario_game_attack11, Priority::Default)
+		.game_acmd("game_attack12", wario_game_attack12, Priority::Default)
+		.game_acmd("game_attackairb", wario_game_attackairb, Priority::Default)
+		.game_acmd("game_attackairf", wario_game_attackairf, Priority::Default)
+		.game_acmd("game_attackairhi", wario_game_attackairhi, Priority::Default)
+		.game_acmd("game_attackairlw", wario_game_attackairlw, Priority::Default)
+		.game_acmd("game_attackairn", wario_game_attackairn, Priority::Default)
+		.game_acmd("game_attackdash", wario_game_attackdash, Priority::Default)
+		.game_acmd("game_attackhi3", wario_game_attackhi3, Priority::Default)
+		.game_acmd("game_attackhi4", wario_game_attackhi4, Priority::Default)
+		.game_acmd("game_attacklw3", wario_game_attacklw3, Priority::Default)
+		.game_acmd("game_attacklw4", wario_game_attacklw4, Priority::Default)
+		.game_acmd("game_attacks3", wario_game_attacks3, Priority::Default)
+		.game_acmd("game_attacks3hi", wario_game_attacks3hi, Priority::Default)
+		.game_acmd("game_attacks3lw", wario_game_attacks3lw, Priority::Default)
+		.game_acmd("game_attacks4", wario_game_attacks4, Priority::Default)
+		.game_acmd("game_catch", wario_game_catch, Priority::Default)
+		.game_acmd("game_catchdash", wario_game_catchdash, Priority::Default)
+		.game_acmd("game_cliffattack", wario_game_cliffattack, Priority::Default)
+		.game_acmd("game_finaldash", wario_game_finaldash, Priority::Default)
+		.game_acmd("game_finaldashend", wario_game_finaldashend, Priority::Default)
+		.game_acmd("game_finalairdashend", wario_game_finaldashend, Priority::Default)
+		.game_acmd("game_finalend", wario_game_finalend, Priority::Default)
+		.game_acmd("game_finalairend", wario_game_finalend, Priority::Default)
+		.game_acmd("game_finalvisualscene", wario_game_finalvisualscene, Priority::Default)
+		.game_acmd("game_landingairlw", wario_game_landingairlw, Priority::Default)
+		.game_acmd("game_specialhijump", wario_game_specialhijump, Priority::Default)
+		.game_acmd("game_speciallwflyr", wario_game_speciallwflyr, Priority::Default)
+		.game_acmd("game_specialairlwflyr", wario_game_speciallwflyr, Priority::Default)
+		.game_acmd("game_speciallwlr", wario_game_speciallwlr, Priority::Default)
+		.game_acmd("game_specialairlwlr", wario_game_speciallwlr, Priority::Default)
+		.game_acmd("game_speciallwmr", wario_game_speciallwmr, Priority::Default)
+		.game_acmd("game_specialairlwmr", wario_game_speciallwmr, Priority::Default)
+		.game_acmd("game_speciallwsr", wario_game_speciallwsr, Priority::Default)
+		.game_acmd("game_specialairlwsr", wario_game_speciallwsr, Priority::Default)
+		.game_acmd("game_specialnbite", wario_game_specialnbite, Priority::Default)
+		.game_acmd("game_specialairnbite", wario_game_specialnbite, Priority::Default)
+		.game_acmd("game_specialnopenwait", wario_game_specialnopenwait, Priority::Default)
+		.game_acmd("game_specialairnopenwait", wario_game_specialnopenwait, Priority::Default)
+		.game_acmd("game_throwb", wario_game_throwb, Priority::Default)
+		.game_acmd("game_throwf", wario_game_throwf, Priority::Default)
+		.game_acmd("game_throwhi", wario_game_throwhi, Priority::Default)
+		.game_acmd("game_throwlw", wario_game_throwlw, Priority::Default)
+		.sound_acmd("sound_attackhi3", wario_sound_attackhi3, Priority::Default)
+		.sound_acmd("sound_attacks3", wario_sound_attacks3, Priority::Default)
+		.sound_acmd("sound_attacks3hi", wario_sound_attacks3, Priority::Default)
+		.sound_acmd("sound_attacks3lw", wario_sound_attacks3, Priority::Default)
 		.install();
 }
