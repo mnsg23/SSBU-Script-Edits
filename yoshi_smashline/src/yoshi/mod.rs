@@ -15,9 +15,13 @@ use {
 };
 
 unsafe extern "C" fn yoshi_effect_attackhi4(fighter: &mut L2CAgentBase) {
-	sv_animcmd::frame(fighter.lua_state_agent, 5.0);
+	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 5, -8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
 	if macros::is_excute(fighter) {
@@ -26,10 +30,6 @@ unsafe extern "C" fn yoshi_effect_attackhi4(fighter: &mut L2CAgentBase) {
 		sv_animcmd::EFFECT_FOLLOW_COLOR(fighter.lua_state_agent);
 		fighter.pop_lua_stack(1);
 		macros::LAST_EFFECT_SET_RATE(fighter, 1.3);
-	}
-	sv_animcmd::frame(fighter.lua_state_agent, 13.0);
-	if macros::is_excute(fighter) {
-		macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 32.0);
 	if macros::is_excute(fighter) {
@@ -307,7 +307,7 @@ unsafe extern "C" fn yoshi_game_attackhi3(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("tail2"), 7.0, 85, 77, 0, 80, 4.0, 4.5, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_SLAP, *ATTACK_REGION_TAIL);
 		macros::ATTACK(fighter, 1, 0, Hash40::new("tail2"), 7.0, 85, 77, 0, 80, 4.5, 1.2, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_SLAP, *ATTACK_REGION_TAIL);
-		macros::ATTACK(fighter, 2, 0, Hash40::new("tail1"), 7.0, 85, 77, 0, 80, 3.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_SLAP, *ATTACK_REGION_TAIL);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("tail1"), 7.0, 85, 77, 0, 80, 4.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_SLAP, *ATTACK_REGION_TAIL);
 	}
 	sv_animcmd::wait(fighter.lua_state_agent, 9.0);
 	if macros::is_excute(fighter) {
@@ -791,7 +791,7 @@ unsafe extern "C" fn yoshi_game_specialn(fighter: &mut L2CAgentBase) {
 			macros::CATCH(fighter, 0, Hash40::new("mouth2"), 4.0, -0.9, -0.5, 0.0, None, None, None, *FIGHTER_STATUS_KIND_CAPTURE_YOSHI, *COLLISION_SITUATION_MASK_GA);
 			macros::CATCH(fighter, 1, Hash40::new("mouth2"), 3.5, -2.0, -0.5, 0.0, None, None, None, *FIGHTER_STATUS_KIND_CAPTURE_YOSHI, *COLLISION_SITUATION_MASK_GA);
 		}
-		macros::CATCH(fighter, 2, Hash40::new("top"), 5.9, 0.0, 7.0, 9.0, None, None, None, *FIGHTER_STATUS_KIND_CAPTURE_YOSHI, *COLLISION_SITUATION_MASK_GA);
+		macros::CATCH(fighter, 2, Hash40::new("top"), 6.0, 0.0, 7.0, 9.0, None, None, None, *FIGHTER_STATUS_KIND_CAPTURE_YOSHI, *COLLISION_SITUATION_MASK_GA);
 		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 0, 50, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 18.0);
@@ -963,62 +963,62 @@ unsafe extern "C" fn yoshi_tamago_game_throwed(fighter: &mut L2CAgentBase) {
 
 pub fn install() {
 	Agent::new("yoshi")
-		.effect_acmd("effect_attackhi4", yoshi_effect_attackhi4)
-		.expression_acmd("expression_attackairlw", yoshi_expression_attackairlw)
-		.expression_acmd("expression_attackhi3", yoshi_expression_attackhi3)
-		.expression_acmd("expression_throwlw", yoshi_expression_throwlw)
-		.game_acmd("game_attack11", yoshi_game_attack11)
-		.game_acmd("game_attack12", yoshi_game_attack12)
-		.game_acmd("game_attackairb", yoshi_game_attackairb)
-		.game_acmd("game_attackairf", yoshi_game_attackairf)
-		.game_acmd("game_attackairhi", yoshi_game_attackairhi)
-		.game_acmd("game_attackairlw", yoshi_game_attackairlw)
-		.game_acmd("game_attackairn", yoshi_game_attackairn)
-		.game_acmd("game_attackdash", yoshi_game_attackdash)
-		.game_acmd("game_attackhi3", yoshi_game_attackhi3)
-		.game_acmd("game_attackhi4", yoshi_game_attackhi4)
-		.game_acmd("game_attacklw3", yoshi_game_attacklw3)
-		.game_acmd("game_attacklw4", yoshi_game_attacklw4)
-		.game_acmd("game_attacks3", yoshi_game_attacks3)
-		.game_acmd("game_attacks3hi", yoshi_game_attacks3hi)
-		.game_acmd("game_attacks3lw", yoshi_game_attacks3lw)
-		.game_acmd("game_attacks4", yoshi_game_attacks4)
-		.game_acmd("game_attacks4hi", yoshi_game_attacks4hi)
-		.game_acmd("game_attacks4lw", yoshi_game_attacks4lw)
-		.game_acmd("game_catch", yoshi_game_catch)
-		.game_acmd("game_catchattack", yoshi_game_catchattack)
-		.game_acmd("game_catchdash", yoshi_game_catchdash)
-		.game_acmd("game_catchturn", yoshi_game_catchturn)
-		.game_acmd("game_cliffattack", yoshi_game_cliffattack)
-		.game_acmd("game_downattackd", yoshi_game_downattackd)
-		.game_acmd("game_downattacku", yoshi_game_downattacku)
-		.game_acmd("game_finaldash", yoshi_game_finaldash)
-		.game_acmd("game_finalend", yoshi_game_finalend)
-		.game_acmd("game_finalairend", yoshi_game_finalend)
-		.game_acmd("game_finalhit", yoshi_game_finalhit)
-		.game_acmd("game_landingairlw", yoshi_game_landingairlw)
-		.game_acmd("game_slipattack", yoshi_game_slipattack)
-		.game_acmd("game_specialairlw", yoshi_game_specialairlw)
-		.game_acmd("game_speciallw", yoshi_game_speciallw)
-		.game_acmd("game_specialn", yoshi_game_specialn)
-		.game_acmd("game_specialairn", yoshi_game_specialn)
-		.game_acmd("game_specialn2", yoshi_game_specialn2)
-		.game_acmd("game_specialairn2", yoshi_game_specialn2)
-		.game_acmd("game_specialsend", yoshi_game_specialsend)
-		.game_acmd("game_specialairsend", yoshi_game_specialsend)
-		.game_acmd("game_specialsloop", yoshi_game_specialsloop)
-		.game_acmd("game_specialairsloop", yoshi_game_specialsloop)
-		.game_acmd("game_throwb", yoshi_game_throwb)
-		.game_acmd("game_throwf", yoshi_game_throwf)
-		.game_acmd("game_throwhi", yoshi_game_throwhi)
-		.game_acmd("game_throwlw", yoshi_game_throwlw)
-		.sound_acmd("sound_attackairb", yoshi_sound_attackairb)
+		.effect_acmd("effect_attackhi4", yoshi_effect_attackhi4, Priority::Default)
+		.expression_acmd("expression_attackairlw", yoshi_expression_attackairlw, Priority::Default)
+		.expression_acmd("expression_attackhi3", yoshi_expression_attackhi3, Priority::Default)
+		.expression_acmd("expression_throwlw", yoshi_expression_throwlw, Priority::Default)
+		.game_acmd("game_attack11", yoshi_game_attack11, Priority::Default)
+		.game_acmd("game_attack12", yoshi_game_attack12, Priority::Default)
+		.game_acmd("game_attackairb", yoshi_game_attackairb, Priority::Default)
+		.game_acmd("game_attackairf", yoshi_game_attackairf, Priority::Default)
+		.game_acmd("game_attackairhi", yoshi_game_attackairhi, Priority::Default)
+		.game_acmd("game_attackairlw", yoshi_game_attackairlw, Priority::Default)
+		.game_acmd("game_attackairn", yoshi_game_attackairn, Priority::Default)
+		.game_acmd("game_attackdash", yoshi_game_attackdash, Priority::Default)
+		.game_acmd("game_attackhi3", yoshi_game_attackhi3, Priority::Default)
+		.game_acmd("game_attackhi4", yoshi_game_attackhi4, Priority::Default)
+		.game_acmd("game_attacklw3", yoshi_game_attacklw3, Priority::Default)
+		.game_acmd("game_attacklw4", yoshi_game_attacklw4, Priority::Default)
+		.game_acmd("game_attacks3", yoshi_game_attacks3, Priority::Default)
+		.game_acmd("game_attacks3hi", yoshi_game_attacks3hi, Priority::Default)
+		.game_acmd("game_attacks3lw", yoshi_game_attacks3lw, Priority::Default)
+		.game_acmd("game_attacks4", yoshi_game_attacks4, Priority::Default)
+		.game_acmd("game_attacks4hi", yoshi_game_attacks4hi, Priority::Default)
+		.game_acmd("game_attacks4lw", yoshi_game_attacks4lw, Priority::Default)
+		.game_acmd("game_catch", yoshi_game_catch, Priority::Default)
+		.game_acmd("game_catchattack", yoshi_game_catchattack, Priority::Default)
+		.game_acmd("game_catchdash", yoshi_game_catchdash, Priority::Default)
+		.game_acmd("game_catchturn", yoshi_game_catchturn, Priority::Default)
+		.game_acmd("game_cliffattack", yoshi_game_cliffattack, Priority::Default)
+		.game_acmd("game_downattackd", yoshi_game_downattackd, Priority::Default)
+		.game_acmd("game_downattacku", yoshi_game_downattacku, Priority::Default)
+		.game_acmd("game_finaldash", yoshi_game_finaldash, Priority::Default)
+		.game_acmd("game_finalend", yoshi_game_finalend, Priority::Default)
+		.game_acmd("game_finalairend", yoshi_game_finalend, Priority::Default)
+		.game_acmd("game_finalhit", yoshi_game_finalhit, Priority::Default)
+		.game_acmd("game_landingairlw", yoshi_game_landingairlw, Priority::Default)
+		.game_acmd("game_slipattack", yoshi_game_slipattack, Priority::Default)
+		.game_acmd("game_specialairlw", yoshi_game_specialairlw, Priority::Default)
+		.game_acmd("game_speciallw", yoshi_game_speciallw, Priority::Default)
+		.game_acmd("game_specialn", yoshi_game_specialn, Priority::Default)
+		.game_acmd("game_specialairn", yoshi_game_specialn, Priority::Default)
+		.game_acmd("game_specialn2", yoshi_game_specialn2, Priority::Default)
+		.game_acmd("game_specialairn2", yoshi_game_specialn2, Priority::Default)
+		.game_acmd("game_specialsend", yoshi_game_specialsend, Priority::Default)
+		.game_acmd("game_specialairsend", yoshi_game_specialsend, Priority::Default)
+		.game_acmd("game_specialsloop", yoshi_game_specialsloop, Priority::Default)
+		.game_acmd("game_specialairsloop", yoshi_game_specialsloop, Priority::Default)
+		.game_acmd("game_throwb", yoshi_game_throwb, Priority::Default)
+		.game_acmd("game_throwf", yoshi_game_throwf, Priority::Default)
+		.game_acmd("game_throwhi", yoshi_game_throwhi, Priority::Default)
+		.game_acmd("game_throwlw", yoshi_game_throwlw, Priority::Default)
+		.sound_acmd("sound_attackairb", yoshi_sound_attackairb, Priority::Default)
 		.install();
 	Agent::new("yoshi_star")
-		.game_acmd("game_move", yoshi_star_game_move)
+		.game_acmd("game_move", yoshi_star_game_move, Priority::Default)
 		.install();
 	Agent::new("yoshi_tamago")
-		.game_acmd("game_burst", yoshi_tamago_game_burst)
-		.game_acmd("game_throwed", yoshi_tamago_game_throwed)
+		.game_acmd("game_burst", yoshi_tamago_game_burst, Priority::Default)
+		.game_acmd("game_throwed", yoshi_tamago_game_throwed, Priority::Default)
 		.install();
 }
