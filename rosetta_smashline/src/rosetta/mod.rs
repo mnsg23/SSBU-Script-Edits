@@ -4,6 +4,9 @@ use {
 			ArticleOperationTarget,
 			AttackHeight,
 			HitStatus,
+			ItemPickupSearchMode,
+			ItemSize,
+			QuickItemTreatType,
 			lua_bind::*,
 			sv_animcmd
 		},
@@ -302,6 +305,20 @@ unsafe extern "C" fn rosetta_expression_catchturn(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 16.0);
 	if macros::is_excute(fighter) {
 		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+	}
+}
+
+unsafe extern "C" fn rosetta_expression_speciallw(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
+	for _ in 0..4 {
+		if macros::is_excute(fighter) {
+			ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohits"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+		}
+		sv_animcmd::wait(fighter.lua_state_agent, 12.0);
 	}
 }
 
@@ -985,6 +1002,28 @@ unsafe extern "C" fn rosetta_game_specialhiend(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
 	}
+}
+
+unsafe extern "C" fn rosetta_game_speciallw(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_ROSETTA_STATUS_SPECIAL_LW_FLAG_ENABLE_SEARCH);
+	}
+	for _ in 0..40 {
+		rosetta_game_speciallwloop(fighter);
+	}
+	if macros::is_excute(fighter) {
+		WorkModule::off_flag(fighter.module_accessor, *FIGHTER_ROSETTA_STATUS_SPECIAL_LW_FLAG_ENABLE_SEARCH);
+	}
+}
+
+unsafe extern "C" fn rosetta_game_speciallwloop(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		ItemModule::pickup_item(fighter.module_accessor, ItemSize{_address: *ITEM_SIZE_LIGHT as u8}, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY, *ITEM_TRAIT_FLAG_QUICK, QuickItemTreatType{_address: *QUICK_ITEM_TREAT_TYPE_FORCE_HAVE as u8}, ItemPickupSearchMode{_address: *ITEM_PICKUP_SEARCH_MODE_NORMAL as u8});
+		ItemModule::use_item(fighter.module_accessor, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY, false);
+		ItemModule::pickup_item(fighter.module_accessor, ItemSize{_address: *ITEM_SIZE_LIGHT as u8}, *FIGHTER_HAVE_ITEM_WORK_MAIN, *ITEM_TRAIT_ALL, QuickItemTreatType{_address: *QUICK_ITEM_TREAT_TYPE_FORCE_HAVE as u8}, ItemPickupSearchMode{_address: *ITEM_PICKUP_SEARCH_MODE_NORMAL as u8});
+	}
+	sv_animcmd::wait(fighter.lua_state_agent, 1.0);
 }
 
 unsafe extern "C" fn rosetta_game_throwb(fighter: &mut L2CAgentBase) {
@@ -1698,6 +1737,8 @@ pub fn install() {
 		.expression_acmd("expression_catch", rosetta_expression_catch, Priority::Default)
 		.expression_acmd("expression_catchdash", rosetta_expression_catchdash, Priority::Default)
 		.expression_acmd("expression_catchturn", rosetta_expression_catchturn, Priority::Default)
+		.expression_acmd("expression_speciallw", rosetta_expression_speciallw, Priority::Default)
+		.expression_acmd("expression_specialairlw", rosetta_expression_speciallw, Priority::Default)
 		.game_acmd("game_attack11", rosetta_game_attack11, Priority::Default)
 		.game_acmd("game_attack12", rosetta_game_attack12, Priority::Default)
 		.game_acmd("game_attack13", rosetta_game_attack13, Priority::Default)
@@ -1729,6 +1770,9 @@ pub fn install() {
 		.game_acmd("game_slipattack", rosetta_game_slipattack, Priority::Default)
 		.game_acmd("game_specialhi", rosetta_game_specialhi, Priority::Default)
 		.game_acmd("game_specialhiend", rosetta_game_specialhiend, Priority::Default)
+		.game_acmd("game_speciallw", rosetta_game_speciallw, Priority::Default)
+		.game_acmd("game_specialairlw", rosetta_game_speciallw, Priority::Default)
+		.game_acmd("game_speciallwloop", rosetta_game_speciallwloop, Priority::Default)
 		.game_acmd("game_throwb", rosetta_game_throwb, Priority::Default)
 		.game_acmd("game_throwf", rosetta_game_throwf, Priority::Default)
 		.game_acmd("game_throwhi", rosetta_game_throwhi, Priority::Default)
