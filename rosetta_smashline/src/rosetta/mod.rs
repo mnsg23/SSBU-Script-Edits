@@ -1436,6 +1436,10 @@ unsafe extern "C" fn rosetta_tico_game_attackairb(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
 	}
+	sv_animcmd::frame(fighter.lua_state_agent, 23.0);
+	if macros::is_excute(fighter) {
+		MotionModule::set_rate(fighter.module_accessor, 1.2);
+	}
 }
 
 unsafe extern "C" fn rosetta_tico_game_attackairf(fighter: &mut L2CAgentBase) {
@@ -1514,9 +1518,9 @@ unsafe extern "C" fn rosetta_tico_game_attackairn(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
 	}
-	sv_animcmd::frame(fighter.lua_state_agent, 30.0);
+	sv_animcmd::frame(fighter.lua_state_agent, 24.0);
 	if macros::is_excute(fighter) {
-		MotionModule::set_rate(fighter.module_accessor, 1.65);
+		MotionModule::set_rate(fighter.module_accessor, 1.75);
 	}
 }
 
@@ -1526,9 +1530,13 @@ unsafe extern "C" fn rosetta_tico_game_attackdash(fighter: &mut L2CAgentBase) {
 		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 4.0, 30, 42, 0, 30, 5.0, 0.0, 3.6, 1.0, None, None, None, 1.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_HEAD);
 		AttackModule::set_attack_height_all(fighter.module_accessor, AttackHeight(*ATTACK_HEIGHT_LOW), false);
 	}
-	sv_animcmd::frame(fighter.lua_state_agent, 8.0);
+	sv_animcmd::frame(fighter.lua_state_agent, 9.0);
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 25.0);
+	if macros::is_excute(fighter) {
+		MotionModule::set_rate(fighter.module_accessor, 1.5);
 	}
 }
 
@@ -1586,6 +1594,10 @@ unsafe extern "C" fn rosetta_tico_game_attackhi4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::wait(fighter.lua_state_agent, 8.0);
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 33.0);
+	if macros::is_excute(fighter) {
+		MotionModule::set_rate(fighter.module_accessor, 1.25);
 	}
 }
 
@@ -1659,6 +1671,10 @@ unsafe extern "C" fn rosetta_tico_game_attacks3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::wait(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 19.0);
+	if macros::is_excute(fighter) {
+		MotionModule::set_rate(fighter.module_accessor, 1.2);
 	}
 }
 
