@@ -1438,7 +1438,7 @@ unsafe extern "C" fn rosetta_tico_game_attackairb(fighter: &mut L2CAgentBase) {
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 23.0);
 	if macros::is_excute(fighter) {
-		MotionModule::set_rate(fighter.module_accessor, 1.2);
+		MotionModule::set_rate(fighter.module_accessor, 1.25);
 	}
 }
 
@@ -1491,6 +1491,10 @@ unsafe extern "C" fn rosetta_tico_game_attackairlw(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
 	}
+	sv_animcmd::frame(fighter.lua_state_agent, 38.0);
+	if macros::is_excute(fighter) {
+		MotionModule::set_rate(fighter.module_accessor, 2.0);
+	}
 }
 
 unsafe extern "C" fn rosetta_tico_game_attackairn(fighter: &mut L2CAgentBase) {
@@ -1536,7 +1540,7 @@ unsafe extern "C" fn rosetta_tico_game_attackdash(fighter: &mut L2CAgentBase) {
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 25.0);
 	if macros::is_excute(fighter) {
-		MotionModule::set_rate(fighter.module_accessor, 1.5);
+		MotionModule::set_rate(fighter.module_accessor, 1.6);
 	}
 }
 
@@ -1551,15 +1555,19 @@ unsafe extern "C" fn rosetta_tico_game_attackhi3(fighter: &mut L2CAgentBase) {
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
-		macros::ATTACK(fighter, 0, 0, Hash40::new("rot"), 4.0, 90, 70, 0, 90, 3.0, 0.0, 3.0, 6.0, Some(0.0), Some(11.0), Some(6.0), 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
-		macros::ATTACK(fighter, 1, 0, Hash40::new("rot"), 4.0, 90, 70, 0, 90, 3.0, 0.0, 3.0, 2.5, Some(0.0), Some(10.0), Some(2.5), 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
-		macros::ATTACK(fighter, 2, 0, Hash40::new("rot"), 4.0, 90, 70, 0, 90, 3.0, 0.0, 3.0, -1.0, Some(0.0), Some(9.0), Some(-1.0), 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("rot"), 4.0, 90, 70, 0, 90, 4.0, 0.0, 11.0, 6.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("rot"), 4.0, 90, 70, 0, 90, 4.0, 0.0, 10.0, 0.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("rot"), 4.0, 90, 70, 0, 90, 3.0, 0.0, 3.0, 6.0, Some(0.0), Some(11.0), Some(6.0), 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("rot"), 4.0, 90, 70, 0, 90, 3.0, 0.0, 3.0, 2.5, Some(0.0), Some(10.0), Some(2.5), 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 4, 0, Hash40::new("rot"), 4.0, 90, 70, 0, 90, 3.0, 0.0, 3.0, -1.0, Some(0.0), Some(9.0), Some(-1.0), 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
 	}
 	sv_animcmd::wait(fighter.lua_state_agent, 2.0);
 	if macros::is_excute(fighter) {
-		macros::ATTACK(fighter, 0, 0, Hash40::new("rot"), 3.0, 90, 75, 0, 80, 4.0, 0.0, 10.0, 0.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
-		AttackModule::clear(fighter.module_accessor, 1, false);
-		AttackModule::clear(fighter.module_accessor, 2, false);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("rot"), 3.0, 90, 75, 0, 80, 4.0, 0.0, 11.0, 6.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("rot"), 3.0, 90, 75, 0, 80, 4.0, 0.0, 10.0, 0.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 2, 0, Hash40::new("rot"), 3.0, 90, 75, 0, 80, 3.0, 0.0, 3.0, 6.0, Some(0.0), Some(11.0), Some(6.0), 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 3, 0, Hash40::new("rot"), 3.0, 90, 75, 0, 80, 3.0, 0.0, 3.0, 2.5, Some(0.0), Some(10.0), Some(2.5), 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 4, 0, Hash40::new("rot"), 3.0, 90, 75, 0, 80, 3.0, 0.0, 3.0, -1.0, Some(0.0), Some(9.0), Some(-1.0), 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
 	}
 	sv_animcmd::wait(fighter.lua_state_agent, 5.0);
 	if macros::is_excute(fighter) {
@@ -1595,9 +1603,9 @@ unsafe extern "C" fn rosetta_tico_game_attackhi4(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
 	}
-	sv_animcmd::frame(fighter.lua_state_agent, 33.0);
+	sv_animcmd::frame(fighter.lua_state_agent, 26.0);
 	if macros::is_excute(fighter) {
-		MotionModule::set_rate(fighter.module_accessor, 1.25);
+		MotionModule::set_rate(fighter.module_accessor, 1.5);
 	}
 }
 
@@ -1622,6 +1630,10 @@ unsafe extern "C" fn rosetta_tico_game_attacklw3(fighter: &mut L2CAgentBase) {
 	sv_animcmd::wait(fighter.lua_state_agent, 6.0);
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 24.0);
+	if macros::is_excute(fighter) {
+		MotionModule::set_rate(fighter.module_accessor, 1.875);
 	}
 }
 
@@ -1674,7 +1686,7 @@ unsafe extern "C" fn rosetta_tico_game_attacks3(fighter: &mut L2CAgentBase) {
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 19.0);
 	if macros::is_excute(fighter) {
-		MotionModule::set_rate(fighter.module_accessor, 1.2);
+		MotionModule::set_rate(fighter.module_accessor, 1.6);
 	}
 }
 
@@ -1691,6 +1703,10 @@ unsafe extern "C" fn rosetta_tico_game_attacks4(fighter: &mut L2CAgentBase) {
 	sv_animcmd::wait(fighter.lua_state_agent, 2.0);
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 29.0);
+	if macros::is_excute(fighter) {
+		MotionModule::set_rate(fighter.module_accessor, 1.4);
 	}
 }
 
@@ -1709,6 +1725,10 @@ unsafe extern "C" fn rosetta_tico_game_attacks4hi(fighter: &mut L2CAgentBase) {
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
 	}
+	sv_animcmd::frame(fighter.lua_state_agent, 29.0);
+	if macros::is_excute(fighter) {
+		MotionModule::set_rate(fighter.module_accessor, 1.4);
+	}
 }
 
 unsafe extern "C" fn rosetta_tico_game_attacks4lw(fighter: &mut L2CAgentBase) {
@@ -1725,6 +1745,10 @@ unsafe extern "C" fn rosetta_tico_game_attacks4lw(fighter: &mut L2CAgentBase) {
 	sv_animcmd::wait(fighter.lua_state_agent, 2.0);
 	if macros::is_excute(fighter) {
 		AttackModule::clear_all(fighter.module_accessor);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 29.0);
+	if macros::is_excute(fighter) {
+		MotionModule::set_rate(fighter.module_accessor, 1.4);
 	}
 }
 
