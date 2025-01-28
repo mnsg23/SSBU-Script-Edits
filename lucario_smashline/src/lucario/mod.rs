@@ -483,7 +483,7 @@ unsafe extern "C" fn lucario_game_attacks3(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
 	if macros::is_excute(fighter) {
-		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 366, 100, 30, 0, 4.0, 0.0, 6.0, 8.5, Some(0.0), Some(6.0), Some(3.0), 0.5, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, true, 0, -1.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_LUCARIO, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 366, 100, 30, 0, 4.0, 0.0, 6.0, 8.5, Some(0.0), Some(6.0), Some(3.0), 0.5, 0.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, true, 0, -1.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_LUCARIO, *ATTACK_REGION_PUNCH);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 15.0);
 	if macros::is_excute(fighter) {
@@ -502,7 +502,7 @@ unsafe extern "C" fn lucario_game_attacks3hi(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
 	if macros::is_excute(fighter) {
-		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 366, 100, 30, 0, 4.0, 0.0, 9.5, 7.8, Some(0.0), Some(7.5), Some(3.0), 0.5, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, true, 0, -1.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_LUCARIO, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 366, 100, 30, 0, 4.0, 0.0, 9.5, 7.8, Some(0.0), Some(7.5), Some(3.0), 0.5, 0.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, true, 0, -1.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_LUCARIO, *ATTACK_REGION_PUNCH);
 		AttackModule::set_attack_height_all(fighter.module_accessor, AttackHeight(*ATTACK_HEIGHT_HIGH), false);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 15.0);
@@ -523,7 +523,7 @@ unsafe extern "C" fn lucario_game_attacks3lw(fighter: &mut L2CAgentBase) {
 	macros::FT_MOTION_RATE(fighter, 1.0);
 	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
 	if macros::is_excute(fighter) {
-		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 366, 100, 30, 0, 4.0, 0.0, 2.5, 7.8, Some(0.0), Some(4.5), Some(3.0), 0.5, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, true, 0, -1.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_LUCARIO, *ATTACK_REGION_PUNCH);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 5.0, 366, 100, 30, 0, 4.0, 0.0, 2.5, 7.8, Some(0.0), Some(4.5), Some(3.0), 0.5, 0.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, true, 0, -1.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_LUCARIO, *ATTACK_REGION_PUNCH);
 		AttackModule::set_attack_height_all(fighter.module_accessor, AttackHeight(*ATTACK_HEIGHT_LOW), false);
 	}
 	sv_animcmd::frame(fighter.lua_state_agent, 15.0);
@@ -1051,7 +1051,7 @@ unsafe extern "C" fn lucario_auraball_game_shoot(fighter: &mut L2CAgentBase) {
 unsafe extern "C" fn lucario_lucariom_game_finalattack(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 3.0);
 	if macros::is_excute(fighter) {
-		macros::ATTACK(fighter, 0, 0, Hash40::new("rot"), 1.0, 366, 100, 50, 0, 13.0, 0.0, -14.0, 0.0, Some(0.0), Some(-10.0), Some(0.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, f32::NAN, -1.0, 5, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_ENERGY);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("rot"), 1.0, 367, 100, 50, 0, 13.0, 0.0, -14.0, 0.0, Some(0.0), Some(-10.0), Some(0.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, f32::NAN, -1.0, 5, false, false, false, false, false, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_ENERGY);
 		macros::ATTACK(fighter, 1, 0, Hash40::new("rot"), 1.0, 366, 100, 50, 0, 13.0, 0.0, -20.3125, 0.0, Some(0.0), Some(-10.0), Some(0.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, f32::NAN, -1.0, 5, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_ENERGY);
 		macros::ATTACK(fighter, 2, 0, Hash40::new("rot"), 1.0, 366, 100, 50, 0, 13.0, 0.0, -40.625, 0.0, Some(0.0), Some(-10.0), Some(0.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, f32::NAN, -1.0, 5, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_ENERGY);
 		macros::ATTACK(fighter, 3, 0, Hash40::new("rot"), 1.0, 366, 100, 50, 0, 13.0, 0.0, -81.25, 0.0, Some(0.0), Some(-10.0), Some(0.0), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, f32::NAN, -1.0, 5, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_ENERGY);
@@ -1129,66 +1129,66 @@ unsafe extern "C" fn lucario_qigong_game_shoot(fighter: &mut L2CAgentBase) {
 
 pub fn install() {
 	Agent::new("lucario")
-		.effect_acmd("effect_attack12", lucario_effect_attack12)
-		.effect_acmd("effect_attackdash", lucario_effect_attackdash)
-		.expression_acmd("expression_attack13", lucario_expression_attack13)
-		.expression_acmd("expression_attackairf", lucario_expression_attackairf)
-		.expression_acmd("expression_attackhi3", lucario_expression_attackhi3)
-		.game_acmd("game_attack11", lucario_game_attack11)
-		.game_acmd("game_attack12", lucario_game_attack12)
-		.game_acmd("game_attack13", lucario_game_attack13)
-		.game_acmd("game_attackairb", lucario_game_attackairb)
-		.game_acmd("game_attackairf", lucario_game_attackairf)
-		.game_acmd("game_attackairhi", lucario_game_attackairhi)
-		.game_acmd("game_attackairlw", lucario_game_attackairlw)
-		.game_acmd("game_attackairn", lucario_game_attackairn)
-		.game_acmd("game_attackdash", lucario_game_attackdash)
-		.game_acmd("game_attackhi3", lucario_game_attackhi3)
-		.game_acmd("game_attackhi4", lucario_game_attackhi4)
-		.game_acmd("game_attacklw3", lucario_game_attacklw3)
-		.game_acmd("game_attacklw4", lucario_game_attacklw4)
-		.game_acmd("game_attacks3", lucario_game_attacks3)
-		.game_acmd("game_attacks3hi", lucario_game_attacks3hi)
-		.game_acmd("game_attacks3lw", lucario_game_attacks3lw)
-		.game_acmd("game_attacks4", lucario_game_attacks4)
-		.game_acmd("game_catch", lucario_game_catch)
-		.game_acmd("game_catchattack", lucario_game_catchattack)
-		.game_acmd("game_catchdash", lucario_game_catchdash)
-		.game_acmd("game_catchturn", lucario_game_catchturn)
-		.game_acmd("game_cliffattack", lucario_game_cliffattack)
-		.game_acmd("game_downattackd", lucario_game_downattackd)
-		.game_acmd("game_downattacku", lucario_game_downattacku)
-		.game_acmd("game_slipattack", lucario_game_slipattack)
-		.game_acmd("game_specialairappear", lucario_game_specialairappear)
-		.game_acmd("game_specialairhiend", lucario_game_specialairhiend)
-		.game_acmd("game_specialairlw", lucario_game_specialairlw)
-		.game_acmd("game_specialairs", lucario_game_specialairs)
-		.game_acmd("game_specialhibound", lucario_game_specialhibound)
-		.game_acmd("game_specialhiend", lucario_game_specialhiend)
-		.game_acmd("game_specialhimove", lucario_game_specialhimove)
-		.game_acmd("game_speciallw", lucario_game_speciallw)
-		.game_acmd("game_specials", lucario_game_specials)
-		.game_acmd("game_specialsthrow", lucario_game_specialsthrow)
-		.game_acmd("game_throwb", lucario_game_throwb)
-		.game_acmd("game_throwf", lucario_game_throwf)
-		.game_acmd("game_throwhi", lucario_game_throwhi)
-		.game_acmd("game_throwlw", lucario_game_throwlw)
-		.sound_acmd("sound_attackairf", lucario_sound_attackairf)
-		.sound_acmd("sound_attackairlw", lucario_sound_attackairlw)
-		.sound_acmd("sound_attackairn", lucario_sound_attackairn)
-		.sound_acmd("sound_throwf", lucario_sound_throwf)
-		.sound_acmd("sound_throwhi", lucario_sound_throwhi)
+		.effect_acmd("effect_attack12", lucario_effect_attack12, Priority::Default)
+		.effect_acmd("effect_attackdash", lucario_effect_attackdash, Priority::Default)
+		.expression_acmd("expression_attack13", lucario_expression_attack13, Priority::Default)
+		.expression_acmd("expression_attackairf", lucario_expression_attackairf, Priority::Default)
+		.expression_acmd("expression_attackhi3", lucario_expression_attackhi3, Priority::Default)
+		.game_acmd("game_attack11", lucario_game_attack11, Priority::Default)
+		.game_acmd("game_attack12", lucario_game_attack12, Priority::Default)
+		.game_acmd("game_attack13", lucario_game_attack13, Priority::Default)
+		.game_acmd("game_attackairb", lucario_game_attackairb, Priority::Default)
+		.game_acmd("game_attackairf", lucario_game_attackairf, Priority::Default)
+		.game_acmd("game_attackairhi", lucario_game_attackairhi, Priority::Default)
+		.game_acmd("game_attackairlw", lucario_game_attackairlw, Priority::Default)
+		.game_acmd("game_attackairn", lucario_game_attackairn, Priority::Default)
+		.game_acmd("game_attackdash", lucario_game_attackdash, Priority::Default)
+		.game_acmd("game_attackhi3", lucario_game_attackhi3, Priority::Default)
+		.game_acmd("game_attackhi4", lucario_game_attackhi4, Priority::Default)
+		.game_acmd("game_attacklw3", lucario_game_attacklw3, Priority::Default)
+		.game_acmd("game_attacklw4", lucario_game_attacklw4, Priority::Default)
+		.game_acmd("game_attacks3", lucario_game_attacks3, Priority::Default)
+		.game_acmd("game_attacks3hi", lucario_game_attacks3hi, Priority::Default)
+		.game_acmd("game_attacks3lw", lucario_game_attacks3lw, Priority::Default)
+		.game_acmd("game_attacks4", lucario_game_attacks4, Priority::Default)
+		.game_acmd("game_catch", lucario_game_catch, Priority::Default)
+		.game_acmd("game_catchattack", lucario_game_catchattack, Priority::Default)
+		.game_acmd("game_catchdash", lucario_game_catchdash, Priority::Default)
+		.game_acmd("game_catchturn", lucario_game_catchturn, Priority::Default)
+		.game_acmd("game_cliffattack", lucario_game_cliffattack, Priority::Default)
+		.game_acmd("game_downattackd", lucario_game_downattackd, Priority::Default)
+		.game_acmd("game_downattacku", lucario_game_downattacku, Priority::Default)
+		.game_acmd("game_slipattack", lucario_game_slipattack, Priority::Default)
+		.game_acmd("game_specialairappear", lucario_game_specialairappear, Priority::Default)
+		.game_acmd("game_specialairhiend", lucario_game_specialairhiend, Priority::Default)
+		.game_acmd("game_specialairlw", lucario_game_specialairlw, Priority::Default)
+		.game_acmd("game_specialairs", lucario_game_specialairs, Priority::Default)
+		.game_acmd("game_specialhibound", lucario_game_specialhibound, Priority::Default)
+		.game_acmd("game_specialhiend", lucario_game_specialhiend, Priority::Default)
+		.game_acmd("game_specialhimove", lucario_game_specialhimove, Priority::Default)
+		.game_acmd("game_speciallw", lucario_game_speciallw, Priority::Default)
+		.game_acmd("game_specials", lucario_game_specials, Priority::Default)
+		.game_acmd("game_specialsthrow", lucario_game_specialsthrow, Priority::Default)
+		.game_acmd("game_throwb", lucario_game_throwb, Priority::Default)
+		.game_acmd("game_throwf", lucario_game_throwf, Priority::Default)
+		.game_acmd("game_throwhi", lucario_game_throwhi, Priority::Default)
+		.game_acmd("game_throwlw", lucario_game_throwlw, Priority::Default)
+		.sound_acmd("sound_attackairf", lucario_sound_attackairf, Priority::Default)
+		.sound_acmd("sound_attackairlw", lucario_sound_attackairlw, Priority::Default)
+		.sound_acmd("sound_attackairn", lucario_sound_attackairn, Priority::Default)
+		.sound_acmd("sound_throwf", lucario_sound_throwf, Priority::Default)
+		.sound_acmd("sound_throwhi", lucario_sound_throwhi, Priority::Default)
 		.install();
 	Agent::new("lucario_auraball")
-		.game_acmd("game_charge", lucario_auraball_game_charge)
-		.game_acmd("game_chargemax", lucario_auraball_game_chargemax)
-		.game_acmd("game_shoot", lucario_auraball_game_shoot)
+		.game_acmd("game_charge", lucario_auraball_game_charge, Priority::Default)
+		.game_acmd("game_chargemax", lucario_auraball_game_chargemax, Priority::Default)
+		.game_acmd("game_shoot", lucario_auraball_game_shoot, Priority::Default)
 		.install();
 	Agent::new("lucario_lucariom")
-		.game_acmd("game_finalattack", lucario_lucariom_game_finalattack)
-		.game_acmd("game_finaljump", lucario_lucariom_game_finaljump)
+		.game_acmd("game_finalattack", lucario_lucariom_game_finalattack, Priority::Default)
+		.game_acmd("game_finaljump", lucario_lucariom_game_finaljump, Priority::Default)
 		.install();
 	Agent::new("lucario_qigong")
-		.game_acmd("game_shoot", lucario_qigong_game_shoot)
+		.game_acmd("game_shoot", lucario_qigong_game_shoot, Priority::Default)
 		.install();
 }
