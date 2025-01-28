@@ -1148,52 +1148,84 @@ unsafe extern "C" fn ganon_ganond_game_start(fighter: &mut L2CAgentBase) {
 	}
 }
 
+unsafe extern "C" fn kirby_sound_ganonspecialn(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("vc_kirby_copy_ganon_01"));
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_ganon_special_n01"));
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 70.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_ganon_special_n02"));
+	}
+}
+
+unsafe extern "C" fn kirby_sound_ganonspecialnturn(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_ganon_special_n01"));
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 70.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_ganon_special_n02"));
+	}
+}
+
 pub fn install() {
 	Agent::new("ganon")
-		.game_acmd("game_attack11", ganon_game_attack11)
-		.game_acmd("game_attackairb", ganon_game_attackairb)
-		.game_acmd("game_attackairf", ganon_game_attackairf)
-		.game_acmd("game_attackairhi", ganon_game_attackairhi)
-		.game_acmd("game_attackairlw", ganon_game_attackairlw)
-		.game_acmd("game_attackairn", ganon_game_attackairn)
-		.game_acmd("game_attackdash", ganon_game_attackdash)
-		.game_acmd("game_attackhi3", ganon_game_attackhi3)
-		.game_acmd("game_attackhi4", ganon_game_attackhi4)
-		.game_acmd("game_attacklw3", ganon_game_attacklw3)
-		.game_acmd("game_attacklw4", ganon_game_attacklw4)
-		.game_acmd("game_attacks3", ganon_game_attacks3)
-		.game_acmd("game_attacks4", ganon_game_attacks4)
-		.game_acmd("game_catch", ganon_game_catch)
-		.game_acmd("game_catchdash", ganon_game_catchdash)
-		.game_acmd("game_catchturn", ganon_game_catchturn)
-		.game_acmd("game_specialairlw", ganon_game_specialairlw)
-		.game_acmd("game_specialairlwend", ganon_game_specialairlwend)
-		.game_acmd("game_specialairn", ganon_game_specialairn)
-		.game_acmd("game_specialairnturn", ganon_game_specialairnturn)
-		.game_acmd("game_specialairs", ganon_game_specialairs)
-		.game_acmd("game_specialairscatch", ganon_game_specialairscatch)
-		.game_acmd("game_specialairsfall", ganon_game_specialairsfall)
-		.game_acmd("game_specialairsstart", ganon_game_specialairsstart)
-		.game_acmd("game_specialhi", ganon_game_specialhi)
-		.game_acmd("game_specialairhi", ganon_game_specialhi)
-		.game_acmd("game_specialhicatch", ganon_game_specialhicatch)
-		.game_acmd("game_specialhithrow", ganon_game_specialhithrow)
-		.game_acmd("game_speciallw", ganon_game_speciallw)
-		.game_acmd("game_specialn", ganon_game_specialn)
-		.game_acmd("game_specialnturn", ganon_game_specialnturn)
-		.game_acmd("game_specials", ganon_game_specials)
-		.game_acmd("game_specialsstart", ganon_game_specialsstart)
-		.game_acmd("game_throwb", ganon_game_throwb)
-		.game_acmd("game_throwf", ganon_game_throwf)
-		.game_acmd("game_throwhi", ganon_game_throwhi)
-		.game_acmd("game_throwlw", ganon_game_throwlw)
+		.game_acmd("game_attack11", ganon_game_attack11, Priority::Default)
+		.game_acmd("game_attackairb", ganon_game_attackairb, Priority::Default)
+		.game_acmd("game_attackairf", ganon_game_attackairf, Priority::Default)
+		.game_acmd("game_attackairhi", ganon_game_attackairhi, Priority::Default)
+		.game_acmd("game_attackairlw", ganon_game_attackairlw, Priority::Default)
+		.game_acmd("game_attackairn", ganon_game_attackairn, Priority::Default)
+		.game_acmd("game_attackdash", ganon_game_attackdash, Priority::Default)
+		.game_acmd("game_attackhi3", ganon_game_attackhi3, Priority::Default)
+		.game_acmd("game_attackhi4", ganon_game_attackhi4, Priority::Default)
+		.game_acmd("game_attacklw3", ganon_game_attacklw3, Priority::Default)
+		.game_acmd("game_attacklw4", ganon_game_attacklw4, Priority::Default)
+		.game_acmd("game_attacks3", ganon_game_attacks3, Priority::Default)
+		.game_acmd("game_attacks4", ganon_game_attacks4, Priority::Default)
+		.game_acmd("game_catch", ganon_game_catch, Priority::Default)
+		.game_acmd("game_catchdash", ganon_game_catchdash, Priority::Default)
+		.game_acmd("game_catchturn", ganon_game_catchturn, Priority::Default)
+		.game_acmd("game_specialairlw", ganon_game_specialairlw, Priority::Default)
+		.game_acmd("game_specialairlwend", ganon_game_specialairlwend, Priority::Default)
+		.game_acmd("game_specialairn", ganon_game_specialairn, Priority::Default)
+		.game_acmd("game_specialairnturn", ganon_game_specialairnturn, Priority::Default)
+		.game_acmd("game_specialairs", ganon_game_specialairs, Priority::Default)
+		.game_acmd("game_specialairscatch", ganon_game_specialairscatch, Priority::Default)
+		.game_acmd("game_specialairsfall", ganon_game_specialairsfall, Priority::Default)
+		.game_acmd("game_specialairsstart", ganon_game_specialairsstart, Priority::Default)
+		.game_acmd("game_specialhi", ganon_game_specialhi, Priority::Default)
+		.game_acmd("game_specialairhi", ganon_game_specialhi, Priority::Default)
+		.game_acmd("game_specialhicatch", ganon_game_specialhicatch, Priority::Default)
+		.game_acmd("game_specialhithrow", ganon_game_specialhithrow, Priority::Default)
+		.game_acmd("game_speciallw", ganon_game_speciallw, Priority::Default)
+		.game_acmd("game_specialn", ganon_game_specialn, Priority::Default)
+		.game_acmd("game_specialnturn", ganon_game_specialnturn, Priority::Default)
+		.game_acmd("game_specials", ganon_game_specials, Priority::Default)
+		.game_acmd("game_specialsstart", ganon_game_specialsstart, Priority::Default)
+		.game_acmd("game_throwb", ganon_game_throwb, Priority::Default)
+		.game_acmd("game_throwf", ganon_game_throwf, Priority::Default)
+		.game_acmd("game_throwhi", ganon_game_throwhi, Priority::Default)
+		.game_acmd("game_throwlw", ganon_game_throwlw, Priority::Default)
 		.install();
 	Agent::new("ganon_ganond")
-		.effect_acmd("effect_start", ganon_ganond_effect_start)
-		.effect_acmd("effect_startair", ganon_ganond_effect_startair)
-		.game_acmd("game_attack", ganon_ganond_game_attack)
-		.game_acmd("game_attackair", ganon_ganond_game_attack)
-		.game_acmd("game_start", ganon_ganond_game_start)
-		.game_acmd("game_startair", ganon_ganond_game_start)
+		.effect_acmd("effect_start", ganon_ganond_effect_start, Priority::Default)
+		.effect_acmd("effect_startair", ganon_ganond_effect_startair, Priority::Default)
+		.game_acmd("game_attack", ganon_ganond_game_attack, Priority::Default)
+		.game_acmd("game_attackair", ganon_ganond_game_attack, Priority::Default)
+		.game_acmd("game_start", ganon_ganond_game_start, Priority::Default)
+		.game_acmd("game_startair", ganon_ganond_game_start, Priority::Default)
+		.install();
+	Agent::new("kirby")
+		.sound_acmd("sound_ganonspecialn", kirby_sound_ganonspecialn, Priority::Default)
+		.sound_acmd("sound_ganonspecialairn", kirby_sound_ganonspecialn, Priority::Default)
+		.sound_acmd("sound_ganonspecialnturn", kirby_sound_ganonspecialnturn, Priority::Default)
+		.sound_acmd("sound_ganonspecialairnturn", kirby_sound_ganonspecialnturn, Priority::Default)
 		.install();
 }
