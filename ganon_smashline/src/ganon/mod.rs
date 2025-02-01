@@ -14,6 +14,17 @@ use {
 	smashline::*
 };
 
+unsafe extern "C" fn ganon_expression_catchattack(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_L);
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 0);
+	}
+	sv_animcmd::frame(fighter.lua_state_agent, 18.0);
+	if macros::is_excute(fighter) {
+		slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+	}
+}
+
 unsafe extern "C" fn ganon_game_attack11(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
 	macros::FT_MOTION_RATE(fighter, 0.5);
@@ -359,6 +370,21 @@ unsafe extern "C" fn ganon_game_catch(fighter: &mut L2CAgentBase) {
 		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
 		GrabModule::set_rebound(fighter.module_accessor, false);
 	}
+}
+
+unsafe extern "C" fn ganon_game_catchattack(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.6, 361, 100, 30, 0, 7.0, 0.0, 10.0, 8.0, None, None, None, 2.3, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_HEAVY, *ATTACK_REGION_KNEE);
+		AttackModule::set_catch_only_all(fighter.module_accessor, true, false);
+	}
+	sv_animcmd::wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+	macros::FT_MOTION_RATE(fighter,	0.5);
+	sv_animcmd::wait(fighter.lua_state_agent, 2.0);
+	macros::FT_MOTION_RATE(fighter,	1.0);
 }
 
 unsafe extern "C" fn ganon_game_catchdash(fighter: &mut L2CAgentBase) {
@@ -1176,6 +1202,7 @@ unsafe extern "C" fn kirby_sound_ganonspecialnturn(fighter: &mut L2CAgentBase) {
 
 pub fn install() {
 	Agent::new("ganon")
+		.expression_acmd("expression_catchattack", ganon_expression_catchattack, Priority::Default)
 		.game_acmd("game_attack11", ganon_game_attack11, Priority::Default)
 		.game_acmd("game_attackairb", ganon_game_attackairb, Priority::Default)
 		.game_acmd("game_attackairf", ganon_game_attackairf, Priority::Default)
@@ -1190,6 +1217,7 @@ pub fn install() {
 		.game_acmd("game_attacks3", ganon_game_attacks3, Priority::Default)
 		.game_acmd("game_attacks4", ganon_game_attacks4, Priority::Default)
 		.game_acmd("game_catch", ganon_game_catch, Priority::Default)
+		.game_acmd("game_catchattack", ganon_game_catchattack, Priority::Default)
 		.game_acmd("game_catchdash", ganon_game_catchdash, Priority::Default)
 		.game_acmd("game_catchturn", ganon_game_catchturn, Priority::Default)
 		.game_acmd("game_specialairlw", ganon_game_specialairlw, Priority::Default)
