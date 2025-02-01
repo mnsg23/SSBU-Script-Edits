@@ -570,7 +570,7 @@ unsafe extern "C" fn zelda_game_catchattack(fighter: &mut L2CAgentBase) {
 		AttackModule::clear_all(fighter.module_accessor);
 	}
 	macros::FT_MOTION_RATE(fighter,	0.5);
-	sv_animcmd::wait(fighter.lua_state_agent, 2.0);
+	sv_animcmd::wait(fighter.lua_state_agent, 4.0);
 	macros::FT_MOTION_RATE(fighter,	1.0);
 }
 
