@@ -449,6 +449,18 @@ unsafe extern "C" fn wario_game_catch(fighter: &mut L2CAgentBase) {
 	}
 }
 
+unsafe extern "C" fn wario_game_catchattack(fighter: &mut L2CAgentBase) {
+	sv_animcmd::frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 1.6, 361, 100, 30, 0, 5.5, 0.0, 9.5, 7.5, None, None, None, 2.3, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+		AttackModule::set_catch_only_all(fighter.module_accessor, true, false);
+	}
+	sv_animcmd::wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}
+}
+
 unsafe extern "C" fn wario_game_catchdash(fighter: &mut L2CAgentBase) {
 	sv_animcmd::frame(fighter.lua_state_agent, 10.0);
 	if macros::is_excute(fighter) {
@@ -888,6 +900,7 @@ pub fn install() {
 		.game_acmd("game_attacks3lw", wario_game_attacks3lw, Priority::Default)
 		.game_acmd("game_attacks4", wario_game_attacks4, Priority::Default)
 		.game_acmd("game_catch", wario_game_catch, Priority::Default)
+		.game_acmd("game_catchattack", wario_game_catchattack, Priority::Default)
 		.game_acmd("game_catchdash", wario_game_catchdash, Priority::Default)
 		.game_acmd("game_cliffattack", wario_game_cliffattack, Priority::Default)
 		.game_acmd("game_finaldash", wario_game_finaldash, Priority::Default)
